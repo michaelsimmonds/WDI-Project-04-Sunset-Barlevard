@@ -1,7 +1,6 @@
 from app import db, ma
 # from marshmallow import fields
 from .base import BaseModel, BaseSchema
-from .crawl import Crawl
 
 # crawls_bars = db.Table('crawls_bars',
 #     db.Column('crawl_id', db.Integer, db.ForeignKey('crawls.id'), primary_key=True),

@@ -1,6 +1,7 @@
 from flask import Blueprint, request, jsonify, g # Blueprint is a mini router
-from models.crawl import Crawl, CrawlSchema
+from models.crawl import Crawl, CrawlSchema, Stop
 from lib.secure_route import secure_route
+from app import db
 
 api = Blueprint('crawls', __name__)
 
@@ -45,9 +46,24 @@ def update(crawl_id):
 
 
 @api.route('/crawls/<int:crawl_id>', methods=['DELETE'])
+@secure_route
 def delete(crawl_id):
     crawl = Crawl.query.get(crawl_id)
     # if crawl.creator != g.current_user:  # if the creator isnt the current user they cannot modify
     #     return jsonify({'message': 'Unuthorized'}), 401
     crawl.remove()
     return '', 204
+
+
+@api.route('/crawls/<int:crawl_id>/bars/<int:bar_id>/add', methods=['POST'])
+def create_stop(crawl_id, bar_id):
+
+    data = request.get_json()
+
+    stop = Stop(crawl_id=crawl_id, bar_id=bar_id, order=data['order'])
+    db.session.add(stop)
+    db.session.commit()
+
+    crawl = Crawl.query.get(crawl_id)
+
+    return crawl_schema.jsonify(crawl), 201
