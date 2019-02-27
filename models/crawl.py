@@ -3,6 +3,16 @@ from marshmallow import fields
 from .base import BaseModel, BaseSchema
 from .user import User, UserSchema
 
+class Stop(db.Model):
+
+    __tablename__ = 'stop'
+
+    crawl_id = db.Column(db.Integer, db.ForeignKey('crawls.id'), primary_key=True)
+    bar_id = db.Column(db.Integer, db.ForeignKey('bars.id'), primary_key=True)
+    bar = db.relationship('Bar')
+    order = db.Column(db.Integer, nullable=False)
+
+
 class Crawl(db.Model, BaseModel):
 
     __tablename__ = 'crawls'
@@ -11,6 +21,8 @@ class Crawl(db.Model, BaseModel):
     description = db.Column(db.String(400), nullable=False)
     creator_id = db.Column(db.Integer, db.ForeignKey('users.id'))
     creator = db.relationship('User', backref='created_crawls')
+    bars = db.relationship('Stop', backref='crawls')
+
 
 class CrawlSchema(ma.ModelSchema, BaseSchema):
 

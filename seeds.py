@@ -1,7 +1,7 @@
 from app import app, db
 from models.user import User, UserSchema
 from models.bar import Bar, BarSchema
-from models.crawl import Crawl, CrawlSchema
+from models.crawl import Crawl, CrawlSchema, Stop
 
 user_schema = UserSchema()
 
@@ -19,9 +19,8 @@ with app.app_context():
 
     if errors:
         raise Exception(errors)
-    db.session.add(mike)
 
-# ======================================================BARS===========================================================
+    db.session.add(mike)
 
     jujus = Bar(
     	name='Jujus',
@@ -33,34 +32,10 @@ with app.app_context():
     )
     db.session.add(jujus)
 
-    the_culpeper = Bar(
-    	name='The Culpeper',
-    	address='40 Commercial St, London E1 6LP',
-    	lat=51.5168921,
-    	lng=-0.0730285,
-    	terrace=True,
-    	description='Small but great roofterrace'
-    )
-    db.session.add(the_culpeper)
-
-    discount_suit_company = Bar(
-    	name='Discount Suit Company',
-    	address='29 Wentworth St, London E1 7TB',
-    	lat=51.5166773,
-    	lng=0.0774967,
-    	terrace=False,
-    	description='Basement no light'
-    )
-
-    db.session.add(discount_suit_company)
-
-# =====================================================CRAWLS==========================================================
 
     east_end = Crawl(
         name='East End Crawl',
-        description='Tour of the seven wonders of the East End',
-        bars=[jujus, the_culpeper, discount_suit_company],
-        creator=mike
+        description='Tour of the seven wonders of the East End'
     )
     db.session.add(east_end)
 
