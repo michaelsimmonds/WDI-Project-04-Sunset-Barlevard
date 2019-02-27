@@ -1,5 +1,5 @@
 from flask import Blueprint, request, jsonify, g # Blueprint is a mini router
-from models.crawl import Crawl, CrawlSchema, Stop
+from models.crawl import Crawl, CrawlSchema, Stop, StopSchema
 from lib.secure_route import secure_route
 from app import db
 
@@ -67,3 +67,20 @@ def create_stop(crawl_id, bar_id):
     crawl = Crawl.query.get(crawl_id)
 
     return crawl_schema.jsonify(crawl), 201
+
+@api.route('/crawls/<int:crawl_id>/stops/', methods=['GET'])
+def stops_index():
+    stops = Stops.query.all()
+    return stops_schema.jsonify(stops)
+
+
+
+@api.route('/crawls/<int:crawl_id>/stops/<int:stop_id>', methods=['GET'])
+
+
+
+@api.route('/crawls/<int:crawl_id>/stops/<int:stop_id>', methods=['DELETE'])
+def delete_stop(crawl_id, stop_id):
+
+    stop = Crawl.query.get(crawl_id).Stop.query.get(stop_id)
+    stop.remove()
