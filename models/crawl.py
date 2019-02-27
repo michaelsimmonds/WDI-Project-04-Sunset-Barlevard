@@ -13,7 +13,9 @@ class Crawl(db.Model, BaseModel):
 
 class CrawlSchema(ma.ModelSchema, BaseSchema):
 
+    creator = fields.Nested('UserSchema', only=('username', ))
     bars = fields.Nested('BarSchema', many=True, exclude=('bar', ))
+
 
     class Meta:
         model = Crawl

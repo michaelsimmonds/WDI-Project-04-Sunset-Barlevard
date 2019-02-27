@@ -20,10 +20,10 @@ def show(crawl_id):
     return crawl_schema.jsonify(crawl)
 
 @api.route('/crawls', methods=['POST'])
-# @secure_route
+@secure_route
 def create():
     crawl, errors = crawl_schema.load(request.get_json())
-    # crawl.creator = g.current_user #adds the creator to the created crawl
+    crawl.creator = g.current_user #adds the creator to the created crawl
     if errors:
         return jsonify(errors), 422 # this jsonify is a flask method. it turns dict into json
     crawl.save()
