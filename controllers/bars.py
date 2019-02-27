@@ -46,7 +46,7 @@ def update(bar_id):
 @api.route('/bars/<int:bar_id>', methods=['DELETE'])
 def delete(bar_id):
     bar = Bar.query.get(bar_id)
-    if bar.creator != g.current_user:  # if the creator isnt the current user they cannot modify
-        return jsonify({'message': 'Unuthorized'}), 401
+    # if bar.creator != g.current_user:  # if the creator isnt the current user they cannot modify
+    #     return jsonify({'message': 'Unuthorized'}), 401
     bar.remove()
     return '', 204
