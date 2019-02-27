@@ -1,6 +1,12 @@
 from app import db, ma
 from marshmallow import fields
 from .base import BaseModel, BaseSchema
+from .crawl import Crawl
+
+crawls_bars = db.Table('crawls_bars',
+    db.Column('crawl_id', db.Integer, db.ForeignKey('crawls.id'), primary_key=True),
+    db.Column('bar_id', db.Integer, db.ForeignKey('bars.id'), primary_key=True)
+)
 
 class Bar(db.Model, BaseModel):
 
@@ -12,6 +18,8 @@ class Bar(db.Model, BaseModel):
     lng = db.Column(db.Float, nullable=False)
     terrace = db.Column(db.Boolean)
     description = db.Column(db.String(400), nullable=False)
+
+    crawls = db.relationship('Crawl', secondary=crawls_bars, backref='bars')
 
 class BarSchema(ma.ModelSchema, BaseSchema):
 

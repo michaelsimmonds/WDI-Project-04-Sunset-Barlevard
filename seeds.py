@@ -21,6 +21,8 @@ with app.app_context():
         raise Exception(errors)
     db.session.add(mike)
 
+# ======================================================BARS===========================================================
+
     jujus = Bar(
     	name='Jujus',
     	address='Ely\'s Yard, 15 Hanbury St, London E1 6QR',
@@ -31,9 +33,33 @@ with app.app_context():
     )
     db.session.add(jujus)
 
+    the_culpeper = Bar(
+    	name='The Culpeper',
+    	address='40 Commercial St, London E1 6LP',
+    	lat=51.5168921,
+    	lng=-0.0730285,
+    	terrace=True,
+    	description='Small but great roofterrace'
+    )
+    db.session.add(the_culpeper)
+
+    discount_suit_company = Bar(
+    	name='Discount Suit Company',
+    	address='29 Wentworth St, London E1 7TB',
+    	lat=51.5166773,
+    	lng=0.0774967,
+    	terrace=False,
+    	description='Basement no light'
+    )
+
+    db.session.add(discount_suit_company)
+
+# =====================================================CRAWLS==========================================================
+
     east_end = Crawl(
         name='East End Crawl',
-        description='Tour of the seven wonders of the East End'
+        description='Tour of the seven wonders of the East End',
+        bars=[jujus, the_culpeper, discount_suit_company]
     )
     db.session.add(east_end)
 

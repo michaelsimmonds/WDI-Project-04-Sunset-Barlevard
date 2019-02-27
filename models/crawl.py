@@ -1,6 +1,7 @@
 from app import db, ma
 from marshmallow import fields
 from .base import BaseModel, BaseSchema
+from .user import User, UserSchema
 
 class Crawl(db.Model, BaseModel):
 
@@ -14,8 +15,9 @@ class Crawl(db.Model, BaseModel):
 class CrawlSchema(ma.ModelSchema, BaseSchema):
 
     creator = fields.Nested('UserSchema', only=('username', ))
-    bars = fields.Nested('BarSchema', many=True, exclude=('bar', ))
-
+    bars = fields.Nested('BarSchema', many=True, exclude=('bar', 'crawls'))
 
     class Meta:
         model = Crawl
+
+        exclude = ('crawls', )
