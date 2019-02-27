@@ -54,11 +54,11 @@ def delete(crawl_id):
     crawl.remove()
     return '', 204
 
-
+############################ STOPS ON CRAWLS ###################################
 @api.route('/crawls/<int:crawl_id>/bars/<int:bar_id>/add', methods=['POST'])
 def create_stop(crawl_id, bar_id):
 
-    data = request.get_json()
+    data = request.get_json() # this is the user putting in order
 
     stop = Stop(crawl_id=crawl_id, bar_id=bar_id, order=data['order'])
     db.session.add(stop)
@@ -68,19 +68,10 @@ def create_stop(crawl_id, bar_id):
 
     return crawl_schema.jsonify(crawl), 201
 
-@api.route('/crawls/<int:crawl_id>/stops/', methods=['GET'])
-def stops_index():
-    stops = Stops.query.all()
-    return stops_schema.jsonify(stops)
-
-
-
-@api.route('/crawls/<int:crawl_id>/stops/<int:stop_id>', methods=['GET'])
-
-
 
 @api.route('/crawls/<int:crawl_id>/stops/<int:stop_id>', methods=['DELETE'])
 def delete_stop(crawl_id, stop_id):
-
-    stop = Crawl.query.get(crawl_id).Stop.query.get(stop_id)
-    stop.remove()
+    stop = Stop.query.get(stop_id)
+    db.session.delete(stop)
+    db.session.commit()
+    return '', 204
