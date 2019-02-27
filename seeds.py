@@ -23,12 +23,12 @@ with app.app_context():
     db.session.add(mike)
 
     jujus = Bar(
-    	name='Jujus',
-    	address='Ely\'s Yard, 15 Hanbury St, London E1 6QR',
-    	lat=51.520886,
-    	lng=-0.073487,
-    	terrace=True,
-    	description='We go all the time on Firdays'
+        name='Jujus',
+        address='Ely\'s Yard, 15 Hanbury St, London E1 6QR',
+        lat=51.520886,
+        lng=-0.073487,
+        terrace=True,
+        description='We go all the time on Firdays'
     )
     db.session.add(jujus)
 
@@ -38,5 +38,9 @@ with app.app_context():
         description='Tour of the seven wonders of the East End'
     )
     db.session.add(east_end)
+
+    east_end.bars = [
+        Stop(bar=jujus, order=0)
+    ]
 
     db.session.commit()
