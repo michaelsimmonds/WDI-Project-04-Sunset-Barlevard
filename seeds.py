@@ -59,7 +59,8 @@ with app.app_context():
     east_end = Crawl(
         name='East End Crawl',
         description='Tour of the seven wonders of the East End',
-        bars=[jujus, the_culpeper, discount_suit_company]
+        bars=[jujus, the_culpeper, discount_suit_company],
+        creator=mike
     )
     db.session.add(east_end)
 
