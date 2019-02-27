@@ -31,10 +31,11 @@ def create():
 
 
 @api.route('/crawls/<int:crawl_id>', methods=['PUT'])
+@secure_route
 def update(crawl_id):
     crawl = Crawl.query.get(crawl_id)
-    # if crawl.creator != g.current_user:  # if the creator isnt the current user they cannot modify
-    #     return jsonify({'message': 'Unuthorized'}), 401
+    if crawl.creator != g.current_user:  # if the creator isnt the current user they cannot modify
+        return jsonify({'message': 'Unuthorized'}), 401
     crawl, errors = crawl_schema.load(request.get_json(), instance=crawl)
     if errors:
         return jsonify(errors), 422 # this jsonify is a flask method. it turns dict into json
