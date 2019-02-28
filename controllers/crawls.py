@@ -69,7 +69,7 @@ def delete(crawl_id):
 def create_comment(crawl_id):
     comment, errors = comment_schema.load(request.get_json())
     comment.author = g.current_user
-    comment.crawl_receiver = Crawl.query.get(crawl_id)
+    comment.crawl = Crawl.query.get(crawl_id)
 
     if errors:
         return jsonify(errors), 422
