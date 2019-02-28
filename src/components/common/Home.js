@@ -32,10 +32,12 @@ class Home extends React.Component{
           </div>
         </section>
         <div>
+          <h1 className="title is-1 header-crawl" >Bar Crawls</h1>
           {this.state.crawls.map(crawl => <div key={crawl._id}>
             <div className="header-crawl">
-              <h1 className="title is-2">{crawl.name}</h1>
+              <h1 className="title is-3">{crawl.name}</h1>
             </div>
+            <h2 className="title is-5 header-crawl">{crawl.description}</h2>
             <div className="center">
               <div className="columns is-multitude slider">
                 {crawl.stops.map(stop => <div className="column is-centered is-full center" key={stop._id}>

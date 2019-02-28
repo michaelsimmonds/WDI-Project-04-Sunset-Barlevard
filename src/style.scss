@@ -30,10 +30,6 @@ img {
   background-size: cover;
 }
 
-img {
-  /* make sure the width is honored */
-  width: 800px;
-  height: auto;
-  object-fit:scale-down;
-
+.carousel:hover {
+  cursor: pointer;
 }
