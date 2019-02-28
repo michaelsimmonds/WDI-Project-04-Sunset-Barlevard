@@ -2,6 +2,7 @@ from app import db, ma
 from marshmallow import fields
 from .base import BaseModel, BaseSchema
 from .user import User, UserSchema
+# from .comment import Comment, CommentSchema
 
 class Stop(db.Model):
 
@@ -41,6 +42,7 @@ class CrawlSchema(ma.ModelSchema, BaseSchema):
 
     creator = fields.Nested('UserSchema', only=('username', ))
     stops = fields.Nested('StopSchema', many=True)
+    # comments = fields.Nested('CommentSchema', many=True)
 
     class Meta:
         model = Crawl

@@ -1,5 +1,8 @@
 from flask import Blueprint, request, jsonify, g # Blueprint is a mini router
 from models.crawl import Crawl, CrawlSchema, Stop, StopSchema
+
+from models.comment import Comment, CommentSchema
+
 from lib.secure_route import secure_route
 from app import db
 
@@ -7,6 +10,12 @@ api = Blueprint('crawls', __name__)
 
 crawls_schema = CrawlSchema(many=True) #the exclude here only excludes on the index route, as we would probably not want to see all the victims there. Better to do this on the back end rather than the front end, as it means we dont have to send surplus data to the front end, which costs money.
 crawl_schema = CrawlSchema()
+
+stops_schema = StopSchema(many=True)
+stop_schema = StopSchema()
+
+comments_schema = CommentSchema(many=True)
+comment_schema = CommentSchema()
 
 @api.route('/crawls', methods=['GET'])
 # @secure_route
@@ -53,6 +62,31 @@ def delete(crawl_id):
     #     return jsonify({'message': 'Unuthorized'}), 401
     crawl.remove()
     return '', 204
+
+
+########################### COMMENTS ##########################################
+
+@api.route('/crawls/<int:crawl_id>/comments', methods=['POST'])
+@secure_route
+def create_comment(crawl_id):
+    comment, errors = comment_schema.load(request.get_json())
+    comment.author = g.current_user
+    comment.crawl_receiver = Crawl.query.get(crawl_id)
+
+    if errors:
+        return jsonify(errors), 422
+
+    comment.save()
+
+    return comment_schema.jsonify(comment)
+
+
+
+
+
+
+
+
 
 ############################ STOPS ON CRAWLS ###################################
 @api.route('/crawls/<int:crawl_id>/bars/<int:bar_id>/add', methods=['POST'])
