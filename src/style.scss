@@ -1,9 +1,39 @@
 img {
-  border-radius: 8%;
   margin: 20px;
 }
 
 .header-crawl {
   justify-content: center;
   display: flex;
+}
+
+.flex-direction {
+  display: flex;
+  flex-direction: row;
+}
+
+.center {
+  justify-content: center;
+  display: flex;
+}
+
+.slider {
+  align-items: center;
+  overflow-x: scroll;
+  width: 60%;
+}
+
+.carousel {
+  height: 500px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+img {
+  /* make sure the width is honored */
+  width: 800px;
+  height: auto;
+  object-fit:scale-down;
+
 }

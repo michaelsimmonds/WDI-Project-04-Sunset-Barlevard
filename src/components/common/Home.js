@@ -32,29 +32,19 @@ class Home extends React.Component{
           </div>
         </section>
         <div>
-          {this.state.crawls.map(crawl => <div key={crawl._id}> <h1>  </h1>
-            {crawl.stops.map(stop => <div key={stop._id}>
-              <section className="hero">
-                <div className="hero-body">
-                  <div className="container">
-                    <div className="columns is-centered">
-                      <div className="column is-two-thirds">
-                        <div className="header-crawl">
-                          <h1 className="title is-2">{crawl.name}</h1>
-                        </div>
-                        <img src={stop.bar.hero}/>
-                      </div>
-                    </div>
+          {this.state.crawls.map(crawl => <div key={crawl._id}>
+            <div className="header-crawl">
+              <h1 className="title is-2">{crawl.name}</h1>
+            </div>
+            <div className="center">
+              <div className="columns is-multitude slider">
+                {crawl.stops.map(stop => <div className="column is-centered is-full center" key={stop._id}>
+                  <div style={{backgroundImage: `url(${stop.bar.hero})`}}className="carousel"/>
+                </div>)}
+              </div>
+            </div>
+          </div>)}
 
-                  </div>
-                </div>
-              </section>
-              {/*
-          <h1>{stop.bar.name}</h1>
-          <p>{stop.bar.address}</p>
-          <p>{stop.bar.description}</p>
-          */}
-            </div>)} </div>)}
         </div>
       </main>
 
