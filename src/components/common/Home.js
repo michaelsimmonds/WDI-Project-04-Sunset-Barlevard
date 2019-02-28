@@ -17,9 +17,20 @@ class Home extends React.Component{
   render(){
     console.log(this.state.crawls)
     return(
-      <div>
-        <h1>Hello World!</h1>
-      </div>
+      <main>
+        <section className="hero is-black is-large">
+          <div className="hero-body">
+            <div className="container">
+              <h1 className="title">
+                Sunset Barlevard
+              </h1>
+              <h2 className="subtitle">
+              </h2>
+            </div>
+          </div>
+        </section>
+      </main>
+
     )
   }
 }
