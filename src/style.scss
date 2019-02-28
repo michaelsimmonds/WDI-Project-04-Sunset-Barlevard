@@ -20,6 +20,7 @@ img {
 .slider {
   align-items: center;
   overflow-x: scroll;
+  -webkit-overflow-scrolling: touch;
   width: 60%;
 }
 
@@ -28,6 +29,10 @@ img {
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
+}
+
+.crawls {
+  margin: 20px;
 }
 
 .carousel:hover {
