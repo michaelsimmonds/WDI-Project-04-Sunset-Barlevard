@@ -5,7 +5,9 @@ class Home extends React.Component{
   constructor(){
     super()
 
-    this.state={}
+    this.state={
+      crawls: []
+    }
 
   }
 
@@ -29,6 +31,31 @@ class Home extends React.Component{
             </div>
           </div>
         </section>
+        <div>
+          {this.state.crawls.map(crawl => <div key={crawl._id}> <h1>  </h1>
+            {crawl.stops.map(stop => <div key={stop._id}>
+              <section className="hero">
+                <div className="hero-body">
+                  <div className="container">
+                    <div className="columns is-centered">
+                      <div className="column is-two-thirds">
+                        <div className="header-crawl">
+                          <h1 className="title is-2">{crawl.name}</h1>
+                        </div>
+                        <img src={stop.bar.hero}/>
+                      </div>
+                    </div>
+
+                  </div>
+                </div>
+              </section>
+              {/*
+          <h1>{stop.bar.name}</h1>
+          <p>{stop.bar.address}</p>
+          <p>{stop.bar.description}</p>
+          */}
+            </div>)} </div>)}
+        </div>
       </main>
 
     )

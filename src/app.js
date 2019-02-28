@@ -5,6 +5,8 @@ import Home from './components/common/Home'
 import Register from './components/Auth/Register'
 import Login from './components/Auth/Login'
 import Navbar from './components/common/Navbar'
+import './style.scss'
+
 import 'bulma'
 
 class App extends React.Component{
