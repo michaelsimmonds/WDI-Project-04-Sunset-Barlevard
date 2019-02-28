@@ -83,9 +83,6 @@ def create_comment(crawl_id):
 
 
 
-
-
-
 ############################ STOPS ON CRAWLS ###################################
 @api.route('/crawls/<int:crawl_id>/bars/<int:bar_id>/add', methods=['POST'])
 def create_stop(crawl_id, bar_id):
