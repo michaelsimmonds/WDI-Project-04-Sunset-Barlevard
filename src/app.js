@@ -1,29 +1,29 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import axios from 'axios'
+import { BrowserRouter, Route, Switch } from 'react-router-dom'
+import Home from './components/common/Home'
+
 
 class App extends React.Component{
   constructor(){
     super()
-
-    this.state={}
-
-  }
-
-  componentDidMount() {
-    axios.get('/api/bars')
-      .then(res => this.setState({ bars: res.data }))
   }
 
   render(){
-    console.log(this.state.bars)
     return(
       <div>
-        <h1>Hello World!</h1>
+        <BrowserRouter>
+          <main>
+            <Switch>
+              <Route path="/" component={Home} />
+            </Switch>
+          </main>
+        </BrowserRouter>
       </div>
     )
   }
 }
+
 
 ReactDOM.render(
   <App />,

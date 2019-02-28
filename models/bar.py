@@ -21,7 +21,6 @@ class Bar(db.Model, BaseModel):
     terrace = db.Column(db.Boolean)
     description = db.Column(db.String(400), nullable=False)
 
-
 class BarSchema(ma.ModelSchema, BaseSchema):
 
     class Meta:
