@@ -41,8 +41,29 @@ class CrawlSchema(ma.ModelSchema, BaseSchema):
 
     creator = fields.Nested('UserSchema', only=('username', ))
     stops = fields.Nested('StopSchema', many=True)
+    comments = fields.Nested('CommentSchema', many=True, exclude=('crawl',))
 
     class Meta:
         model = Crawl
 
         exclude = ('crawls', )
+
+
+class Comment(db.Model, BaseModel):
+
+    __tabelname__ = 'comments'
+
+    content = db.Column(db.String(200), nullable=False)
+    crawl_id = db.Column(db.Integer, db.ForeignKey('crawls.id'))
+    crawl = db.relationship('Crawl', backref='comments')
+    #below is how to get author on comments posted
+    # author_id = db.Column(db.Integer, db.ForeignKey('users.id'))
+    # author = db.relationship('User', backref='comments') # foreign_keys lets us have keys from same table
+
+
+class CommentSchema(ma.ModelSchema, BaseSchema):
+
+    author = fields.Nested('UserSchema', only=('username', 'created_at'))
+
+    class Meta:
+        model = Comment
