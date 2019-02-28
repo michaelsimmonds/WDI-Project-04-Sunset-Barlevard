@@ -79,10 +79,6 @@ def create_comment(crawl_id):
     return comment_schema.jsonify(comment)
 
 
-
-
-
-
 ############################ STOPS ON CRAWLS ###################################
 @api.route('/crawls/<int:crawl_id>/bars/<int:bar_id>/add', methods=['POST'])
 def create_stop(crawl_id, bar_id):
