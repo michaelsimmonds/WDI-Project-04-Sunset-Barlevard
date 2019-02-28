@@ -12,6 +12,7 @@ class Bar(db.Model, BaseModel):
     terrace = db.Column(db.Boolean)
     description = db.Column(db.String(400), nullable=False)
     hero = db.Column(db.String(200), nullable=False)
+    location = db.Column(db.String(20), nullable=False)
 
 class BarSchema(ma.ModelSchema, BaseSchema):
 
