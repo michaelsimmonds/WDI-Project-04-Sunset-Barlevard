@@ -1,7 +1,5 @@
 from flask import Blueprint, request, jsonify, g # Blueprint is a mini router
-# from models.crawl import Crawl, CrawlSchema, Stop, StopSchema
-
-from models.comment import Comment, CommentSchema
+from models.crawl import Crawl, CrawlSchema, Stop, StopSchema, Comment, CommentSchema
 
 from lib.secure_route import secure_route
 from app import db

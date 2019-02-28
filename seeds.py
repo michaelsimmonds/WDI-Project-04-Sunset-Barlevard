@@ -1,7 +1,7 @@
 from app import app, db
 from models.user import User, UserSchema
 from models.bar import Bar, BarSchema
-from models.crawl import Crawl, CrawlSchema, Stop
+from models.crawl import Crawl, CrawlSchema, Stop, Comment, CommentSchema
 
 user_schema = UserSchema()
 
@@ -64,6 +64,10 @@ with app.app_context():
     east_end.stops = [
         Stop(bar=discount_suit_company, order=0)
     ]
-
     db.session.add(east_end)
+
+    comment1 = Comment(content='Hate this crawl is dead rubbish', crawl=east_end)
+    db.session.add(comment1)
+
+
     db.session.commit()
