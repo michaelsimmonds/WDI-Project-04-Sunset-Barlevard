@@ -26,11 +26,12 @@ with app.app_context():
     db.session.add(mike)
 
     beth, errors = user_schema.load({
-        'username': 'beth',
+        'username': 'simply_the_beth',
         'email': 'beth@beth.com',
-        'bio': 'I do like to be beside the seaside...',
+        'bio': 'Simply the betht at finding boozey tours about London.',
         'password': 'password',
-        'password_confirmation': 'password'
+        'password_confirmation': 'password',
+        'image': 'https://static.tvtropes.org/pmwiki/pub/images/tina_turner_8.jpg'
     })
 
     if errors:
@@ -39,11 +40,12 @@ with app.app_context():
     db.session.add(beth)
 
     bete, errors = user_schema.load({
-        'username': 'beteYaManE',
+        'username': 'betteYaManE',
         'email': 'bete@bete.com',
         'bio': 'If it\'s near a Pret, I\'m in',
         'password': 'password',
-        'password_confirmation': 'password'
+        'password_confirmation': 'password',
+        'image': 'http://cdn.kidscreen.com/wp/wp-content/uploads/2016/02/BettyBoop.jpg?a2a533'
     })
 
     if errors:
