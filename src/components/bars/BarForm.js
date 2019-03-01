@@ -38,7 +38,7 @@ const BarForm = ({ data, handleChange, handleSubmit, suggestionSelect }) => {
           </div>
 
           <div className="field"> {/* Chanage this to select */}
-            <label className="label">Location</label>
+            <label className="label">Area</label>
             <div className="control">
               <input
                 className="input"
@@ -54,11 +54,24 @@ const BarForm = ({ data, handleChange, handleSubmit, suggestionSelect }) => {
             <label className="label">Description</label>
             <div className="control">
               <input
-                className="input"
+                className="textarea"
                 placeholder="Please enter a short description of the bar. Why do you love it?!"
                 name="description"
                 onChange={handleChange}
                 value={data.description}
+              />
+            </div>
+          </div>
+
+          <div className="field">
+            <label className="label">Please enter an image url</label>
+            <div className="control">
+              <input
+                className="input"
+                placeholder="Image"
+                name="hero"
+                onChange={handleChange}
+                value={data.hero}
               />
             </div>
           </div>
@@ -77,26 +90,11 @@ const BarForm = ({ data, handleChange, handleSubmit, suggestionSelect }) => {
           </div>
 
           <div className="columns add-place">
+
             <div className="column is-5">
-
               <button className="button">Submit</button>
-
             </div>
 
-            <div className="column is-5 is-offset-2">
-              <ReactFilestack
-                apikey={ `${process.env.FILESTACK_API_KEY}` }
-                mode={'pick'}
-                onSuccess={(res) => handleChange({
-                  target: {
-                    name: 'image',
-                    value: res.filesUploaded[0].url
-                  }})}
-                onError={(e) => console.log(e)}
-                buttonText={data.image ? 'Image Added': 'Add an Image'}
-                buttonClass={data.image ? 'button is-square is-success' : 'button is-square is-info'}
-              />
-            </div>
           </div>
         </form>
       </div>
@@ -105,3 +103,18 @@ const BarForm = ({ data, handleChange, handleSubmit, suggestionSelect }) => {
 }
 
 export default BarForm
+
+// <div className="column is-5 is-offset-2">
+//   <ReactFilestack
+//     apikey={ `${process.env.FILESTACK_API_KEY}` }
+//     mode={'pick'}
+//     onSuccess={(res) => handleChange({
+//       target: {
+//         name: 'hero',
+//         value: res.filesUploaded[0].url
+//       }})}
+//     onError={(e) => console.log(e)}
+//     buttonText={data.hero ? 'Image Added': 'Add an Image'}
+//     buttonClass={data.hero ? 'button is-square is-success' : 'button is-square is-info'}
+//   />
+// </div>
