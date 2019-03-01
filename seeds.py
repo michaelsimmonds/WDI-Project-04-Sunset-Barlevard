@@ -25,6 +25,34 @@ with app.app_context():
 
     db.session.add(mike)
 
+    beth, errors = user_schema.load({
+        'username': 'simply_the_beth',
+        'email': 'beth@beth.com',
+        'bio': 'Simply the betht at finding boozey tours about London.',
+        'password': 'password',
+        'password_confirmation': 'password',
+        'image': 'https://static.tvtropes.org/pmwiki/pub/images/tina_turner_8.jpg'
+    })
+
+    if errors:
+        raise Exception(errors)
+
+    db.session.add(beth)
+
+    bete, errors = user_schema.load({
+        'username': 'betteYaManE',
+        'email': 'bete@bete.com',
+        'bio': 'If it\'s near a Pret, I\'m in',
+        'password': 'password',
+        'password_confirmation': 'password',
+        'image': 'http://cdn.kidscreen.com/wp/wp-content/uploads/2016/02/BettyBoop.jpg?a2a533'
+    })
+
+    if errors:
+        raise Exception(errors)
+
+    db.session.add(bete)
+
 ################ BARS ###############################
 
     jujus = Bar(
@@ -216,7 +244,16 @@ with app.app_context():
 
 ############## COMMENTS ###########################
 
-    comment1 = Comment(content='Hate this crawl is dead rubbish', crawl=east_end)
+    comment1 = Comment(content='Hate this crawl, is dead rubbish', crawl=east_end, author=mike)
+
+    db.session.add(comment1)
+
+    comment2 = Comment(content='This crawl took days to complete. Each leg was fun, but overall the length could be shorter!', crawl=east_end, author=beth)
+
+    db.session.add(comment1)
+
+    comment3 = Comment(content='Days to complete? Took me a matter of minutes!', crawl=east_end, author=bete)
+
     db.session.add(comment1)
 
 
