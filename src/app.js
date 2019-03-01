@@ -6,9 +6,8 @@ import Register from './components/Auth/Register'
 import Login from './components/Auth/Login'
 import Navbar from './components/common/Navbar'
 import UserShow from './components/Auth/UserShow'
-
+import BarsIndex from './components/bars/BarsIndex'
 import './style.scss'
-
 import 'bulma'
 
 class App extends React.Component{
@@ -24,6 +23,7 @@ class App extends React.Component{
             <Navbar />
             <Switch>
               <Route path="/users/:id" component={UserShow} />
+              <Route path="/bars" component={BarsIndex} />
               <Route path="/register" component={Register} />
               <Route path="/login" component={Login} />
               <Route path="/" component={Home} />
