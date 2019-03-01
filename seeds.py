@@ -24,6 +24,31 @@ with app.app_context():
 
     db.session.add(mike)
 
+    beth, errors = user_schema.load({
+        'username': 'beth',
+        'email': 'beth@beth.com',
+        'bio': 'I do like to be beside the seaside...',
+        'password': 'password',
+        'password_confirmation': 'password'
+    })
+
+    if errors:
+        raise Exception(errors)
+
+    db.session.add(mike)
+    bete, errors = user_schema.load({
+        'username': 'beteYaManE',
+        'email': 'bete@bete.com',
+        'bio': 'If it\'s near a Pret, I\'m in',
+        'password': 'password',
+        'password_confirmation': 'password'
+    })
+
+    if errors:
+        raise Exception(errors)
+
+    db.session.add(mike)
+
 ################ BARS ###############################
 
     jujus = Bar(
@@ -117,7 +142,16 @@ with app.app_context():
 
 ############## COMMENTS ###########################
 
-    comment1 = Comment(content='Hate this crawl is dead rubbish', crawl=east_end)
+    comment1 = Comment(content='Hate this crawl, is dead rubbish', crawl=east_end, author=mike)
+
+    db.session.add(comment1)
+
+    comment2 = Comment(content='This crawl took days to complete. Each leg was fun, but overall the length could be shorter!', crawl=east_end)
+
+    db.session.add(comment1)
+
+    comment3 = Comment(content='Days to complete? Took me a matter of minutes!', crawl=east_end)
+
     db.session.add(comment1)
 
 
