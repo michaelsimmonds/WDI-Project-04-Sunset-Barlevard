@@ -180,14 +180,39 @@ with app.app_context():
         creator=mike
     )
 
+    north_crawl = Crawl(
+        name='North Crawl',
+        description='So much fun',
+        creator=mike
+    )
+
+    west_crawl = Crawl(
+        name='West Crawl',
+        description='So much fun',
+        creator=mike
+    )
+
+
 ############### STOPS ############################
 
     east_end.stops = [
         Stop(bar=blind_beggar, order=0),
         Stop(bar=royal_oak, order=1),
-        Stop(bar=pub_on_park, order=2),
+        Stop(bar=pub_on_park, order=2)
     ]
     db.session.add(east_end)
+
+    north_crawl.stops = [
+        Stop(bar=lamb, order=1),
+        Stop(bar=fullback, order=0)
+    ]
+    db.session.add(north_crawl)
+
+    west_crawl.stops = [
+        Stop(bar=lamb, order=1),
+        Stop(bar=fullback, order=0)
+    ]
+    db.session.add(west_crawl)
 
 ############## COMMENTS ###########################
 
