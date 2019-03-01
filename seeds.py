@@ -214,7 +214,13 @@ with app.app_context():
         creator=mike
     )
 
-    west_crawl = Crawl(
+    fun_crawl = Crawl(
+        name='Fun Crawl',
+        description='So much fun',
+        creator=mike
+    )
+
+    the_best_crawl = Crawl(
         name='West Crawl',
         description='So much fun',
         creator=mike
@@ -236,11 +242,17 @@ with app.app_context():
     ]
     db.session.add(north_crawl)
 
-    west_crawl.stops = [
-        Stop(bar=lamb, order=1),
-        Stop(bar=fullback, order=0)
+    the_best_crawl.stops = [
+        Stop(bar=franks, order=1),
+        Stop(bar=royal_oak, order=0)
     ]
-    db.session.add(west_crawl)
+    db.session.add(the_best_crawl)
+
+    fun_crawl.stops = [
+        Stop(bar=discount_suit_company, order=1),
+        Stop(bar=the_culpeper, order=0)
+    ]
+    db.session.add(fun_crawl)
 
 ############## COMMENTS ###########################
 

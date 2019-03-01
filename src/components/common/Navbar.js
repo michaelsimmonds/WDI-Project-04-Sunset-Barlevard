@@ -53,7 +53,7 @@ class Navbar extends React.Component {
               <strong>Home</strong>
             </Link>
             <Link className="navbar-item" to="/bars">
-              <strong>Bars</strong>
+              <strong>Add a Crawl</strong>
             </Link>
 
             <a

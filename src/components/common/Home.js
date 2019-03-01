@@ -35,11 +35,14 @@ class Home extends React.Component{
         </section>
         <div className="crawls">
           <h1 className="title is-2 center" >Bar Crawls</h1>
-          <Link to='/bars' className="button">Add a crawl</Link>
-          <div className="columns is-multiline">
+          <div className="columns is-multiline center">
 
             {this.state.crawls.map(crawl => <div key={crawl._id} className="column is-one-fifth margin1">
-              <h1 className="title is-6">{crawl.name}</h1>
+              <div className="flex-direction2">
+                <h1 className="title is-6">{crawl.name}</h1>
+                <div style={{backgroundImage: `url(${crawl.creator.image})`}}className="user-image-home"/>
+              </div>
+              <p>@{crawl.creator.username}</p>
 
               <div className="columns slider">
                 {crawl.stops.map(stop => <div className="column is-centered is-full center" key={stop._id}>
