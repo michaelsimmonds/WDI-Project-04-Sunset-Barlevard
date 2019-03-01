@@ -10,7 +10,7 @@ class Bar(db.Model, BaseModel):
     lat = db.Column(db.Float, nullable=False)
     lng = db.Column(db.Float, nullable=False)
     terrace = db.Column(db.Boolean)
-    description = db.Column(db.String(400), nullable=False)
+    description = db.Column(db.String(700), nullable=False)
     hero = db.Column(db.String(200), nullable=False)
     location = db.Column(db.String(20), nullable=False)
 

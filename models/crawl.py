@@ -51,17 +51,18 @@ class CrawlSchema(ma.ModelSchema, BaseSchema):
 
 class Comment(db.Model, BaseModel):
 
-    __tablename__ = 'comments'
+    __tabelname__ = 'comments'
 
     content = db.Column(db.String(200), nullable=False)
     crawl_id = db.Column(db.Integer, db.ForeignKey('crawls.id'))
     crawl = db.relationship('Crawl', backref='comments')
-     author = db.relationship('User', backref='comments')
+    author_id = db.Column(db.Integer, db.ForeignKey('users.id'))
+    author = db.relationship('User', backref='comments')
 
 
 class CommentSchema(ma.ModelSchema, BaseSchema):
 
-    author = fields.Nested('UserSchema', only=('username'))
+    author = fields.Nested('UserSchema', only=('username', 'created_at'))
 
     class Meta:
         model = Comment
