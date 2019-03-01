@@ -9,23 +9,28 @@ class Navbar extends React.Component {
     super(props)
 
     this.state = {
-      activeItem: 'home',
-      navbarOpen: false
+      activeItem: 'home'
+      // navbarOpen: false
     }
 
-    this.handleItemClick = this.handleItemClick.bind(this)
+    // this.handleItemClick = this.handleItemClick.bind(this)
     this.toggleNavbar = this.toggleNavbar.bind(this)
     this.logout = this.logout.bind(this)
+    this.myProfile = this.myProfile.bind(this)
   }
 
   toggleNavbar() {
     this.setState({ navbarOpen: !this.state.navbarOpen })
   }
 
-  handleItemClick(e, { name }){
-    this.setState({ activeItem: name })
-    if(name === 'home')this.props.history.push('/')
-    if(name === 'My Profile')this.props.history.push(`/users/${Auth.getUserID()}`)
+  // handleItemClick(e, { name }){
+  //   this.setState({ activeItem: name })
+  //   if(name === 'home')this.props.history.push('/')
+  //   if(name === 'My Profile')this.props.history.push(`/users/${Auth.getUserID()}`)
+  // }
+
+  myProfile(){
+    this.props.history.push(`/users/${Auth.getUserID()}`)
   }
 
   logout() {
@@ -62,7 +67,7 @@ class Navbar extends React.Component {
               {!Auth.isAuthenticated() && <Link className="navbar-item" to="/register">Register</Link>}
               {!Auth.isAuthenticated() && <Link className="navbar-item" to="/login">Login</Link>}
               {Auth.isAuthenticated() && <a className="navbar-item" onClick={this.logout}>Logout</a>}
-              {Auth.isAuthenticated() && <a className="navbar-item" name="My Profile" onClick={this.handleItemClick}>My Profile</a>}
+              {Auth.isAuthenticated() && <a className="navbar-item" name="My Profile" onClick={this.myProfile}>My Profile</a>}
             </div>
           </div>
         </div>

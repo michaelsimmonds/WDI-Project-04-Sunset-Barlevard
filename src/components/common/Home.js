@@ -34,7 +34,7 @@ class Home extends React.Component{
           </div>
         </section>
         <div className="crawls">
-          <h1 className="title is-2 header-crawl" >Bar Crawls</h1>
+          <h1 className="title is-2 center" >Bar Crawls</h1>
           <div className="center">
             <div className="columns slider">
               {this.state.crawls.map(crawl => <div className="column is-centered is-full center" key={crawl._id}>
@@ -42,7 +42,7 @@ class Home extends React.Component{
                 <div className="header-crawl">
                   <h1 className="title is-4">{crawl.name}</h1>
                 </div>
-                <h2 className="title is-5 header-crawl">{crawl.description}</h2>
+                <h2 className="title is-5 center">{crawl.description}</h2>
                 <div style={{backgroundImage: `url(${crawl.stops[0].bar.hero})`}}className="carousel"/>
 
               </div>)}

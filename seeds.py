@@ -103,12 +103,14 @@ with app.app_context():
 
     east_end = Crawl(
         name='East End Crawl',
-        description='Tour of the seven wonders of the East End'
+        description='Tour of the seven wonders of the East End',
+        creator=mike
     )
 
     camden_crawl = Crawl(
         name='Camden Crawl',
-        description='The best crawl ever!'
+        description='The best crawl ever!',
+        creator=mike
     )
 
     shoreditch_crawl = Crawl(
