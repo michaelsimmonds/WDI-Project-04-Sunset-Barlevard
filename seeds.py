@@ -12,11 +12,12 @@ with app.app_context():
 ################ USERS ########################
 
     mike, errors = user_schema.load({
-        'username': 'mike',
-        'email': 'mike',
-        'bio': 'Strange',
+        'username': 'mikethebest',
+        'email': 'mike@gmail.com',
+        'bio': 'I have absolutely no pleasure in the stimulants in which I sometimes so madly indulge. It has not been in the pursuit of pleasure that I have periled life and reputation and reason. It has been the desperate attempt to escape from torturing memories, from a sense of insupportable loneliness and a dread of some strange impending doom.',
         'password': 'password',
-        'password_confirmation': 'password'
+        'password_confirmation': 'password',
+        'image': 'http://adam1.scripts.mit.edu/blog/wp-content/uploads/2017/08/MikeMcHargueHeadshotOutdoor.jpg'
     })
 
     if errors:
@@ -112,7 +113,8 @@ with app.app_context():
 
     shoreditch_crawl = Crawl(
         name='Shoreditch Crawl',
-        description='So much fun'
+        description='So much fun',
+        creator=mike
     )
 
 

@@ -17,6 +17,12 @@ img {
   display: flex;
 }
 
+.center2 {
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+}
+
 .slider {
   align-items: center;
   overflow-x: scroll;
@@ -37,4 +43,19 @@ img {
 
 .carousel:hover {
   cursor: pointer;
+}
+
+.hero {
+  background-color: #efefef;
+}
+
+.margin {
+  margin-bottom: 20px;
+}
+
+.user-image {
+  height: 300px;
+  width: 300px;
+  border-radius: 50%;
+  background-size: cover;
 }
