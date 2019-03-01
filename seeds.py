@@ -12,17 +12,46 @@ with app.app_context():
 ################ USERS ########################
 
     mike, errors = user_schema.load({
-        'username': 'mike',
-        'email': 'mike',
-        'bio': 'Strange',
+        'username': 'mikethebest',
+        'email': 'mike@gmail.com',
+        'bio': 'I have absolutely no pleasure in the stimulants in which I sometimes so madly indulge. It has not been in the pursuit of pleasure that I have periled life and reputation and reason. It has been the desperate attempt to escape from torturing memories, from a sense of insupportable loneliness and a dread of some strange impending doom.',
         'password': 'password',
-        'password_confirmation': 'password'
+        'password_confirmation': 'password',
+        'image': 'http://adam1.scripts.mit.edu/blog/wp-content/uploads/2017/08/MikeMcHargueHeadshotOutdoor.jpg'
     })
 
     if errors:
         raise Exception(errors)
 
     db.session.add(mike)
+
+    beth, errors = user_schema.load({
+        'username': 'simply_the_beth',
+        'email': 'beth@beth.com',
+        'bio': 'Simply the betht at finding boozey tours about London.',
+        'password': 'password',
+        'password_confirmation': 'password',
+        'image': 'https://static.tvtropes.org/pmwiki/pub/images/tina_turner_8.jpg'
+    })
+
+    if errors:
+        raise Exception(errors)
+
+    db.session.add(beth)
+
+    bete, errors = user_schema.load({
+        'username': 'betteYaManE',
+        'email': 'bete@bete.com',
+        'bio': 'If it\'s near a Pret, I\'m in',
+        'password': 'password',
+        'password_confirmation': 'password',
+        'image': 'http://cdn.kidscreen.com/wp/wp-content/uploads/2016/02/BettyBoop.jpg?a2a533'
+    })
+
+    if errors:
+        raise Exception(errors)
+
+    db.session.add(bete)
 
 ################ BARS ###############################
 
@@ -175,7 +204,20 @@ with app.app_context():
 
     east_end = Crawl(
         name='East End Crawl',
-        description='Tour of the seven wonders of the East End'
+        description='Tour of the seven wonders of the East End',
+        creator=mike
+    )
+
+    north_crawl = Crawl(
+        name='North Crawl',
+        description='So much fun',
+        creator=mike
+    )
+
+    west_crawl = Crawl(
+        name='West Crawl',
+        description='So much fun',
+        creator=mike
     )
 
 
@@ -184,13 +226,34 @@ with app.app_context():
     east_end.stops = [
         Stop(bar=blind_beggar, order=0),
         Stop(bar=royal_oak, order=1),
-        Stop(bar=pub_on_park, order=2),
+        Stop(bar=pub_on_park, order=2)
     ]
     db.session.add(east_end)
 
+    north_crawl.stops = [
+        Stop(bar=lamb, order=1),
+        Stop(bar=fullback, order=0)
+    ]
+    db.session.add(north_crawl)
+
+    west_crawl.stops = [
+        Stop(bar=lamb, order=1),
+        Stop(bar=fullback, order=0)
+    ]
+    db.session.add(west_crawl)
+
 ############## COMMENTS ###########################
 
-    comment1 = Comment(content='Hate this crawl is dead rubbish', crawl=east_end)
+    comment1 = Comment(content='Hate this crawl, is dead rubbish', crawl=east_end, author=mike)
+
+    db.session.add(comment1)
+
+    comment2 = Comment(content='This crawl took days to complete. Each leg was fun, but overall the length could be shorter!', crawl=east_end, author=beth)
+
+    db.session.add(comment1)
+
+    comment3 = Comment(content='Days to complete? Took me a matter of minutes!', crawl=east_end, author=bete)
+
     db.session.add(comment1)
 
 

@@ -10,7 +10,6 @@ class BaseModel:
 
     def save(self):
         self.updated_at = datetime.utcnow()
-
         db.session.add(self)
         db.session.commit()
 

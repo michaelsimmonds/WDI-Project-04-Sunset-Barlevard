@@ -36,6 +36,7 @@ class Crawl(db.Model, BaseModel):
     creator = db.relationship('User', backref='created_crawls')
     stops = db.relationship('Stop', backref='crawls', order_by=Stop.order)
 
+
 class CrawlSchema(ma.ModelSchema, BaseSchema):
 
     creator = fields.Nested('UserSchema', only=('username', ))
@@ -55,6 +56,8 @@ class Comment(db.Model, BaseModel):
     content = db.Column(db.String(200), nullable=False)
     crawl_id = db.Column(db.Integer, db.ForeignKey('crawls.id'))
     crawl = db.relationship('Crawl', backref='comments')
+    author_id = db.Column(db.Integer, db.ForeignKey('users.id'))
+    author = db.relationship('User', backref='comments')
 
 
 class CommentSchema(ma.ModelSchema, BaseSchema):

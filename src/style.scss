@@ -19,11 +19,79 @@ figure.image {
 
 
 img {
-  border-radius: 8%;
   margin: 20px;
 }
+
+// ===============================CRAWL INDEX===================================
 
 .header-crawl {
   justify-content: center;
   display: flex;
+}
+
+.flex-direction {
+  display: flex;
+  flex-direction: row;
+}
+
+.center {
+  justify-content: center;
+  display: flex;
+}
+
+.center2 {
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.slider {
+  align-items: center;
+  overflow-x: scroll;
+  -webkit-overflow-scrolling: touch;
+  width: 150%;
+}
+
+.carousel {
+  height: 300px;
+  width: 300px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+.created-crawls {
+  height: 380px;
+  width: 380px;
+  background-size: cover;
+}
+
+.crawls {
+  margin: 20px;
+}
+
+.carousel:hover {
+  cursor: pointer;
+}
+
+.hero {
+  background-color: #efefef;
+}
+
+.margin {
+  margin-bottom: 20px;
+}
+
+.margin1 {
+  margin: 20px;
+}
+
+// ================================USER SHOW===================================
+
+.user-image {
+  height: 300px;
+  width: 300px;
+  border-radius: 50%;
+  background-size: cover;
+  margin: 20px;
 }
