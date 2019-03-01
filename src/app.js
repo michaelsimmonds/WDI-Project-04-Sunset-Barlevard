@@ -5,6 +5,8 @@ import Home from './components/common/Home'
 import Register from './components/Auth/Register'
 import Login from './components/Auth/Login'
 import Navbar from './components/common/Navbar'
+import BarsIndex from './components/bars/BarsIndex'
+import './style.scss'
 import 'bulma'
 
 class App extends React.Component{
@@ -19,6 +21,7 @@ class App extends React.Component{
           <main>
             <Navbar />
             <Switch>
+              <Route path="/bars" component={BarsIndex} />
               <Route path="/register" component={Register} />
               <Route path="/login" component={Login} />
               <Route path="/" component={Home} />
