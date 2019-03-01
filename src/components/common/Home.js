@@ -35,21 +35,22 @@ class Home extends React.Component{
         </section>
         <div className="crawls">
           <h1 className="title is-2 center" >Bar Crawls</h1>
-          <div className="center">
-            <div className="columns slider">
-              {this.state.crawls.map(crawl => <div className="column is-centered is-full center" key={crawl._id}>
+          <Link to='/bars' className="button">Add a crawl</Link>
+          <div className="columns is-multiline">
 
-                <div className="header-crawl">
-                  <h1 className="title is-4">{crawl.name}</h1>
-                </div>
-                <h2 className="title is-5 center">{crawl.description}</h2>
-                <div style={{backgroundImage: `url(${crawl.stops[0].bar.hero})`}}className="carousel"/>
+            {this.state.crawls.map(crawl => <div key={crawl._id} className="column is-one-fifth margin1">
+              <h1 className="title is-6">{crawl.name}</h1>
 
-              </div>)}
-            </div>
+              <div className="columns slider">
+                {crawl.stops.map(stop => <div className="column is-centered is-full center" key={stop._id}>
+                  <div style={{backgroundImage: `url(${stop.bar.hero})`}}className="carousel"/>
+                </div>)}
+              </div>
+            </div>)}
+
           </div>
-
         </div>
+
       </main>
 
     )

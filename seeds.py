@@ -180,19 +180,6 @@ with app.app_context():
         creator=mike
     )
 
-    camden_crawl = Crawl(
-        name='Camden Crawl',
-        description='The best crawl ever!',
-        creator=mike
-    )
-
-    shoreditch_crawl = Crawl(
-        name='Shoreditch Crawl',
-        description='So much fun',
-        creator=mike
-    )
-
-
 ############### STOPS ############################
 
     east_end.stops = [
@@ -201,20 +188,6 @@ with app.app_context():
         Stop(bar=pub_on_park, order=2),
     ]
     db.session.add(east_end)
-
-    camden_crawl.stops = [
-        Stop(bar=blind_beggar, order=1),
-        Stop(bar=royal_oak, order=0),
-        Stop(bar=pub_on_park, order=2),
-    ]
-    db.session.add(camden_crawl)
-
-    shoreditch_crawl.stops = [
-        Stop(bar=blind_beggar, order=2),
-        Stop(bar=royal_oak, order=1),
-        Stop(bar=pub_on_park, order=0),
-    ]
-    db.session.add(shoreditch_crawl)
 
 ############## COMMENTS ###########################
 

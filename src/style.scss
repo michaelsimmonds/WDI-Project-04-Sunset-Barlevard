@@ -24,10 +24,9 @@ figure.image {
       rgba(0, 0, 0, 0.5),
       rgba(0, 0, 0, 0.5)
     );
-
-img {
-  margin: 20px;
 }
+
+// ===============================CRAWL INDEX===================================
 
 .header-crawl {
   justify-content: center;
@@ -54,11 +53,12 @@ img {
   align-items: center;
   overflow-x: scroll;
   -webkit-overflow-scrolling: touch;
-  width: 60%;
+  width: 150%;
 }
 
 .carousel {
-  height: 500px;
+  height: 300px;
+  width: 300px;
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
@@ -85,6 +85,12 @@ img {
 .margin {
   margin-bottom: 20px;
 }
+
+.margin1 {
+  margin: 20px;
+}
+
+// ================================USER SHOW===================================
 
 .user-image {
   height: 300px;
