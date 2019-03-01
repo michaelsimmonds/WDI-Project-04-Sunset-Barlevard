@@ -32,7 +32,7 @@ class Navbar extends React.Component {
   }
   render() {
     return (
-      <nav className="navbar">
+      <nav className="navbar is-black">
         <div className="container">
           <div className="navbar-brand">
 

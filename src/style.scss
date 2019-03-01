@@ -24,4 +24,13 @@ figure.image {
       rgba(0, 0, 0, 0.5),
       rgba(0, 0, 0, 0.5)
     );
+
+img {
+  border-radius: 8%;
+  margin: 20px;
+}
+
+.header-crawl {
+  justify-content: center;
+  display: flex;
 }

@@ -36,7 +36,6 @@ class Crawl(db.Model, BaseModel):
     creator = db.relationship('User', backref='created_crawls')
     stops = db.relationship('Stop', backref='crawls', order_by=Stop.order)
 
-
 class CrawlSchema(ma.ModelSchema, BaseSchema):
 
     creator = fields.Nested('UserSchema', only=('username', ))
