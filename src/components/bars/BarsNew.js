@@ -12,7 +12,7 @@ class BarsNew extends React.Component {
     this.state = {
       data: {
         name: '',
-        adress: '',
+        address: '',
         lat: '',
         lng: '',
         terrace: '',
@@ -28,12 +28,14 @@ class BarsNew extends React.Component {
   }
 
   handleChange({ target: { name, value }}) {
+    console.log(this.state.data)
     const data = {...this.state.data, [name]: value}
     this.setState({ data })
   }
 
   handleSubmit(e) {
     e.preventDefault()
+    console.log(this.state.data)
     axios
       .post('/api/bars', this.state.data,
         { headers: {Authorization: `Bearer ${Auth.getToken()}`}})
@@ -41,9 +43,10 @@ class BarsNew extends React.Component {
       .catch(err => alert(err.message))
   }
 
-  suggestionSelect(result, lat, lng ) {
-    const data = {...this.state.data }
-    const errors = {...this.state.errors }
+  suggestionSelect(result, lat, lng) {
+    // console.log(address)
+    const data = {...this.state.data, address: result, lat: lat, lng: lng }
+    const errors = {...this.state.errors, addres: '' }
     this.setState({ data, errors })
   }
 

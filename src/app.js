@@ -6,6 +6,7 @@ import Register from './components/Auth/Register'
 import Login from './components/Auth/Login'
 import Navbar from './components/common/Navbar'
 import BarsIndex from './components/bars/BarsIndex'
+import BarsNew from './components/bars/BarsNew'
 import './style.scss'
 import 'bulma'
 
@@ -21,6 +22,7 @@ class App extends React.Component{
           <main>
             <Navbar />
             <Switch>
+              <Route path="/bars/new" component={BarsNew} />
               <Route path="/bars" component={BarsIndex} />
               <Route path="/register" component={Register} />
               <Route path="/login" component={Login} />
