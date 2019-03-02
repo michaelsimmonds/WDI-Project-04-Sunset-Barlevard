@@ -1,3 +1,5 @@
+$bar: yellow;
+
 .text-overlay {
   width: 100%;
   text-align: center;
@@ -93,3 +95,24 @@ img {
   background-size: cover;
   margin: 20px;
 }
+
+
+//////// ******** CRAWL MAP ******* ///////////
+
+.map {
+  height: 50vh;
+  @media screen and (max-width: 650px) {
+    height:30vh;
+  }
+}
+
+.bar-marker {
+  width: 10px;
+  height: 10px;
+  font-size: 40px;
+}
+
+.mapboxgl-popup {
+  max-width: 70px;
+  font: 9pt 'Helvetica Neue', Arial, Helvetica, sans-serif;
+  }
