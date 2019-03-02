@@ -106,8 +106,8 @@ with app.app_context():
     pub_on_park = Bar(
         name='Pub on the Park',
         address='19 Martello St, London E8 3PE',
-        lat=51.5166773,
-        lng=0.0774967,
+        lat=51.5421,
+        lng=-0.0582,
         terrace=True,
         description='Situated on the very edge of London Fields, "Pub on the Park" have spectacular views across the park, Summer or Winter, and are easily accessible from Hackney Central, London Fields or Haggerston overground and a multitude of buses.',
         hero='http://pubonthepark.com/wp-content/uploads/2016/11/Deck03.jpg',
