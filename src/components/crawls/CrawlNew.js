@@ -2,7 +2,9 @@ import React from 'react'
 import axios from 'axios'
 import Auth from '../../lib/Auth'
 import CrawlForm from './CrawlForm'
-import BarsIndex from '../bars/BarsIndex'
+import BarCard from '../bars/BarCard.js'
+
+
 
 
 class CrawlNew extends React.Component{
@@ -10,15 +12,26 @@ class CrawlNew extends React.Component{
     super()
 
     this.state = {
+      bars: [],
       data: {
         name: '',
         description: ''
-      }
+      },
+      selectOption: []
+
     }
 
     this.handleSubmit = this.handleSubmit.bind(this)
     this.handleChange = this.handleChange.bind(this)
 
+    this.handleSelectChange = this.handleSelectChange.bind(this)
+    this.handleSelect = this.handleSelect.bind(this)
+
+  }
+
+  componentDidMount() {
+    axios.get('/api/bars')
+      .then(res => this.setState({ bars: res.data }))
   }
 
   handleChange({ target: { name, value }}) {
@@ -36,6 +49,18 @@ class CrawlNew extends React.Component{
       .catch(err => alert(err.message))
   }
 
+  //=====================REACT SELECT======================
+  handleSelectChange(selectOption) {
+    this.setState({ selectOption })
+    console.log('Option selected:', selectOption)
+  }
+
+  handleSelect(e){
+    const listOfBars = (e.map(select => select.value))
+    const data = { ...this.state.selectOption, listOfBars }
+    this.setState({ data })
+  }
+
   render() {
     return (
       <main className="section">
@@ -45,7 +70,14 @@ class CrawlNew extends React.Component{
             handleChange={this.handleChange}
             handleSubmit={this.handleSubmit}
           />
-          <BarsIndex />
+
+        </div>
+        <div className="columns is-multiline">
+          {this.state.bars.map(bar =>
+            <div className="column is-full-width" key={bar.id}>
+              <BarCard {...bar} />
+            </div>
+          )}
         </div>
       </main>
     )
