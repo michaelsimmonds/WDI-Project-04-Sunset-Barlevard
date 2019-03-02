@@ -204,7 +204,7 @@ with app.app_context():
 
     east_end = Crawl(
         name='East End Crawl',
-        description='Tour of the seven wonders of the East End',
+        description='A tour of the seven wonders of the East End. Perfect for old-timers as well as those new to the area - great way to meet some locals if you\'ve just moved to East London!',
         creator=mike
     )
 

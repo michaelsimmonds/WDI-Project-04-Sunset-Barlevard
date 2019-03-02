@@ -1,6 +1,7 @@
 import React from 'react'
 //import { Link } from 'react-router-dom'
 import axios from 'axios'
+import CrawlMap from './CrawlMap'
 
 class CrawlShow extends React.Component {
   constructor() {
@@ -28,24 +29,34 @@ class CrawlShow extends React.Component {
       creator,
       description,
       id,
-      name,
-      stops
+      name
     } = this.state.crawl
     return(
       <main>
-        <h1>{name}</h1>
-        <div>{description}</div>
-        <div>{creator}</div>
-        <div className="card-content">
-          {comments.map(comment => {
-            return(
-              <div key={comment._id}>
-                <p><strong>{comment.author}</strong></p>
-                <p>{comment.content}</p>
-              </div>
-            )
-          })}
-        </div>
+        <CrawlMap
+          stops = {this.state.crawl.stops}
+          center={{ lat: 51.5, lng: -0.05}}
+          zoom={10.7}
+        />
+
+        <section className="section">
+          <div className="container">
+            <h1 className="title is-2">{name}</h1>
+            <div>{description}</div>
+            <div><strong>By {creator.username}</strong></div>
+            <div className="card-content">
+              {comments.map(comment => {
+                return(
+                  <div key={comment._id}>
+                    <p><strong>{comment.author}</strong></p>
+                    <p>{comment.content}</p>
+                  </div>
+                )
+              })}
+            </div>
+
+          </div>
+        </section>
       </main>
     )
   }
