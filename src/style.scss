@@ -56,6 +56,14 @@ img {
   flex-direction: row;
 }
 
+.flex-direction2 {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 300px;
+  margin-bottom: 5px;
+}
+
 .center {
   justify-content: center;
   display: flex;
@@ -108,6 +116,12 @@ img {
   margin: 20px;
 }
 
+.user-image-home {
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  background-size: cover;
+}
 // ================================USER SHOW===================================
 
 .user-image {
