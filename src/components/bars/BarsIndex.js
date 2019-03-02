@@ -29,8 +29,6 @@ class BarIndex extends React.Component{
   componentDidMount() {
     axios.get('/api/bars')
       .then(res => this.setState({ bars: res.data }))
-    axios.get(`/api/bars/${this.props.match.params.id}`)
-      .then(res => this.setState({ data: res.data }))
   }
 
   handleChange(data) {

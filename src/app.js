@@ -28,8 +28,8 @@ class App extends React.Component{
               <Route path="/bars/new" component={BarsNew} />
               <Route path="/bars" component={BarsIndex} />
               <Route path="/bars/:id" component={BarsIndex} />
+              <Route path="/crawls/new" component={CrawlNew} />
               <Route path="/crawls/:id" component={CrawlShow} />
-              <Route path="/crawls" component={CrawlNew} />
               <Route path="/users/:id" component={UserShow} />
               <Route path="/register" component={Register} />
               <Route path="/login" component={Login} />
