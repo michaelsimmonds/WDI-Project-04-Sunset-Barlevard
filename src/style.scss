@@ -30,10 +30,7 @@ img {
   height: 100vh;
   background-repeat: no-repeat;
   background-size: cover;
-  background-color: rgba(255, 0, 0, 0.6);
-  // filter: brightness(50%);
-  position: relative;
-  z-index: -20;
+  background-position: center;
 }
 
 .bar-show-div {
