@@ -39,9 +39,9 @@ class Crawl(db.Model, BaseModel):
 
 class CrawlSchema(ma.ModelSchema, BaseSchema):
 
-    creator = fields.Nested('UserSchema', only=('username', 'image'))
+    creator = fields.Nested('UserSchema', only=(['username', 'image']))
     stops = fields.Nested('StopSchema', many=True)
-    comments = fields.Nested('CommentSchema', many=True, exclude=('crawl',))
+    comments = fields.Nested('CommentSchema', many=True, exclude=('crawl'))
 
     class Meta:
         model = Crawl

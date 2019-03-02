@@ -43,7 +43,7 @@ class CrawlShow extends React.Component {
           <div className="container">
             <h1 className="title is-2">{name}</h1>
             <div>{description}</div>
-            <div><strong>By {creator}</strong></div>
+            <div><strong>By {creator.username}</strong></div>
             <div className="card-content">
               {comments.map(comment => {
                 return(

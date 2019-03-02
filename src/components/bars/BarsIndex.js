@@ -19,10 +19,7 @@ class BarIndex extends React.Component{
   }
 
   render(){
-<<<<<<< HEAD
 
-=======
->>>>>>> development
     if(!this.state.bars) return null
     console.log(this.state.bars)
     return(
