@@ -19,6 +19,8 @@ class CrawlShow extends React.Component {
       .then(res => {
         this.setState({ crawl: res.data })
       })
+
+
   }
 
   render(){
