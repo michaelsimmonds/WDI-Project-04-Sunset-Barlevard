@@ -35,21 +35,25 @@ class Home extends React.Component{
         </section>
         <div className="crawls">
           <h1 className="title is-2 center" >Bar Crawls</h1>
-          <div className="center">
-            <div className="columns slider">
-              {this.state.crawls.map(crawl => <div className="column is-centered is-full center" key={crawl._id}>
+          <div className="columns is-multiline center">
 
-                <div className="header-crawl">
-                  <h1 className="title is-4">{crawl.name}</h1>
-                </div>
-                <h2 className="title is-5 center">{crawl.description}</h2>
-                <div style={{backgroundImage: `url(${crawl.stops[0].bar.hero})`}}className="carousel"/>
+            {this.state.crawls.map(crawl => <div key={crawl._id} className="column is-one-fifth margin1">
+              <div className="flex-direction2">
+                <h1 className="title is-6">{crawl.name}</h1>
+                <div style={{backgroundImage: `url(${crawl.creator.image})`}}className="user-image-home"/>
+              </div>
+              <p>@{crawl.creator.username}</p>
 
-              </div>)}
-            </div>
+              <div className="columns slider">
+                {crawl.stops.map(stop => <div className="column is-centered is-full center" key={stop._id}>
+                  <div style={{backgroundImage: `url(${stop.bar.hero})`}}className="carousel"/>
+                </div>)}
+              </div>
+            </div>)}
+
           </div>
-
         </div>
+
       </main>
 
     )

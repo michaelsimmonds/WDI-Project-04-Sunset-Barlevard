@@ -6,9 +6,12 @@ import Register from './components/Auth/Register'
 import Login from './components/Auth/Login'
 import Navbar from './components/common/Navbar'
 import CrawlShow from './components/crawls/CrawlShow'
+import BarsShow from './components/bars/BarsShow'
+import CrawlNew from './components/crawls/CrawlNew'
 import UserShow from './components/Auth/UserShow'
 import BarsIndex from './components/bars/BarsIndex'
 import 'mapbox-gl/dist/mapbox-gl.css'
+import BarsNew from './components/bars/BarsNew'
 import './style.scss'
 import 'bulma'
 
@@ -24,7 +27,13 @@ class App extends React.Component{
           <main>
             <Navbar />
             <Switch>
+              <Route path="/bars/new" component={BarsNew} />
+              <Route path="/bars/:id" component={BarsShow} />
+              <Route path="/bars" component={BarsIndex} />
+              <Route path="/bars/:id" component={BarsIndex} />
+              <Route path="/crawls/new" component={CrawlNew} />
               <Route path="/crawls/:id" component={CrawlShow} />
+              <Route path="/users/:id" component={UserShow} />
               <Route path="/register" component={Register} />
               <Route path="/login" component={Login} />
               <Route path="/" component={Home} />

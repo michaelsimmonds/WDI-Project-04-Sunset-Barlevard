@@ -106,8 +106,8 @@ with app.app_context():
     pub_on_park = Bar(
         name='Pub on the Park',
         address='19 Martello St, London E8 3PE',
-        lat=51.5166773,
-        lng=0.0774967,
+        lat=51.5421,
+        lng=-0.0582,
         terrace=True,
         description='Situated on the very edge of London Fields, "Pub on the Park" have spectacular views across the park, Summer or Winter, and are easily accessible from Hackney Central, London Fields or Haggerston overground and a multitude of buses.',
         hero='http://pubonthepark.com/wp-content/uploads/2016/11/Deck03.jpg',
@@ -208,14 +208,20 @@ with app.app_context():
         creator=mike
     )
 
-    camden_crawl = Crawl(
-        name='Camden Crawl',
-        description='The best crawl ever!',
+    north_crawl = Crawl(
+        name='North Crawl',
+        description='So much fun',
         creator=mike
     )
 
-    shoreditch_crawl = Crawl(
-        name='Shoreditch Crawl',
+    fun_crawl = Crawl(
+        name='Fun Crawl',
+        description='So much fun',
+        creator=mike
+    )
+
+    the_best_crawl = Crawl(
+        name='West Crawl',
         description='So much fun',
         creator=mike
     )
@@ -226,23 +232,27 @@ with app.app_context():
     east_end.stops = [
         Stop(bar=blind_beggar, order=0),
         Stop(bar=royal_oak, order=1),
-        Stop(bar=pub_on_park, order=2),
+        Stop(bar=pub_on_park, order=2)
     ]
     db.session.add(east_end)
 
-    camden_crawl.stops = [
-        Stop(bar=blind_beggar, order=1),
-        Stop(bar=royal_oak, order=0),
-        Stop(bar=pub_on_park, order=2),
+    north_crawl.stops = [
+        Stop(bar=lamb, order=1),
+        Stop(bar=fullback, order=0)
     ]
-    db.session.add(camden_crawl)
+    db.session.add(north_crawl)
 
-    shoreditch_crawl.stops = [
-        Stop(bar=blind_beggar, order=2),
-        Stop(bar=royal_oak, order=1),
-        Stop(bar=pub_on_park, order=0),
+    the_best_crawl.stops = [
+        Stop(bar=franks, order=1),
+        Stop(bar=royal_oak, order=0)
     ]
-    db.session.add(shoreditch_crawl)
+    db.session.add(the_best_crawl)
+
+    fun_crawl.stops = [
+        Stop(bar=discount_suit_company, order=1),
+        Stop(bar=the_culpeper, order=0)
+    ]
+    db.session.add(fun_crawl)
 
 ############## COMMENTS ###########################
 

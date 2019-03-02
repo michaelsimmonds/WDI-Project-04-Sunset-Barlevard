@@ -20,16 +20,33 @@ figure.image {
 }
 
 
-.darken {
-  background-image:
-    linear-gradient(
-      rgba(0, 0, 0, 0.5),
-      rgba(0, 0, 0, 0.5)
-    );
-}
 img {
   margin: 20px;
 }
+
+// .tinted {
+//   filter: brightness(50%);
+// }
+
+.bar-show-img {
+  height: 100vh;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+.bar-show-div {
+  padding: 10px 0;
+}
+
+// #show {
+//   color: white;
+//   z-index: 250;
+//   position: absolute;
+//   font-weight: 800;
+// }
+
+// ===============================CRAWL INDEX===================================
 
 .header-crawl {
   justify-content: center;
@@ -39,6 +56,14 @@ img {
 .flex-direction {
   display: flex;
   flex-direction: row;
+}
+
+.flex-direction2 {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 300px;
+  margin-bottom: 5px;
 }
 
 .center {
@@ -56,11 +81,12 @@ img {
   align-items: center;
   overflow-x: scroll;
   -webkit-overflow-scrolling: touch;
-  width: 60%;
+  width: 150%;
 }
 
 .carousel {
-  height: 500px;
+  height: 300px;
+  width: 300px;
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
@@ -87,6 +113,18 @@ img {
 .margin {
   margin-bottom: 20px;
 }
+
+.margin1 {
+  margin: 20px;
+}
+
+.user-image-home {
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  background-size: cover;
+}
+// ================================USER SHOW===================================
 
 .user-image {
   height: 300px;
