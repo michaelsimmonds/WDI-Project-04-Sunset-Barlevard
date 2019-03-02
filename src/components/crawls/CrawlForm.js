@@ -1,12 +1,7 @@
 import React from 'react'
 import Select from 'react-select'
 
-const options = [
-  { value: 'jujus', label: 'Jujus' },
-  { value: 'theculpeper', label: 'The Culpeper' }
-]
-
-const CrawlForm = ({ data, handleChange, handleSubmit, handleSelect, handleSelectChange, selectOption }) => {
+const CrawlForm = ({ data, handleChange, handleSubmit, handleSelect, listOfBars }) => {
   console.log(data)
   return(
     <div className="columns">
@@ -43,10 +38,8 @@ const CrawlForm = ({ data, handleChange, handleSubmit, handleSelect, handleSelec
           <div className="field">
             <label className="label">Add bars</label>
             <Select
-              value={selectOption}
-              onChange={handleSelectChange}
+              value={listOfBars}
               onSelect={handleSelect}
-              options={options}
               isMulti
             />
           </div>

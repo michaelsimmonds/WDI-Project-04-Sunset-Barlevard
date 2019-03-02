@@ -15,16 +15,14 @@ class CrawlNew extends React.Component{
       bars: [],
       data: {
         name: '',
-        description: ''
-      },
-      selectOption: []
-
+        description: '',
+        listOfBars: []
+      }
     }
 
     this.handleSubmit = this.handleSubmit.bind(this)
     this.handleChange = this.handleChange.bind(this)
 
-    this.handleSelectChange = this.handleSelectChange.bind(this)
     this.handleSelect = this.handleSelect.bind(this)
 
   }
@@ -50,14 +48,10 @@ class CrawlNew extends React.Component{
   }
 
   //=====================REACT SELECT======================
-  handleSelectChange(selectOption) {
-    this.setState({ selectOption })
-    console.log('Option selected:', selectOption)
-  }
 
   handleSelect(e){
     const listOfBars = (e.map(select => select.value))
-    const data = { ...this.state.selectOption, listOfBars }
+    const data = { ...this.state.data, listOfBars }
     this.setState({ data })
   }
 
@@ -69,6 +63,7 @@ class CrawlNew extends React.Component{
             data={this.state.data}
             handleChange={this.handleChange}
             handleSubmit={this.handleSubmit}
+            handleSelect={this.handleSelect}
           />
 
         </div>
