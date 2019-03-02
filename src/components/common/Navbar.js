@@ -16,7 +16,7 @@ class Navbar extends React.Component {
     // this.handleItemClick = this.handleItemClick.bind(this)
     this.toggleNavbar = this.toggleNavbar.bind(this)
     this.logout = this.logout.bind(this)
-    // this.myProfile = this.myProfile.bind(this)
+    this.myProfile = this.myProfile.bind(this)
   }
 
   toggleNavbar() {
@@ -29,9 +29,9 @@ class Navbar extends React.Component {
   //   if(name === 'My Profile')this.props.history.push(`/users/${Auth.getUserID()}`)
   // }
 
-  // myProfile(){
-  //   this.props.history.push(`/users/${Auth.getUserID()}`)
-  // }
+  myProfile(){
+    this.props.history.push(`/users/${Auth.getUserID()}`)
+  }
 
   logout() {
     Auth.removeToken()
@@ -52,8 +52,9 @@ class Navbar extends React.Component {
             <Link className="navbar-item" to="/">
               <strong>Home</strong>
             </Link>
+
             <Link className="navbar-item" to="/bars">
-              <strong>Add a Crawl</strong>
+              <strong>Add a crawl</strong>
             </Link>
 
             <a
@@ -70,7 +71,7 @@ class Navbar extends React.Component {
               {!Auth.isAuthenticated() && <Link className="navbar-item" to="/register">Register</Link>}
               {!Auth.isAuthenticated() && <Link className="navbar-item" to="/login">Login</Link>}
               {Auth.isAuthenticated() && <a className="navbar-item" onClick={this.logout}>Logout</a>}
-              {Auth.isAuthenticated() && <Link to={`/users/${Auth.getUserID}`} className="navbar-item">My Profile</Link>}
+              {Auth.isAuthenticated() && <Link to={'/users/' + Auth.getUserID()} className="navbar-item">My Profile</Link>}
             </div>
           </div>
         </div>

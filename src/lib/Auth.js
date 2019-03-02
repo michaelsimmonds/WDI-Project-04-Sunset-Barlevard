@@ -23,6 +23,10 @@ class Auth {
     }
   }
 
+  static getUserID(){
+    return this.getPayload().sub
+  }
+
   static isAuthenticated() {
     const payload = this.getPayload()
     if(!payload) return false
