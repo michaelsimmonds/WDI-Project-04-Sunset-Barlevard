@@ -13,7 +13,7 @@ import BarsIndex from './components/bars/BarsIndex'
 import 'mapbox-gl/dist/mapbox-gl.css'
 import BarsNew from './components/bars/BarsNew'
 import './style.scss'
-import 'bulma'
+//import 'bulma'
 
 class App extends React.Component{
   constructor(){

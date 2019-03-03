@@ -64,17 +64,36 @@ class CrawlShow extends React.Component {
         <section className="section">
           <div className="container">
             <h1 className="title is-2">{name}</h1>
-            <div>{description}</div>
-            <div><strong>By {creator.username}</strong></div>
-
+            <article className="media">
+              <div className="media-left">
+                <figure className="image is-64x64 is-rounded">
+                  <img src={creator.image} alt={creator.username} />
+                </figure>
+                <div className="media-content">
+                  <div className="content"><strong>By {creator.username}</strong></div>
+                  {description}
+                </div>
+              </div>
+            </article>
 
             <div className="card-content">
               {comments.map(comment => {
+                console.log('COMMENT AUTHOR', comment.author)
                 return(
-                  <div key={comment._id}>
-                    <p><strong>{comment.author}</strong></p>
-                    <p>{comment.content}</p>
+                  <div className="box" key={comment._id}>
+                    <article className="media>">
+                      <div className="media-left">
+                      </div>
+                      <p><strong>{comment.author}</strong></p>
+                      <p>{comment.content}</p>
+
+                    </article>
                   </div>
+
+
+
+
+
                 )
               })}
             </div>

@@ -8,24 +8,15 @@ const CrawlSlider = ({ stops }) => {
     <section className="crawl-display">
       <div className="columns slider">
         {stops.map(stop => <div key={stop._id}>
-          <h3>{stop.bar.name} | {stop.bar.address}</h3>
           <div
             Link to={`bars/${stop._id}`}
             style={{backgroundImage: `url(${stop.bar.hero})`}}
-            className="slider-carousel" />
+            className="slider-image" />
+          <div className="slider-captions is-primary"><h3 className="title is-5 is-warning  center">{stop.bar.name} | {stop.bar.address}</h3></div>
         </div>)}
       </div>
 
 
-
-
-
-      <div className="items">
-        {stops.map(stop => <div key={stop._id}>
-          <div href={`bars/${stop._id}`} style={{backgroundImage: `url(${stop.bar.hero})`}}className="item"/>
-
-        </div>)}
-      </div>
     </section>
   )
 }
