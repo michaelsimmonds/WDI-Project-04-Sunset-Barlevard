@@ -1,4 +1,7 @@
-$bar: yellow;
+@charset "utf-8";
+@import url('https://fonts.googleapis.com/css?family=Open+Sans');
+$warning: #fada5e;
+@import "~bulma/bulma";
 
 .text-overlay {
   width: 100%;
@@ -90,6 +93,9 @@ img {
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
+  &:hover {
+    cursor: pointer;
+  }
 }
 
 .created-crawls {
@@ -100,10 +106,6 @@ img {
 
 .crawls {
   margin: 20px;
-}
-
-.carousel:hover {
-  cursor: pointer;
 }
 
 .hero {
@@ -144,7 +146,7 @@ img {
 .map {
   height: 50vh;
   @media screen and (max-width: 650px) {
-    height:30vh;
+    height:70vh;
   }
 }
 
@@ -160,3 +162,60 @@ img {
   }
 
 //===========CRAWL SLIDER =======
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+.slider-carousel {
+  height: 700px;
+  width: 1100px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.crawl-display {
+  height: 700px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &.items {
+    height: 400px;
+    padding: 100px;
+    width: 100%;
+    border: 1px solid white;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    white-space: nowrap;
+    user-select: none;
+    cursor: pointer;
+    transition: all 0.2s;
+    transform: scale(0.98);
+    will-change: transform;
+    position: relative;
+    background: rgba(255,255,255,0.1);
+    font-size: 0;
+    perspective: 500px;
+    &.active {
+      background: rgba(255,255,255,0.3);
+      cursor: grabbing;
+      cursor: -webkit-grabbing;
+      transform: scale(1);
+    }
+    &.item {
+      width: 200px;
+      height: calc(100% - 40px);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 80px;
+      font-weight: 100;
+      color: rgba(0,0,0,0.15);
+      box-shadow: inset 0 0 0 10px rgba(0,0,0,0.15);
+    }
+  }
+}

@@ -2,6 +2,7 @@ import React from 'react'
 //import { Link } from 'react-router-dom'
 import axios from 'axios'
 import CrawlMap from './CrawlMap'
+import CrawlSlider from './CrawlSlider'
 
 class CrawlShow extends React.Component {
   constructor() {
@@ -56,6 +57,10 @@ class CrawlShow extends React.Component {
           zoom={12.0}
         />
 
+        <CrawlSlider
+          stops = {this.state.crawl.stops}
+        />
+
         <section className="section">
           <div className="container">
             <h1 className="title is-2">{name}</h1>
@@ -63,8 +68,6 @@ class CrawlShow extends React.Component {
             <div><strong>By {creator.username}</strong></div>
 
 
-
-            
             <div className="card-content">
               {comments.map(comment => {
                 return(
