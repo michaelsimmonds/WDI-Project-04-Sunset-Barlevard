@@ -5089,6 +5089,13 @@ react-dom@^16.8.3:
     prop-types "^15.6.2"
     scheduler "^0.13.3"
 
+react-hover-image@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/react-hover-image/-/react-hover-image-1.0.0.tgz#747c4f3c96f590d4feb6def29c917544651a16ec"
+  integrity sha512-DKoY1gshcwARufcgmgMYnSbxbErgLYIm2qw/zwm4csSVuTG4Dh4RVlZAzirxDgtLrIvGGDd9XmJ2JtLxgQ/ccQ==
+  dependencies:
+    prop-types "^15.6.0"
+
 react-input-autosize@^2.2.1:
   version "2.2.1"
   resolved "https://registry.yarnpkg.com/react-input-autosize/-/react-input-autosize-2.2.1.tgz#ec428fa15b1592994fb5f9aa15bb1eb6baf420f8"

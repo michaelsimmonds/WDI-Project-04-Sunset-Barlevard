@@ -1,7 +1,7 @@
 import React from 'react'
 import Select from 'react-select'
 
-const CrawlForm = ({ data, handleChange, handleFormChange, handleSubmit, bars, stops }) => {
+const CrawlForm = ({ data, handleChange, getCrawl, handleSubmit }) => {
   console.log('data.name', data.name)
   console.log('data.stops', data.stops)
   return(
@@ -36,27 +36,10 @@ const CrawlForm = ({ data, handleChange, handleFormChange, handleSubmit, bars, s
             </div>
           </div>
 
-          <div className="field">
-            <label className="label">Add bars</label>
-
-            <div className="control">
-              <div className="select">
-                <select
-                  onChange={handleChange}
-                  name="stops">
-                  {bars.map(bar => <option
-                    key={bar._id}
-                    value={JSON.stringify(bar)}
-                  > {bar.name} </option>)}
-                </select>
-              </div>
-            </div>
-          </div>
-
           <div className="columns add-place">
 
             <div className="column is-5">
-              <button className="button">Submit</button>
+              <button className="button">Next</button>
             </div>
 
           </div>
@@ -65,6 +48,23 @@ const CrawlForm = ({ data, handleChange, handleFormChange, handleSubmit, bars, s
     </div>
   )
 }
+
+// <div className="field">
+//   <label className="label">Add bars</label>
+//
+//   <div className="control">
+//     <div className="select">
+//       <select
+//         onChange={handleChange}
+//         name="stops">
+//         {bars.map(bar => <option
+//           key={bar._id}
+//           value={JSON.stringify(bar)}
+//         > {bar.name} </option>)}
+//       </select>
+//     </div>
+//   </div>
+// </div>
 
 // <Select
 //   isMulti

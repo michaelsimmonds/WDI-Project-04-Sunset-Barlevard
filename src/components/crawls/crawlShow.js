@@ -1,7 +1,9 @@
 import React from 'react'
-//import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import axios from 'axios'
 import CrawlMap from './CrawlMap'
+import Auth from '../../lib/Auth'
+
 
 class CrawlShow extends React.Component {
   constructor() {
@@ -12,6 +14,7 @@ class CrawlShow extends React.Component {
     }
 
     //binds here
+    this.handleSubmit = this.handleSubmit.bind(this)
   }
 
   componentDidMount() {
@@ -19,13 +22,21 @@ class CrawlShow extends React.Component {
       .then(res => {
         this.setState({ crawl: res.data })
       })
+    axios.get('/api/bars')
+      .then(res => this.setState({ bars: res.data }))
+  }
 
-
+  handleSubmit(e) {
+    e.preventDefault()
+    axios
+      .get('/api/bars', this.state.data,
+        { headers: {Authorization: `Bearer ${Auth.getToken()}`}})
+      .catch(err => alert(err.message))
   }
 
   render(){
     if (!this.state.crawl) return null
-    console.log(this.state.crawl)
+    console.log('crawl', this.state.crawl)
     const {
       comments,
       creator,
@@ -56,7 +67,7 @@ class CrawlShow extends React.Component {
                 )
               })}
             </div>
-
+            <Link to={`/crawls/${id}/bars`}><button className="button">Add Bars</button></Link>
           </div>
         </section>
       </main>

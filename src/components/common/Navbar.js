@@ -50,15 +50,15 @@ class Navbar extends React.Component {
           <div className="navbar-brand">
 
             <Link className="navbar-item" to="/">
-              <strong>Home</strong>
+              Home
             </Link>
 
             <Link className="navbar-item" to="/bars">
-              <strong>Bars</strong>
+              Bars
             </Link>
 
             <Link className="navbar-item" to="/crawls/new">
-              <strong>Add a crawl</strong>
+              Add a crawl
             </Link>
 
             <a
