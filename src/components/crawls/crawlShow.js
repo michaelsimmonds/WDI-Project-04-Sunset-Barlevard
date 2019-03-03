@@ -70,7 +70,9 @@ class CrawlShow extends React.Component {
                   <img src={creator.image} alt={creator.username} />
                 </figure>
                 <div className="media-content">
-                  <div className="content"><strong>By {creator.username}</strong></div>
+                  <div className="content">
+                    <strong>By {creator.username}</strong>
+                  </div>
                   {description}
                 </div>
               </div>
