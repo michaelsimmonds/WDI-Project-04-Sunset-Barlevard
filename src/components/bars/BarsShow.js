@@ -1,6 +1,5 @@
 import React from 'react'
 import axios from 'axios'
-import mapboxgl from 'mapbox-gl'
 
 import BarMap from './BarMap'
 
@@ -18,12 +17,9 @@ class BarsShow extends React.Component{
       .then(res => this.setState({ bars: res.data }))
   }
 
-
   render() {
 
     if(!this.state.bars) return null
-    console.log(this.state.bars)
-    console.log(this.props)
     const { name, hero, description, address } = this.state.bars
     return(
       <section className='tinted bar-show-img' style={{ backgroundImage: `url(${hero})`}} >

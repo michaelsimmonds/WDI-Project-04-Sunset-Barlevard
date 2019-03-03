@@ -1,4 +1,10 @@
 {
+  "name": "wdi-project-04",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:laceswingybethler/wdi-project-04.git",
+  "author": "byemane <beteyemane@hotmail.co.uk>",
+  "license": "MIT",
   "scripts": {
     "start": "node index",
     "serve": "webpack-dev-server --mode=development",
@@ -10,6 +16,7 @@
     "@babel/core": "^7.3.4",
     "@babel/preset-env": "^7.3.4",
     "@babel/preset-react": "^7.0.0",
+    "@babel/register": "^7.0.0",
     "@mapbox/react-click-to-select": "^2.2.0",
     "axios": "^0.18.0",
     "babel-loader": "^8.0.5",
@@ -33,12 +40,13 @@
     "webpack-cli": "^3.2.3"
   },
   "devDependencies": {
+    "chai": "^4.2.0",
+    "enzyme": "^3.9.0",
+    "enzyme-adapter-react-16": "^1.10.0",
+    "ignore-styles": "^5.0.1",
+    "jsdom": "^13.2.0",
+    "mocha": "^6.0.2",
+    "sinon": "^7.2.6",
     "webpack-dev-server": "^3.2.1"
-  },
-  "name": "wdi-project-04",
-  "version": "1.0.0",
-  "main": "index.js",
-  "repository": "git@github.com:laceswingybethler/wdi-project-04.git",
-  "author": "byemane <beteyemane@hotmail.co.uk>",
-  "license": "MIT"
+  }
 }
