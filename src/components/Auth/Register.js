@@ -1,5 +1,6 @@
 import React from 'react'
 import axios from 'axios'
+import ReactFilestack from 'filestack-react'
 
 class Register extends React.Component{
   constructor(){
@@ -11,7 +12,8 @@ class Register extends React.Component{
         email: '',
         password: '',
         password_confirmation: '',
-        bio: ''
+        bio: '',
+        image: ''
       }
     }
 
@@ -19,8 +21,8 @@ class Register extends React.Component{
     this.handleSubmit = this.handleSubmit.bind(this)
   }
 
-  handleChange({target: {name, value }}) {
-    const data = {...this.state.data, [name]: value }
+  handleChange({ target: { name, value }}) {
+    const data = {...this.state.data, [name]: value}
     this.setState({ data })
   }
 
@@ -99,6 +101,28 @@ class Register extends React.Component{
                   </span>
                 </p>
               </div>
+
+              <div className="field">
+                <p className="control has-icons-left">
+
+                  <div>
+                    <ReactFilestack
+                      apikey={ `${process.env.FILESTACK_API_KEY}` }
+                      mode={'pick'}
+                      onSuccess={(res) => handleChange({
+                        target: {
+                          name: 'image',
+                          value: res.filesUploaded[0].url
+                        }})}
+                      onError={(e) => console.log(e)}
+                      buttonText={'Add an Image'}
+                      buttonClass={'button is-square'}
+                    />
+                  </div>
+
+                </p>
+              </div>
+
               <div className="field">
                 <p className="control">
                   <button className="button is-success">

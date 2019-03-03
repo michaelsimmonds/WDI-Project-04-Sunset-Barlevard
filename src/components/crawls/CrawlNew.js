@@ -4,9 +4,6 @@ import Auth from '../../lib/Auth'
 import CrawlForm from './CrawlForm'
 import BarCard from '../bars/BarCard.js'
 
-
-
-
 class CrawlNew extends React.Component{
   constructor(){
     super()
@@ -16,14 +13,14 @@ class CrawlNew extends React.Component{
       data: {
         name: '',
         description: '',
-        listOfBars: []
+        stops: []
       }
     }
 
     this.handleSubmit = this.handleSubmit.bind(this)
     this.handleChange = this.handleChange.bind(this)
 
-    this.handleSelect = this.handleSelect.bind(this)
+    this.handleSelectChange = this.handleSelectChange.bind(this)
 
   }
 
@@ -33,10 +30,11 @@ class CrawlNew extends React.Component{
   }
 
   handleChange({ target: { name, value }}) {
-    console.log(this.state.data)
     const data = {...this.state.data, [name]: value}
     this.setState({ data })
   }
+
+
 
   handleSubmit(e) {
     e.preventDefault()
@@ -49,21 +47,22 @@ class CrawlNew extends React.Component{
 
   //=====================REACT SELECT======================
 
-  handleSelect(e){
-    const listOfBars = (e.map(select => select.value))
-    const data = { ...this.state.data, listOfBars }
-    this.setState({ data })
+  handleSelectChange(stops) {
+    this.setState({ stops })
   }
 
   render() {
+    console.log(this.state.data)
     return (
       <main className="section">
         <div className="container">
           <CrawlForm
             data={this.state.data}
             handleChange={this.handleChange}
+            handleFormChange={this.handleFormChange}
             handleSubmit={this.handleSubmit}
             handleSelect={this.handleSelect}
+            bars={this.state.bars}
           />
 
         </div>
