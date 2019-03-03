@@ -128,6 +128,7 @@ img {
   background-image: linear-gradient(to bottom right, rgba(0, 0, 0, .9), rgba(0, 0, 0, .6)), url('https://cdn-image.travelandleisure.com/sites/default/files/styles/1600x1000/public/1511276981/the-roof-at-public-hotel-new-york-city-ROOF1117.jpg?itok=4PTTAf3C');
   background-repeat: no-repeat;
   background-size: cover;
+  background-attachment: fixed;
 }
 
 .sunset {
@@ -148,6 +149,19 @@ hr.thin {
   height: 500px;
   justify-content: center;
   display: flex;
+}
+
+.uploaded-user {
+  width: 1310px;
+  justify-content: space-around;
+  display: flex;
+  margin: 0;
+}
+
+.inline {
+  margin: 0 !important;
+  display: flex !important;
+  align-items: center !important;
 }
 
 //===============================overlay========================================
@@ -247,7 +261,6 @@ hr.thin {
 .fadeIn-bottom{
   top: 80%;
 }
-
 
 // ================================USER SHOW===================================
 

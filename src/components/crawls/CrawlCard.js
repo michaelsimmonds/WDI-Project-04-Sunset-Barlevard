@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import HoverImage from 'react-hover-image'
 
 
-const CrawlCard = ({ name, stops, id, creator }) => {
+const CrawlCard = ({ name, stops, id, creator, date }) => {
   return(
     <div>
       <div className="header-crawl">
@@ -11,17 +11,22 @@ const CrawlCard = ({ name, stops, id, creator }) => {
           <h1 className="title is-2">{name}</h1>
         </Link>
       </div>
-      <div style={{backgroundImage: `url(${creator.image})`}}className="user-image-home"/>
-      <p>@{creator.username}</p>
+      <div className="header-crawl">
+
+        <h1 className="title is-6">{date}</h1>
+      </div>
+      <div className="uploaded-user">
+        <h1 className="title is-6 inline">Created by:</h1>
+        <div className="image-username">
+          <div style={{backgroundImage: `url(${creator.image})`}}className="user-image-home"/>
+        </div>
+      </div>
       <div className="center">
         <div className="columns slider">
-
-
 
           {stops.map(stop => <div className="column is-centered is-full center" key={stop._id}>
             <div className="container2">
               <div className="content">
-
                 <div className="content-overlay"></div>
                 <div style={{backgroundImage: `url(${stop.bar.hero})`}}className="carousel"/>
 

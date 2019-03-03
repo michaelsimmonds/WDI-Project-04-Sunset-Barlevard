@@ -24,7 +24,7 @@ class Home extends React.Component{
     console.log(this.state.crawls)
     return(
       <main>
-        <section className="hero is-medium background">
+        <section className="hero is-large background">
           <div className="hero-body">
             <div className="container has-text-centered">
               <h1 className="title sunset level-item">
@@ -37,7 +37,8 @@ class Home extends React.Component{
         </section>
         {this.state.crawls.map(crawl => <div key={crawl._id} className="hero-body">
           <CrawlCard {...crawl} />
-        </div>)}
+        </div>
+        )}
       </main>
 
     )
