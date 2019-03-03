@@ -139,6 +139,18 @@ with app.app_context():
     )
     db.session.add(grapes)
 
+    whitby = Bar(
+        name='Prospect of Whitby',
+        address='57 Wapping Wall, St Katharine''s & Wapping, London E1W 3SH',
+        lat=51.5070813,
+        lng=-0.0533257,
+        terrace=False,
+        description='One of London''s most famous pubs, and supposedly our city''s oldest riverside inn. With a pedigree stretching back to 1520, it was already getting on a bit when Shakespeare first came to town. You''ll fall in love with the pewter-topped bar and creaky wooden interior, all rebuilt following a fire in Victorian times and a further refit in the 1950s, though some of the flagstones are reckoned to be centuries old. The drinking terrace out back is one of the most sought-after spots on a warm summer''s day, and an upstairs room adds extra, oft-needed capacity.',
+        hero='https://s3-us-west-2.amazonaws.com/voicemap.me/public/routes/images/000/000/137/original/prospect-of-whitby.jpg',
+        location='East'
+    )
+    db.session.add(whitby)
+
     franks = Bar(
         name='Frank''s',
         address='Bold Tendencies, 7th-10th Floor Multi Storey Car Park, 95A Rye Ln, London SE15 4ST',
@@ -238,8 +250,21 @@ with app.app_context():
         creator=mike
     )
 
+    history_crawl = Crawl(
+        name='Historic Bar Crawl',
+        description='Start off this crawl by having a couple of beers over looking the Thames at the one of the oldest pubs in London, The Grapes. Charles Dickens was a patron, and even made reference to the pub in his novel Our Mutual Friend. Take a stroll along the river to the Prospect of Whitby,the hostelry of choice of "Hanging" Judge Jeffreys, scourge of the Monmouth Rebellion. He lived nearby and a replica gallows and noose hangs by the Thameside window, commemorating his custom. According to legend, criminals would be tied up to the posts at low tide and left there to drown when the tide came in. Views from the pub were sketched by both Turner and Whistler, the writers Charles Dickens and Samuel Pepys are known to have paused to sup here. Next head from the river towards the Blind Beggar, site of the notorious Kray murder in 70s and the location of William Booth''s first sermon, which led to the creation of the Salvation Army. Finally end up at the Royal Oak, another Kray twin haunt situated next to London''s best known flower market.',
+        creator=mike
+    )
+
 
 ############### STOPS ############################
+
+    history_crawl.stops = [
+        Stop(bar=grapes, order=0),
+        Stop(bar=whitby, order=1),
+        Stop(bar=blind_beggar, order=2),
+        Stop(bar=royal_oak, order=3)
+    ]
 
     east_end.stops = [
         Stop(bar=blind_beggar, order=0),

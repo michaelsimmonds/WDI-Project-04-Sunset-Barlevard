@@ -116,9 +116,9 @@ def weather():
     with forecast('7d2183fa19a468be72c3c07bbff11b19', *LONDON) as london:
         for day in london.daily:
             day = dict(day=date.strftime(weekday, '%a'),
-                       sum=day.summary,
-                       tempMin=day.temperatureMin,
-                       tempMax=day.temperatureMax
-                       )
-            return london.daily.summary
+                        sum=day.summary,
+                        tempMin=day.temperatureMin,
+                        tempMax=day.temperatureMax
+                        )
+            return london.hourly.summary
             # return ('{day}: {sum} Temp range: {tempMin} - {tempMax}'.format(**day))
