@@ -19,8 +19,11 @@ class BarIndex extends React.Component{
   }
 
   render(){
+
     if(!this.state.bars) return null
+    console.log(this.state.bars)
     return(
+
       <section className="section">
         <h2 className="title is-1 has-text-centered">Discover our Bars and Pubs</h2>
         <div className="is-full-width">

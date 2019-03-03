@@ -94,8 +94,8 @@ with app.app_context():
     blind_beggar = Bar(
         name='The Blind Beggar',
         address='337 Whitechapel Rd, London E1 1BU',
-        lat=51.3112,
-        lng=0.0325,
+        lat=51.5199795,
+        lng=-0.056891,
         terrace=True,
         description='This famous pub is where Ronnie Kray murdered George Cornell in front of witnesses, is the location of William Booth''s first sermon, which led to the creation of the Salvation Army, and was the nearest outlet (or brewery tap) for the Manns Albion brewery, where the first modern Brown Ale was brewed',
         hero='https://www.traveldarkly.com/wp-content/uploads/2016/09/Kray-Twins-Gangsters-Blind-Beggar-Pub-Whitechapel-1030x687.jpg',
@@ -106,8 +106,8 @@ with app.app_context():
     pub_on_park = Bar(
         name='Pub on the Park',
         address='19 Martello St, London E8 3PE',
-        lat=51.5166773,
-        lng=0.0774967,
+        lat=51.5421,
+        lng=-0.0582,
         terrace=True,
         description='Situated on the very edge of London Fields, "Pub on the Park" have spectacular views across the park, Summer or Winter, and are easily accessible from Hackney Central, London Fields or Haggerston overground and a multitude of buses.',
         hero='http://pubonthepark.com/wp-content/uploads/2016/11/Deck03.jpg',
@@ -118,8 +118,8 @@ with app.app_context():
     royal_oak = Bar(
         name='The Royal Oak',
         address='73 Columbia Rd, London E2 7RG',
-        lat=51.5295,
-        lng=0.0693,
+        lat=51.516706,
+        lng=-0.0928176,
         terrace=False,
         description='You might just recognise this pub off the telly - it has featured in the Kray''s film, sitcom Good Night Sweetheart and even Blue Peter. The look - like something straight out of the 1940s - hasn''t been diminished by any number of refits in the intervening years either. This former gay pub has been transformed into yet another excellent gastropub with more table space in the dining room upstairs',
         hero='https://cdn.vox-cdn.com/uploads/chorus_image/image/62580024/Royal_Oak_Official.0.0.jpg',
@@ -204,7 +204,7 @@ with app.app_context():
 
     east_end = Crawl(
         name='East End Crawl',
-        description='Tour of the seven wonders of the East End',
+        description='A tour of the seven wonders of the East End. Perfect for old-timers as well as those new to the area - great way to meet some locals if you\'ve just moved to East London!',
         creator=mike
     )
 

@@ -27,26 +27,24 @@ const BarForm = ({ data, handleChange, handleSubmit, suggestionSelect }) => {
           <div className="field">
             <label className="label">Terrace</label>
             <div className="control">
-              <input
-                className="input"
-                placeholder="Does this bar have a terrace/outside space??"
-                name="terrace"
-                onChange={handleChange}
-                value={data.terrace}
-              />
+              <select className="input" name="terrace" onChange={handleChange} value={data.terrace}>
+                <option value=""></option>
+                <option value="true">Yes! This place has a terrace or nice outside area!</option>
+                <option value="false">No- this is not the best place for sunny days</option>
+              </select>
             </div>
           </div>
 
           <div className="field"> {/* Chanage this to select */}
-            <label className="label">Area</label>
+            <label className="label">Area of London</label>
             <div className="control">
-              <input
-                className="input"
-                placeholder="Change this to select"
-                name="location"
-                onChange={handleChange}
-                value={data.location}
-              />
+              <select className="input" name="location" onChange={handleChange} value={data.location}>
+                <option value=""></option>
+                <option value="north">North</option>
+                <option value="south">South</option>
+                <option value="east">East</option>
+                <option value="west">West</option>
+              </select>
             </div>
           </div>
 
@@ -81,7 +79,7 @@ const BarForm = ({ data, handleChange, handleSubmit, suggestionSelect }) => {
             <div className="control">
               <MapboxAutocomplete
                 publicKey={process.env.MAPBOX_KEY}
-                inputClass='form-control search'
+                inputClass='form-control search input'
                 onSuggestionSelect={suggestionSelect}
                 resetSearch={false}
                 name="address"
