@@ -82,8 +82,8 @@ with app.app_context():
     discount_suit_company = Bar(
         name='Discount Suit Company',
         address='29 Wentworth St, London E1 7TB',
-        lat=51.5166773,
-        lng=0.0774967,
+        lat=51.516674,
+        lng=-0.0774967,
         terrace=False,
         description='Discount Suit cocktail bar is situated moments from Spitalfields Market and Liverpool Street station. We are also in close walking distance of Brick Lane and Shoreditch. The bar focuses on great cocktails with traditional methods and forgotten classic recipes.',
         hero='https://media.drinkup.london/images/media/ee1389b8c9aa727653a90069dfed9e3c.jpg',
@@ -94,8 +94,8 @@ with app.app_context():
     blind_beggar = Bar(
         name='The Blind Beggar',
         address='337 Whitechapel Rd, London E1 1BU',
-        lat=51.3112,
-        lng=0.0325,
+        lat=51.5199828,
+        lng=-0.0590797,
         terrace=True,
         description='This famous pub is where Ronnie Kray murdered George Cornell in front of witnesses, is the location of William Booth''s first sermon, which led to the creation of the Salvation Army, and was the nearest outlet (or brewery tap) for the Manns Albion brewery, where the first modern Brown Ale was brewed',
         hero='https://www.traveldarkly.com/wp-content/uploads/2016/09/Kray-Twins-Gangsters-Blind-Beggar-Pub-Whitechapel-1030x687.jpg',
@@ -118,14 +118,26 @@ with app.app_context():
     royal_oak = Bar(
         name='The Royal Oak',
         address='73 Columbia Rd, London E2 7RG',
-        lat=51.5295,
-        lng=0.0693,
+        lat=51.5295501,
+        lng=-0.0714865,
         terrace=False,
         description='You might just recognise this pub off the telly - it has featured in the Kray''s film, sitcom Good Night Sweetheart and even Blue Peter. The look - like something straight out of the 1940s - hasn''t been diminished by any number of refits in the intervening years either. This former gay pub has been transformed into yet another excellent gastropub with more table space in the dining room upstairs',
         hero='https://cdn.vox-cdn.com/uploads/chorus_image/image/62580024/Royal_Oak_Official.0.0.jpg',
         location='East'
     )
     db.session.add(royal_oak)
+
+    grapes = Bar(
+        name='The Grapes',
+        address='76 Narrow Street,London, E14 8BP',
+        lat=51.5092305,
+        lng=-0.0396032,
+        terrace=False,
+        description='Overlooking the Thames, in a peaceful neighbourhood not that far from the bustle of Canary Wharf, The Grapes is one of the oldest pubs in London. Charles Dickens was a patron, and even made reference to the pub in his novel ''Our Mutual Friend''. Leaseholder Ian McKellen has written a brief history, here, should you wish to find out more. They also offer an excellent pub quiz on Monday Nights',
+        hero='https://cdn2.wanderlust.co.uk/media/2302/blogs-a-drinkers-guide-to-londons-oldest-pubs.jpg',
+        location='East'
+    )
+    db.session.add(grapes)
 
     franks = Bar(
         name='Frank''s',
@@ -142,8 +154,8 @@ with app.app_context():
     springs = Bar(
         name='Peckham Springs',
         address='4-5 Dovedale Trading Estate, London SE15 4QN',
-        lat=51.4697,
-        lng=0.0701,
+        lat=51.4697347,
+        lng=-0.0718385,
         terrace=False,
         description='Part-gallery, part-bar, you''ll find Peckham Springs — yes, the name is inspired by Del Boy''s infamous back garden water business — in the shadow of Peckham Rye Station, under the arches by Bar Story. It started as a summer pop-up but is now staying open all year round on Fridays and Saturdays.',
         hero='https://hirespace.imgix.net/spaces/165475/m5kxuyg5elq.jpg?h=600&w=1200&auto=format&fit=crop&q=40',
@@ -154,8 +166,8 @@ with app.app_context():
     fullback = Bar(
         name='The Faltering Fullback',
         address='19 Perth Rd, Stroud Green, London N4 3HB',
-        lat=51.5685,
-        lng=0.1082,
+        lat=51.5684843,
+        lng=-0.1103997,
         terrace=True,
         description='Hidden away on the leafy avenue of Perth Road, tucked behind Finsbury Park, you''ll find this charming, well loved Irish pub. Come down, grab a pint and your own corner in the amazing garden, in front of the big screen sports, or by the bar. Wile away your day contemplating the ceiling inspiration, challenge your brain in our hugely popular quiz, or party with pals till late on Fridays and Saturdays.',
         hero='http://irishtrad.org/wp-content/uploads/2018/02/Faltering-Fullback.jpg',
@@ -166,8 +178,8 @@ with app.app_context():
     lamb = Bar(
         name='The Lamb',
         address='54 Holloway Rd, Highbury East, London N7 8JL',
-        lat=51.5488,
-        lng=0.1069,
+        lat=51.5484587,
+        lng=-0.1090147,
         terrace=False,
         description='Purpose built as a boozer in the 1870s, The Lamb opened in its current incarnation in February 2012. We’re a completely independent pub and specialise in local beers from the likes of Five Points, Howling Hops, Signature Brew, By The Horns, Hammerton, Hackney Brewery etc - we have 12 keg lines and 3 cask lines!  There is also a pretty good range of wines and spirits.  Formerly a brewpub, The Lamb has a beautiful interior with handsome wood panelling and skylights, as well as the painstakingly stripped back original green tiles on the facade.',
         hero='http://irishtrad.org/wp-content/uploads/2018/01/Lamb.jpg',

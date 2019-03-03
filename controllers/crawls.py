@@ -100,3 +100,25 @@ def delete_stop(crawl_id, stop_id):
     db.session.delete(stop)
     db.session.commit()
     return '', 204
+
+
+
+########################## WEATHER #############################################
+
+from darksky import forecast
+from datetime import date, timedelta
+
+LONDON = 51.509865, -0.118092
+
+@api.route('/crawls/1/weather', methods=['GET'])
+def weather():
+    weekday = date.today()
+    with forecast('7d2183fa19a468be72c3c07bbff11b19', *LONDON) as london:
+        for day in london.daily:
+            day = dict(day=date.strftime(weekday, '%a'),
+                       sum=day.summary,
+                       tempMin=day.temperatureMin,
+                       tempMax=day.temperatureMax
+                       )
+            return london.daily.summary
+            # return ('{day}: {sum} Temp range: {tempMin} - {tempMax}'.format(**day))

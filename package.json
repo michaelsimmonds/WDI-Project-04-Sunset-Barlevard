@@ -22,6 +22,7 @@
     "babel-loader": "^8.0.5",
     "bulma": "^0.7.4",
     "css-loader": "^2.1.0",
+    "datetime": "^0.0.3",
     "dotenv-webpack": "^1.7.0",
     "fileloader": "^2.0.0",
     "filestack-js": "^1.14.6",
