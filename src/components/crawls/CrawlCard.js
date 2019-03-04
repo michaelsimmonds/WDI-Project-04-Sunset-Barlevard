@@ -31,8 +31,8 @@ const CrawlCard = ({ name, stops, id, creator, date, description }) => {
                   <div className="content-overlay"></div>
                   <div style={{backgroundImage: `url(${stop.bar.hero})`}}className="carousel"/>
                   <div className="content-details fadeIn-bottom">
-                    <div className="content-details1">{stop.bar.name}</div>
-                    <div className="content-details2">📍{stop.bar.location} London</div>
+                    <div className="title1">{stop.bar.name}</div>
+                    <div className="subtitle2">📍{stop.bar.location} London</div>
                   </div>
                 </div>
               </div>

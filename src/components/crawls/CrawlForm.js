@@ -1,9 +1,9 @@
 import React from 'react'
 import Select from 'react-select'
 
-const CrawlForm = ({ data, handleChange, getCrawl, handleSubmit }) => {
+const CrawlForm = ({ data, bars, handleAddStop, handleChange, handleSubmit }) => {
   console.log('data.name', data.name)
-  console.log('data.stops', data.stops)
+  console.log('data.bars', data.bars)
   return(
     <div className="columns">
       <div className="column is-6 is-offset-3">
@@ -36,10 +36,32 @@ const CrawlForm = ({ data, handleChange, getCrawl, handleSubmit }) => {
             </div>
           </div>
 
+          <div className="field">
+            <label className="label">Date</label>
+            <div className="control">
+              <input
+                className="input"
+                placeholder="Please enter the date of your crawl"
+                name="date"
+                onChange={handleChange}
+                value={data.date}
+              />
+            </div>
+          </div>
+
+          <div className="field">
+            <Select
+              isMulti
+              options={bars.map(bar => ({ value: bar, label: bar.name }))}
+              onChange={handleAddStop}
+              name="stops"
+            />
+          </div>
+
           <div className="columns add-place">
 
             <div className="column is-5">
-              <button className="button">Next</button>
+              <button className="button">Save</button>
             </div>
 
           </div>
@@ -48,16 +70,7 @@ const CrawlForm = ({ data, handleChange, getCrawl, handleSubmit }) => {
     </div>
   )
 }
-// <Select
-// isMulti
-// options={bars.map(bar => {
-//   return { value: bar, label: bar.name }
-// }
-// )}
-// value={stops}
-// onChange={handleChange}
-// name="stops"
-// />
+
 
 // <div className="field">
 //   <label className="label">Add bars</label>

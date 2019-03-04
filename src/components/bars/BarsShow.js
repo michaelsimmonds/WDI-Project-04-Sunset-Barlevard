@@ -6,8 +6,8 @@ import Auth from '../../lib/Auth'
 
 class BarsShow extends React.Component{
 
-  constructor() {
-    super()
+  constructor(props) {
+    super(props)
 
     this.state = {
       data: {
@@ -21,7 +21,7 @@ class BarsShow extends React.Component{
   }
 
   componentDidMount() {
-    axios.get(`/api/bars/${this.props.match.params.id}`)
+    axios.get(`/api/crawls/${this.props.match.params.id}/bars/${this.props.match.params.id}`)
       .then(res => this.setState({ bar: res.data }))
   }
 
@@ -30,15 +30,16 @@ class BarsShow extends React.Component{
     this.setState({ data })
   }
 
-  handleSubmit(e) {
+  handleSubmit(e, crawlId) {
     e.preventDefault()
-    this.setState({ stops: this.state.bar })
+    axios.post(`/api/crawls/${crawlId}/bars/${this.props.match.params.id}/add`), this.state.data
   }
 
   render() {
 
     if(!this.state.bar) return null
-    console.log('data', this.state.bar)
+    console.log('BAR SHOW', this.state.bar)
+    console.log('CRAWL', this.props.crawl)
     const { name, hero, description, address } = this.state.bar
     return(
       <section className='tinted bar-show-img' style={{ backgroundImage: `url(${hero})`}} >

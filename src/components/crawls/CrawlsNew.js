@@ -12,12 +12,15 @@ class CrawlsNew extends React.Component{
       bars: [],
       data: {
         name: '',
-        description: ''
+        description: '',
+        date: '',
+        stops: []
       }
     }
 
     this.handleSubmit = this.handleSubmit.bind(this)
     this.handleChange = this.handleChange.bind(this)
+    this.handleAddStop = this.handleAddStop.bind(this)
 
   }
 
@@ -28,6 +31,15 @@ class CrawlsNew extends React.Component{
 
   handleChange({ target: { name, value }}) {
     const data = {...this.state.data, [name]: value}
+    this.setState({ data })
+  }
+
+  handleAddStop(selectedStops) {
+    const stops = selectedStops.map((stop, index) => {
+      return { bar: stop.value, order: index }
+    })
+
+    const data = { ...this.state.data, stops }
     this.setState({ data })
   }
 
@@ -49,6 +61,7 @@ class CrawlsNew extends React.Component{
         <div className="container">
           <CrawlForm
             data={this.state.data}
+            handleAddStop={this.handleAddStop}
             handleChange={this.handleChange}
             handleFormChange={this.handleFormChange}
             handleSubmit={this.handleSubmit}

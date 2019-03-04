@@ -60,7 +60,8 @@ class CrawlShow extends React.Component {
       comments,
       creator,
       description,
-      name
+      name,
+      id
     } = this.state.crawl
     return(
       <main>
@@ -104,15 +105,10 @@ class CrawlShow extends React.Component {
 
                     </article>
                   </div>
-
-
-
-
-
                 )
               })}
             </div>
-            <button className="button">Add Bars</button>
+            <Link to={`/crawls/${id}/bars`}><button className="button">Add Bars</button></Link>
           </div>
         </section>
       </main>
