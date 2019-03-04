@@ -24,7 +24,7 @@ class CrawlMap extends React.Component{
 
     this.map = new mapboxgl.Map({
       container: this.mapDiv,
-      style: 'mapbox://styles/mapbox/satellite-streets-v9',
+      style: 'mapbox://styles/mapbox/streets-v9',
       center: this.props.center,
       zoom: this.props.zoom
     })
@@ -42,11 +42,7 @@ class CrawlMap extends React.Component{
         .setLngLat({ lng: lng, lat: lat })
         .addTo(this.map)
     })
-    console.log('WAYPOINTS', waypoints)
-    console.log('WITH WAYPOINTS', `https://api.mapbox.com/directions/v5/mapbox/walking/${waypointsJoined}`)
-    console.log('2 points', `https://api.mapbox.com/directions/v5/mapbox/walking/${startLng},${startLat};${endLng},${endLat}`)
-
-    //Mapbox routes
+    //MAPBOX
     axios.get(`https://api.mapbox.com/directions/v5/mapbox/walking/${waypointsJoined}`, {
       params: {
         steps: true,
@@ -89,7 +85,7 @@ class CrawlMap extends React.Component{
                 'line-cap': 'round'
               },
               paint: {
-                'line-color': '#3887be',
+                'line-color': '#D42E2D',
                 'line-width': 5,
                 'line-opacity': 0.75
               }
