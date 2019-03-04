@@ -1,7 +1,8 @@
 import React from 'react'
-//import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import axios from 'axios'
 import CrawlMap from './CrawlMap'
+import Auth from '../../lib/Auth'
 import CrawlSlider from './CrawlSlider'
 
 class CrawlShow extends React.Component {
@@ -12,6 +13,7 @@ class CrawlShow extends React.Component {
       zoomCenter: [-0.1293555, 51.546483]
     }
     //binds here
+    this.handleSubmit = this.handleSubmit.bind(this)
   }
 
   componentDidMount() {
@@ -22,6 +24,16 @@ class CrawlShow extends React.Component {
         console.log('stops: ' + stops)
         return stops
       })
+    axios.get('/api/bars')
+      .then(res => this.setState({ bars: res.data }))
+  }
+
+  handleSubmit(e) {
+    e.preventDefault()
+    axios
+      .get('/api/bars', this.state.data,
+        { headers: {Authorization: `Bearer ${Auth.getToken()}`}})
+      .catch(err => alert(err.message))
       .then(stops => {
         //map over each stop and return just the lngs
         const lngs = stops.map(stop => stop.bar.lng)
@@ -42,6 +54,7 @@ class CrawlShow extends React.Component {
 
   render(){
     if (!this.state.crawl) return null
+    console.log('crawl', this.state.crawl)
     //console.log(this.state.crawl)
     const {
       comments,
@@ -99,7 +112,7 @@ class CrawlShow extends React.Component {
                 )
               })}
             </div>
-
+            <button className="button">Add Bars</button>
           </div>
         </section>
       </main>

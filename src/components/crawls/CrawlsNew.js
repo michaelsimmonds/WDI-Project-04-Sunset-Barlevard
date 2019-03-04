@@ -4,7 +4,7 @@ import Auth from '../../lib/Auth'
 import CrawlForm from './CrawlForm'
 import BarCard from '../bars/BarCard.js'
 
-class CrawlNew extends React.Component{
+class CrawlsNew extends React.Component{
   constructor(){
     super()
 
@@ -12,15 +12,12 @@ class CrawlNew extends React.Component{
       bars: [],
       data: {
         name: '',
-        description: '',
-        stops: []
+        description: ''
       }
     }
 
     this.handleSubmit = this.handleSubmit.bind(this)
     this.handleChange = this.handleChange.bind(this)
-
-    this.handleSelectChange = this.handleSelectChange.bind(this)
 
   }
 
@@ -34,8 +31,6 @@ class CrawlNew extends React.Component{
     this.setState({ data })
   }
 
-
-
   handleSubmit(e) {
     e.preventDefault()
     axios
@@ -46,10 +41,6 @@ class CrawlNew extends React.Component{
   }
 
   //=====================REACT SELECT======================
-
-  handleSelectChange(stops) {
-    this.setState({ stops })
-  }
 
   render() {
     console.log(this.state.data)
@@ -62,20 +53,33 @@ class CrawlNew extends React.Component{
             handleFormChange={this.handleFormChange}
             handleSubmit={this.handleSubmit}
             handleSelect={this.handleSelect}
+            getCrawl={this.getCrawl}
             bars={this.state.bars}
           />
 
-        </div>
-        <div className="columns is-multiline">
-          {this.state.bars.map(bar =>
-            <div className="column is-full-width" key={bar.id}>
-              <BarCard {...bar} />
-            </div>
-          )}
         </div>
       </main>
     )
   }
 }
 
-export default CrawlNew
+export default CrawlsNew
+
+
+// handleSubmit(e) {
+//   e.preventDefault()
+//   axios
+//     .post('/api/crawls', this.state.data,
+//       { headers: {Authorization: `Bearer ${Auth.getToken()}`}})
+//     .then(() => this.props.history.push('/crawls'))
+//     .catch(err => alert(err.message))
+// }
+
+// handleSubmit(e) {
+//   e.preventDefault()
+//   axios
+//     .post('/api/crawls', this.state.data,
+//       { headers: {Authorization: `Bearer ${Auth.getToken()}`}})
+//     .then(() => this.props.history.push(`/crawls/${this.props.match.params.id}`))
+//     .catch(err => alert(err.message))
+// }
