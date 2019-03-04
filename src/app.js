@@ -32,7 +32,7 @@ class App extends React.Component{
               <Route path="/bars/new" component={BarsNew} />
               <Route path="/bars/:id" component={BarsShow} />
               <Route path="/bars" component={BarsIndex} />
-              <Route path="/crawls/:id/bars/:id/add" component={BarsShow} />
+              <Route path="/crawls/:id/bars/:id" component={BarsShow} />
               <Route path="/crawls/:id/bars" component={CrawlsBarIndex} />
               <Route path="/crawls/new" component={CrawlsNew} />
               <Route path="/crawls/:id" component={CrawlShow} />

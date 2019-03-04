@@ -24,15 +24,15 @@ const CrawlCard = ({ name, stops, id, creator, date, description }) => {
       </div>
       <div className="center">
         <div className="columns slider">
-          {stops.map(stop => <div className="column is-centered is-full" key={stop._id}>
+          {stops.map(stop => <div className="column is-centered is-full" key={stop.id}>
             <Link to={`/bars/${stop.bar.id}`}>
               <div className="container2">
                 <div className="content">
                   <div className="content-overlay"></div>
                   <div style={{backgroundImage: `url(${stop.bar.hero})`}}className="carousel"/>
                   <div className="content-details fadeIn-bottom">
-                    <div className="content-details1">{stop.bar.name}</div>
-                    <div className="content-details2">📍{stop.bar.location} London</div>
+                    <div className="title1">{stop.bar.name}</div>
+                    <div className="subtitle2">📍{stop.bar.location} London</div>
                   </div>
                 </div>
               </div>

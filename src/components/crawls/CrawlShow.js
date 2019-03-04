@@ -3,6 +3,7 @@ import React from 'react'
 import axios from 'axios'
 import CrawlMap from './CrawlMap'
 import CrawlSlider from './CrawlSlider'
+import Auth from '../../lib/Auth'
 
 import mapboxgl from '../../lib/mapbox-gl'
 
@@ -12,6 +13,9 @@ class CrawlShow extends React.Component {
 
     this.state = {}
     //binds here
+
+    this.deleteCrawl = this.deleteCrawl.bind(this)
+
   }
 
   componentDidMount() {
@@ -29,6 +33,11 @@ class CrawlShow extends React.Component {
       })
   }
 
+  deleteCrawl(){
+    axios.delete(`/api/crawls/${this.props.match.params.id}`)
+      .then(() => this.props.history.push('/crawls'))
+      .catch(err => alert(err.message))
+  }
 
   render(){
     if (!this.state.crawl) return null
@@ -37,7 +46,8 @@ class CrawlShow extends React.Component {
       comments,
       creator,
       description,
-      name
+      name,
+      id
     } = this.state.crawl
     return(
       <main>
@@ -81,15 +91,15 @@ class CrawlShow extends React.Component {
 
                     </article>
                   </div>
-
-
-
-
-
                 )
               })}
             </div>
+            {Auth.isAuthenticated() && (creator.id === Auth.getUserID()) &&
 
+            <form onSubmit={this.deleteCrawl}>
+              <button className="button">Delete Crawl</button>
+            </form>
+            }
           </div>
         </section>
       </main>
