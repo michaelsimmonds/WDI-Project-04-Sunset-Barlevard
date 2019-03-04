@@ -1,22 +1,14 @@
 import React from 'react'
 import axios from 'axios'
-import { Link } from 'react-router-dom'
-import BarStopForm from './BarStopForm.js'
-import Auth from '../../lib/Auth'
+
+import BarMap from './BarMap'
 
 class BarsShow extends React.Component{
 
   constructor(props) {
     super(props)
 
-    this.state = {
-      data: {
-        stops: []
-      }
-    }
-
-    this.handleChange = this.handleChange.bind(this)
-    this.handleSubmit = this.handleSubmit.bind(this)
+    this.state = {}
 
   }
 
@@ -38,36 +30,31 @@ class BarsShow extends React.Component{
   render() {
 
     if(!this.state.bar) return null
-    console.log('BAR SHOW', this.state.bar)
-    console.log('CRAWL', this.props.crawl)
-    const { name, hero, description, address } = this.state.bar
+    const { name, hero, description, address, lat, lng } = this.state.bar
     return(
       <section className='tinted bar-show-img' style={{ backgroundImage: `url(${hero})`}} >
-        <div className="section">
+
+        <div className="container">
+
           <div className='columns'>
-            <div className='column is-half has-text-white' id='show'>
+
+            <div className='column is-half has-text-white bar-show-column' id='show'>
               <h1 className="title has-text-white">{name}</h1>
-              <div className='bar-show-div'>{description}</div>
+              <div className='bar-show-div des'>{description}</div>
               <div className='bar-show-div'>{address}</div>
             </div>
+
+            <div className='column is-half align-items bar-show-column'>
+              <BarMap
+                center={{ lat, lng }}
+                zoom={11.5}
+                marker={this.state.bar}
+              />
+            </div>
+
           </div>
 
-          {/*<div className='container is-fullhd flex'>
-            <figure className="image is-5by3 tinted" />
-            <div className="text-overlay">{name}</div>
-            <div className="text-overlay">{description}</div>
-          </div>*/}
-
         </div>
-
-        {/*===============================ADD STOP=================================================*/}
-
-        <BarStopForm
-          handleChange={this.handleChange}
-          handleSubmit={this.handleSubmit}
-          data={this.state.data}
-        />
-
       </section>
     )
   }

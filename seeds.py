@@ -82,8 +82,8 @@ with app.app_context():
     discount_suit_company = Bar(
         name='Discount Suit Company',
         address='29 Wentworth St, London E1 7TB',
-        lat=51.5166773,
-        lng=0.0774967,
+        lat=51.516674,
+        lng=-0.0774967,
         terrace=False,
         description='Discount Suit cocktail bar is situated moments from Spitalfields Market and Liverpool Street station. We are also in close walking distance of Brick Lane and Shoreditch. The bar focuses on great cocktails with traditional methods and forgotten classic recipes.',
         hero='https://media.drinkup.london/images/media/ee1389b8c9aa727653a90069dfed9e3c.jpg',
@@ -94,8 +94,8 @@ with app.app_context():
     blind_beggar = Bar(
         name='The Blind Beggar',
         address='337 Whitechapel Rd, London E1 1BU',
-        lat=51.5199795,
-        lng=-0.056891,
+        lat=51.5199828,
+        lng=-0.0590797,
         terrace=True,
         description='This famous pub is where Ronnie Kray murdered George Cornell in front of witnesses, is the location of William Booth''s first sermon, which led to the creation of the Salvation Army, and was the nearest outlet (or brewery tap) for the Manns Albion brewery, where the first modern Brown Ale was brewed',
         hero='https://www.traveldarkly.com/wp-content/uploads/2016/09/Kray-Twins-Gangsters-Blind-Beggar-Pub-Whitechapel-1030x687.jpg',
@@ -118,14 +118,38 @@ with app.app_context():
     royal_oak = Bar(
         name='The Royal Oak',
         address='73 Columbia Rd, London E2 7RG',
-        lat=51.516706,
-        lng=-0.0928176,
+        lat=51.5295501,
+        lng=-0.0714865,
         terrace=False,
         description='You might just recognise this pub off the telly - it has featured in the Kray''s film, sitcom Good Night Sweetheart and even Blue Peter. The look - like something straight out of the 1940s - hasn''t been diminished by any number of refits in the intervening years either. This former gay pub has been transformed into yet another excellent gastropub with more table space in the dining room upstairs',
         hero='https://static.standard.co.uk/s3fs-public/thumbnails/image/2017/11/28/16/the-royal-oak-pic.jpg?w968',
         location='East'
     )
     db.session.add(royal_oak)
+
+    grapes = Bar(
+        name='The Grapes',
+        address='76 Narrow Street,London, E14 8BP',
+        lat=51.5092305,
+        lng=-0.0396032,
+        terrace=False,
+        description='Overlooking the Thames, in a peaceful neighbourhood not that far from the bustle of Canary Wharf, The Grapes is one of the oldest pubs in London. Charles Dickens was a patron, and even made reference to the pub in his novel ''Our Mutual Friend''. Leaseholder Ian McKellen has written a brief history, here, should you wish to find out more. They also offer an excellent pub quiz on Monday Nights',
+        hero='https://cdn2.wanderlust.co.uk/media/2302/blogs-a-drinkers-guide-to-londons-oldest-pubs.jpg',
+        location='East'
+    )
+    db.session.add(grapes)
+
+    whitby = Bar(
+        name='Prospect of Whitby',
+        address='57 Wapping Wall, St Katharine''s & Wapping, London E1W 3SH',
+        lat=51.5070813,
+        lng=-0.0533257,
+        terrace=False,
+        description='One of London''s most famous pubs, and supposedly our city''s oldest riverside inn. With a pedigree stretching back to 1520, it was already getting on a bit when Shakespeare first came to town. You''ll fall in love with the pewter-topped bar and creaky wooden interior, all rebuilt following a fire in Victorian times and a further refit in the 1950s, though some of the flagstones are reckoned to be centuries old. The drinking terrace out back is one of the most sought-after spots on a warm summer''s day, and an upstairs room adds extra, oft-needed capacity.',
+        hero='https://s3-us-west-2.amazonaws.com/voicemap.me/public/routes/images/000/000/137/original/prospect-of-whitby.jpg',
+        location='East'
+    )
+    db.session.add(whitby)
 
     franks = Bar(
         name='Frank''s',
@@ -142,8 +166,8 @@ with app.app_context():
     springs = Bar(
         name='Peckham Springs',
         address='4-5 Dovedale Trading Estate, London SE15 4QN',
-        lat=51.4697,
-        lng=0.0701,
+        lat=51.4697347,
+        lng=-0.0718385,
         terrace=False,
         description='Part-gallery, part-bar, you''ll find Peckham Springs — yes, the name is inspired by Del Boy''s infamous back garden water business — in the shadow of Peckham Rye Station, under the arches by Bar Story. It started as a summer pop-up but is now staying open all year round on Fridays and Saturdays.',
         hero='https://hirespace.imgix.net/spaces/165475/m5kxuyg5elq.jpg?h=600&w=1200&auto=format&fit=crop&q=40',
@@ -154,8 +178,8 @@ with app.app_context():
     fullback = Bar(
         name='The Faltering Fullback',
         address='19 Perth Rd, Stroud Green, London N4 3HB',
-        lat=51.5685,
-        lng=0.1082,
+        lat=51.5684843,
+        lng=-0.1103997,
         terrace=True,
         description='Hidden away on the leafy avenue of Perth Road, tucked behind Finsbury Park, you''ll find this charming, well loved Irish pub. Come down, grab a pint and your own corner in the amazing garden, in front of the big screen sports, or by the bar. Wile away your day contemplating the ceiling inspiration, challenge your brain in our hugely popular quiz, or party with pals till late on Fridays and Saturdays.',
         hero='http://irishtrad.org/wp-content/uploads/2018/02/Faltering-Fullback.jpg',
@@ -166,8 +190,8 @@ with app.app_context():
     lamb = Bar(
         name='The Lamb',
         address='54 Holloway Rd, Highbury East, London N7 8JL',
-        lat=51.5488,
-        lng=0.1069,
+        lat=51.5484587,
+        lng=-0.1090147,
         terrace=False,
         description='Purpose built as a boozer in the 1870s, The Lamb opened in its current incarnation in February 2012. We’re a completely independent pub and specialise in local beers from the likes of Five Points, Howling Hops, Signature Brew, By The Horns, Hammerton, Hackney Brewery etc - we have 12 keg lines and 3 cask lines!  There is also a pretty good range of wines and spirits.  Formerly a brewpub, The Lamb has a beautiful interior with handsome wood panelling and skylights, as well as the painstakingly stripped back original green tiles on the facade.',
         hero='http://irishtrad.org/wp-content/uploads/2018/01/Lamb.jpg',
@@ -242,13 +266,30 @@ with app.app_context():
         creator=mike
     )
 
+    history_crawl = Crawl(
+        name='Historic Bar Crawl',
+        description='Start off this crawl by having a couple of beers over looking the Thames at the one of the oldest pubs in London, The Grapes. Charles Dickens was a patron, and even made reference to the pub in his novel Our Mutual Friend. Take a stroll along the river to the Prospect of Whitby,the hostelry of choice of "Hanging" Judge Jeffreys, scourge of the Monmouth Rebellion. He lived nearby and a replica gallows and noose hangs by the Thameside window, commemorating his custom. According to legend, criminals would be tied up to the posts at low tide and left there to drown when the tide came in. Views from the pub were sketched by both Turner and Whistler, the writers Charles Dickens and Samuel Pepys are known to have paused to sup here. Next head from the river towards the Blind Beggar, site of the notorious Kray murder in 70s and the location of William Booth''s first sermon, which led to the creation of the Salvation Army. Finally end up at the Royal Oak, another Kray twin haunt situated next to London''s best known flower market.',
+        date='Monday 4th February',
+        creator=mike
+    )
+
+
 ############### STOPS ############################
+
+    history_crawl.stops = [
+        Stop(bar=grapes, order=0),
+        Stop(bar=whitby, order=1),
+        Stop(bar=blind_beggar, order=2),
+        Stop(bar=royal_oak, order=3)
+    ]
+    db.session.add(history_crawl)
 
     the_best_crawl.stops = [
         Stop(bar=marks_bar, order=0),
         Stop(bar=royal_oak, order=1)
     ]
     db.session.add(the_best_crawl)
+
 
     east_end.stops = [
     Stop(bar=pub_on_park, order=0),

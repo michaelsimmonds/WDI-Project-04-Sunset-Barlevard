@@ -1,7 +1,7 @@
 import React from 'react'
 import axios from 'axios'
-import BarCard from './BarCard.js'
 
+import BarCard from './BarCard.js'
 
 class BarIndex extends React.Component{
   constructor(){
@@ -19,13 +19,14 @@ class BarIndex extends React.Component{
   }
 
   render(){
-
     if(!this.state.bars) return null
     console.log(this.state.bars)
     return(
 
       <section className="section">
         <h2 className="title is-1 has-text-centered">Discover our Bars and Pubs</h2>
+
+
         <div className="is-full-width">
           <hr />
           <form onSubmit={this.handleSubmit}>
@@ -50,6 +51,7 @@ class BarIndex extends React.Component{
               </div>
             </div>
           </form>
+
           <h1 className="title is-2 has-text-centered">East London</h1>
           <div className="columns is-multiline">
             {this.state.bars.map(bar =>

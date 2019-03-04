@@ -1,5 +1,5 @@
 import React from 'react'
-import ReactFilestack from 'filestack-react'
+// import ReactFilestack from 'filestack-react'
 import MapboxAutocomplete from 'react-mapbox-autocomplete'
 
 

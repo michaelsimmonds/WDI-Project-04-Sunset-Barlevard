@@ -47,7 +47,7 @@ class Home extends React.Component{
             name="location"
           />
         </form>
-        {this.state.crawls.map(crawl => <div key={crawl._id} className="hero-body">
+        {this.state.crawls.map(crawl => <div key={crawl.id} className="hero-body">
           <CrawlCard {...crawl} />
         </div>
         )}
