@@ -85,7 +85,7 @@ class CrawlShow extends React.Component {
         </div>
         <div className="container">
           <section className="section">
-            <h2 className="title is-4 center">Bars on this crawl</h2>
+            <h2 className="title is-4 center">Comments</h2>
             <div className="card-content">
               {comments.map(comment => {
                 console.log('COMMENT AUTHOR', comment.author)
