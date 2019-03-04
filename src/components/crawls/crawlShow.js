@@ -14,6 +14,7 @@ class CrawlShow extends React.Component {
     }
     //binds here
     this.handleSubmit = this.handleSubmit.bind(this)
+    this.deleteCrawl = this.deleteCrawl.bind(this)
   }
 
   componentDidMount() {
@@ -51,6 +52,11 @@ class CrawlShow extends React.Component {
       })
   }
 
+  deleteCrawl(){
+    axios.delete(`/api/crawls/${this.props.match.params.id}`)
+      .then(() => this.props.history.push('/crawls'))
+      .catch(err => alert(err.message))
+  }
 
   render(){
     if (!this.state.crawl) return null
@@ -108,7 +114,13 @@ class CrawlShow extends React.Component {
                 )
               })}
             </div>
-            <Link to={`/crawls/${id}/bars`}><button className="button">Add Bars</button></Link>
+
+            {Auth.isAuthenticated() && (creator.id === Auth.getUserID()) &&
+
+            <form onSubmit={this.deleteCrawl}>
+              <button className="button">Delete Crawl</button>
+            </form>
+            }
           </div>
         </section>
       </main>
