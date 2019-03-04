@@ -1,9 +1,8 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import HoverImage from 'react-hover-image'
+import moment from 'moment'
 
-
-const CrawlCard = ({ name, stops, id, creator, date, description }) => {
+const CrawlCard = ({ name, stops, id, creator, description, createdAt }) => {
   return(
     <div>
       <div className="header-crawl">
@@ -12,7 +11,6 @@ const CrawlCard = ({ name, stops, id, creator, date, description }) => {
         </Link>
       </div>
       <div className="header-crawl">
-        <h1 className="title is-6">{date}</h1>
       </div>
       <div className="uploaded-user">
         <h1 className="title is-6 inline">Created by:</h1>
@@ -40,6 +38,7 @@ const CrawlCard = ({ name, stops, id, creator, date, description }) => {
           </div>)}
         </div>
       </div>
+      <h1 className='title is-6 center'>Uploaded: {moment(createdAt).format('MMMM Do YYYY, h:mm:ss a')} </h1>
       <div className="description">
         <h1 className="title description-title is-6">{description}</h1>
       </div>

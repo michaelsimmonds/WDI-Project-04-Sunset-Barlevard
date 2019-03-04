@@ -38,19 +38,6 @@ const CrawlForm = ({ data, bars, handleAddStop, handleChange, handleSubmit, togg
           </div>
 
           <div className="field">
-            <label className="label">Date of Crawl</label>
-            <div className="control">
-              <input
-                className="input"
-                placeholder="Please enter the date of your crawl"
-                name="date"
-                onChange={handleChange}
-                value={data.date}
-              />
-            </div>
-          </div>
-
-          <div className="field">
             <label className="label">Select Bars!</label>
             <Select
               isMulti
