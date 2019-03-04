@@ -22,6 +22,7 @@ class Home extends React.Component{
 
   render(){
     console.log(this.state.crawls)
+    const { stops } = this.state.crawls
     return(
       <main>
         <section className="hero is-large background">
@@ -39,10 +40,10 @@ class Home extends React.Component{
           <Select
             className="select-bar"
             isMulti
-            options={this.state.crawls.map(crawl => crawl.stops.map(stop => {
-              return { value: stop.bar.location, label: stop.bar.location }
-            })
-            )}
+            // options={stops.map(stop => {
+            //   return { value: stop.bar.location, label: stop.bar.location }
+            // })
+            // }
             name="location"
           />
         </form>

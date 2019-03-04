@@ -4,7 +4,7 @@ import Auth from '../../lib/Auth'
 import CrawlForm from './CrawlForm'
 import BarCard from '../bars/BarCard.js'
 
-class CrawlNew extends React.Component{
+class CrawlsNew extends React.Component{
   constructor(){
     super()
 
@@ -12,8 +12,7 @@ class CrawlNew extends React.Component{
       bars: [],
       data: {
         name: '',
-        description: '',
-        stops: []
+        description: ''
       }
     }
 
@@ -64,7 +63,7 @@ class CrawlNew extends React.Component{
   }
 }
 
-export default CrawlNew
+export default CrawlsNew
 
 
 // handleSubmit(e) {
