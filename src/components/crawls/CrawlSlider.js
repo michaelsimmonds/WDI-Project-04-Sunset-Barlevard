@@ -12,7 +12,7 @@ const CrawlSlider = ({ stops }) => {
             Link to={`bars/${stop._id}`}
             style={{backgroundImage: `url(${stop.bar.hero})`}}
             className="slider-image" />
-          <div className="slider-captions is-primary"><h3 className="title is-5 is-warning  center">{stop.bar.name} | {stop.bar.address}</h3></div>
+          <div className="slider-captions is-primary"><h3 className="title is-5 is-warning center">{stop.bar.name} | {stop.bar.address}</h3></div>
         </div>)}
       </div>
 
