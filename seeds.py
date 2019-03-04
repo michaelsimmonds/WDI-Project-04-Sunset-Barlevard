@@ -240,7 +240,7 @@ with app.app_context():
 
     the_best_crawl = Crawl(
         name='Best crawl ever',
-        description='I had such a great time going to these bars! Mark\s Bar was quite quite for a Friday (but so cheap!) so we then made a move to Royal Oak, which had a great pub quiz on!',
+        description='I had such a great time going to these bars! Mark\'s Bar was quite quite for a Friday (but so cheap!) so we then made a move to Royal Oak, which had a great pub quiz on!',
         date='Friday 22nd February',
         creator=mike
     )
@@ -269,12 +269,14 @@ with app.app_context():
     the_best_crawl = Crawl(
         name='West Crawl',
         description='So much fun',
+        date='Friday 22nd February',
         creator=mike
     )
 
     history_crawl = Crawl(
         name='Historic Bar Crawl',
         description='Start off this crawl by having a couple of beers over looking the Thames at the one of the oldest pubs in London, The Grapes. Charles Dickens was a patron, and even made reference to the pub in his novel Our Mutual Friend. Take a stroll along the river to the Prospect of Whitby,the hostelry of choice of "Hanging" Judge Jeffreys, scourge of the Monmouth Rebellion. He lived nearby and a replica gallows and noose hangs by the Thameside window, commemorating his custom. According to legend, criminals would be tied up to the posts at low tide and left there to drown when the tide came in. Views from the pub were sketched by both Turner and Whistler, the writers Charles Dickens and Samuel Pepys are known to have paused to sup here. Next head from the river towards the Blind Beggar, site of the notorious Kray murder in 70s and the location of William Booth''s first sermon, which led to the creation of the Salvation Army. Finally end up at the Royal Oak, another Kray twin haunt situated next to London''s best known flower market.',
+        date='Monday 4th March',
         creator=mike
     )
 
