@@ -1,7 +1,8 @@
 import React from 'react'
 import Select from 'react-select'
+import { Link } from 'react-router-dom'
 
-const CrawlForm = ({ data, bars, handleAddStop, handleChange, handleSubmit }) => {
+const CrawlForm = ({ data, bars, handleAddStop, handleChange, handleSubmit, toggleHidden, isHidden }) => {
   console.log('data.name', data.name)
   console.log('data.bars', data.bars)
   return(
@@ -37,7 +38,7 @@ const CrawlForm = ({ data, bars, handleAddStop, handleChange, handleSubmit }) =>
           </div>
 
           <div className="field">
-            <label className="label">Date</label>
+            <label className="label">Date of Crawl</label>
             <div className="control">
               <input
                 className="input"
@@ -50,6 +51,7 @@ const CrawlForm = ({ data, bars, handleAddStop, handleChange, handleSubmit }) =>
           </div>
 
           <div className="field">
+            <label className="label">Select Bars!</label>
             <Select
               isMulti
               options={bars.map(bar => ({ value: bar, label: bar.name }))}
@@ -58,12 +60,8 @@ const CrawlForm = ({ data, bars, handleAddStop, handleChange, handleSubmit }) =>
             />
           </div>
 
-          <div className="columns add-place">
-
-            <div className="column is-5">
-              <button className="button">Save</button>
-            </div>
-
+          <div className="field">
+            <button className="button">Save</button>
           </div>
         </form>
       </div>

@@ -78,7 +78,7 @@ const BarForm = ({ data, handleChange, handleSubmit, suggestionSelect }) => {
             <label className="label">Please select a location</label>
             <div className="control">
               <MapboxAutocomplete
-                publicKey={process.env.MAPBOX_KEY}
+                publicKey={process.env.MAPBOX_TOKEN}
                 inputClass='form-control search input'
                 onSuggestionSelect={suggestionSelect}
                 resetSearch={false}
