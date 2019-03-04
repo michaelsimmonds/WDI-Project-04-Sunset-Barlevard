@@ -1,5 +1,5 @@
 import React from 'react'
-//import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import axios from 'axios'
 import CrawlMap from './CrawlMap'
 import CrawlSlider from './CrawlSlider'
@@ -40,7 +40,7 @@ class CrawlShow extends React.Component {
 
   render(){
     if (!this.state.crawl) return null
-    console.log(this.state.crawl)
+    //console.log(this.state.crawl)
     const {
       comments,
       creator,
@@ -50,57 +50,68 @@ class CrawlShow extends React.Component {
     } = this.state.crawl
     return(
       <main>
+        <section className="section">
+          <div className="container">
+            <h1 className="title is-2">{name}</h1>
+            <article className="level">
+
+              <div className="image-username">
+                <Link to={`/users/${creator.id}`}>
+                  <div style={{backgroundImage: `url(${creator.image})`}}className="user-image-home"/>
+                </Link>
+
+
+                <div className="content">
+                  <strong>By {creator.username}</strong>
+                </div>
+                {description}
+
+              </div>
+            </article>
+          </div>
+        </section>
         <CrawlMap
           stops={this.state.crawl.stops}
           center={this.state.zoomCenter}
           zoom={12.0}
         />
-
-        <CrawlSlider
-          stops = {this.state.crawl.stops}
-        />
-
-        <section className="section">
-          <div className="container">
-            <h1 className="title is-2">{name}</h1>
-            <article className="media">
-              <div className="media-left">
-                <figure className="image is-64x64 is-rounded">
-                  <img src={creator.image} alt={creator.username} />
-                </figure>
-                <div className="media-content">
-                  <div className="content">
-                    <strong>By {creator.username}</strong>
+        <container className="container">
+          <section className="section">
+            <h2 className="title is-4 center">Bars on this crawl</h2>
+            <CrawlSlider
+              stops = {this.state.crawl.stops}
+            />
+          </section>
+        </container>
+    <container className="container">
+      <section className="section">
+        <h2 className="title is-4 center">Bars on this crawl</h2>
+        <div className="card-content">
+          {comments.map(comment => {
+            console.log('COMMENT AUTHOR', comment.author)
+            return(
+              <div className="box" key={comment.id}>
+                <article className="media>">
+                  <div className="media-left">
                   </div>
-                  {description}
-                </div>
+                  <p><strong>{comment.author}</strong></p>
+                  <p>{comment.content}</p>
+
+                </article>
               </div>
-            </article>
-
-            <div className="card-content">
-              {comments.map(comment => {
-                console.log('COMMENT AUTHOR', comment.author)
-                return(
-                  <div className="box" key={comment.id}>
-                    <article className="media>">
-                      <div className="media-left">
-                      </div>
-                      <p><strong>{comment.author}</strong></p>
-                      <p>{comment.content}</p>
-
-                    </article>
-                  </div>
-                )
-              })}
-            </div>
-            {Auth.isAuthenticated() && (creator.id === Auth.getUserID()) &&
-
-            <form onSubmit={this.deleteCrawl}>
-              <button className="button">Delete Crawl</button>
-            </form>
-            }
-          </div>
+            )
+          })}
+        </div>
         </section>
+      </div>
+
+
+        {Auth.isAuthenticated() && (creator.id === Auth.getUserID()) &&
+
+        <form onSubmit={this.deleteCrawl}>
+          <button className="button">Delete Crawl</button>
+        </form>
+        }
       </main>
     )
   }

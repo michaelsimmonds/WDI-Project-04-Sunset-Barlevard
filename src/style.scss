@@ -76,20 +76,24 @@ img {
   display: flex;
 }
 
+//CRAWL SLIDER
 .slider {
   align-items: center;
   overflow-x: scroll;
-  width: 60%;
-}
-
-.carousel {
-  height: 500px;
   width: 100%;
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
-  &:hover {
-    cursor: pointer;
+  & .column-container {
+    width: 70%;
+
+    & .carousel {
+      height: 300px;
+      width: 100%;
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: cover;
+      &:hover {
+        cursor: pointer;
+      }
+    }
   }
 }
 
@@ -317,7 +321,13 @@ hr.thin {
  width: 25px;
 }
 
-// ============================ CRAWL MAP ===================================
+.title {
+  &.is-4 {
+    margin-bottom: 0;
+  }
+}
+
+// =================== CRAWL MAP ==========================
 
 .map {
   height: 500px;
@@ -336,30 +346,3 @@ hr.thin {
   max-width: 70px;
   font: 9pt 'Helvetica Neue', Arial, Helvetica, sans-serif;
   }
-
-//===========CRAWL SLIDER =======
-
-
-
-.crawl-display {
-  height: 500px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  & .full-slider {
-    align-items: center;
-    overflow-x: scroll;
-    -webkit-overflow-scrolling: touch;
-    width: 150%;
-  }
-  & .slider-image {
-    height: 700px;
-    width: 1100px;
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
-    &:hover {
-      cursor: pointer;
-    }
-   }
-}

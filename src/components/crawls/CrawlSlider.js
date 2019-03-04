@@ -1,25 +1,31 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import HoverImage from 'react-hover-image'
 
 const CrawlSlider = ({ stops }) => {
-  //const images = stops.map(stop => stop.bar.hero)
+  const images = stops.map(stop => stop.bar.hero)
   console.log(stops)
   return(
-    <section className="crawl-display">
-    
-      <div className="columns full-slider">
-        {stops.map(stop => <div key={stop.id}>
-          <Link to={`bars/${stop.id}`}>
-            <div
-              style={{backgroundImage: `url(${stop.bar.hero})`}}
-              className="slider-image" />
-            <div className="slider-captions is-primary"><h3 className="title is-5 is-warning center">{stop.bar.name} | {stop.bar.address}</h3></div>
-          </Link>
-        </div>)}
+    <main>
+      <div className="center">
+        <div className="columns slider">
+          {stops.map(stop => <div className="column is-centered is-full column-container" key={stop.id}>
+            <Link to={`/bars/${stop.bar.id}`}>
+              <div className="container2">
+                <div className="content">
+                  <div className="content-overlay"></div>
+                  <div style={{backgroundImage: `url(${stop.bar.hero})`}}className="carousel"/>
+                  <div className="content-details fadeIn-bottom">
+                    <div className="title1">{stop.bar.name}</div>
+                    <div className="subtitle2">📍{stop.bar.location} London</div>
+                  </div>
+                </div>
+              </div>
+            </Link>
+          </div>)}
+        </div>
       </div>
-
-
-    </section>
+    </main>
   )
 }
 
