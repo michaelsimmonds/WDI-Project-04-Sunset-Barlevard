@@ -6,6 +6,9 @@ import Select from 'react-select'
 // import Switch from 'react-toggle-switch'
 // import {render} from 'react-dom'
 
+
+const sunSuitCrawls = []
+
 class Home extends React.Component{
   constructor(){
     super()
@@ -13,40 +16,49 @@ class Home extends React.Component{
     this.state={
       crawls: [],
       location: [],
-      switched: false
+      switched: false, //have no idea why this needs to start at true, doesnt work on first click if switched is defaulted true
+      sunSuitable: []
     }
 
     this.toggleSwitch = this.toggleSwitch.bind(this)
 
   }
 
-  // get crawls with terraces
-  // map over each Crawl
-  // map over each bar in the crawl
-  // if a bar has terrace boolean true add 1 to counter
-  // at end if counter divided by bars.length is more than 0.5 the crawl is sun suitable
   getSun() {
-    console.log(this.state.switched)
     this.state.crawls.map(crawl => {
       let counter = 0
-      console.log(crawl)
+      // console.log(crawl)
       crawl.stops.forEach(stop => {
-        console.log(stop)
+        // console.log(stop)
         if (stop.bar.terrace === true) counter++
       })
-      console.log(counter)
-      if ((counter / crawl.stops.length) > 0.5) console.log('sun suitable')
-      else console.log('not sun suitable')
+      // console.log(counter)
+      if ((counter / crawl.stops.length) > 0.5) {
+        // console.log('sun suitable')
+        this.setState({ sunSuitable: crawl})
+        sunSuitCrawls.push(crawl)
+      } else {
+        // console.log('not sun suitable')
+      }
     })
-
+    // console.log(sunSuitCrawls)
+    // console.log(this.state.sunSuitable)
   }
+
 
   toggleSwitch() {
-    this.getSun()
-    this.setState({
-      switched: !this.state.switched
-    })
+    this.setState({ switched: !this.state.switched })
+    // console.log(this.state.switched)
+    if (this.state.switched === true) {
+      this.getSun()
+    } else {
+      this.setState({ sunSuitable: null})
+    }
+    // console.log(this.state.sunSuitable)
+    // console.log(this.state)
   }
+
+
 
   componentDidMount() {
     axios.get('/api/crawls')
@@ -56,7 +68,8 @@ class Home extends React.Component{
 
 
   render(){
-    // console.log(this.state.crawls)
+    // console.log(this.state.switched)
+    // console.log(this.state.sunSuitable)
     const { stops } = this.state.crawls
     return(
       <main>
@@ -84,6 +97,7 @@ class Home extends React.Component{
             name="location"
           />
         </form>
+
         {this.state.crawls.map(crawl => <div key={crawl.id} className="hero-body">
           <CrawlCard {...crawl} />
         </div>
