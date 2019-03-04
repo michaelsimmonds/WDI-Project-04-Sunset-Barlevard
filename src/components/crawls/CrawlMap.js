@@ -7,12 +7,6 @@ class CrawlMap extends React.Component{
 
   componentDidMount() {
     const stops = this.props.stops
-    const n = stops.length-1
-    const startLng = stops[0].bar.lng
-    const endLng = stops[n].bar.lng
-    const startLat = stops[0].bar.lat
-    const endLat = stops[n].bar.lat
-
     const waypoints = []
     stops.map(stop => {
       const lng = stop.bar.lng
