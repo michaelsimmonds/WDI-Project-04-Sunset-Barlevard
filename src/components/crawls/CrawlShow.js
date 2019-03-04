@@ -83,27 +83,27 @@ class CrawlShow extends React.Component {
             />
           </section>
         </div>
-    <div className="container">
-      <section className="section">
-        <h2 className="title is-4 center">Bars on this crawl</h2>
-        <div className="card-content">
-          {comments.map(comment => {
-            console.log('COMMENT AUTHOR', comment.author)
-            return(
-              <div className="box" key={comment.id}>
-                <article className="media>">
-                  <div className="media-left">
-                  </div>
-                  <p><strong>{comment.author}</strong></p>
-                  <p>{comment.content}</p>
+        <div className="container">
+          <section className="section">
+            <h2 className="title is-4 center">Bars on this crawl</h2>
+            <div className="card-content">
+              {comments.map(comment => {
+                console.log('COMMENT AUTHOR', comment.author)
+                return(
+                  <div className="box" key={comment.id}>
+                    <article className="media>">
+                      <div className="media-left">
+                      </div>
+                      <p><strong>{comment.author}</strong></p>
+                      <p>{comment.content}</p>
 
-                </article>
-              </div>
-            )
-          })}
+                    </article>
+                  </div>
+                )
+              })}
+            </div>
+          </section>
         </div>
-        </section>
-      </div>
 
 
         {Auth.isAuthenticated() && (creator.id === Auth.getUserID()) &&
