@@ -23,7 +23,7 @@ class CrawlsBarIndex extends React.Component {
 
     return(
       <main>
-        <h1>CHOOSE A BAR</h1>
+        <h1 className="title is-3 center">Add a bar</h1>
 
         <div className="columns is-multiline">
           {this.state.bars.map(bar =>

@@ -205,7 +205,7 @@ with app.app_context():
         lat=51.5111389,
         lng=-0.1386364,
         terrace=False,
-        description='Leather chesterfields, ambient lighting, and a list full of historical curiosities, Mark’s Bars are the places to sit back and enjoy a more eccentric approach to drinking.',
+        description='Leather chesterfields, ambient lighting, and a list full of historical curiosities, Mark\’s Bars are the places to sit back and enjoy a more eccentric approach to drinking.',
         hero='https://www.hixrestaurants.co.uk/wp-content/uploads/2015/10/11-microsite-4-marks-bars-1-landing-top-banner-4-1600x7681.jpg',
         location='West'
     )
@@ -215,8 +215,8 @@ with app.app_context():
 ################ CRAWLS ######################
 
     the_best_crawl = Crawl(
-        name='West Crawl',
-        description='So much fun',
+        name='Best crawl ever',
+        description='I had such a great time going to these bars! Mark\s Bar was quite quite for a Friday (but so cheap!) so we then made a move to Royal Oak, which had a great pub quiz on!',
         date='Friday 22nd February',
         creator=mike
     )
@@ -251,9 +251,9 @@ with app.app_context():
     db.session.add(the_best_crawl)
 
     east_end.stops = [
-        Stop(bar=blind_beggar, order=0),
-        Stop(bar=royal_oak, order=1),
-        Stop(bar=pub_on_park, order=2)
+    Stop(bar=pub_on_park, order=0),
+        Stop(bar=blind_beggar, order=2),
+        Stop(bar=royal_oak, order=1)
     ]
     db.session.add(east_end)
 

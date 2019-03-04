@@ -2,15 +2,15 @@ import React from 'react'
 import axios from 'axios'
 import { Link } from 'react-router-dom'
 import CrawlCard from '../crawls/CrawlCard.js'
-
-
+import Select from 'react-select'
 
 class Home extends React.Component{
   constructor(){
     super()
 
     this.state={
-      crawls: []
+      crawls: [],
+      location: []
     }
 
   }
@@ -35,6 +35,17 @@ class Home extends React.Component{
             </div>
           </div>
         </section>
+        <form className="form" onSubmit>
+          <Select
+            className="select-bar"
+            isMulti
+            options={this.state.crawls.map(crawl => crawl.stops.map(stop => {
+              return { value: stop.bar.location, label: stop.bar.location }
+            })
+            )}
+            name="location"
+          />
+        </form>
         {this.state.crawls.map(crawl => <div key={crawl._id} className="hero-body">
           <CrawlCard {...crawl} />
         </div>

@@ -48,6 +48,16 @@ const CrawlForm = ({ data, handleChange, getCrawl, handleSubmit }) => {
     </div>
   )
 }
+// <Select
+// isMulti
+// options={bars.map(bar => {
+//   return { value: bar, label: bar.name }
+// }
+// )}
+// value={stops}
+// onChange={handleChange}
+// name="stops"
+// />
 
 // <div className="field">
 //   <label className="label">Add bars</label>
@@ -66,15 +76,5 @@ const CrawlForm = ({ data, handleChange, getCrawl, handleSubmit }) => {
 //   </div>
 // </div>
 
-// <Select
-//   isMulti
-//   options={bars.map(bar => {
-//     return { value: bar, label: bar.name }
-//   }
-//   )}
-//   value={stops}
-//   onChange={handleChange}
-//   name="stops"
-// />
 
 export default CrawlForm

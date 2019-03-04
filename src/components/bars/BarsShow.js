@@ -10,8 +10,8 @@ class BarsShow extends React.Component{
     super()
 
     this.state = {
-      stops: {
-        order: ''
+      data: {
+        stops: []
       }
     }
 
@@ -38,7 +38,7 @@ class BarsShow extends React.Component{
   render() {
 
     if(!this.state.bar) return null
-    console.log('stops', this.state.stops)
+    console.log('data', this.state.bar)
     const { name, hero, description, address } = this.state.bar
     return(
       <section className='tinted bar-show-img' style={{ backgroundImage: `url(${hero})`}} >
@@ -64,7 +64,7 @@ class BarsShow extends React.Component{
         <BarStopForm
           handleChange={this.handleChange}
           handleSubmit={this.handleSubmit}
-          stops={this.state.stops}
+          data={this.state.data}
         />
 
       </section>

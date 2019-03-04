@@ -272,7 +272,27 @@ hr.thin {
   margin: 20px;
 }
 
+.form {
+  justify-content: center;
+  display: flex;
+}
+.select-bar {
+  margin-top: 20px;
+  width: 55%;
+}
 
+.description {
+  justify-content: center;
+  display: flex;
+}
+.description-title {
+  width: 700px;
+  text-align: center;
+}
+
+.upvote {
+  margin: 20px;
+}
 //////// ******** CRAWL MAP ******* ///////////
 
 .map {
