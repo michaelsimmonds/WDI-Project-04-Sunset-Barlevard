@@ -43,7 +43,7 @@ const CrawlCard = ({ name, stops, id, creator, date, description }) => {
       <div className="description">
         <h1 className="title description-title is-6">{description}</h1>
       </div>
-      <form onSubmit className="header-crawl">
+      <form className="header-crawl">
         <button className="header-crawl button upvote">Bookmark</button>
       </form>
     </div>

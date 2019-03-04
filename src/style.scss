@@ -1,4 +1,7 @@
-$bar: yellow;
+@charset "utf-8";
+@import url('https://fonts.googleapis.com/css?family=Open+Sans');
+$warning: #fada5e;
+@import "~bulma/bulma";
 
 #root {
   font-family: 'Raleway', sans-serif;
@@ -72,6 +75,9 @@ img {
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
+  &:hover {
+    cursor: pointer;
+  }
 }
 
 .header-crawl {
@@ -97,10 +103,6 @@ img {
 
 .crawls {
   margin: 20px;
-}
-
-.carousel:hover {
-  cursor: pointer;
 }
 
 .hero {
@@ -294,10 +296,19 @@ hr.thin {
 }
 //////// ******** CRAWL MAP ******* ///////////
 
+// ============================ CRAWL SHOW ===================================
+
+// .is-rounded {
+//   border-radius: 100%;
+//   height: 25px;
+// }
+
+// ============================ CRAWL MAP ===================================
+
 .map {
   height: 50vh;
   @media screen and (max-width: 650px) {
-    height:30vh;
+    height:70vh;
   }
 }
 
@@ -311,3 +322,24 @@ hr.thin {
   max-width: 70px;
   font: 9pt 'Helvetica Neue', Arial, Helvetica, sans-serif;
   }
+
+//===========CRAWL SLIDER =======
+
+
+
+.crawl-display {
+  height: 700px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  & .slider-image {
+    height: 700px;
+    width: 1100px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    &:hover {
+      cursor: pointer;
+    }
+   }
+}

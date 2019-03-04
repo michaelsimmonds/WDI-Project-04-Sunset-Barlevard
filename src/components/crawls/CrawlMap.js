@@ -7,9 +7,7 @@ import axios from 'axios'
 class CrawlMap extends React.Component{
 
   componentDidMount() {
-    console.log('cdm')
     const stops = this.props.stops
-    console.log(stops)
     const n = stops.length-1
     const startLng = stops[0].bar.lng
     const endLng = stops[n].bar.lng
@@ -21,7 +19,7 @@ class CrawlMap extends React.Component{
 
     this.map = new mapboxgl.Map({
       container: this.mapDiv,
-      style: 'mapbox://styles/mapbox/streets-v9',
+      style: 'mapbox://styles/mapbox/satellite-streets-v9',
       center: this.props.center,
       zoom: this.props.zoom
     })
@@ -43,26 +41,21 @@ class CrawlMap extends React.Component{
     //try mapbox routes here
     axios.get(`https://api.mapbox.com/directions/v5/mapbox/walking/${startLng},${startLat};${endLng},${endLat}?steps=true&geometries=geojson&access_token=${process.env.MAPBOX_TOKEN}`)
       .then(res => {
-        console.log('response data', res.data)
         const route = res.data.routes[0].geometry.coordinates
         return route
       }).then(route => {
-        console.log('hello from route', route)
         const geojson = {
           type: 'Feature',
           properties: {},
           geometry: {
             type: 'LineString',
-            coordinates: [[-0.056873, 51.519947], [-0.056491, 51.519953]]//route
+            coordinates: route
           }
         }
 
-        console.log('hello from geojson', geojson)
         if (this.map.getSource('route')) {
-          console.log('hello')
-          //this.map.getSource('route').setData(geojson);
+          this.map.getSource('route').setData(geojson)
         } else { // otherwise, make a new request
-          console.log('helloooooo')
           this.map.on('load', function(){
 
             this.map.addLayer({
@@ -95,7 +88,6 @@ class CrawlMap extends React.Component{
   }
 
   render() {
-    console.log('render')
     return (
       <div className='map' ref={mapDiv => this.mapDiv = mapDiv} />
     )

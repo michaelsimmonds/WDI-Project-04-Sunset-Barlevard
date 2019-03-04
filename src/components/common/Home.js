@@ -36,7 +36,7 @@ class Home extends React.Component{
             </div>
           </div>
         </section>
-        <form className="form" onSubmit>
+        <form className="form">
           <Select
             className="select-bar"
             isMulti
