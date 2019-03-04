@@ -75,15 +75,15 @@ class CrawlShow extends React.Component {
           center={this.state.zoomCenter}
           zoom={12.0}
         />
-        <container className="container">
+        <div className="container">
           <section className="section">
             <h2 className="title is-4 center">Bars on this crawl</h2>
             <CrawlSlider
               stops = {this.state.crawl.stops}
             />
           </section>
-        </container>
-    <container className="container">
+        </div>
+    <div className="container">
       <section className="section">
         <h2 className="title is-4 center">Bars on this crawl</h2>
         <div className="card-content">
