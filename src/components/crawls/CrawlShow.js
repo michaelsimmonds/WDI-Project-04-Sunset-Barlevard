@@ -12,7 +12,6 @@ class CrawlShow extends React.Component {
     super()
 
     this.state = {}
-    //binds here
 
     this.deleteCrawl = this.deleteCrawl.bind(this)
 
@@ -28,7 +27,7 @@ class CrawlShow extends React.Component {
           bounds.extend([lng, lat])
         })
 
-
+        console.log('GETCENTER', bounds.getCenter())
         this.setState({ crawl: res.data, zoomCenter: bounds.getCenter() })
       })
   }
@@ -46,8 +45,8 @@ class CrawlShow extends React.Component {
       comments,
       creator,
       description,
-      name,
-      id
+      name
+
     } = this.state.crawl
     return(
       <main>

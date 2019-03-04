@@ -12,9 +12,17 @@ class CrawlMap extends React.Component{
     const endLng = stops[n].bar.lng
     const startLat = stops[0].bar.lat
     const endLat = stops[n].bar.lat
-    const start = [startLng, startLat]
-    console.log('start', start)
-    const end = [endLng, endLat]
+    //const start = [startLng, startLat]
+
+    const waypoints = []
+    stops.map(stop => {
+      const lat = stop.bar.lat
+      const lng = stop.bar.lng
+      waypoints.push([lng, lat])
+      console.log('WAYPOINTS', waypoints)
+      return waypoints
+    })
+
 
     this.map = new mapboxgl.Map({
       container: this.mapDiv,
@@ -23,11 +31,11 @@ class CrawlMap extends React.Component{
       zoom: this.props.zoom
     })
 
-    console.log(stops)
+    console.log('STOPS', stops)
     stops.map(stop => {
       const lat = stop.bar.lat
       const lng = stop.bar.lng
-      //console.log('lat '+lat, 'lng '+lng)
+
 
       const markerElement = document.createElement('div')
       markerElement.className = 'bar-marker'
@@ -37,7 +45,7 @@ class CrawlMap extends React.Component{
         .addTo(this.map)
     })
 
-    //try mapbox routes here
+    //Mapbox routes
     axios.get(`https://api.mapbox.com/directions/v5/mapbox/walking/${startLng},${startLat};${endLng},${endLat}`, {
       params: {
         steps: true,
