@@ -1,7 +1,7 @@
 import React from 'react'
 
 import mapboxgl from '../../lib/mapbox-gl'
-mapboxgl.accessToken = process.env.MAPBOX_KEY
+mapboxgl.accessToken = process.env.MAPBOX_TOKEN
 import 'mapbox-gl/dist/mapbox-gl.css'
 
 class BarMap extends React.Component {

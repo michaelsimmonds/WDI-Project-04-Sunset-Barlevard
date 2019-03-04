@@ -154,8 +154,8 @@ with app.app_context():
     franks = Bar(
         name='Frank''s',
         address='Bold Tendencies, 7th-10th Floor Multi Storey Car Park, 95A Rye Ln, London SE15 4ST',
-        lat=51.4707,
-        lng=0.0683,
+        lat=51.470608,
+        lng=-0.068110,
         terrace=True,
         description='While rival rooftop bars play to the masses with crazy golf and street food stalls, Frank’s has stayed to true to its left-field roots. The bar is just one part of the Bold Tendencies art gallery (in fact, when it opened, the wooden structure was considered an artwork itself, and won an architecture prize.)',
         hero='https://d37219swed47g7.cloudfront.net/media/images/reviews/franks-cafe-campari-bar/banners/1497010816.04.jpg',
@@ -166,8 +166,8 @@ with app.app_context():
     springs = Bar(
         name='Peckham Springs',
         address='4-5 Dovedale Trading Estate, London SE15 4QN',
-        lat=51.4697347,
-        lng=-0.0718385,
+        lat=51.4697354,
+        lng=-0.072304,
         terrace=False,
         description='Part-gallery, part-bar, you''ll find Peckham Springs — yes, the name is inspired by Del Boy''s infamous back garden water business — in the shadow of Peckham Rye Station, under the arches by Bar Story. It started as a summer pop-up but is now staying open all year round on Fridays and Saturdays.',
         hero='https://hirespace.imgix.net/spaces/165475/m5kxuyg5elq.jpg?h=600&w=1200&auto=format&fit=crop&q=40',
@@ -240,7 +240,7 @@ with app.app_context():
 
     the_best_crawl = Crawl(
         name='Best crawl ever',
-        description='I had such a great time going to these bars! Mark\s Bar was quite quite for a Friday (but so cheap!) so we then made a move to Royal Oak, which had a great pub quiz on!',
+        description='I had such a great time going to these bars! Mark\'s Bar was quite quite for a Friday (but so cheap!) so we then made a move to Royal Oak, which had a great pub quiz on!',
         date='Friday 22nd February',
         creator=mike
     )
@@ -269,13 +269,15 @@ with app.app_context():
     the_best_crawl = Crawl(
         name='West Crawl',
         description='So much fun',
+        date='Monday 4th March',
         creator=mike
     )
 
     history_crawl = Crawl(
         name='Historic Bar Crawl',
         description='Start off this crawl by having a couple of beers over looking the Thames at the one of the oldest pubs in London, The Grapes. Charles Dickens was a patron, and even made reference to the pub in his novel Our Mutual Friend. Take a stroll along the river to the Prospect of Whitby,the hostelry of choice of "Hanging" Judge Jeffreys, scourge of the Monmouth Rebellion. He lived nearby and a replica gallows and noose hangs by the Thameside window, commemorating his custom. According to legend, criminals would be tied up to the posts at low tide and left there to drown when the tide came in. Views from the pub were sketched by both Turner and Whistler, the writers Charles Dickens and Samuel Pepys are known to have paused to sup here. Next head from the river towards the Blind Beggar, site of the notorious Kray murder in 70s and the location of William Booth''s first sermon, which led to the creation of the Salvation Army. Finally end up at the Royal Oak, another Kray twin haunt situated next to London''s best known flower market.',
-        creator=mike
+        creator=mike,
+        date='Tuesday 5th March',
     )
 
 
@@ -297,7 +299,7 @@ with app.app_context():
 
 
     east_end.stops = [
-    Stop(bar=pub_on_park, order=0),
+        Stop(bar=pub_on_park, order=0),
         Stop(bar=blind_beggar, order=2),
         Stop(bar=royal_oak, order=1)
     ]
