@@ -19,7 +19,7 @@ class CrawlShow extends React.Component {
       .then(res => {
         this.setState({ crawl: res.data })
         const stops = this.state.crawl.stops
-        console.log("stops: " + stops)
+        console.log('stops: ' + stops)
         return stops
       })
       .then(stops => {

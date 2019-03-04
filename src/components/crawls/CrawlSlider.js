@@ -6,7 +6,7 @@ const CrawlSlider = ({ stops }) => {
   console.log(stops)
   return(
     <section className="crawl-display">
-      <div className="columns slider">
+      <div className="columns full-slider">
         {stops.map(stop => <div key={stop._id}>
           <div
             Link to={`bars/${stop._id}`}
