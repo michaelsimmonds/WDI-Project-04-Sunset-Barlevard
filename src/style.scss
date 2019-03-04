@@ -41,8 +41,10 @@ img {
   background-position: center;
 }
 
-.bar-show-div {
-  padding: 10px 0;
+.bar-show-div, .bar-show-title {
+  padding: 10px 5px;
+  background-color: rgba(0, 0, 0, 0.7);
+  text-align: center;
 }
 
 .bar-map-show {

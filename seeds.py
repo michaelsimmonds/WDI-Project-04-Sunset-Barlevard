@@ -154,8 +154,8 @@ with app.app_context():
     franks = Bar(
         name='Frank''s',
         address='Bold Tendencies, 7th-10th Floor Multi Storey Car Park, 95A Rye Ln, London SE15 4ST',
-        lat=51.4707,
-        lng=0.0683,
+        lat=51.470608,
+        lng=-0.068110,
         terrace=True,
         description='While rival rooftop bars play to the masses with crazy golf and street food stalls, Frank’s has stayed to true to its left-field roots. The bar is just one part of the Bold Tendencies art gallery (in fact, when it opened, the wooden structure was considered an artwork itself, and won an architecture prize.)',
         hero='https://d37219swed47g7.cloudfront.net/media/images/reviews/franks-cafe-campari-bar/banners/1497010816.04.jpg',
@@ -166,8 +166,8 @@ with app.app_context():
     springs = Bar(
         name='Peckham Springs',
         address='4-5 Dovedale Trading Estate, London SE15 4QN',
-        lat=51.4697347,
-        lng=-0.0718385,
+        lat=51.4697354,
+        lng=-0.072304,
         terrace=False,
         description='Part-gallery, part-bar, you''ll find Peckham Springs — yes, the name is inspired by Del Boy''s infamous back garden water business — in the shadow of Peckham Rye Station, under the arches by Bar Story. It started as a summer pop-up but is now staying open all year round on Fridays and Saturdays.',
         hero='https://hirespace.imgix.net/spaces/165475/m5kxuyg5elq.jpg?h=600&w=1200&auto=format&fit=crop&q=40',
@@ -299,7 +299,7 @@ with app.app_context():
 
 
     east_end.stops = [
-    Stop(bar=pub_on_park, order=0),
+        Stop(bar=pub_on_park, order=0),
         Stop(bar=blind_beggar, order=2),
         Stop(bar=royal_oak, order=1)
     ]
