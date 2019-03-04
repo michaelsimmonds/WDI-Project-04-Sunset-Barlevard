@@ -56,6 +56,7 @@ class Home extends React.Component{
               <h1 className="title sunset level-item">
                 Sunset Barlevard
               </h1>
+              <h1 className="title is-6 subtitle-header">Find Bar Crawls in London</h1>
               <hr className="thin">
               </hr>
             </div>

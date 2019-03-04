@@ -107,8 +107,8 @@ img {
 }
 
 .created-crawls {
-  height: 380px;
-  width: 380px;
+  height: 200px;
+  width: 200px;
   background-size: cover;
 }
 
@@ -137,7 +137,7 @@ img {
 
 .background {
   height: 100vh;
-  background-image: linear-gradient(to bottom right, rgba(0, 0, 0, .9), rgba(0, 0, 0, .6)), url('https://cdn-image.travelandleisure.com/sites/default/files/styles/1600x1000/public/1511276981/the-roof-at-public-hotel-new-york-city-ROOF1117.jpg?itok=4PTTAf3C');
+  background-image: linear-gradient(to bottom right, rgba(0, 0, 0, .9), rgba(0, 0, 0, .8)), url('https://cdn-image.travelandleisure.com/sites/default/files/styles/1600x1000/public/1511276981/the-roof-at-public-hotel-new-york-city-ROOF1117.jpg?itok=4PTTAf3C');
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: fixed;
@@ -147,6 +147,10 @@ img {
   font-family: 'Lobster', cursive;
   color: white !important;
   font-size: 80px !important;
+}
+
+.subtitle-header {
+  color: white !important;
 }
 
 hr.thin {
@@ -304,6 +308,10 @@ hr.thin {
 
 .upvote {
   margin: 20px;
+}
+
+.small-margin {
+  width: 18% !important;
 }
 //////// ******** CRAWL MAP ******* ///////////
 

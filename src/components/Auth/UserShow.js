@@ -30,13 +30,14 @@ class UserShow extends React.Component{
               <div style={{backgroundImage: `url(${this.state.userData.image})`}}className="user-image"/>
             </div>
             <h1 className="title is-2 center"> @{this.state.userData.username} </h1>
-            <h1 className="title is-4">Bio</h1>
+            <h1 className="title is-4 center">Bio</h1>
             <div className="container">
               <p className="is-medium margin center"> {this.state.userData.bio} </p>
             </div>
-            <h1 className="title is-4">Created Crawls</h1>
-            <div className="columns is-desktop is-centered">
-              {this.state.userData.created_crawls.map(crawl => <div className="column is-one-third" key={crawl._id}> <h1 className="title is-6 center">{crawl.name}</h1>
+            <h1 className="title is-4 center">Created Crawls</h1>
+            <div className="columns is-multiline is-centered">
+              {this.state.userData.created_crawls.map(crawl => <div className="column is-one-fifth small-margin" key={crawl._id}> <h1 className="title is-6 center">{crawl.name}</h1>
+                <div style={{backgroundImage: `url(${crawl.stops[0].bar.hero})`}}className="created-crawls center"/>
               </div>)}
             </div>
           </div>
@@ -46,5 +47,4 @@ class UserShow extends React.Component{
   }
 }
 
-// <div style={{backgroundImage: `url(${crawl.stops[0].bar.hero})`}}className="created-crawls"/> 
 export default UserShow
