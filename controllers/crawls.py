@@ -1,5 +1,6 @@
 from flask import Blueprint, request, jsonify, g # Blueprint is a mini router
 from models.crawl import Crawl, CrawlSchema, Stop, StopSchema, Comment, CommentSchema
+from models.bar import Bar, BarSchema
 
 from lib.secure_route import secure_route
 from app import db
@@ -11,6 +12,9 @@ crawl_schema = CrawlSchema()
 
 stops_schema = StopSchema(many=True)
 stop_schema = StopSchema()
+
+bars_schema = BarSchema(many=True)
+bar_schema = BarSchema()
 
 comments_schema = CommentSchema(many=True)
 comment_schema = CommentSchema()
@@ -36,7 +40,6 @@ def create():
         return jsonify(errors), 422 # this jsonify is a flask method. it turns dict into json
     crawl.save()
     return crawl_schema.jsonify(crawl) # this is marshmallow jsonify. it jsonifies the crawl object
-
 
 @api.route('/crawls/<int:crawl_id>', methods=['PUT'])
 @secure_route
@@ -93,6 +96,17 @@ def create_stop(crawl_id, bar_id):
 
     return crawl_schema.jsonify(crawl), 201
 
+@api.route('/crawls/<int:crawl_id>/bars', methods=['GET'])
+def get_stop(crawl_id):
+
+    bars = Bar.query.all()
+    return bars_schema.jsonify(bars)
+
+@api.route('/crawls/<int:crawl_id>/bars/<int:bar_id>', methods=['GET'])
+def show_stop(crawl_id, bar_id):
+
+    bar = Bar.query.get(bar_id)
+    return bar_schema.jsonify(bar)
 
 @api.route('/crawls/<int:crawl_id>/stops/<int:stop_id>', methods=['DELETE'])
 def delete_stop(crawl_id, stop_id):

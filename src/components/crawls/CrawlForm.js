@@ -1,8 +1,9 @@
 import React from 'react'
 import Select from 'react-select'
 
-const CrawlForm = ({ data, handleChange, handleSubmit, handleSelect, listOfBars }) => {
-  console.log(data)
+const CrawlForm = ({ data, handleChange, getCrawl, handleSubmit }) => {
+  console.log('data.name', data.name)
+  console.log('data.stops', data.stops)
   return(
     <div className="columns">
       <div className="column is-6 is-offset-3">
@@ -35,19 +36,10 @@ const CrawlForm = ({ data, handleChange, handleSubmit, handleSelect, listOfBars 
             </div>
           </div>
 
-          <div className="field">
-            <label className="label">Add bars</label>
-            <Select
-              value={listOfBars}
-              onSelect={handleSelect}
-              isMulti
-            />
-          </div>
-
           <div className="columns add-place">
 
             <div className="column is-5">
-              <button className="button">Submit</button>
+              <button className="button">Next</button>
             </div>
 
           </div>
@@ -56,5 +48,33 @@ const CrawlForm = ({ data, handleChange, handleSubmit, handleSelect, listOfBars 
     </div>
   )
 }
+// <Select
+// isMulti
+// options={bars.map(bar => {
+//   return { value: bar, label: bar.name }
+// }
+// )}
+// value={stops}
+// onChange={handleChange}
+// name="stops"
+// />
+
+// <div className="field">
+//   <label className="label">Add bars</label>
+//
+//   <div className="control">
+//     <div className="select">
+//       <select
+//         onChange={handleChange}
+//         name="stops">
+//         {bars.map(bar => <option
+//           key={bar._id}
+//           value={JSON.stringify(bar)}
+//         > {bar.name} </option>)}
+//       </select>
+//     </div>
+//   </div>
+// </div>
+
 
 export default CrawlForm

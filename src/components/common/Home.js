@@ -1,14 +1,16 @@
 import React from 'react'
 import axios from 'axios'
 import { Link } from 'react-router-dom'
-
+import CrawlCard from '../crawls/CrawlCard.js'
+import Select from 'react-select'
 
 class Home extends React.Component{
   constructor(){
     super()
 
     this.state={
-      crawls: []
+      crawls: [],
+      location: []
     }
 
   }
@@ -20,40 +22,35 @@ class Home extends React.Component{
 
   render(){
     console.log(this.state.crawls)
+    const { stops } = this.state.crawls
     return(
       <main>
-        <section className="hero is-large">
+        <section className="hero is-large background">
           <div className="hero-body">
-            <div className="container">
-              <h1 className="title level-item">
+            <div className="container has-text-centered">
+              <h1 className="title sunset level-item">
                 Sunset Barlevard
               </h1>
-              <h2 className="subtitle">
-              </h2>
+              <hr className="thin">
+              </hr>
             </div>
           </div>
         </section>
-        <div className="crawls">
-          <h1 className="title is-2 center" >Bar Crawls</h1>
-          <div className="columns is-multiline center">
-
-            {this.state.crawls.map(crawl => <div key={crawl._id} className="column is-one-fifth margin1">
-              <div className="flex-direction2">
-                <h1 className="title is-6">{crawl.name}</h1>
-                <div style={{backgroundImage: `url(${crawl.creator.image})`}}className="user-image-home"/>
-              </div>
-              <p>@{crawl.creator.username}</p>
-
-              <div className="columns slider">
-                {crawl.stops.map(stop => <div className="column is-centered is-full center" key={stop._id}>
-                  <div style={{backgroundImage: `url(${stop.bar.hero})`}}className="carousel"/>
-                </div>)}
-              </div>
-            </div>)}
-
-          </div>
+        <form className="form">
+          <Select
+            className="select-bar"
+            isMulti
+            // options={stops.map(stop => {
+            //   return { value: stop.bar.location, label: stop.bar.location }
+            // })
+            // }
+            name="location"
+          />
+        </form>
+        {this.state.crawls.map(crawl => <div key={crawl._id} className="hero-body">
+          <CrawlCard {...crawl} />
         </div>
-
+        )}
       </main>
 
     )
@@ -61,3 +58,13 @@ class Home extends React.Component{
 }
 
 export default Home
+// <div className="crawls">
+// <h1 className="title is-2 center" >Bar Crawls</h1>
+// <div className="center">
+//
+// <div className="columns is-centered flex-direction">
+// {this.state.crawls.map(crawl => <div key={crawl._id} className="column">
+// </div>)}
+// </div>
+// </div>
+// </div>

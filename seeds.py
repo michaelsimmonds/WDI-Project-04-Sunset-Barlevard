@@ -122,7 +122,7 @@ with app.app_context():
         lng=-0.0714865,
         terrace=False,
         description='You might just recognise this pub off the telly - it has featured in the Kray''s film, sitcom Good Night Sweetheart and even Blue Peter. The look - like something straight out of the 1940s - hasn''t been diminished by any number of refits in the intervening years either. This former gay pub has been transformed into yet another excellent gastropub with more table space in the dining room upstairs',
-        hero='https://cdn.vox-cdn.com/uploads/chorus_image/image/62580024/Royal_Oak_Official.0.0.jpg',
+        hero='https://static.standard.co.uk/s3fs-public/thumbnails/image/2017/11/28/16/the-royal-oak-pic.jpg?w968',
         location='East'
     )
     db.session.add(royal_oak)
@@ -223,24 +223,46 @@ with app.app_context():
     )
     db.session.add(dove)
 
+    marks_bar = Bar(
+        name='Mark\'s Bar',
+        address='66-70 Brewer St, Soho, London W1F 9UP',
+        lat=51.5111389,
+        lng=-0.1386364,
+        terrace=False,
+        description='Leather chesterfields, ambient lighting, and a list full of historical curiosities, Mark\’s Bars are the places to sit back and enjoy a more eccentric approach to drinking.',
+        hero='https://www.hixrestaurants.co.uk/wp-content/uploads/2015/10/11-microsite-4-marks-bars-1-landing-top-banner-4-1600x7681.jpg',
+        location='West'
+    )
+    db.session.add(marks_bar)
+
 
 ################ CRAWLS ######################
+
+    the_best_crawl = Crawl(
+        name='Best crawl ever',
+        description='I had such a great time going to these bars! Mark\s Bar was quite quite for a Friday (but so cheap!) so we then made a move to Royal Oak, which had a great pub quiz on!',
+        date='Friday 22nd February',
+        creator=mike
+    )
 
     east_end = Crawl(
         name='East End Crawl',
         description='A tour of the seven wonders of the East End. Perfect for old-timers as well as those new to the area - great way to meet some locals if you\'ve just moved to East London!',
+        date='Friday 8th February',
         creator=mike
     )
 
     north_crawl = Crawl(
         name='North Crawl',
         description='So much fun',
+        date='Saturday 2nd February',
         creator=mike
     )
 
     fun_crawl = Crawl(
         name='Fun Crawl',
         description='So much fun',
+        date='Thursday 31st January',
         creator=mike
     )
 
@@ -265,11 +287,19 @@ with app.app_context():
         Stop(bar=blind_beggar, order=2),
         Stop(bar=royal_oak, order=3)
     ]
+    db.session.add(history_crawl)
+
+    the_best_crawl.stops = [
+        Stop(bar=marks_bar, order=0),
+        Stop(bar=royal_oak, order=1)
+    ]
+    db.session.add(the_best_crawl)
+
 
     east_end.stops = [
-        Stop(bar=blind_beggar, order=0),
-        Stop(bar=royal_oak, order=1),
-        Stop(bar=pub_on_park, order=2)
+    Stop(bar=pub_on_park, order=0),
+        Stop(bar=blind_beggar, order=2),
+        Stop(bar=royal_oak, order=1)
     ]
     db.session.add(east_end)
 
@@ -279,11 +309,6 @@ with app.app_context():
     ]
     db.session.add(north_crawl)
 
-    the_best_crawl.stops = [
-        Stop(bar=franks, order=1),
-        Stop(bar=royal_oak, order=0)
-    ]
-    db.session.add(the_best_crawl)
 
     fun_crawl.stops = [
         Stop(bar=discount_suit_company, order=1),

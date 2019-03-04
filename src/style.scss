@@ -1,4 +1,11 @@
-$bar: yellow;
+@charset "utf-8";
+@import url('https://fonts.googleapis.com/css?family=Open+Sans');
+$warning: #fada5e;
+@import "~bulma/bulma";
+
+#root {
+  font-family: 'Raleway', sans-serif;
+}
 
 .text-overlay {
   width: 100%;
@@ -18,7 +25,6 @@ figure.image {
   background-size: cover;
   background-position: center;
 }
-
 
 img {
   margin: 20px;
@@ -58,23 +64,9 @@ img {
 // }
 
 // ===============================CRAWL INDEX===================================
-
-.header-crawl {
-  justify-content: center;
-  display: flex;
-}
-
 .flex-direction {
   display: flex;
   flex-direction: row;
-}
-
-.flex-direction2 {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  width: 300px;
-  margin-bottom: 5px;
 }
 
 .center {
@@ -82,25 +74,36 @@ img {
   display: flex;
 }
 
+.slider {
+  align-items: center;
+  overflow-x: scroll;
+  width: 60%;
+}
+
+.carousel {
+  height: 500px;
+  width: 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.header-crawl {
+  justify-content: center;
+  display: flex;
+}
+
+.flex-direction {
+  flex-direction: column;
+}
+
 .center2 {
   justify-content: center;
   display: flex;
   flex-direction: column;
-}
-
-.slider {
-  align-items: center;
-  overflow-x: scroll;
-  -webkit-overflow-scrolling: touch;
-  width: 150%;
-}
-
-.carousel {
-  height: 300px;
-  width: 300px;
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
 }
 
 .created-crawls {
@@ -111,10 +114,6 @@ img {
 
 .crawls {
   margin: 20px;
-}
-
-.carousel:hover {
-  cursor: pointer;
 }
 
 .hero {
@@ -135,6 +134,146 @@ img {
   border-radius: 50%;
   background-size: cover;
 }
+
+.background {
+  height: 100vh;
+  background-image: linear-gradient(to bottom right, rgba(0, 0, 0, .9), rgba(0, 0, 0, .6)), url('https://cdn-image.travelandleisure.com/sites/default/files/styles/1600x1000/public/1511276981/the-roof-at-public-hotel-new-york-city-ROOF1117.jpg?itok=4PTTAf3C');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+.sunset {
+  font-family: 'Lobster', cursive;
+  color: white !important;
+  font-size: 80px !important;
+}
+
+hr.thin {
+  height: 1px;
+  border: 0;
+  color: white;
+  background-color: #333;
+  width: 100%;
+}
+
+.width {
+  height: 500px;
+  justify-content: center;
+  display: flex;
+}
+
+.uploaded-user {
+  width: 1310px;
+  justify-content: space-around;
+  display: flex;
+  margin: 0;
+}
+
+.inline {
+  margin: 0 !important;
+  display: flex !important;
+  align-items: center !important;
+}
+
+//===============================overlay========================================
+*, *:before, *:after{
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing:border-box;
+  box-sizing: border-box;
+}
+
+.main-title{
+  color: #2d2d2d;
+  text-align: center;
+  text-transform: capitalize;
+  padding: 0.7em 0;
+}
+
+.container2{
+  padding: 1em 0;
+  float: left;
+  width: 100%;
+}
+
+.container2 .title{
+  color: #1a1a1a;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.content {
+  position: relative;
+  margin: auto;
+  overflow: hidden;
+}
+
+.content .content-overlay {
+  background: rgba(0,0,0,0.9);
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  opacity: 0;
+  -webkit-transition: all 0.4s ease-in-out 0s;
+  -moz-transition: all 0.4s ease-in-out 0s;
+  transition: all 0.4s ease-in-out 0s;
+}
+
+.content:hover .content-overlay{
+  opacity: 1;
+}
+//
+// .content-image{
+//   width: 100%;
+// }
+
+.content-details {
+  position: absolute;
+  text-align: center;
+  padding-left: 1em;
+  padding-right: 1em;
+  width: 100%;
+  top: 50%;
+  left: 50%;
+  opacity: 0;
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  -webkit-transition: all 0.3s ease-in-out 0s;
+  -moz-transition: all 0.3s ease-in-out 0s;
+  transition: all 0.3s ease-in-out 0s;
+}
+
+.content:hover .content-details{
+  top: 50%;
+  left: 50%;
+  opacity: 1;
+}
+
+.content-details1 {
+  color: #fff;
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  margin-bottom: 0.5em;
+  text-transform: uppercase;
+  font-size: 20px;
+}
+
+.content-details2 {
+  color: #fff;
+  font-size: 0.8em;
+}
+
+.fadeIn-bottom{
+  top: 80%;
+}
+
 // ================================USER SHOW===================================
 
 .user-image {
@@ -145,13 +284,42 @@ img {
   margin: 20px;
 }
 
+.form {
+  justify-content: center;
+  display: flex;
+}
+.select-bar {
+  margin-top: 20px;
+  width: 55%;
+}
 
+.description {
+  justify-content: center;
+  display: flex;
+}
+.description-title {
+  width: 700px;
+  text-align: center;
+}
+
+.upvote {
+  margin: 20px;
+}
 //////// ******** CRAWL MAP ******* ///////////
+
+// ============================ CRAWL SHOW ===================================
+
+// .is-rounded {
+//   border-radius: 100%;
+//   height: 25px;
+// }
+
+// ============================ CRAWL MAP ===================================
 
 .map {
   height: 50vh;
   @media screen and (max-width: 650px) {
-    height:30vh;
+    height:70vh;
   }
 }
 
@@ -165,3 +333,24 @@ img {
   max-width: 70px;
   font: 9pt 'Helvetica Neue', Arial, Helvetica, sans-serif;
   }
+
+//===========CRAWL SLIDER =======
+
+
+
+.crawl-display {
+  height: 700px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  & .slider-image {
+    height: 700px;
+    width: 1100px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    &:hover {
+      cursor: pointer;
+    }
+   }
+}

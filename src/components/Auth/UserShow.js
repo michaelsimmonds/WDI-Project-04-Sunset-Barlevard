@@ -1,9 +1,6 @@
 import React from 'react'
 import axios from 'axios'
 
-import Auth from '../../lib/Auth'
-
-
 class UserShow extends React.Component{
   constructor(props){
     super(props)
@@ -40,13 +37,14 @@ class UserShow extends React.Component{
             <h1 className="title is-4">Created Crawls</h1>
             <div className="columns is-desktop is-centered">
               {this.state.userData.created_crawls.map(crawl => <div className="column is-one-third" key={crawl._id}> <h1 className="title is-6 center">{crawl.name}</h1>
-                <div style={{backgroundImage: `url(${crawl.stops[0].bar.hero})`}}className="created-crawls"/> </div>)}
+              </div>)}
             </div>
           </div>
         </section>
       </main>
     )
   }
-
 }
+
+// <div style={{backgroundImage: `url(${crawl.stops[0].bar.hero})`}}className="created-crawls"/> 
 export default UserShow
