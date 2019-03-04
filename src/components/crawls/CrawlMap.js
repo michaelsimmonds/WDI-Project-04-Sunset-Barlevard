@@ -16,13 +16,15 @@ class CrawlMap extends React.Component{
 
     const waypoints = []
     stops.map(stop => {
-      const lat = stop.bar.lat
       const lng = stop.bar.lng
-      waypoints.push([lng, lat])
-      console.log('WAYPOINTS', waypoints)
+      const lat = stop.bar.lat
+      waypoints.push(`${lng},${lat}`)
+
       return waypoints
     })
 
+    const waypointsJoined = waypoints.join(';')
+    console.log('JOINED', waypointsJoined)
 
     this.map = new mapboxgl.Map({
       container: this.mapDiv,
@@ -44,9 +46,12 @@ class CrawlMap extends React.Component{
         .setLngLat({ lng: lng, lat: lat })
         .addTo(this.map)
     })
+    console.log('WAYPOINTS', waypoints)
+    console.log('WITH WAYPOINTS', `https://api.mapbox.com/directions/v5/mapbox/walking/${waypointsJoined}`)
+    console.log('2 points', `https://api.mapbox.com/directions/v5/mapbox/walking/${startLng},${startLat};${endLng},${endLat}`)
 
     //Mapbox routes
-    axios.get(`https://api.mapbox.com/directions/v5/mapbox/walking/${startLng},${startLat};${endLng},${endLat}`, {
+    axios.get(`https://api.mapbox.com/directions/v5/mapbox/walking/${waypointsJoined}`, {
       params: {
         steps: true,
         geometries: 'geojson',
