@@ -1,72 +1,59 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+//import { Link } from 'react-router-dom'
 import axios from 'axios'
 import CrawlMap from './CrawlMap'
-import Auth from '../../lib/Auth'
 import CrawlSlider from './CrawlSlider'
+import Auth from '../../lib/Auth'
+
+import mapboxgl from '../../lib/mapbox-gl'
 
 class CrawlShow extends React.Component {
   constructor() {
     super()
 
-    this.state={
-      zoomCenter: [-0.1293555, 51.546483]
-    }
+    this.state = {}
     //binds here
-    this.handleSubmit = this.handleSubmit.bind(this)
+
+    this.deleteCrawl = this.deleteCrawl.bind(this)
+
   }
 
   componentDidMount() {
     axios.get(`/api/crawls/${this.props.match.params.id}`)
       .then(res => {
-        this.setState({ crawl: res.data })
-        const stops = this.state.crawl.stops
-        console.log("stops: " + stops)
-        return stops
+        const bounds = new mapboxgl.LngLatBounds()
+
+        res.data.stops.forEach(stop => {
+          const { lng, lat } = stop.bar
+          bounds.extend([lng, lat])
+        })
+
+
+        this.setState({ crawl: res.data, zoomCenter: bounds.getCenter() })
       })
-    axios.get('/api/bars')
-      .then(res => this.setState({ bars: res.data }))
   }
 
-  handleSubmit(e) {
-    e.preventDefault()
-    axios
-      .get('/api/bars', this.state.data,
-        { headers: {Authorization: `Bearer ${Auth.getToken()}`}})
+  deleteCrawl(){
+    axios.delete(`/api/crawls/${this.props.match.params.id}`)
+      .then(() => this.props.history.push('/crawls'))
       .catch(err => alert(err.message))
-      .then(stops => {
-        //map over each stop and return just the lngs
-        const lngs = stops.map(stop => stop.bar.lng)
-        console.log('LNGS', lngs)
-        //map over each stop and return just the lats
-        const lats = stops.map(stop => stop.bar.lat)
-        console.log('LATS', lats)
-        //reduce the lngs and divide by lngs.length
-        const avLng = lngs.reduce((total, lng) => total + lng, 0) / lngs.length
-        //reduce the lats and divide by lats.length
-        const avLat = lats.reduce((total, lat) => total + lat, 0) / lats.length
-
-        this.setState({zoomCenter: {lng: avLng, lat: avLat}})
-        console.log('ZOOMCENTER', this.state.zoomCenter)
-      })
   }
-
 
   render(){
     if (!this.state.crawl) return null
-    console.log('crawl', this.state.crawl)
-    //console.log(this.state.crawl)
+    console.log(this.state.crawl)
     const {
       comments,
       creator,
       description,
-      name
+      name,
+      id
     } = this.state.crawl
     return(
       <main>
         <CrawlMap
-          stops = {this.state.crawl.stops}
-          center = {this.state.zoomCenter}
+          stops={this.state.crawl.stops}
+          center={this.state.zoomCenter}
           zoom={12.0}
         />
 
@@ -95,7 +82,7 @@ class CrawlShow extends React.Component {
               {comments.map(comment => {
                 console.log('COMMENT AUTHOR', comment.author)
                 return(
-                  <div className="box" key={comment._id}>
+                  <div className="box" key={comment.id}>
                     <article className="media>">
                       <div className="media-left">
                       </div>
@@ -104,15 +91,15 @@ class CrawlShow extends React.Component {
 
                     </article>
                   </div>
-
-
-
-
-
                 )
               })}
             </div>
-            <button className="button">Add Bars</button>
+            {Auth.isAuthenticated() && (creator.id === Auth.getUserID()) &&
+
+            <form onSubmit={this.deleteCrawl}>
+              <button className="button">Delete Crawl</button>
+            </form>
+            }
           </div>
         </section>
       </main>

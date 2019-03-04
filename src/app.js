@@ -13,6 +13,7 @@ import UserShow from './components/Auth/UserShow'
 import BarsIndex from './components/bars/BarsIndex'
 import 'mapbox-gl/dist/mapbox-gl.css'
 import BarsNew from './components/bars/BarsNew'
+import 'mapbox-gl/dist/mapbox-gl.css'
 import './style.scss'
 //import 'bulma'
 
@@ -31,7 +32,7 @@ class App extends React.Component{
               <Route path="/bars/new" component={BarsNew} />
               <Route path="/bars/:id" component={BarsShow} />
               <Route path="/bars" component={BarsIndex} />
-              <Route path="/crawls/:id/bars/:id/add" component={BarsShow} />
+              <Route path="/crawls/:id/bars/:id" component={BarsShow} />
               <Route path="/crawls/:id/bars" component={CrawlsBarIndex} />
               <Route path="/crawls/new" component={CrawlsNew} />
               <Route path="/crawls/:id" component={CrawlShow} />

@@ -5,16 +5,26 @@ import BarMap from './BarMap'
 
 class BarsShow extends React.Component{
 
-  constructor() {
-    super()
+  constructor(props) {
+    super(props)
 
     this.state = {}
 
   }
 
   componentDidMount() {
-    axios.get(`/api/bars/${this.props.match.params.id}`)
+    axios.get(`/api/crawls/${this.props.match.params.id}/bars/${this.props.match.params.id}`)
       .then(res => this.setState({ bar: res.data }))
+  }
+
+  handleChange({ target: { name, value }}) {
+    const data = {...this.state.data, [name]: value}
+    this.setState({ data })
+  }
+
+  handleSubmit(e, crawlId) {
+    e.preventDefault()
+    axios.post(`/api/crawls/${crawlId}/bars/${this.props.match.params.id}/add`), this.state.data
   }
 
   render() {

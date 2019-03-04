@@ -4,7 +4,7 @@ import Auth from '../../lib/Auth'
 import CrawlForm from './CrawlForm'
 import BarCard from '../bars/BarCard.js'
 
-class CrawlsNew extends React.Component{
+class CrawlNew extends React.Component{
   constructor(){
     super()
 
@@ -13,14 +13,14 @@ class CrawlsNew extends React.Component{
       data: {
         name: '',
         description: '',
-        date: '',
         stops: []
       }
     }
 
     this.handleSubmit = this.handleSubmit.bind(this)
     this.handleChange = this.handleChange.bind(this)
-    this.handleAddStop = this.handleAddStop.bind(this)
+
+    this.handleSelectChange = this.handleSelectChange.bind(this)
 
   }
 
@@ -34,14 +34,7 @@ class CrawlsNew extends React.Component{
     this.setState({ data })
   }
 
-  handleAddStop(selectedStops) {
-    const stops = selectedStops.map((stop, index) => {
-      return { bar: stop.value, order: index }
-    })
 
-    const data = { ...this.state.data, stops }
-    this.setState({ data })
-  }
 
   handleSubmit(e) {
     e.preventDefault()
@@ -54,6 +47,10 @@ class CrawlsNew extends React.Component{
 
   //=====================REACT SELECT======================
 
+  handleSelectChange(stops) {
+    this.setState({ stops })
+  }
+
   render() {
     console.log(this.state.data)
     return (
@@ -61,38 +58,24 @@ class CrawlsNew extends React.Component{
         <div className="container">
           <CrawlForm
             data={this.state.data}
-            handleAddStop={this.handleAddStop}
             handleChange={this.handleChange}
             handleFormChange={this.handleFormChange}
             handleSubmit={this.handleSubmit}
             handleSelect={this.handleSelect}
-            getCrawl={this.getCrawl}
             bars={this.state.bars}
           />
 
+        </div>
+        <div className="columns is-multiline">
+          {this.state.bars.map(bar =>
+            <div className="column is-full-width" key={bar.id}>
+              <BarCard {...bar} />
+            </div>
+          )}
         </div>
       </main>
     )
   }
 }
 
-export default CrawlsNew
-
-
-// handleSubmit(e) {
-//   e.preventDefault()
-//   axios
-//     .post('/api/crawls', this.state.data,
-//       { headers: {Authorization: `Bearer ${Auth.getToken()}`}})
-//     .then(() => this.props.history.push('/crawls'))
-//     .catch(err => alert(err.message))
-// }
-
-// handleSubmit(e) {
-//   e.preventDefault()
-//   axios
-//     .post('/api/crawls', this.state.data,
-//       { headers: {Authorization: `Bearer ${Auth.getToken()}`}})
-//     .then(() => this.props.history.push(`/crawls/${this.props.match.params.id}`))
-//     .catch(err => alert(err.message))
-// }
+export default CrawlNew

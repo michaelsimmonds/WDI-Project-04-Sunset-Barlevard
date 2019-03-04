@@ -1,6 +1,5 @@
 import React from 'react'
-import mapboxgl from 'mapbox-gl'
-mapboxgl.accessToken=process.env.MAPBOX_TOKEN
+import mapboxgl from '../../lib/mapbox-gl'
 import axios from 'axios'
 
 
@@ -39,11 +38,15 @@ class CrawlMap extends React.Component{
     })
 
     //try mapbox routes here
-    axios.get(`https://api.mapbox.com/directions/v5/mapbox/walking/${startLng},${startLat};${endLng},${endLat}?steps=true&geometries=geojson&access_token=${process.env.MAPBOX_TOKEN}`)
-      .then(res => {
-        const route = res.data.routes[0].geometry.coordinates
-        return route
-      }).then(route => {
+    axios.get(`https://api.mapbox.com/directions/v5/mapbox/walking/${startLng},${startLat};${endLng},${endLat}`, {
+      params: {
+        steps: true,
+        geometries: 'geojson',
+        access_token: process.env.MAPBOX_TOKEN
+      }
+    })
+      .then(res => res.data.routes[0].geometry.coordinates)
+      .then(route => {
         const geojson = {
           type: 'Feature',
           properties: {},
