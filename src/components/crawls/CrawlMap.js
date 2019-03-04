@@ -12,19 +12,15 @@ class CrawlMap extends React.Component{
     const endLng = stops[n].bar.lng
     const startLat = stops[0].bar.lat
     const endLat = stops[n].bar.lat
-    //const start = [startLng, startLat]
 
     const waypoints = []
     stops.map(stop => {
       const lng = stop.bar.lng
       const lat = stop.bar.lat
       waypoints.push(`${lng},${lat}`)
-
       return waypoints
     })
-
     const waypointsJoined = waypoints.join(';')
-    console.log('JOINED', waypointsJoined)
 
     this.map = new mapboxgl.Map({
       container: this.mapDiv,
