@@ -115,6 +115,7 @@ class CrawlShow extends React.Component {
               })}
             </div>
 
+            
             {Auth.isAuthenticated() && (creator.id === Auth.getUserID()) &&
 
             <form onSubmit={this.deleteCrawl}>
