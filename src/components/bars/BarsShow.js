@@ -14,13 +14,13 @@ class BarsShow extends React.Component{
 
   componentDidMount() {
     axios.get(`/api/bars/${this.props.match.params.id}`)
-      .then(res => this.setState({ bars: res.data }))
+      .then(res => this.setState({ bar: res.data }))
   }
 
   render() {
 
-    if(!this.state.bars) return null
-    const { name, hero, description, address } = this.state.bars
+    if(!this.state.bar) return null
+    const { name, hero, description, address, lat, lng } = this.state.bar
     return(
       <section className='tinted bar-show-img' style={{ backgroundImage: `url(${hero})`}} >
 
@@ -30,15 +30,15 @@ class BarsShow extends React.Component{
 
             <div className='column is-half has-text-white bar-show-column' id='show'>
               <h1 className="title has-text-white">{name}</h1>
-              <div className='bar-show-div'>{description}</div>
+              <div className='bar-show-div des'>{description}</div>
               <div className='bar-show-div'>{address}</div>
             </div>
 
             <div className='column is-half align-items bar-show-column'>
               <BarMap
-                center={{ lat: this.state.bars.lat, lng: this.state.bars.lng }}
+                center={{ lat, lng }}
                 zoom={11.5}
-                marker={this.state.bars}
+                marker={this.state.bar}
               />
             </div>
 

@@ -10,7 +10,7 @@
     "serve": "webpack-dev-server --mode=development",
     "build": "webpack -p",
     "seed": "node db/seeds",
-    "test": "mocha test/**/*_spec.js --require test/spec_helper --recursive --exit"
+    "test": "mocha test/**/*_spec.js --require test/spec_helper --require ignore-styles --recursive --exit"
   },
   "dependencies": {
     "@babel/core": "^7.3.4",

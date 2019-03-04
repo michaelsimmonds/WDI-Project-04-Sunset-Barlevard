@@ -31,7 +31,7 @@ class Crawl(db.Model, BaseModel):
     __tablename__ = 'crawls'
 
     name = db.Column(db.String(40), nullable=False)
-    description = db.Column(db.String(400), nullable=False)
+    description = db.Column(db.String(1300), nullable=False)
     creator_id = db.Column(db.Integer, db.ForeignKey('users.id'))
     creator = db.relationship('User', backref='created_crawls')
     stops = db.relationship('Stop', backref='crawls', order_by=Stop.order)

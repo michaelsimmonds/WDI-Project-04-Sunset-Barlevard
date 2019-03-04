@@ -1,3 +1,5 @@
+process.env.NODE_ENV = 'test'
+
 // allows us to write our tests in ES6
 require('@babel/register')()
 

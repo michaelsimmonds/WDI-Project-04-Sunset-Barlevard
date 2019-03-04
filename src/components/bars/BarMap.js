@@ -1,6 +1,6 @@
 import React from 'react'
 
-import mapboxgl from 'mapbox-gl'
+import mapboxgl from '../../lib/mapbox-gl'
 mapboxgl.accessToken = process.env.MAPBOX_KEY
 import 'mapbox-gl/dist/mapbox-gl.css'
 

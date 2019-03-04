@@ -18,7 +18,9 @@ describe('BarsShow tests', () => {
         name: 'The Alma',
         hero: 'alma.jpg',
         description: 'It is good',
-        address: '111 address, address street'
+        address: '111 address, address street',
+        lat: 0,
+        lng: 0
       }
     })
 
@@ -43,10 +45,10 @@ describe('BarsShow tests', () => {
   it('should render the correct HTML', done => {
     response.then(() => {
       wrapper.update()
-      // expect(wrapper.find('.bar-show-img').prop('src')).to.eq('alma.jpg')
+      expect(wrapper.find('section').prop('style').backgroundImage).to.eq('url(alma.jpg)')
       expect(wrapper.find('h1.title').text()).to.eq('The Alma')
-      // expect(wrapper.find('.column .bar-show-div:first-child').text()).to.eq('It is good')
-      // expect(wrapper.find('.column .bar-show-div:last-child').text()).to.eq('111 address, address street')
+      expect(wrapper.find('.des').text()).to.eq('It is good')
+      expect(wrapper.find('.column .bar-show-div:last-child').text()).to.eq('111 address, address street')
       done()
     })
   })
