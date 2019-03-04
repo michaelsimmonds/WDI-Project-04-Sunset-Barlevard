@@ -6,3 +6,5 @@ export default process.env.NODE_ENV !== 'test' ? require('mapbox-gl') : {
     })
   })
 }
+
+//this creates a map normally if not in test mode. If in test mode it creates an empty object so it doesn't break the tests.
