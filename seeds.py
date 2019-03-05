@@ -317,8 +317,22 @@ with app.app_context():
         creator=mike
     )
 
+    rooftop_crawl = Crawl(
+        name='Rooftops of London',
+        description='If you\'re like me you too can become the chimp you were born to be and swing from rooftop to rooftop bar, traversing the central sights and catching the golden hour at one of the best viewing spots in London',
+        date='Monday 4th March',
+        creator=beth
+    )
+
 
 ############### STOPS ############################
+
+    rooftop_crawl.stops = [
+        Stop(bar=queen_elizabeth, order=0),
+        Stop(bar=boundary, order=1),
+        Stop(bar=queen_hoxton, order=2),
+    ]
+    db.session.add(rooftop_crawl)
 
     history_crawl.stops = [
         Stop(bar=grapes, order=0),
