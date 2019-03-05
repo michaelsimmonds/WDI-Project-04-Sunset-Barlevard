@@ -271,6 +271,18 @@ with app.app_context():
     )
     db.session.add(queen_elizabeth)
 
+    radio = Bar(
+        name='Radio Rooftop Bar',
+        address='336 The Strand, Covent Garden, WC2R 1HA',
+        lat=51.5120327,
+        lng=-0.1206135,
+        terrace=True,
+        description='Pop in for a quick drink on your way to other bars on a sunny walk through central. Infamous for it\'s rude service and terrible food, this place is more about the views, music and tasty cocktails than the gastronomy or indeed clientele. But eating is cheating, afterall, so pop in anyway on your way over the river, expect the worst and get out quick and you\'ll have a nice timers.',
+        hero='https://www.melondonhotel.com/uploads/images/headerimagessecondary43/secondarysmallimage28/Radio_rooftop_bar_Copy.jpg',
+        location='Central'
+    )
+    db.session.add(radio)
+
 
 
 ################ CRAWLS ######################
@@ -329,8 +341,9 @@ with app.app_context():
 
     rooftop_crawl.stops = [
         Stop(bar=queen_elizabeth, order=0),
-        Stop(bar=boundary, order=2),
-        Stop(bar=queen_hoxton, order=1),
+        Stop(bar=radio, order=1),
+        Stop(bar=boundary, order=3),
+        Stop(bar=queen_hoxton, order=2),
     ]
     db.session.add(rooftop_crawl)
 
