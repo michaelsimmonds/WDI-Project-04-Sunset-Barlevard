@@ -44,6 +44,7 @@ const BarForm = ({ data, handleChange, handleSubmit, suggestionSelect }) => {
                 <option value="south">South</option>
                 <option value="east">East</option>
                 <option value="west">West</option>
+                <option value="west">Central</option>
               </select>
             </div>
           </div>
@@ -89,7 +90,7 @@ const BarForm = ({ data, handleChange, handleSubmit, suggestionSelect }) => {
           <div className="columns add-place">
 
             <div className="column is-5">
-              <button className="button">Submit</button>
+              <button className="button button-styled">Add Bar</button>
             </div>
 
           </div>

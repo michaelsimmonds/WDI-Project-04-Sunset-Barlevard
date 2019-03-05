@@ -24,10 +24,10 @@ class BarIndex extends React.Component{
     return(
 
       <section className="section">
-        <h2 className="title is-1 has-text-centered">Discover our Bars and Pubs</h2>
+        <h2 className="title is-2 has-text-centered title-font-black">Discover our Bars and Pubs</h2>
         <div className="is-full-width">
           <hr />
-          <h1 className="title is-2 has-text-centered">East London</h1>
+          <h1 className="title is-3 has-text-centered">East London</h1>
           <div className="columns is-multiline">
             {this.state.bars.map(bar =>
               <div className="column is-full-width" key={bar.id}>
