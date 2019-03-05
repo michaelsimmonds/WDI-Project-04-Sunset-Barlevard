@@ -10,7 +10,21 @@ const CrawlForm = ({ data, bars, handleAddStop, handleChange, handleSubmit, togg
       <div className="column is-6 is-offset-3">
         <form onSubmit={handleSubmit}>
 
+
           <h2 className="title title-font center">ADD A CRAWL</h2>
+
+          <div className="field">
+            <label className="title-font label">Select Bars!</label>
+            <Select
+              isMulti
+              options={bars.map(bar => ({ value: bar, label: bar.name }))}
+              onChange={handleAddStop}
+              name="stops"
+            />
+          </div>
+          <div className="field">
+            <h2 className="title is-6 title-font center">Can't find your bar? Add one <Link to={'/bars/new'}> <p className="here"> &nbsp; here! </p></Link></h2>
+          </div>
           <div className="field">
             <label className="label title-font">Name</label>
             <div className="control">
@@ -35,15 +49,6 @@ const CrawlForm = ({ data, bars, handleAddStop, handleChange, handleSubmit, togg
             </div>
           </div>
 
-          <div className="field">
-            <label className="title-font label">Select Bars!</label>
-            <Select
-              isMulti
-              options={bars.map(bar => ({ value: bar, label: bar.name }))}
-              onChange={handleAddStop}
-              name="stops"
-            />
-          </div>
 
           <div className="field">
             <button className="button button-styled">Save</button>

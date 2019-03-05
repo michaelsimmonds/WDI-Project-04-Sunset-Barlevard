@@ -39,6 +39,7 @@ class BarsNew extends React.Component {
     axios
       .post('/api/bars', this.state.data,
         { headers: {Authorization: `Bearer ${Auth.getToken()}`}})
+      .then(this.props.history.push('/crawls/new'))
       .catch(err => alert(err.message))
   }
 
@@ -51,7 +52,7 @@ class BarsNew extends React.Component {
 
   render() {
     return(
-      <main className="section">
+      <main className="section login">
         <div className="container">
           <BarForm
             data={this.state.data}

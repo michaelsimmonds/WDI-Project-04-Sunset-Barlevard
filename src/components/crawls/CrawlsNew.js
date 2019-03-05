@@ -69,10 +69,6 @@ class CrawlsNew extends React.Component{
       <main className="crawl-form">
         <section className="section section-height-crawl">
           <div className="container">
-            <div className="column is-5">
-              <button onClick={this.toggleHidden} className="button button-styled">{this.state.isHidden ? 'Add a Bar' : 'Submit' }</button>
-            </div>
-            {!this.state.isHidden && <BarsNew />}
             <CrawlForm
               data={this.state.data}
               handleAddStop={this.handleAddStop}
@@ -93,6 +89,10 @@ class CrawlsNew extends React.Component{
 
 export default CrawlsNew
 
+// <div className="column is-5">
+// <button onClick={this.toggleHidden} className="button button-styled">{this.state.isHidden ? 'Add a Bar' : 'Submit' }</button>
+// </div>
+// {!this.state.isHidden && <BarsNew />}
 
 // handleSubmit(e) {
 //   e.preventDefault()
