@@ -81,19 +81,8 @@ def create_comment(crawl_id):
 
     return comment_schema.jsonify(comment)
 
-##############################FAVOURITES########################################
-# 
-# @api.route('/crawls/<int:crawl_id>/favourites', methods=['POST'])
-# @secure_route
-# def create_favourite(crawl_id):
-#     crawl, errors = crawl_schema.load(request.get_json())
-#     crawl.creator = g.current_user #adds the creator to the created crawl
-#     if errors:
-#         return jsonify(errors), 422 # this jsonify is a flask method. it turns dict into json
-#     crawl.save()
-#     return crawl_schema.jsonify(crawl)
-
 ############################ STOPS ON CRAWLS ###################################
+
 @api.route('/crawls/<int:crawl_id>/bars/<int:bar_id>/add', methods=['POST'])
 def create_stop(crawl_id, bar_id):
 

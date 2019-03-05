@@ -23,12 +23,12 @@ class Home extends React.Component{
       data: {
         location: []
       },
-      location: [],
+      barLocation: [],
       switched: false,
-      sunSuitable: []
+      sunSuitable: [],
+      north: []
     }
     this.handleChange = this.handleChange.bind(this)
-    this.mapLocation = this.mapLocation.bind(this)
 
     this.toggleSwitch = this.toggleSwitch.bind(this)
 
@@ -56,6 +56,8 @@ class Home extends React.Component{
   componentDidMount() {
     axios.get('/api/crawls')
       .then(res => this.setState({ crawls: res.data }))
+    axios.get(`/api/users/${this.props.match.params.id}`)
+      .then(res => this.setState({ userData: res.data }))
   }
 
   handleChange(e) {
@@ -63,17 +65,18 @@ class Home extends React.Component{
     const data = { location }
     this.setState({ data })
     console.log(location)
-  }
-
-  mapLocation(){
     this.state.crawls.map(crawl => {
       crawl.stops.forEach(stop => {
-        console.log(stop.bar.location)
+        if (stop.bar.location === data.location) {
+          this.setState({ crawls })
+        }
       })
     })
   }
 
   render(){
+    console.log(this.state.location)
+    console.log(this.state.userData)
     return(
       <main>
         <section className="hero is-large background">

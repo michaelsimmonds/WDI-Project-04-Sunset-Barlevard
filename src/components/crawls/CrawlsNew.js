@@ -67,7 +67,7 @@ class CrawlsNew extends React.Component{
     console.log(this.state.data)
     return (
       <main className="crawl-form">
-        <section className="section section-height-crawl">
+        <section className="section">
           <div className="container">
             <CrawlForm
               data={this.state.data}
