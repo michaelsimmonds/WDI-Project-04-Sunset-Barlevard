@@ -83,6 +83,9 @@ img {
   width: 100%;
   & .column-container {
     width: 70%;
+    @media screen and (max-width: 650px) {
+      width: 100%;
+    }
 
     & .carousel {
       height: 300px;
@@ -343,6 +346,23 @@ hr.thin {
 }
 
 .mapboxgl-popup {
-  max-width: 70px;
-  font: 9pt 'Helvetica Neue', Arial, Helvetica, sans-serif;
-  }
+  max-width: 120px;
+  // & .mapboxgl-popup-content {
+  //   background-image: linear-gradient(white, orange);
+  //   & h4 {
+  //     margin: 5px 2px 2px 2px;
+  //     color: $warning;
+  //     font-weight: bold;
+  //   }
+  //   & .event-image {
+  //     display: flex;
+  //     justify-content: center;
+  //     margin: 0;
+  //     & img {
+  //       //max-width: 60px;
+  //       max-height: 60px;
+  //       margin: 0;
+  //     }
+  //   }
+  // }
+}

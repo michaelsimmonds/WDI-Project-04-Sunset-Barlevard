@@ -75,35 +75,36 @@ class CrawlShow extends React.Component {
           center={this.state.zoomCenter}
           zoom={12.0}
         />
-        <container className="container">
+        <div className="container">
           <section className="section">
             <h2 className="title is-4 center">Bars on this crawl</h2>
             <CrawlSlider
               stops = {this.state.crawl.stops}
             />
           </section>
-        </container>
-    <container className="container">
-      <section className="section">
-        <h2 className="title is-4 center">Bars on this crawl</h2>
-        <div className="card-content">
-          {comments.map(comment => {
-            console.log('COMMENT AUTHOR', comment.author)
-            return(
-              <div className="box" key={comment.id}>
-                <article className="media>">
-                  <div className="media-left">
-                  </div>
-                  <p><strong>{comment.author}</strong></p>
-                  <p>{comment.content}</p>
-
-                </article>
-              </div>
-            )
-          })}
         </div>
-        </section>
-      </container>
+        <div className="container">
+          <section className="section">
+            <h2 className="title is-4 center">Comments</h2>
+            <div className="card-content">
+              {comments.map(comment => {
+                console.log('COMMENT AUTHOR', comment.author)
+                return(
+                  <div className="box" key={comment.id}>
+                    <article className="media>">
+                      <div className="media-left">
+                      </div>
+                      <p><strong>{comment.author}</strong></p>
+                      <p>{comment.content}</p>
+
+                    </article>
+                  </div>
+                )
+              })}
+            </div>
+          </section>
+        </div>
+
 
         {Auth.isAuthenticated() && (creator.id === Auth.getUserID()) &&
 

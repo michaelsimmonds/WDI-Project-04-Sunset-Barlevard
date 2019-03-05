@@ -27,6 +27,22 @@ class CrawlMap extends React.Component{
     stops.map(stop => {
       const lat = stop.bar.lat
       const lng = stop.bar.lng
+      const name = stop.bar.name
+      const image = stop.bar.hero
+      //const address = stop.bar.address
+
+      const popup = new mapboxgl.Popup({offset: 20})
+        .setHTML(`
+          <div style={backgroundImage:'${image}'} class="event-image"}
+          </>
+          `)
+          // .setHTML(`
+          //   <div class="event-image">
+          //     <img src="${image}" alt="${name}" />
+          //   </div>
+          //   <h4>${name}</h4>
+          //   </>
+            //`)
 
 
       const markerElement = document.createElement('div')
@@ -35,8 +51,9 @@ class CrawlMap extends React.Component{
       return new mapboxgl.Marker(markerElement)
         .setLngLat({ lng: lng, lat: lat })
         .addTo(this.map)
+        .setPopup(popup)
     })
-    //MAPBOX
+    //MAPBOX ROUTE
     axios.get(`https://api.mapbox.com/directions/v5/mapbox/walking/${waypointsJoined}`, {
       params: {
         steps: true,
