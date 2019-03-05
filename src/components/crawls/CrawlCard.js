@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import moment from 'moment'
 
-const CrawlCard = ({ name, stops, id, creator, description, created_at, onSubmit }) => {
+const CrawlCard = ({ name, stops, id, creator, description, created_at, handleSubmit }) => {
   return(
     <div>
       <div className="header-crawl">
@@ -42,7 +42,7 @@ const CrawlCard = ({ name, stops, id, creator, description, created_at, onSubmit
       <div className="description">
         <h1 className="title description-title is-6">{description}</h1>
       </div>
-      <form className="header-crawl">
+      <form onSubmit={(e) => handleSubmit(e, name)}className="header-crawl">
         <button className="header-crawl button button-styled upvote">Favourite</button>
       </form>
     </div>

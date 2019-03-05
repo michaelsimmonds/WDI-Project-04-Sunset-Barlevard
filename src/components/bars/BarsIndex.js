@@ -8,19 +8,32 @@ class BarIndex extends React.Component{
     super()
 
     this.state={
-      bars: []
+      bars: [],
+      crawls: []
     }
-
   }
 
   componentDidMount() {
     axios.get('/api/bars')
       .then(res => this.setState({ bars: res.data }))
+    axios.get('/api/crawls')
+      .then(res => this.setState({ crawls: res.data }))
   }
+
+  // noOfBarsInCrawls() {
+  //   this.state.crawls.map(crawl => crawl)
+  //
+  // }
+
 
   render(){
     if(!this.state.bars) return null
+    if(!this.state.crawls) return null
     console.log(this.state.bars)
+    console.log(this.state.crawls)
+
+    const { crawls } = this.state
+    const { bars } = this.state
     return(
       <main className="grey-background">
         <section className="section">

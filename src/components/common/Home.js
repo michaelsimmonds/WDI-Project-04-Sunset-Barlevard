@@ -23,13 +23,16 @@ class Home extends React.Component{
       data: {
         location: []
       },
+      userData: {
+        favourites: []
+      },
       barLocation: [],
       switched: false,
       sunSuitable: [],
       north: []
     }
     this.handleChange = this.handleChange.bind(this)
-
+    this.handleSubmit = this.handleSubmit.bind(this)
     this.toggleSwitch = this.toggleSwitch.bind(this)
 
   }
@@ -66,9 +69,16 @@ class Home extends React.Component{
     this.setState({ data })
   }
 
+  handleSubmit(e, crawl) {
+    e.preventDefault()
+    const faves = []
+    faves.push(crawl)
+    this.setState({favourites: faves})
+  }
+
   render(){
-    console.log(this.state.location)
-    console.log(this.state.userData)
+    console.log('favourites', this.state.favourites)
+    console.log('user data', this.state.userData)
     return(
       <main>
         <section className="hero is-large background">
@@ -87,7 +97,9 @@ class Home extends React.Component{
         </section>
         {!this.state.switched ?
           this.state.crawls.map(crawl => <div key={crawl.id} className="hero-body">
-            <CrawlCard {...crawl} />
+            <CrawlCard
+              handleSubmit={this.handleSubmit}
+              {...crawl} />
           </div>
           ) :
           this.state.sunSuitable.map(crawl => <div key={crawl.id} className="hero-body">

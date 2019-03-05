@@ -81,6 +81,18 @@ def create_comment(crawl_id):
 
     return comment_schema.jsonify(comment)
 
+########################### FAVOURITES ##########################################
+# 
+# @api.route('/crawls/<int:crawl_id>/favourites', methods=['POST'])
+# @secure_route
+# def add_favourite(crawl_id):
+#     favourite.crawl = Crawl.query.get(crawl_id)
+#     crawl.favourite.append(g.current_user)
+#
+#     crawl.save()
+#
+#     return crawl_schema.jsonify(crawl)
+
 ############################ STOPS ON CRAWLS ###################################
 
 @api.route('/crawls/<int:crawl_id>/bars/<int:bar_id>/add', methods=['POST'])
