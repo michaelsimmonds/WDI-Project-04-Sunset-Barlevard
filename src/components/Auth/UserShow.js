@@ -25,7 +25,7 @@ class UserShow extends React.Component{
     console.log(this.state.userData)
     return(
       <main className="grey-background view-port">
-        <section className="section">
+        <section className="section-height">
           <div className="container">
             {this.state.userData.created_crawls.length >= 4 ?
               <h1 className="title-font"> ⭐ Gold star member</h1>
@@ -43,7 +43,7 @@ class UserShow extends React.Component{
               {this.state.userData.created_crawls.length >= 1 ? <div> <h1 className="title is-3 title-font center">Created Crawls</h1> <hr/> </div>: '' }
             </div>
             <div className="columns is-multiline is-centered">
-              {this.state.userData.created_crawls.map(crawl => <div className="column is-one-fifth small-margin" key={crawl._id}> <h1 className="title is-6 center white">{crawl.name}</h1>
+              {this.state.userData.created_crawls.map(crawl => <div className="column is-one-fifth small-margin" key={crawl._id}> <h1 className="title is-6 center white created-crawls-name">{crawl.name}</h1>
                 <div style={{backgroundImage: `url(${crawl.stops[0].bar.hero})`}}className="created-crawls center"/>
               </div>)}
             </div>
