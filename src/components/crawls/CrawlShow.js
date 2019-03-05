@@ -103,8 +103,7 @@ class CrawlShow extends React.Component {
           })}
         </div>
         </section>
-      </div>
-
+      </container>
 
         {Auth.isAuthenticated() && (creator.id === Auth.getUserID()) &&
 
