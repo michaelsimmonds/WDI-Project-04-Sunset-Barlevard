@@ -5,6 +5,7 @@ import moment from 'moment'
 const CrawlCard = ({ name, stops, id, creator, description, created_at, onSubmit }) => {
   return(
     <div>
+          <hr/>
       <div className="header-crawl">
         <Link to={`/crawls/${id}`}>
           <h1 className="title is-2">{name}</h1>

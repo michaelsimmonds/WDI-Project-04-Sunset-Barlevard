@@ -124,11 +124,15 @@ class Home extends React.Component{
 
         {!this.state.switched ?
           this.state.crawls.map(crawl => <div key={crawl.id} className="hero-body">
-            <CrawlCard {...crawl} />
+            <Link to={`/crawls/${crawl.id}`}>
+              <CrawlCard {...crawl} />
+            </Link>
           </div>
           ) :
           this.state.sunSuitable.map(crawl => <div key={crawl.id} className="hero-body">
-            <CrawlCard {...crawl} />
+            <Link to={`/crawls/${crawl.id}`}>
+              <CrawlCard {...crawl} />
+            </Link>
           </div>
           )
         }

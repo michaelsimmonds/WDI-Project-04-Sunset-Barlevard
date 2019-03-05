@@ -40,7 +40,6 @@ class CrawlShow extends React.Component {
 
   render(){
     if (!this.state.crawl) return null
-    //console.log(this.state.crawl)
     const {
       comments,
       creator,
@@ -75,7 +74,7 @@ class CrawlShow extends React.Component {
           center={this.state.zoomCenter}
           zoom={12.0}
         />
-        <div>
+        <div className="container">
           <section className="section">
             <h2 className="title is-4 center">Bars on this crawl</h2>
             <CrawlSlider

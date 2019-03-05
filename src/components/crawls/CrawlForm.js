@@ -23,7 +23,7 @@ const CrawlForm = ({ data, bars, handleAddStop, handleChange, handleSubmit, togg
             />
           </div>
           <div className="field">
-            <h2 className="title is-6 title-font center">Can't find your bar? Add one <Link to={'/bars/new'}> <p className="here"> &nbsp; here! </p></Link></h2>
+            <h2 className="title is-6 title-font center">Can't find your bar? Add one <Link to={'/bars/new'}><p className="here"> &nbsp;<u>here!</u></p></Link></h2>
           </div>
           <div className="field">
             <label className="label title-font">Name</label>
