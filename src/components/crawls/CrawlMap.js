@@ -1,6 +1,5 @@
 import React from 'react'
-import mapboxgl from 'mapbox-gl'
-mapboxgl.accessToken=process.env.MAPBOX_TOKEN
+import mapboxgl from '../../lib/mapbox-gl'
 import axios from 'axios'
 
 
@@ -8,27 +7,43 @@ class CrawlMap extends React.Component{
 
   componentDidMount() {
     const stops = this.props.stops
-    const n = stops.length-1
-    const startLng = stops[0].bar.lng
-    const endLng = stops[n].bar.lng
-    const startLat = stops[0].bar.lat
-    const endLat = stops[n].bar.lat
-    const start = [startLng, startLat]
-    console.log('start', start)
-    const end = [endLng, endLat]
+    const waypoints = []
+    stops.map(stop => {
+      const lng = stop.bar.lng
+      const lat = stop.bar.lat
+      waypoints.push(`${lng},${lat}`)
+      return waypoints
+    })
+    const waypointsJoined = waypoints.join(';')
 
     this.map = new mapboxgl.Map({
       container: this.mapDiv,
-      style: 'mapbox://styles/mapbox/satellite-streets-v9',
+      style: 'mapbox://styles/mapbox/streets-v9',
       center: this.props.center,
       zoom: this.props.zoom
     })
 
-    console.log(stops)
+    console.log('STOPS', stops)
     stops.map(stop => {
       const lat = stop.bar.lat
       const lng = stop.bar.lng
-      //console.log('lat '+lat, 'lng '+lng)
+      const name = stop.bar.name
+      const image = stop.bar.hero
+      //const address = stop.bar.address
+
+      const popup = new mapboxgl.Popup({offset: 20})
+        .setHTML(`
+          <div style={backgroundImage:'${image}'} class="event-image"}
+          </>
+          `)
+          // .setHTML(`
+          //   <div class="event-image">
+          //     <img src="${image}" alt="${name}" />
+          //   </div>
+          //   <h4>${name}</h4>
+          //   </>
+            //`)
+
 
       const markerElement = document.createElement('div')
       markerElement.className = 'bar-marker'
@@ -36,14 +51,18 @@ class CrawlMap extends React.Component{
       return new mapboxgl.Marker(markerElement)
         .setLngLat({ lng: lng, lat: lat })
         .addTo(this.map)
+        .setPopup(popup)
     })
-
-    //try mapbox routes here
-    axios.get(`https://api.mapbox.com/directions/v5/mapbox/walking/${startLng},${startLat};${endLng},${endLat}?steps=true&geometries=geojson&access_token=${process.env.MAPBOX_TOKEN}`)
-      .then(res => {
-        const route = res.data.routes[0].geometry.coordinates
-        return route
-      }).then(route => {
+    //MAPBOX ROUTE
+    axios.get(`https://api.mapbox.com/directions/v5/mapbox/walking/${waypointsJoined}`, {
+      params: {
+        steps: true,
+        geometries: 'geojson',
+        access_token: process.env.MAPBOX_TOKEN
+      }
+    })
+      .then(res => res.data.routes[0].geometry.coordinates)
+      .then(route => {
         const geojson = {
           type: 'Feature',
           properties: {},
@@ -77,7 +96,7 @@ class CrawlMap extends React.Component{
                 'line-cap': 'round'
               },
               paint: {
-                'line-color': '#3887be',
+                'line-color': '#D42E2D',
                 'line-width': 5,
                 'line-opacity': 0.75
               }

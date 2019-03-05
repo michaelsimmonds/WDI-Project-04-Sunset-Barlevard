@@ -13,6 +13,7 @@ import UserShow from './components/Auth/UserShow'
 import BarsIndex from './components/bars/BarsIndex'
 import 'mapbox-gl/dist/mapbox-gl.css'
 import BarsNew from './components/bars/BarsNew'
+import 'mapbox-gl/dist/mapbox-gl.css'
 import './style.scss'
 //import 'bulma'
 

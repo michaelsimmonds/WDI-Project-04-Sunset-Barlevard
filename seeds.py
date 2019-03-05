@@ -57,7 +57,7 @@ with app.app_context():
 
     jujus = Bar(
         name='Jujus',
-        address='Ely\'s Yard, 15 Hanbury St, London E1 6QR',
+        address='Ely\'s Yard, 15 Hanbury St, E1 6QR',
         lat=51.520886,
         lng=-0.073487,
         terrace=True,
@@ -69,7 +69,7 @@ with app.app_context():
 
     the_culpeper = Bar(
         name='The Culpeper',
-        address='40 Commercial St, London E1 6LP',
+        address='40 Commercial St, E1 6LP',
         lat=51.5168921,
         lng=-0.0730285,
         terrace=True,
@@ -81,7 +81,7 @@ with app.app_context():
 
     discount_suit_company = Bar(
         name='Discount Suit Company',
-        address='29 Wentworth St, London E1 7TB',
+        address='29 Wentworth St, E1 7TB',
         lat=51.516674,
         lng=-0.0774967,
         terrace=False,
@@ -93,7 +93,7 @@ with app.app_context():
 
     blind_beggar = Bar(
         name='The Blind Beggar',
-        address='337 Whitechapel Rd, London E1 1BU',
+        address='337 Whitechapel Rd, E1 1BU',
         lat=51.5199828,
         lng=-0.0590797,
         terrace=True,
@@ -105,7 +105,7 @@ with app.app_context():
 
     pub_on_park = Bar(
         name='Pub on the Park',
-        address='19 Martello St, London E8 3PE',
+        address='19 Martello St, E8 3PE',
         lat=51.5421,
         lng=-0.0582,
         terrace=True,
@@ -117,7 +117,7 @@ with app.app_context():
 
     royal_oak = Bar(
         name='The Royal Oak',
-        address='73 Columbia Rd, London E2 7RG',
+        address='73 Columbia Rd, E2 7RG',
         lat=51.5295501,
         lng=-0.0714865,
         terrace=False,
@@ -129,7 +129,7 @@ with app.app_context():
 
     grapes = Bar(
         name='The Grapes',
-        address='76 Narrow Street,London, E14 8BP',
+        address='76 Narrow Street, E14 8BP',
         lat=51.5092305,
         lng=-0.0396032,
         terrace=False,
@@ -141,7 +141,7 @@ with app.app_context():
 
     whitby = Bar(
         name='Prospect of Whitby',
-        address='57 Wapping Wall, St Katharine''s & Wapping, London E1W 3SH',
+        address='57 Wapping Wall, St Katharine''s & Wapping, E1W 3SH',
         lat=51.5070813,
         lng=-0.0533257,
         terrace=False,
@@ -153,9 +153,9 @@ with app.app_context():
 
     franks = Bar(
         name='Frank''s',
-        address='Bold Tendencies, 7th-10th Floor Multi Storey Car Park, 95A Rye Ln, London SE15 4ST',
-        lat=51.4707,
-        lng=0.0683,
+        address='Bold Tendencies, 7th-10th Floor Multi Storey Car Park, 95A Rye Ln, SE15 4ST',
+        lat=51.470608,
+        lng=-0.068110,
         terrace=True,
         description='While rival rooftop bars play to the masses with crazy golf and street food stalls, Frank’s has stayed to true to its left-field roots. The bar is just one part of the Bold Tendencies art gallery (in fact, when it opened, the wooden structure was considered an artwork itself, and won an architecture prize.)',
         hero='https://d37219swed47g7.cloudfront.net/media/images/reviews/franks-cafe-campari-bar/banners/1497010816.04.jpg',
@@ -165,9 +165,9 @@ with app.app_context():
 
     springs = Bar(
         name='Peckham Springs',
-        address='4-5 Dovedale Trading Estate, London SE15 4QN',
-        lat=51.4697347,
-        lng=-0.0718385,
+        address='4-5 Dovedale Trading Estate, SE15 4QN',
+        lat=51.4697354,
+        lng=-0.072304,
         terrace=False,
         description='Part-gallery, part-bar, you''ll find Peckham Springs — yes, the name is inspired by Del Boy''s infamous back garden water business — in the shadow of Peckham Rye Station, under the arches by Bar Story. It started as a summer pop-up but is now staying open all year round on Fridays and Saturdays.',
         hero='https://hirespace.imgix.net/spaces/165475/m5kxuyg5elq.jpg?h=600&w=1200&auto=format&fit=crop&q=40',
@@ -177,7 +177,7 @@ with app.app_context():
 
     fullback = Bar(
         name='The Faltering Fullback',
-        address='19 Perth Rd, Stroud Green, London N4 3HB',
+        address='19 Perth Rd, Stroud Green, N4 3HB',
         lat=51.5684843,
         lng=-0.1103997,
         terrace=True,
@@ -189,7 +189,7 @@ with app.app_context():
 
     lamb = Bar(
         name='The Lamb',
-        address='54 Holloway Rd, Highbury East, London N7 8JL',
+        address='54 Holloway Rd, Highbury East, N7 8JL',
         lat=51.5484587,
         lng=-0.1090147,
         terrace=False,
@@ -201,7 +201,7 @@ with app.app_context():
 
     andover = Bar(
         name='The Andover Arms',
-        address='57 Aldensley Rd, Hammersmith, London W6 0DL',
+        address='57 Aldensley Rd, Hammersmith, W6 0DL',
         lat=51.4968,
         lng=-0.2327,
         terrace=False,
@@ -213,7 +213,7 @@ with app.app_context():
 
     dove = Bar(
         name='The Dove',
-        address='19 Upper Mall, Hammersmith, London W6 9TA',
+        address='19 Upper Mall, Hammersmith, W6 9TA',
         lat=51.4905,
         lng=-0.2349,
         terrace=False,
@@ -225,7 +225,7 @@ with app.app_context():
 
     marks_bar = Bar(
         name='Mark\'s Bar',
-        address='66-70 Brewer St, Soho, London W1F 9UP',
+        address='66-70 Brewer St, Soho, W1F 9UP',
         lat=51.5111389,
         lng=-0.1386364,
         terrace=False,
@@ -235,12 +235,49 @@ with app.app_context():
     )
     db.session.add(marks_bar)
 
+    boundary = Bar(
+        name='Boundary Rooftop Bar',
+        address='2-6 Boundary Row, SE1 8HP',
+        lat=51.52453,
+        lng=-0.0785037,
+        terrace=True,
+        description='Great place to sit and watch the skyline ooze from blue to red. Formerly just any old hotel roofterrace, this bar was  \'eastified\' to suit the more hipster tastes of the surrounding area...You can become one with all the conflicting forces of east London and enjoy a pricy cocktail in this much more chic than shabby, definitely bouji drink hole',
+        hero='https://images.immediate.co.uk/volatile/sites/2/2016/10/Boundary-Rooftop-PM.jpg?quality=45&resize=960,413',
+        location='East'
+    )
+    db.session.add(boundary)
+
+    queen_hoxton = Bar(
+        name='Queen of Hoxton',
+        address='1 Curtain Rd, EC2A 3JX',
+        lat=51.5221383,
+        lng=-0.0834237,
+        terrace=True,
+        description='If you manage to manouvre your way out of the lower floors through the sweat-streamed masses on a busy Saturday then you\'ll be delighted to reach the spacious light of the rooftop terace. Come on a Hot day before 5pm and you\'ll have a tonne of room and if it be summertime you will also get treated to the excellent fares from their barbecue. ' ,
+        hero='http://2.bp.blogspot.com/-aaW42qPytcw/T6gLzsQC0sI/AAAAAAAAAIs/D2G1l1lryfg/s1600/6972501378_f2293ccdf1_o.jpg',
+        location='East'
+    )
+    db.session.add(queen_hoxton)
+
+    queen_elizabeth = Bar(
+        name='Queen Elizabeth Hall Rooftop Garden',
+        address='Southbank Centre, SE1 8XX',
+        lat=51.5067192,
+        lng=-0.1183676,
+        terrace=True,
+        description='Errr, wildflowers and Pimm\'s, anyone? What\'s not to love? This place is genuinely a hidden gem, all those people walking on by the Southbank missing this glory are truly missing out. Do not be one of them. Perfect for a sunny rooftop bar crawl in central London.' ,
+        hero='https://theresident.wpms.greatbritishlife.co.uk/wp-content/uploads/sites/10/2015/04/Southbank-Centres-Roof-Gar.jpg',
+        location='East'
+    )
+    db.session.add(queen_elizabeth)
+
+
 
 ################ CRAWLS ######################
 
     the_best_crawl = Crawl(
         name='Best crawl ever',
-        description='I had such a great time going to these bars! Mark\s Bar was quite quite for a Friday (but so cheap!) so we then made a move to Royal Oak, which had a great pub quiz on!',
+        description='I had such a great time going to these bars! Mark\'s Bar was quite quite for a Friday (but so cheap!) so we then made a move to Royal Oak, which had a great pub quiz on!',
         creator=mike
     )
 
@@ -268,8 +305,27 @@ with app.app_context():
         creator=mike
     )
 
+    test_terrace = Crawl(
+        name='Terrace',
+        description='terrace test',
+        creator=mike
+    )
+
+    rooftop_crawl = Crawl(
+        name='Rooftops of London',
+        description='If you\'re like me you too can become the chimp you were born to be and swing from rooftop to rooftop bar, traversing the central sights and catching the golden hour at one of the best viewing spots in London',
+        creator=beth
+    )
+
 
 ############### STOPS ############################
+
+    rooftop_crawl.stops = [
+        Stop(bar=queen_elizabeth, order=0),
+        Stop(bar=boundary, order=1),
+        Stop(bar=queen_hoxton, order=2),
+    ]
+    db.session.add(rooftop_crawl)
 
     history_crawl.stops = [
         Stop(bar=grapes, order=0),
@@ -287,7 +343,7 @@ with app.app_context():
 
 
     east_end.stops = [
-    Stop(bar=pub_on_park, order=0),
+        Stop(bar=pub_on_park, order=0),
         Stop(bar=blind_beggar, order=2),
         Stop(bar=royal_oak, order=1)
     ]
@@ -305,6 +361,13 @@ with app.app_context():
         Stop(bar=the_culpeper, order=0)
     ]
     db.session.add(fun_crawl)
+
+    test_terrace.stops = [
+        Stop(bar=fullback, order=0),
+        Stop(bar=franks, order=1),
+        Stop(bar=pub_on_park, order=2)
+    ]
+    db.session.add(test_terrace)
 
 ############## COMMENTS ###########################
 

@@ -12,6 +12,8 @@ const options = [
   { value: 'west', label: 'West London' }
 ]
 
+const sunSuitableArr = []
+
 class Home extends React.Component{
   constructor(){
     super()
@@ -20,11 +22,35 @@ class Home extends React.Component{
       crawls: [],
       data: {
         location: []
-      }
+      },
+      location: [],
+      switched: false,
+      sunSuitable: []
     }
     this.handleChange = this.handleChange.bind(this)
     this.mapLocation = this.mapLocation.bind(this)
 
+    this.toggleSwitch = this.toggleSwitch.bind(this)
+
+  }
+
+  getSun() {
+    this.state.crawls.map(crawl => {
+      let counter = 0
+      crawl.stops.forEach(stop => {
+        if (stop.bar.terrace === true) counter++
+      })
+      if ((counter / crawl.stops.length) > 0.5) {
+        sunSuitableArr.push(crawl)
+      }
+    })
+    this.setState({ sunSuitable: sunSuitableArr})
+  }
+
+  toggleSwitch() {
+    if (this.state.switched === false) this.getSun()
+    else this.setState({ sunSuitable: []})
+    this.setState({ switched: !this.state.switched })
   }
 
   componentDidMount() {
@@ -51,6 +77,8 @@ class Home extends React.Component{
     return(
       <main>
         <section className="hero is-large background">
+          <button onClick={this.toggleSwitch}>Sunshine Mode</button>
+          {this.state.switched && 'SUNSHINE MODE ON'}
           <div className="hero-body">
             <div className="container has-text-centered">
               <h1 className="title sunset level-item">
@@ -72,24 +100,20 @@ class Home extends React.Component{
             components={makeAnimated()}
           />
         </form>
-        {this.state.crawls.map(crawl => <div key={crawl.id} className="hero-body">
-          <CrawlCard {...crawl} />
-        </div>
-        )}
-      </main>
 
+        {!this.state.switched ?
+          this.state.crawls.map(crawl => <div key={crawl.id} className="hero-body">
+            <CrawlCard {...crawl} />
+          </div>
+          ) :
+          this.state.sunSuitable.map(crawl => <div key={crawl.id} className="hero-body">
+            <CrawlCard {...crawl} />
+          </div>
+          )
+        }
+      </main>
     )
   }
 }
 
 export default Home
-// <div className="crawls">
-// <h1 className="title is-2 center" >Bar Crawls</h1>
-// <div className="center">
-//
-// <div className="columns is-centered flex-direction">
-// {this.state.crawls.map(crawl => <div key={crawl._id} className="column">
-// </div>)}
-// </div>
-// </div>
-// </div>

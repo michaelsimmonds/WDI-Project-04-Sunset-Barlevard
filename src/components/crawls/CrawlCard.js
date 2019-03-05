@@ -22,8 +22,8 @@ const CrawlCard = ({ name, stops, id, creator, description, createdAt }) => {
       </div>
       <div className="center">
         <div className="columns slider">
-          {stops.map(stop => <div className="column is-centered is-full" key={stop.id}>
-            <Link to={`/crawls/${id}`}>
+          {stops.map(stop => <div className="column is-centered is-full column-container" key={stop.id}>
+            <Link to={`/bars/${stop.bar.id}`}>
               <div className="container2">
                 <div className="content">
                   <div className="content-overlay"></div>
