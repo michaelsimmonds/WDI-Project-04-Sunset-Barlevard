@@ -242,7 +242,7 @@ with app.app_context():
         lng=-0.0785037,
         terrace=True,
         description='Great place to sit and watch the skyline ooze from blue to red. Formerly just any old hotel roofterrace, this bar was  \'eastified\' to suit the more hipster tastes of the surrounding area...You can become one with all the conflicting forces of east London and enjoy a pricy cocktail in this much more chic than shabby, definitely bouji drink hole',
-        hero='https://www.tripsavvy.com/thmb/ZIyg2SfKuekW1LZBmg94G54f4mI=/2000x1333/filters:no_upscale():max_bytes(150000):strip_icc()/boundary-rooftop-bar-56a3e08d3df78cf7727fa86b.jpg',
+        hero='https://images.immediate.co.uk/volatile/sites/2/2016/10/Boundary-Rooftop-PM.jpg?quality=45&resize=960,413',
         location='East'
     )
     db.session.add(boundary)
