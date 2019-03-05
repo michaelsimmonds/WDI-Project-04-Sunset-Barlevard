@@ -2,6 +2,7 @@ from app import db, ma
 from marshmallow import fields
 from .base import BaseModel, BaseSchema
 from .user import User, UserSchema
+from sqlalchemy.orm import backref
 
 favourites = db.Table(
     'favourites',
@@ -58,11 +59,11 @@ class CrawlSchema(ma.ModelSchema, BaseSchema):
 
 class Comment(db.Model, BaseModel):
 
-    __tabelname__ = 'comments'
+    __tablename__ = 'comments'
 
     content = db.Column(db.String(200), nullable=False)
     crawl_id = db.Column(db.Integer, db.ForeignKey('crawls.id'))
-    crawl = db.relationship('Crawl', backref='comments')
+    crawl = db.relationship('Crawl', backref=backref('comments',  order_by='Comment.created_at.desc()'))
     author_id = db.Column(db.Integer, db.ForeignKey('users.id'))
     author = db.relationship('User', backref='comments')
 

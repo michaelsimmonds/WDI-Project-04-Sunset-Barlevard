@@ -287,12 +287,6 @@ with app.app_context():
 
 ################ CRAWLS ######################
 
-    the_best_crawl = Crawl(
-        name='Best crawl ever',
-        description='I had such a great time going to these bars! Mark\'s Bar was quite quite for a Friday (but so cheap!) so we then made a move to Royal Oak, which had a great pub quiz on!',
-        creator=mike
-    )
-
     east_end = Crawl(
         name='East End Crawl',
         description='A tour of the seven wonders of the East End. Perfect for old-timers as well as those new to the area - great way to meet some locals if you\'ve just moved to East London!',

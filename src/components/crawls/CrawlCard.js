@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import moment from 'moment'
+import CrawlSlider from './CrawlSlider'
 
 const CrawlCard = ({ name, stops, id, creator, description, createdAt }) => {
   return(
@@ -20,24 +21,11 @@ const CrawlCard = ({ name, stops, id, creator, description, createdAt }) => {
           </Link>
         </div>
       </div>
-      <div className="center">
-        <div className="columns slider">
-          {stops.map(stop => <div className="column is-centered is-full column-container" key={stop.id}>
-            <Link to={`/bars/${stop.bar.id}`}>
-              <div className="container2">
-                <div className="content">
-                  <div className="content-overlay"></div>
-                  <div style={{backgroundImage: `url(${stop.bar.hero})`}}className="carousel"/>
-                  <div className="content-details fadeIn-bottom">
-                    <div className="title1">{stop.bar.name}</div>
-                    <div className="subtitle2">📍{stop.bar.location} London</div>
-                  </div>
-                </div>
-              </div>
-            </Link>
-          </div>)}
-        </div>
-      </div>
+
+      <CrawlSlider
+        stops = {stops}
+      />
+
       <h1 className='title is-6 center'>Uploaded: {moment(createdAt).format('MMMM Do YYYY, h:mm:ss a')} </h1>
       <div className="description">
         <h1 className="title description-title is-6">{description}</h1>

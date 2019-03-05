@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import axios from 'axios'
 import CrawlMap from './CrawlMap'
 import CrawlSlider from './CrawlSlider'
+import CommentsForm from './CommentsForm'
 import Auth from '../../lib/Auth'
 
 import mapboxgl from '../../lib/mapbox-gl'
@@ -11,9 +12,14 @@ class CrawlShow extends React.Component {
   constructor() {
     super()
 
-    this.state = {}
-
+    this.state = {
+      data: {
+        content: ''
+      }
+    }
     this.deleteCrawl = this.deleteCrawl.bind(this)
+    this.handleChange = this.handleChange.bind(this)
+    this.handleSubmit = this.handleSubmit.bind(this)
 
   }
 
@@ -32,15 +38,40 @@ class CrawlShow extends React.Component {
       })
   }
 
+
+  handleChange(e) {
+    this.setState({ data: { content: e.target.value } })
+  }
+
+  handleSubmit(e){
+    e.preventDefault()
+    console.log(this.props)
+    const token = Auth.getToken()
+    axios.post(`/api/crawls/${this.props.match.params.id}/comments`, this.state.data, {
+      headers: { Authorization: `Bearer ${token}` }
+    })
+      .then(res => {
+        const comments = [ res.data, ...this.state.crawl.comments ]
+        const crawl = { ...this.state.crawl, comments }
+        this.setState({ crawl })
+      })
+    //.catch(err => alert(err.message))
+  }
+  // reload(){
+  //
+  // }
+
+
   deleteCrawl(){
     axios.delete(`/api/crawls/${this.props.match.params.id}`)
       .then(() => this.props.history.push('/crawls'))
       .catch(err => alert(err.message))
   }
 
+
+
   render(){
     if (!this.state.crawl) return null
-    //console.log(this.state.crawl)
     const {
       comments,
       creator,
@@ -84,26 +115,40 @@ class CrawlShow extends React.Component {
           </section>
         </div>
         <div className="container">
-          <section className="section">
-            <h2 className="title is-4 center">Comments</h2>
-            <div className="card-content">
-              {comments.map(comment => {
-                console.log('COMMENT AUTHOR', comment.author)
-                return(
-                  <div className="box" key={comment.id}>
-                    <article className="media>">
-                      <div className="media-left">
-                      </div>
-                      <p><strong>{comment.author}</strong></p>
-                      <p>{comment.content}</p>
 
-                    </article>
-                  </div>
-                )
-              })}
+          <section className="card comments">
+            <div className="card-header">
+              <p className="card-header-title">Reviews</p>
+              <button className="button is-danger">New Review</button>
             </div>
+            {
+              comments.length === 0 ?
+                <div className="card-content">
+                  <h1 className="subtitle is-5">
+                  No reviews of this bar crawl yet... Add one!
+                  </h1>
+                </div>
+                :
+                <div className="card-content">
+                  {comments.map(comment =>
+                    <div key={comment.id}>
+                      <p><strong>{comment.author}</strong></p>
+                      <p className="comment-body">{comment.content}</p>
+                      <hr />
+                    </div>
+                  )}
+                </div>
+            }
           </section>
+          <CommentsForm
+            data={this.state.data}
+            handleChange={this.handleChange}
+            handleSubmit={this.handleSubmit}
+          />
+
         </div>
+
+
 
 
         {Auth.isAuthenticated() && (creator.id === Auth.getUserID()) &&

@@ -3,11 +3,14 @@
 $warning: #fada5e;
 $danger: #D42E2D;
 $primary: #495c68;
+$off-white: #efefef;
 @import "~bulma/bulma";
 
-// #root {
-//   font-family: 'Raleway', sans-serif;
-// }
+#root {
+  font-family: 'Raleway', sans-serif;
+}
+
+
 
 
 //=================================GENERAL=================================
@@ -456,4 +459,21 @@ select.input {
       }
     }
   }
+}
+
+//==== CRAWL COMMENTS ===
+
+
+.card.comments {
+  margin: 10px auto;
+  background-color: $off-white;
+}
+
+  button {
+    margin: 0.5rem;
+  }
+
+.card-content {
+  height: 18rem;
+  overflow: scroll;
 }

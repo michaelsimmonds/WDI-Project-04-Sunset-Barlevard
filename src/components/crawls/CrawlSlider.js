@@ -3,8 +3,6 @@ import { Link } from 'react-router-dom'
 import HoverImage from 'react-hover-image'
 
 const CrawlSlider = ({ stops }) => {
-  const images = stops.map(stop => stop.bar.hero)
-  console.log(stops)
   return(
     <main>
       <div className="center">

@@ -111,7 +111,7 @@ class Register extends React.Component{
                         <ReactFilestack
                           apikey={ `${process.env.FILESTACK_API_KEY}` }
                           mode={'pick'}
-                          onSuccess={(res) => handleChange({
+                          onSuccess={(res) => this.handleChange({
                             target: {
                               name: 'image',
                               value: res.filesUploaded[0].url
