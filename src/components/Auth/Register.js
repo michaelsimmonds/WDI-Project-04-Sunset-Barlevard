@@ -105,13 +105,13 @@ class Register extends React.Component{
                   </div>
 
                   <div className="field">
-                    <p className="control has-icons-left">
+                    <div className="control has-icons-left">
 
                       <div>
                         <ReactFilestack
                           apikey={ `${process.env.FILESTACK_API_KEY}` }
                           mode={'pick'}
-                          onSuccess={(res) => handleChange({
+                          onSuccess={(res) => this.handleChange({
                             target: {
                               name: 'image',
                               value: res.filesUploaded[0].url
@@ -122,7 +122,7 @@ class Register extends React.Component{
                         />
                       </div>
 
-                    </p>
+                    </div>
                   </div>
 
                   <div className="field center">

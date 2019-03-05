@@ -58,7 +58,6 @@ img {
 .bar-map-show {
   height: 80rem;
   width: 100%;
-  // overflow: auto;
 }
 
 .bar-show-column {
@@ -73,7 +72,66 @@ img {
   background-image: url("http://pluspng.com/img-png/sun-png-sun-png-picture-png-image-558.png");
   background-size: cover;
   border: none;
+  outline: none;
+  margin: 4em 0;
+  animation: pulse 1.5s infinite;
+  cursor: pointer;
+  box-shadow: 0 0 0 rgba(204,169,44, 0.4);
 }
+
+.sun-button:hover {
+  animation: none;
+}
+
+@-webkit-keyframes pulse {
+  0% {
+    -webkit-box-shadow: 0 0 0 0 rgba(204,169,44, 0.4);
+  }
+  70% {
+      -webkit-box-shadow: 0 0 0 10px rgba(204,169,44, 0);
+  }
+  100% {
+      -webkit-box-shadow: 0 0 0 0 rgba(204,169,44, 0);
+  }
+}
+@keyframes pulse {
+  0% {
+    -moz-box-shadow: 0 0 0 0 rgba(204,169,44, 0.4);
+    box-shadow: 0 0 0 0 rgba(204,169,44, 0.4);
+  }
+  70% {
+      -moz-box-shadow: 0 0 0 10px rgba(204,169,44, 0);
+      box-shadow: 0 0 0 10px rgba(204,169,44, 0);
+  }
+  100% {
+      -moz-box-shadow: 0 0 0 0 rgba(204,169,44, 0);
+      box-shadow: 0 0 0 0 rgba(204,169,44, 0);
+  }
+}
+
+
+
+
+
+.disp-mode {
+  color: white;
+  font-weight: 600;
+  font-size: 1.5em;
+}
+
+// .sun-div {
+//   background-color: black;
+//   text-align: center;
+//   color: white;
+//   vertical-align: middle;
+//   font-weight: 800;
+//   height: 4em;
+//   padding: 1em;
+// }
+//
+// #sun-div-clicked {
+//   background-color: red;
+// }
 
 // ===============================CRAWL INDEX===================================
 .flex-direction {
@@ -162,10 +220,26 @@ img {
   background-attachment: fixed;
 }
 
+.background-toggle {
+  height: 100vh;
+  background-image: linear-gradient(rgb(255, 0, 0), rgba(255, 165, 0, 1)), url('https://cdn-image.travelandleisure.com/sites/default/files/styles/1600x1000/public/1511276981/the-roof-at-public-hotel-new-york-city-ROOF1117.jpg?itok=4PTTAf3C');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+}
+//
+// .main-sunset-mode {
+//   background-color: rgba(253, 253, 150, 1);
+// }
+
+
+
 .sunset {
   font-family: 'Lobster', cursive;
   color: white !important;
   font-size: 80px !important;
+  margin-top: -1em;
+  margin-bottom: 20px;
 }
 
 .subtitle-header {
