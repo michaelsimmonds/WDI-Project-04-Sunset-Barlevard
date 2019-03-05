@@ -5,22 +5,26 @@ import moment from 'moment'
 const CrawlCard = ({ name, stops, id, creator, description, created_at, onSubmit }) => {
   return(
     <div>
-          <hr/>
-      <div className="header-crawl">
-        <Link to={`/crawls/${id}`}>
-          <h1 className="title is-2">{name}</h1>
-        </Link>
-      </div>
-      <div className="header-crawl">
-      </div>
+      <hr/>
+
+
       <div className="uploaded-user">
-        <h1 className="title is-6 inline">Created by:</h1>
+
+        <div className="header-crawl">
+          <Link to={`/crawls/${id}`}>
+            <h1 className="title is-2">{name}</h1>
+          </Link>
+        </div>
+
         <div className="image-username">
+          <h1 className="title is-6 inline">Created by:    </h1>
           <Link to={`/users/${creator.id}`}>
             <div style={{backgroundImage: `url(${creator.image})`}}className="user-image-home"/>
           </Link>
         </div>
+
       </div>
+
       <div className="center">
         <div className="columns slider">
           {stops.slice().reverse().map(stop => <div className="column is-centered is-full column-container" key={stop.id}>
@@ -39,6 +43,7 @@ const CrawlCard = ({ name, stops, id, creator, description, created_at, onSubmit
           </div>)}
         </div>
       </div>
+
       <h1 className='title is-6 center margin-top'>Uploaded: {moment(created_at).format('MMMM Do YYYY, h:mm:ss a')} </h1>
       <div className="description">
         <h1 className="title description-title is-6">{description}</h1>
