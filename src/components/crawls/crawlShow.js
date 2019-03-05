@@ -33,7 +33,6 @@ class CrawlShow extends React.Component {
           bounds.extend([lng, lat])
         })
 
-        console.log('GETCENTER', bounds.getCenter())
         this.setState({ crawl: res.data, zoomCenter: bounds.getCenter() })
       })
   }
@@ -57,9 +56,7 @@ class CrawlShow extends React.Component {
       })
     //.catch(err => alert(err.message))
   }
-  // reload(){
-  //
-  // }
+
 
 
   deleteCrawl(){
@@ -106,12 +103,13 @@ class CrawlShow extends React.Component {
           center={this.state.zoomCenter}
           zoom={12.0}
         />
-        <div>
+        <div className="container">
           <section className="section">
             <h2 className="title is-4 center">Bars on this crawl</h2>
             <CrawlSlider
               stops = {this.state.crawl.stops}
             />
+
           </section>
         </div>
         <div className="container">

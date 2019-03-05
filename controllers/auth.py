@@ -1,6 +1,7 @@
 from flask import Blueprint, jsonify, request, g
 from models.user import User, UserSchema
 from lib.secure_route import secure_route
+from sqlalchemy.exc import IntegrityError
 
 api = Blueprint('auth', __name__)
 user_schema = UserSchema()
@@ -24,6 +25,7 @@ def login():
 
     if not user or not user.validate_password(data.get('password', '')):
         return jsonify({'message': 'Unauthorized'}), 401
+        
 
     return jsonify({
         'message': 'Welcome back {}!'.format(user.username),

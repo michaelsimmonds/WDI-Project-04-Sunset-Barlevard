@@ -1,18 +1,9 @@
 import React from 'react'
 import axios from 'axios'
-import { Link } from 'react-router-dom'
 import CrawlCard from '../crawls/CrawlCard.js'
-import Select from 'react-select'
-import makeAnimated from 'react-select/lib/animated'
 
-const options = [
-  { value: 'north', label: 'North London' },
-  { value: 'east', label: 'East London' },
-  { value: 'south', label: 'South London' },
-  { value: 'west', label: 'West London' }
-]
 
-const sunSuitableArr = []
+let sunSuitableArr = []
 
 class Home extends React.Component{
   constructor(){
@@ -23,12 +14,13 @@ class Home extends React.Component{
       data: {
         location: []
       },
-      location: [],
+      barLocation: [],
       switched: false,
-      sunSuitable: []
+      sunSuitable: [],
+      north: []
     }
+
     this.handleChange = this.handleChange.bind(this)
-    this.mapLocation = this.mapLocation.bind(this)
 
     this.toggleSwitch = this.toggleSwitch.bind(this)
 
@@ -45,61 +37,81 @@ class Home extends React.Component{
       }
     })
     this.setState({ sunSuitable: sunSuitableArr})
+    sunSuitableArr = []
   }
 
   toggleSwitch() {
-    if (this.state.switched === false) this.getSun()
-    else this.setState({ sunSuitable: []})
+    const hero = document.querySelector('.hero')
+    // const sunDiv = document.querySelector('.sun-div')
+    // const main = document.querySelector('main')
+    if (this.state.switched === false) {
+      this.getSun()
+      hero.classList.add('background-toggle')
+      // sunDiv.id = 'sun-div-clicked'
+      // main.classList.add('main-sunset-mode')
+      console.log(hero)
+    } else {
+      this.setState({ sunSuitable: []})
+      hero.classList.remove('background-toggle')
+      // sunDiv.id = ''
+      // main.classList.remove('main-sunset-mode')
+    }
     this.setState({ switched: !this.state.switched })
   }
 
   componentDidMount() {
     axios.get('/api/crawls')
       .then(res => this.setState({ crawls: res.data }))
+    axios.get(`/api/users/${this.props.match.params.id}`)
+      .then(res => this.setState({ userData: res.data }))
   }
 
   handleChange(e) {
     const location = (e.map(location => location.value))
     const data = { location }
     this.setState({ data })
-    console.log(location)
-  }
-
-  mapLocation(){
-    this.state.crawls.map(crawl => {
-      crawl.stops.forEach(stop => {
-        console.log(stop.bar.location)
-      })
-    })
   }
 
   render(){
+    console.log(this.state.location)
+    console.log(this.state.userData)
     return(
       <main>
         <section className="hero is-large background">
-          <button onClick={this.toggleSwitch}>Sunshine Mode</button>
-          {this.state.switched && 'SUNSHINE MODE ON'}
+
+          {/*
+          {this.state.switched ?
+            <section className='sun-div'>
+              <div>You're in Sunshine Mode! We've displayed the bar crawls with great roof terraces and outside spaces</div>
+            </section> :
+            <section className='sun-div'>
+              <div>Sun out?? Try clicking the sun below...</div>
+            </section>
+          }
+          */}
+
           <div className="hero-body">
             <div className="container has-text-centered">
-              <h1 className="title sunset level-item">
+              <h1 className="sunset level-item">
                 Sunset Barlevard
               </h1>
-              <h1 className="title is-6 subtitle-header">Find Bar Crawls in London</h1>
-              <hr className="thin">
-              </hr>
+
+              {this.state.switched ?
+                <h1 className='disp-mode'>You're in Sunshine Mode! We're now showing Sun Friendly crawls</h1> :
+                <h1 className='disp-mode'>Sun out?? Try clicking the sun...</h1>
+              }
+
+              <button className="sun-button" onClick={this.toggleSwitch}></button>
+
+
+
+
+
+
             </div>
           </div>
         </section>
-        <form className="form">
-          <Select
-            className="select-bar"
-            isMulti
-            onChange={this.handleChange}
-            options={options}
-            name="location"
-            components={makeAnimated()}
-          />
-        </form>
+
 
         {!this.state.switched ?
           this.state.crawls.map(crawl => <div key={crawl.id} className="hero-body">
@@ -117,3 +129,14 @@ class Home extends React.Component{
 }
 
 export default Home
+
+// <form className="form">
+//   <Select
+//     className="select-bar"
+//     isMulti
+//     onChange={this.handleChange}
+//     options={options}
+//     name="location"
+//     components={makeAnimated()}
+//   />
+// </form>

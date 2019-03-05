@@ -13,7 +13,7 @@ class BarsShow extends React.Component{
   }
 
   componentDidMount() {
-    axios.get(`/api/crawls/${this.props.match.params.id}/bars/${this.props.match.params.id}`)
+    axios.get(`/api/bars/${this.props.match.params.id}`)
       .then(res => this.setState({ bar: res.data }))
   }
 

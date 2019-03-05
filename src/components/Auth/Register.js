@@ -105,7 +105,7 @@ class Register extends React.Component{
                   </div>
 
                   <div className="field">
-                    <p className="control has-icons-left">
+                    <div className="control has-icons-left">
 
                       <div>
                         <ReactFilestack
@@ -122,7 +122,7 @@ class Register extends React.Component{
                         />
                       </div>
 
-                    </p>
+                    </div>
                   </div>
 
                   <div className="field center">

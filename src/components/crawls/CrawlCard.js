@@ -1,11 +1,13 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import moment from 'moment'
-import CrawlSlider from './CrawlSlider'
+import HomeCrawlSlider from './HomeCrawlSlider'
 
-const CrawlCard = ({ name, stops, id, creator, description, createdAt }) => {
+
+const CrawlCard = ({ name, stops, id, creator, description, created_at }) => {
   return(
     <div>
+      <hr/>
       <div className="header-crawl">
         <Link to={`/crawls/${id}`}>
           <h1 className="title is-2">{name}</h1>
@@ -21,17 +23,18 @@ const CrawlCard = ({ name, stops, id, creator, description, createdAt }) => {
           </Link>
         </div>
       </div>
+      <Link to={`/crawls/${id}`}>
+        <HomeCrawlSlider
+          stops = {stops}
+        />
+      </Link>
 
-      <CrawlSlider
-        stops = {stops}
-      />
-
-      <h1 className='title is-6 center'>Uploaded: {moment(createdAt).format('MMMM Do YYYY, h:mm:ss a')} </h1>
+      <h1 className='title is-6 center'>Uploaded: {moment(created_at).format('MMMM Do YYYY')} </h1>
       <div className="description">
         <h1 className="title description-title is-6">{description}</h1>
       </div>
       <form className="header-crawl">
-        <button className="header-crawl button upvote">Bookmark</button>
+        <button className="header-crawl button button-styled upvote">Favourite</button>
       </form>
     </div>
 

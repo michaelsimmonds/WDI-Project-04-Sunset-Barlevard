@@ -1,5 +1,5 @@
 @charset "utf-8";
-@import url('https://fonts.googleapis.com/css?family=Open+Sans');
+// @import url('https://fonts.googleapis.com/css?family=Open+Sans');
 $warning: #fada5e;
 $danger: #D42E2D;
 $primary: #495c68;
@@ -7,13 +7,28 @@ $off-white: #efefef;
 @import "~bulma/bulma";
 
 #root {
-  font-family: 'Raleway', sans-serif;
+  // font-family: 'Raleway', sans-serif;
+  background-color: #495c68;
 }
 
+* {
+  font-family: "Helvetica";
+}
 
-
-
+// "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
 //=================================GENERAL=================================
+
+.error {
+  color: #8b0000;
+}
+
+.view-port {
+  height: 100vh;
+}
+
+.margin-top {
+  margin-top: 20px;
+}
 
 .text-overlay {
   width: 100%;
@@ -32,6 +47,12 @@ $off-white: #efefef;
   color: white;
 }
 
+.here {
+  // text-decoration: underline;
+  font-weight: bold;
+  color: white;
+}
+
 .space-between {
   display: flex;
   justify-content:space-between;
@@ -46,10 +67,6 @@ figure.image {
 img {
   margin: 20px;
 }
-
-// .tinted {
-//   filter: brightness(50%);
-// }
 
 .bar-show-img {
   height: 100vh;
@@ -67,19 +84,79 @@ img {
 .bar-map-show {
   height: 80rem;
   width: 100%;
-  // overflow: auto;
 }
 
 .bar-show-column {
   margin: 5rem 0;
 }
 
+.sun-button {
+  width: 15em;
+  height: 15em;
+  border-radius: 50%;
+  background: transparent;
+  background-image: url("http://pluspng.com/img-png/sun-png-sun-png-picture-png-image-558.png");
+  background-size: cover;
+  border: none;
+  outline: none;
+  margin: 4em 0;
+  animation: pulse 1.5s infinite;
+  cursor: pointer;
+  box-shadow: 0 0 0 rgba(204,169,44, 0.4);
+}
 
-// #show {
+.sun-button:hover {
+  animation: none;
+}
+
+@-webkit-keyframes pulse {
+  0% {
+    -webkit-box-shadow: 0 0 0 0 rgba(204,169,44, 0.4);
+  }
+  70% {
+      -webkit-box-shadow: 0 0 0 10px rgba(204,169,44, 0);
+  }
+  100% {
+      -webkit-box-shadow: 0 0 0 0 rgba(204,169,44, 0);
+  }
+}
+@keyframes pulse {
+  0% {
+    -moz-box-shadow: 0 0 0 0 rgba(204,169,44, 0.4);
+    box-shadow: 0 0 0 0 rgba(204,169,44, 0.4);
+  }
+  70% {
+      -moz-box-shadow: 0 0 0 10px rgba(204,169,44, 0);
+      box-shadow: 0 0 0 10px rgba(204,169,44, 0);
+  }
+  100% {
+      -moz-box-shadow: 0 0 0 0 rgba(204,169,44, 0);
+      box-shadow: 0 0 0 0 rgba(204,169,44, 0);
+  }
+}
+
+
+
+
+
+.disp-mode {
+  color: white;
+  font-weight: 600;
+  font-size: 1.5em;
+}
+
+// .sun-div {
+//   background-color: black;
+//   text-align: center;
 //   color: white;
-//   z-index: 250;
-//   position: absolute;
+//   vertical-align: middle;
 //   font-weight: 800;
+//   height: 4em;
+//   padding: 1em;
+// }
+//
+// #sun-div-clicked {
+//   background-color: red;
 // }
 
 // ===============================CRAWL INDEX===================================
@@ -169,10 +246,26 @@ img {
   background-attachment: fixed;
 }
 
+.background-toggle {
+  height: 100vh;
+  background-image: linear-gradient(rgba(255, 165, 0, 1), rgb(255, 0, 0)), url('https://cdn-image.travelandleisure.com/sites/default/files/styles/1600x1000/public/1511276981/the-roof-at-public-hotel-new-york-city-ROOF1117.jpg?itok=4PTTAf3C');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+}
+//
+// .main-sunset-mode {
+//   background-color: rgba(253, 253, 150, 1);
+// }
+
+
+
 .sunset {
   font-family: 'Lobster', cursive;
   color: white !important;
   font-size: 80px !important;
+  margin-top: -1em;
+  margin-bottom: 20px;
 }
 
 .subtitle-header {
@@ -325,7 +418,20 @@ textarea.textarea, input.textarea, input.input {
 
 }
 
-.register, .login, .crawl-form {
+.grey-background {
+  color: white;
+}
+
+
+.title {
+  color: white;
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  color: white;
+
+}
+
+.grey, .grey-background {
   background-color: $primary;
 }
 
@@ -407,6 +513,11 @@ select.input {
 .small-margin {
   width: 18% !important;
 }
+
+strong, .image-username {
+  color: white;
+}
+
 //////// ******** CRAWL MAP ******* ///////////
 
 // ============================ CRAWL SHOW ===================================
