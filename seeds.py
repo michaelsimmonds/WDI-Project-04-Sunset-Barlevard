@@ -265,9 +265,9 @@ with app.app_context():
         lat=51.5067192,
         lng=-0.1183676,
         terrace=True,
-        description='Errr, wildflowers and Pimm\'s, anyone? What\'s not to love? This place is genuinely a hidden gem, all those people walking on by the Southbank missing this glory are truly missing out. Do not be one of them. Perfect for a sunny rooftop bar crawl in central London.' ,
+        description='Errr, wildflowers and Pimm\'s, anyone? What\'s not to love? This place is genuinely a hidden gem, laugh at all those people walking on by the bistling Southbank missing this glory - they are  missing out. Do not be one of them. Perfect for a sunny rooftop bar crawl in central London.' ,
         hero='https://theresident.wpms.greatbritishlife.co.uk/wp-content/uploads/sites/10/2015/04/Southbank-Centres-Roof-Gar.jpg',
-        location='East'
+        location='Central'
     )
     db.session.add(queen_elizabeth)
 

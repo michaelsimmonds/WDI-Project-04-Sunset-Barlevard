@@ -33,8 +33,8 @@ class CrawlMap extends React.Component{
 
       const popup = new mapboxgl.Popup({offset: 20})
         .setHTML(`
-          <div style={backgroundImage:'${image}'} class="event-image"}
-          </>
+          <div style=background-image: url("${image}")
+          />
           `)
           // .setHTML(`
           //   <div class="event-image">
