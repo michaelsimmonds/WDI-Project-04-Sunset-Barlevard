@@ -12,7 +12,7 @@ const options = [
   { value: 'west', label: 'West London' }
 ]
 
-const sunSuitableArr = []
+let sunSuitableArr = []
 
 class Home extends React.Component{
   constructor(){
@@ -27,9 +27,9 @@ class Home extends React.Component{
       switched: false,
       sunSuitable: []
     }
+
     this.handleChange = this.handleChange.bind(this)
     this.mapLocation = this.mapLocation.bind(this)
-
     this.toggleSwitch = this.toggleSwitch.bind(this)
 
   }
@@ -45,6 +45,7 @@ class Home extends React.Component{
       }
     })
     this.setState({ sunSuitable: sunSuitableArr})
+    sunSuitableArr = []
   }
 
   toggleSwitch() {
@@ -77,16 +78,14 @@ class Home extends React.Component{
     return(
       <main>
         <section className="hero is-large background">
-          <button onClick={this.toggleSwitch}>Sunshine Mode</button>
-          {this.state.switched && 'SUNSHINE MODE ON'}
           <div className="hero-body">
             <div className="container has-text-centered">
               <h1 className="title sunset level-item">
                 Sunset Barlevard
               </h1>
               <h1 className="title is-6 subtitle-header">Find Bar Crawls in London</h1>
-              <hr className="thin">
-              </hr>
+              <button className="sun-button" onClick={this.toggleSwitch}>Sunshine Mode</button>
+              {this.state.switched && 'SUNSHINE MODE ON'}
             </div>
           </div>
         </section>

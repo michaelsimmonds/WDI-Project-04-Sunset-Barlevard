@@ -42,10 +42,6 @@ img {
   margin: 20px;
 }
 
-// .tinted {
-//   filter: brightness(50%);
-// }
-
 .bar-show-img {
   height: 100vh;
   background-repeat: no-repeat;
@@ -69,13 +65,15 @@ img {
   margin: 5rem 0;
 }
 
-
-// #show {
-//   color: white;
-//   z-index: 250;
-//   position: absolute;
-//   font-weight: 800;
-// }
+.sun-button {
+  width: 15em;
+  height: 15em;
+  border-radius: 50%;
+  background: transparent;
+  background-image: url("http://pluspng.com/img-png/sun-png-sun-png-picture-png-image-558.png");
+  background-size: cover;
+  border: none;
+}
 
 // ===============================CRAWL INDEX===================================
 .flex-direction {
