@@ -72,7 +72,7 @@ class Login extends React.Component {
                     </div>
                   </div>
                   <div className="center">
-                    <button className="button is-black">Log In</button>
+                    <button className="button button-styled">Log In</button>
                   </div>
                 </form>
               </div>

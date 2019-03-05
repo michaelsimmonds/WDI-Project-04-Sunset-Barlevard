@@ -70,7 +70,7 @@ class CrawlsNew extends React.Component{
         <section className="section section-height-crawl">
           <div className="container">
             <div className="column is-5">
-              <button onClick={this.toggleHidden} className="button">{this.state.isHidden ? 'Add a Bar' : 'Submit' }</button>
+              <button onClick={this.toggleHidden} className="button button-styled">{this.state.isHidden ? 'Add a Bar' : 'Submit' }</button>
             </div>
             {!this.state.isHidden && <BarsNew />}
             <CrawlForm

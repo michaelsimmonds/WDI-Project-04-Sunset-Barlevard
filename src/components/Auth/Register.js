@@ -126,7 +126,7 @@ class Register extends React.Component{
                   </div>
 
                   <div className="field center">
-                    <button className="button is-dark">
+                    <button className="button button-styled">
                         Register
                     </button>
                   </div>

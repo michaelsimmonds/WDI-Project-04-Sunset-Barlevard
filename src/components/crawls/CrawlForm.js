@@ -46,7 +46,7 @@ const CrawlForm = ({ data, bars, handleAddStop, handleChange, handleSubmit, togg
           </div>
 
           <div className="field">
-            <button className="button">Save</button>
+            <button className="button button-styled">Save</button>
           </div>
         </form>
       </div>
