@@ -329,8 +329,8 @@ with app.app_context():
 
     rooftop_crawl.stops = [
         Stop(bar=queen_elizabeth, order=0),
-        Stop(bar=boundary, order=1),
-        Stop(bar=queen_hoxton, order=2),
+        Stop(bar=boundary, order=2),
+        Stop(bar=queen_hoxton, order=1),
     ]
     db.session.add(rooftop_crawl)
 
