@@ -2,15 +2,15 @@ import React from 'react'
 import axios from 'axios'
 import { Link } from 'react-router-dom'
 import CrawlCard from '../crawls/CrawlCard.js'
-import Select from 'react-select'
-import makeAnimated from 'react-select/lib/animated'
+// import Select from 'react-select'
+// import makeAnimated from 'react-select/lib/animated'
 
-const options = [
-  { value: 'north', label: 'North London' },
-  { value: 'east', label: 'East London' },
-  { value: 'south', label: 'South London' },
-  { value: 'west', label: 'West London' }
-]
+// const options = [
+//   { value: 'north', label: 'North London' },
+//   { value: 'east', label: 'East London' },
+//   { value: 'south', label: 'South London' },
+//   { value: 'west', label: 'West London' }
+// ]
 
 let sunSuitableArr = []
 
@@ -23,13 +23,14 @@ class Home extends React.Component{
       data: {
         location: []
       },
-      location: [],
+      barLocation: [],
       switched: false,
-      sunSuitable: []
+      sunSuitable: [],
+      north: []
     }
 
     this.handleChange = this.handleChange.bind(this)
-    this.mapLocation = this.mapLocation.bind(this)
+
     this.toggleSwitch = this.toggleSwitch.bind(this)
 
   }
@@ -70,24 +71,19 @@ class Home extends React.Component{
   componentDidMount() {
     axios.get('/api/crawls')
       .then(res => this.setState({ crawls: res.data }))
+    axios.get(`/api/users/${this.props.match.params.id}`)
+      .then(res => this.setState({ userData: res.data }))
   }
 
   handleChange(e) {
     const location = (e.map(location => location.value))
     const data = { location }
     this.setState({ data })
-    console.log(location)
-  }
-
-  mapLocation(){
-    this.state.crawls.map(crawl => {
-      crawl.stops.forEach(stop => {
-        console.log(stop.bar.location)
-      })
-    })
   }
 
   render(){
+    console.log(this.state.location)
+    console.log(this.state.userData)
     return(
       <main>
         <section className="hero is-large background">
@@ -105,7 +101,7 @@ class Home extends React.Component{
 
           <div className="hero-body">
             <div className="container has-text-centered">
-              <h1 className="title sunset level-item">
+              <h1 className="sunset level-item">
                 Sunset Barlevard
               </h1>
 
@@ -126,18 +122,6 @@ class Home extends React.Component{
         </section>
 
 
-
-        <form className="form">
-          <Select
-            className="select-bar"
-            isMulti
-            onChange={this.handleChange}
-            options={options}
-            name="location"
-            components={makeAnimated()}
-          />
-        </form>
-
         {!this.state.switched ?
           this.state.crawls.map(crawl => <div key={crawl.id} className="hero-body">
             <CrawlCard {...crawl} />
@@ -154,3 +138,14 @@ class Home extends React.Component{
 }
 
 export default Home
+
+// <form className="form">
+//   <Select
+//     className="select-bar"
+//     isMulti
+//     onChange={this.handleChange}
+//     options={options}
+//     name="location"
+//     components={makeAnimated()}
+//   />
+// </form>

@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import moment from 'moment'
 
-const CrawlCard = ({ name, stops, id, creator, description, createdAt }) => {
+const CrawlCard = ({ name, stops, id, creator, description, created_at, onSubmit }) => {
   return(
     <div>
       <div className="header-crawl">
@@ -22,8 +22,8 @@ const CrawlCard = ({ name, stops, id, creator, description, createdAt }) => {
       </div>
       <div className="center">
         <div className="columns slider">
-          {stops.map(stop => <div className="column is-centered is-full column-container" key={stop.id}>
-            <Link to={`/bars/${stop.bar.id}`}>
+          {stops.slice().reverse().map(stop => <div className="column is-centered is-full column-container" key={stop.id}>
+            <Link to={`/crawls/${id}`}>
               <div className="container2">
                 <div className="content">
                   <div className="content-overlay"></div>
@@ -38,12 +38,12 @@ const CrawlCard = ({ name, stops, id, creator, description, createdAt }) => {
           </div>)}
         </div>
       </div>
-      <h1 className='title is-6 center'>Uploaded: {moment(createdAt).format('MMMM Do YYYY, h:mm:ss a')} </h1>
+      <h1 className='title is-6 center margin-top'>Uploaded: {moment(created_at).format('MMMM Do YYYY, h:mm:ss a')} </h1>
       <div className="description">
         <h1 className="title description-title is-6">{description}</h1>
       </div>
       <form className="header-crawl">
-        <button className="header-crawl button upvote">Bookmark</button>
+        <button className="header-crawl button button-styled upvote">Favourite</button>
       </form>
     </div>
 

@@ -58,6 +58,7 @@ class UserSchema(ma.ModelSchema, BaseSchema):
     password_confirmation = fields.String(required=True)
 
     created_crawls = fields.Nested('CrawlSchema', many=True)
+    favourites = fields.Nested('CrawlSchema', many=True)
 
     class Meta:
         model = User
