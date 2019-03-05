@@ -51,6 +51,8 @@ def update(crawl_id):
     if errors:
         return jsonify(errors), 422 # this jsonify is a flask method. it turns dict into json
     crawl.save()
+
+    crawl.comments.reverse()
     return crawl_schema.jsonify(crawl) # this is marshmallow jsonify. it jsonifies the crawl object
 
 
@@ -71,11 +73,13 @@ def delete(crawl_id):
 @secure_route
 def create_comment(crawl_id):
     comment, errors = comment_schema.load(request.get_json())
-    comment.author = g.current_user
-    comment.crawl = Crawl.query.get(crawl_id)
 
     if errors:
         return jsonify(errors), 422
+
+    comment.author = g.current_user
+    comment.crawl = Crawl.query.get(crawl_id)
+
 
     comment.save()
 

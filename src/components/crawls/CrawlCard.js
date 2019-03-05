@@ -1,10 +1,13 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import moment from 'moment'
+import HomeCrawlSlider from './HomeCrawlSlider'
 
-const CrawlCard = ({ name, stops, id, creator, description, created_at, handleSubmit }) => {
+
+const CrawlCard = ({ name, stops, id, creator, description, created_at }) => {
   return(
     <div>
+      <hr/>
       <div className="header-crawl">
         <Link to={`/crawls/${id}`}>
           <h1 className="title is-2">{name}</h1>
@@ -20,25 +23,13 @@ const CrawlCard = ({ name, stops, id, creator, description, created_at, handleSu
           </Link>
         </div>
       </div>
-      <div className="center">
-        <div className="columns slider">
-          {stops.slice().reverse().map(stop => <div className="column is-centered is-full column-container" key={stop.id}>
-            <Link to={`/crawls/${id}`}>
-              <div className="container2">
-                <div className="content">
-                  <div className="content-overlay"></div>
-                  <div style={{backgroundImage: `url(${stop.bar.hero})`}}className="carousel"/>
-                  <div className="content-details fadeIn-bottom">
-                    <div className="title1">{stop.bar.name}</div>
-                    <div className="subtitle2">📍{stop.bar.location} London</div>
-                  </div>
-                </div>
-              </div>
-            </Link>
-          </div>)}
-        </div>
-      </div>
-      <h1 className='title is-6 center margin-top'>Uploaded: {moment(created_at).format('MMMM Do YYYY, h:mm:ss a')} </h1>
+      <Link to={`/crawls/${id}`}>
+        <HomeCrawlSlider
+          stops = {stops}
+        />
+      </Link>
+
+      <h1 className='title is-6 center'>Uploaded: {moment(created_at).format('MMMM Do YYYY')} </h1>
       <div className="description">
         <h1 className="title description-title is-6">{description}</h1>
       </div>

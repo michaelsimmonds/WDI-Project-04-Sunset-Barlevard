@@ -2,17 +2,12 @@ import React from 'react'
 import Select from 'react-select'
 import { Link } from 'react-router-dom'
 
-const CrawlForm = ({ data, bars, handleAddStop, handleChange, handleSubmit, toggleHidden, isHidden }) => {
-  console.log('data.name', data.name)
-  console.log('data.bars', data.bars)
+const CrawlForm = ({ data, bars, handleAddStop, handleChange, handleSubmit}) => {
   return(
     <div className="columns">
       <div className="column is-6 is-offset-3">
         <form onSubmit={handleSubmit}>
-
-
           <h2 className="title title-font center">ADD A CRAWL</h2>
-
           <div className="field">
             <label className="title-font label">Select Bars!</label>
             <Select
@@ -22,8 +17,9 @@ const CrawlForm = ({ data, bars, handleAddStop, handleChange, handleSubmit, togg
               name="stops"
             />
           </div>
+
           <div className="field">
-            <h2 className="title is-6 title-font center">Can't find your bar? Add one <Link to={'/bars/new'}> <p className="here"> &nbsp; here! </p></Link></h2>
+            <h2 className="title is-6 title-font center">Can't find your bar? Add one <Link to={'/bars/new'}><p className="here"> &nbsp;<u>here!</u></p></Link></h2>
           </div>
           <div className="field">
             <label className="label title-font">Name</label>
@@ -48,8 +44,6 @@ const CrawlForm = ({ data, bars, handleAddStop, handleChange, handleSubmit, togg
               />
             </div>
           </div>
-
-
           <div className="field">
             <button className="button button-styled">Save</button>
           </div>
@@ -58,24 +52,5 @@ const CrawlForm = ({ data, bars, handleAddStop, handleChange, handleSubmit, togg
     </div>
   )
 }
-
-
-// <div className="field">
-//   <label className="label">Add bars</label>
-//
-//   <div className="control">
-//     <div className="select">
-//       <select
-//         onChange={handleChange}
-//         name="stops">
-//         {bars.map(bar => <option
-//           key={bar._id}
-//           value={JSON.stringify(bar)}
-//         > {bar.name} </option>)}
-//       </select>
-//     </div>
-//   </div>
-// </div>
-
 
 export default CrawlForm

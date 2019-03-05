@@ -287,12 +287,6 @@ with app.app_context():
 
 ################ CRAWLS ######################
 
-    the_best_crawl = Crawl(
-        name='Best crawl ever',
-        description='I had such a great time going to these bars! Mark\'s Bar was quite quite for a Friday (but so cheap!) so we then made a move to Royal Oak, which had a great pub quiz on!',
-        creator=mike
-    )
-
     east_end = Crawl(
         name='East End Crawl',
         description='A tour of the seven wonders of the East End. Perfect for old-timers as well as those new to the area - great way to meet some locals if you\'ve just moved to East London!',
@@ -307,12 +301,6 @@ with app.app_context():
 
     fun_crawl = Crawl(
         name='Fun Crawl',
-        description='So much fun',
-        creator=mike
-    )
-
-    the_best_crawl = Crawl(
-        name='West Crawl',
         description='So much fun',
         creator=mike
     )
@@ -347,13 +335,6 @@ with app.app_context():
         Stop(bar=royal_oak, order=3)
     ]
     db.session.add(history_crawl)
-
-    the_best_crawl.stops = [
-        Stop(bar=marks_bar, order=0),
-        Stop(bar=royal_oak, order=1)
-    ]
-    db.session.add(the_best_crawl)
-
 
     east_end.stops = [
         Stop(bar=pub_on_park, order=0),
