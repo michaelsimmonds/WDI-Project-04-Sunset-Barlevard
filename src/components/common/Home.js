@@ -2,15 +2,15 @@ import React from 'react'
 import axios from 'axios'
 import { Link } from 'react-router-dom'
 import CrawlCard from '../crawls/CrawlCard.js'
-import Select from 'react-select'
-import makeAnimated from 'react-select/lib/animated'
+// import Select from 'react-select'
+// import makeAnimated from 'react-select/lib/animated'
 
-const options = [
-  { value: 'north', label: 'North London' },
-  { value: 'east', label: 'East London' },
-  { value: 'south', label: 'South London' },
-  { value: 'west', label: 'West London' }
-]
+// const options = [
+//   { value: 'north', label: 'North London' },
+//   { value: 'east', label: 'East London' },
+//   { value: 'south', label: 'South London' },
+//   { value: 'west', label: 'West London' }
+// ]
 
 const sunSuitableArr = []
 
@@ -64,14 +64,6 @@ class Home extends React.Component{
     const location = (e.map(location => location.value))
     const data = { location }
     this.setState({ data })
-    console.log(location)
-    this.state.crawls.map(crawl => {
-      crawl.stops.forEach(stop => {
-        if (stop.bar.location === data.location) {
-          this.setState({ crawls })
-        }
-      })
-    })
   }
 
   render(){
@@ -84,7 +76,7 @@ class Home extends React.Component{
           {this.state.switched && 'SUNSHINE MODE ON'}
           <div className="hero-body">
             <div className="container has-text-centered">
-              <h1 className="title sunset level-item">
+              <h1 className="sunset level-item">
                 Sunset Barlevard
               </h1>
               <h1 className="title is-6 subtitle-header">Find, Share and Enjoy Bar Crawls in London</h1>
@@ -93,17 +85,6 @@ class Home extends React.Component{
             </div>
           </div>
         </section>
-        <form className="form">
-          <Select
-            className="select-bar"
-            isMulti
-            onChange={this.handleChange}
-            options={options}
-            name="location"
-            components={makeAnimated()}
-          />
-        </form>
-
         {!this.state.switched ?
           this.state.crawls.map(crawl => <div key={crawl.id} className="hero-body">
             <CrawlCard {...crawl} />
@@ -120,3 +101,14 @@ class Home extends React.Component{
 }
 
 export default Home
+
+// <form className="form">
+//   <Select
+//     className="select-bar"
+//     isMulti
+//     onChange={this.handleChange}
+//     options={options}
+//     name="location"
+//     components={makeAnimated()}
+//   />
+// </form>

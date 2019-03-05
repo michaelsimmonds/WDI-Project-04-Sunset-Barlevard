@@ -6,7 +6,7 @@ import MapboxAutocomplete from 'react-mapbox-autocomplete'
 const BarForm = ({ data, handleChange, handleSubmit, suggestionSelect }) => {
   console.log(data)
   return(
-    <section className="section login">
+    <section className="section grey-backgroun">
       <div className="columns">
         <div className="column is-6 is-offset-3">
           <form onSubmit={handleSubmit}>

@@ -3,15 +3,24 @@
 $warning: #fada5e;
 @import "~bulma/bulma";
 
-// #root {
-//   font-family: 'Raleway', sans-serif;
-// }
+#root {
+  // font-family: 'Raleway', sans-serif;
+  background-color: #495c68;
+}
 
 
 //=================================GENERAL=================================
 
-.section {
+.error {
+  color: #8b0000;
+}
+
+.view-port {
   height: 100vh;
+}
+
+.margin-top {
+  margin-top: 20px;
 }
 
 .text-overlay {
@@ -330,8 +339,21 @@ textarea.textarea, input.textarea, input.input {
 
 }
 
-.register, .login, .crawl-form {
+.grey-background {
   background-color: #495c68;
+  color: white;
+}
+
+.grey {
+  background-color: #495c68;
+}
+
+.title {
+  color: white;
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  color: white;
+
 }
 
 .register-button, {

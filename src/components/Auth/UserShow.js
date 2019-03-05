@@ -24,7 +24,7 @@ class UserShow extends React.Component{
     if(!this.state.userData) return null
     console.log(this.state.userData)
     return(
-      <main className="login">
+      <main className="grey-background view-port">
         <section className="section">
           <div className="container">
             {this.state.userData.created_crawls.length >= 4 ?

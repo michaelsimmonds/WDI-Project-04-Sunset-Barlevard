@@ -12,7 +12,8 @@ class Login extends React.Component {
       data: {
         email: '',
         password: ''
-      }
+      },
+      errors: {}
     }
     this.handleChange =  this.handleChange.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
@@ -33,14 +34,16 @@ class Login extends React.Component {
         Flash.setMessage('success', res.data.message)
         this.props.history.push('/')
       })
-      .catch(err => alert(err.message))
+      .catch(err => this.setState({ errors: err.response.data }))
   }
 
   render() {
+    const errorMessages = Object.keys(this.state.errors).map(errorKey => {
+      return this.state.errors[errorKey]
+    })
     return (
       <main className="login">
         <section className="section section-height">
-
           <div className="container">
             <div className="columns">
               <div className="column is-6 is-offset-3">
@@ -74,6 +77,8 @@ class Login extends React.Component {
                   <div className="center">
                     <button className="button button-styled">Log In</button>
                   </div>
+                  {errorMessages.length > 0 && <p className="error center">There were some errors with your submission
+                  </p>}
                 </form>
               </div>
             </div>

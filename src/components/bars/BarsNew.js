@@ -52,7 +52,7 @@ class BarsNew extends React.Component {
 
   render() {
     return(
-      <main className="section login">
+      <main className="section grey-background">
         <div className="container">
           <BarForm
             data={this.state.data}
