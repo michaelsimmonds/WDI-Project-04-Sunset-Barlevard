@@ -36,6 +36,7 @@ class Home extends React.Component{
     const location = (e.map(location => location.value))
     const data = { location }
     this.setState({ data })
+    console.log(location)
   }
 
   mapLocation(){
@@ -47,8 +48,6 @@ class Home extends React.Component{
   }
 
   render(){
-    console.log(this.mapLocation())
-    console.log(this.state.crawls)
     return(
       <main>
         <section className="hero is-large background">

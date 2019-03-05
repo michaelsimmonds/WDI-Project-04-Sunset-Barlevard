@@ -3,9 +3,9 @@
 $warning: #fada5e;
 @import "~bulma/bulma";
 
-#root {
-  font-family: 'Raleway', sans-serif;
-}
+// #root {
+//   font-family: 'Raleway', sans-serif;
+// }
 
 .text-overlay {
   width: 100%;
@@ -276,6 +276,58 @@ hr.thin {
 
 .fadeIn-bottom{
   top: 80%;
+}
+
+//=================================FORMS=======================================
+.input, .textarea {
+  box-shadow: none;
+  border: 2px solid white;
+  border-radius: 0 !important;
+  border-left: none;
+  border-right: none;
+  border-top: none;
+  align-items: center;
+}
+
+
+textarea.textarea, input.textarea, input.input {
+  background-color: #495c68;
+
+}
+
+.register, .login, .crawl-form {
+  background-color: #495c68;
+}
+
+.register-button, {
+  height: 50px;
+  border: 2px solid white;
+  background-color: #495c68;
+  color: white;
+}
+
+.title-font {
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  color: white;
+}
+
+label {
+  color: white;
+}
+
+select.input {
+  border: 2px solid white;
+  border-radius: 4px !important;
+  background-color: #495c68;
+}
+
+.section-height {
+  height: 100vh;
+}
+
+.section-height-crawl {
+  height: 200vh;
 }
 
 // ================================USER SHOW===================================

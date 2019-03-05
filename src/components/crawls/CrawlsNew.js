@@ -66,24 +66,26 @@ class CrawlsNew extends React.Component{
   render() {
     console.log(this.state.data)
     return (
-      <main className="section">
-        <div className="container">
-          <div className="column is-5">
-            <button onClick={this.toggleHidden} className="button">{this.state.isHidden ? 'Add a Bar' : 'Submit' }</button>
+      <main className="crawl-form">
+        <section className="section section-height-crawl">
+          <div className="container">
+            <div className="column is-5">
+              <button onClick={this.toggleHidden} className="button">{this.state.isHidden ? 'Add a Bar' : 'Submit' }</button>
+            </div>
+            {!this.state.isHidden && <BarsNew />}
+            <CrawlForm
+              data={this.state.data}
+              handleAddStop={this.handleAddStop}
+              handleChange={this.handleChange}
+              handleFormChange={this.handleFormChange}
+              handleSubmit={this.handleSubmit}
+              handleSelect={this.handleSelect}
+              getCrawl={this.getCrawl}
+              bars={this.state.bars}
+              toggle={this.toggleHidden}
+            />
           </div>
-          {!this.state.isHidden && <BarsNew />}
-          <CrawlForm
-            data={this.state.data}
-            handleAddStop={this.handleAddStop}
-            handleChange={this.handleChange}
-            handleFormChange={this.handleFormChange}
-            handleSubmit={this.handleSubmit}
-            handleSelect={this.handleSelect}
-            getCrawl={this.getCrawl}
-            bars={this.state.bars}
-            toggle={this.toggleHidden}
-          />
-        </div>
+        </section>
       </main>
     )
   }

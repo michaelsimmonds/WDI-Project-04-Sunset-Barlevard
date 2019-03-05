@@ -10,13 +10,12 @@ const CrawlForm = ({ data, bars, handleAddStop, handleChange, handleSubmit, togg
       <div className="column is-6 is-offset-3">
         <form onSubmit={handleSubmit}>
 
-          <h2 className="title">Add a Crawl</h2>
+          <h2 className="title title-font center">ADD A CRAWL</h2>
           <div className="field">
-            <label className="label">Name</label>
+            <label className="label title-font">Name</label>
             <div className="control">
               <input
                 className="input"
-                placeholder="Name"
                 name="name"
                 onChange={handleChange}
                 value={data.name}
@@ -25,11 +24,10 @@ const CrawlForm = ({ data, bars, handleAddStop, handleChange, handleSubmit, togg
           </div>
 
           <div className="field">
-            <label className="label">Description</label>
+            <label className="title-font label">Description</label>
             <div className="control">
               <input
                 className="textarea"
-                placeholder="Please enter a short description of your Crawl"
                 name="description"
                 onChange={handleChange}
                 value={data.description}
@@ -38,7 +36,7 @@ const CrawlForm = ({ data, bars, handleAddStop, handleChange, handleSubmit, togg
           </div>
 
           <div className="field">
-            <label className="label">Select Bars!</label>
+            <label className="title-font label">Select Bars!</label>
             <Select
               isMulti
               options={bars.map(bar => ({ value: bar, label: bar.name }))}

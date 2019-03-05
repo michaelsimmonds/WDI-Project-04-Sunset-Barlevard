@@ -37,100 +37,102 @@ class Register extends React.Component{
   render(){
     if(!this.state.data) return null
     return(
-      <main>
+      <main className="register">
         <section className="section">
 
           <div className="container">
-            <h1 className="title is-3">Register</h1>
-            <form onSubmit={this.handleSubmit}>
-              <div className="field">
-                <label>Create a Username</label>
-                <p className="control has-icons-left has-icons-right">
-                  <input
-                    className="input"
-                    placeholder="Username"
-                    name="username" value={this.state.data.username}
-                    onChange={this.handleChange}/>
-                  <span className="icon is-small is-left">
-                    <i className="fas fa-envelope"></i>
-                  </span>
-                  <span className="icon is-small is-right">
-                    <i className="fas fa-check"></i>
-                  </span>
-                </p>
-              </div>
-              <div className="field">
-                <label>Enter Your Email</label>
-                <p className="control has-icons-left has-icons-right">
-                  <input className="input" type="email" placeholder="Email" name="email"                   value={this.state.data.email}
-                    onChange={this.handleChange}/>
-                  <span className="icon is-small is-left">
-                    <i className="fas fa-envelope"></i>
-                  </span>
-                  <span className="icon is-small is-right">
-                    <i className="fas fa-check"></i>
-                  </span>
-                </p>
-              </div>
-              <div className="field">
-                <label>Create a Password</label>
-                <p className="control has-icons-left">
-                  <input className="input" type="password" placeholder="Password" name="password"                   value={this.state.data.password}
-                    onChange={this.handleChange}/>
-                  <span className="icon is-small is-left">
-                    <i className="fas fa-lock"></i>
-                  </span>
-                </p>
-              </div>
-              <div className="field">
-                <label>Confirm Your Password</label>
-                <p className="control has-icons-left">
-                  <input className="input" type="password" placeholder="Password" name="password_confirmation" value={this.state.data.password_confirmation}
-                    onChange={this.handleChange}/>
-                  <span className="icon is-small is-left">
-                    <i className="fas fa-lock"></i>
-                  </span>
-                </p>
-              </div>
-              <div className="field">
-                <label>Add a bio</label>
-                <p className="control has-icons-left">
-                  <textarea className="textarea" placeholder="e.g. Hello world" name="bio" onChange={this.handleChange} value={this.state.data.bio}></textarea>
-                  <span className="icon is-small is-left">
-                    <i className="fas fa-lock"></i>
-                  </span>
-                </p>
-              </div>
-
-              <div className="field">
-                <p className="control has-icons-left">
-
-                  <div>
-                    <ReactFilestack
-                      apikey={ `${process.env.FILESTACK_API_KEY}` }
-                      mode={'pick'}
-                      onSuccess={(res) => handleChange({
-                        target: {
-                          name: 'image',
-                          value: res.filesUploaded[0].url
-                        }})}
-                      onError={(e) => console.log(e)}
-                      buttonText={'Add an Image'}
-                      buttonClass={'button is-square'}
-                    />
+            <div className="columns">
+              <div className="column is-6 is-offset-3">
+                <h1 className="title title-font center is-3">REGISTER</h1>
+                <form onSubmit={this.handleSubmit}>
+                  <div className="field">
+                    <label>Create a Username</label>
+                    <p className="control has-icons-left has-icons-right">
+                      <input
+                        className="input"
+                        placeholder="Username"
+                        name="username" value={this.state.data.username}
+                        onChange={this.handleChange}/>
+                      <span className="icon is-small is-left">
+                        <i className="fas fa-envelope"></i>
+                      </span>
+                      <span className="icon is-small is-right">
+                        <i className="fas fa-check"></i>
+                      </span>
+                    </p>
+                  </div>
+                  <div className="field">
+                    <label>Enter Your Email</label>
+                    <p className="control has-icons-left has-icons-right">
+                      <input className="input" type="email" placeholder="Email" name="email"                   value={this.state.data.email}
+                        onChange={this.handleChange}/>
+                      <span className="icon is-small is-left">
+                        <i className="fas fa-envelope"></i>
+                      </span>
+                      <span className="icon is-small is-right">
+                        <i className="fas fa-check"></i>
+                      </span>
+                    </p>
+                  </div>
+                  <div className="field">
+                    <label>Create a Password</label>
+                    <p className="control has-icons-left">
+                      <input className="input" type="password" placeholder="Password" name="password"                   value={this.state.data.password}
+                        onChange={this.handleChange}/>
+                      <span className="icon is-small is-left">
+                        <i className="fas fa-lock"></i>
+                      </span>
+                    </p>
+                  </div>
+                  <div className="field">
+                    <label>Confirm Your Password</label>
+                    <p className="control has-icons-left">
+                      <input className="input" type="password" placeholder="Password" name="password_confirmation" value={this.state.data.password_confirmation}
+                        onChange={this.handleChange}/>
+                      <span className="icon is-small is-left">
+                        <i className="fas fa-lock"></i>
+                      </span>
+                    </p>
+                  </div>
+                  <div className="field">
+                    <label>Add a bio</label>
+                    <p className="control has-icons-left">
+                      <textarea className="textarea" placeholder="e.g. Hello world" name="bio" onChange={this.handleChange} value={this.state.data.bio}></textarea>
+                      <span className="icon is-small is-left">
+                        <i className="fas fa-lock"></i>
+                      </span>
+                    </p>
                   </div>
 
-                </p>
-              </div>
+                  <div className="field">
+                    <p className="control has-icons-left">
 
-              <div className="field">
-                <p className="control">
-                  <button className="button is-success">
-                    Register
-                  </button>
-                </p>
+                      <div>
+                        <ReactFilestack
+                          apikey={ `${process.env.FILESTACK_API_KEY}` }
+                          mode={'pick'}
+                          onSuccess={(res) => handleChange({
+                            target: {
+                              name: 'image',
+                              value: res.filesUploaded[0].url
+                            }})}
+                          onError={(e) => console.log(e)}
+                          buttonText={'Add an Image'}
+                          buttonClass={'button register-button is-square'}
+                        />
+                      </div>
+
+                    </p>
+                  </div>
+
+                  <div className="field center">
+                    <button className="button is-dark">
+                        Register
+                    </button>
+                  </div>
+                </form>
               </div>
-            </form>
+            </div>
           </div>
         </section>
       </main>
