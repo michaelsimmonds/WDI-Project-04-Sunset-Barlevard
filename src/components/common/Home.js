@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom'
 import CrawlCard from '../crawls/CrawlCard.js'
 import Select from 'react-select'
 
+const sunSuitableArr = []
 
 class Home extends React.Component{
   constructor(){
@@ -27,9 +28,10 @@ class Home extends React.Component{
         if (stop.bar.terrace === true) counter++
       })
       if ((counter / crawl.stops.length) > 0.5) {
-        this.setState({ sunSuitable: [crawl]}) //CHECK WITH MORE THAN ONE CRAWL!!!!
+        sunSuitableArr.push(crawl)
       }
     })
+    this.setState({ sunSuitable: sunSuitableArr})
   }
 
   toggleSwitch() {
@@ -44,7 +46,6 @@ class Home extends React.Component{
   }
 
   render(){
-    const { stops } = this.state.crawls
     return(
       <main>
         <section className="hero is-large background">

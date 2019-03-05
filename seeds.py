@@ -273,6 +273,13 @@ with app.app_context():
         creator=mike
     )
 
+    test_terrace = Crawl(
+        name='Terrace',
+        description='terrace test',
+        date='gsdfb',
+        creator=mike
+    )
+
 
 ############### STOPS ############################
 
@@ -310,6 +317,13 @@ with app.app_context():
         Stop(bar=the_culpeper, order=0)
     ]
     db.session.add(fun_crawl)
+
+    test_terrace.stops = [
+        Stop(bar=fullback, order=0),
+        Stop(bar=franks, order=1),
+        Stop(bar=pub_on_park, order=2)
+    ]
+    db.session.add(test_terrace)
 
 ############## COMMENTS ###########################
 
