@@ -265,11 +265,23 @@ with app.app_context():
         lat=51.5067192,
         lng=-0.1183676,
         terrace=True,
-        description='Errr, wildflowers and Pimm\'s, anyone? What\'s not to love? This place is genuinely a hidden gem, all those people walking on by the Southbank missing this glory are truly missing out. Do not be one of them. Perfect for a sunny rooftop bar crawl in central London.' ,
+        description='Errr, wildflowers and Pimm\'s, anyone? What\'s not to love? This place is genuinely a hidden gem, laugh at all those people walking on by the bistling Southbank missing this glory - they are  missing out. Do not be one of them. Perfect for a sunny rooftop bar crawl in central London.' ,
         hero='https://theresident.wpms.greatbritishlife.co.uk/wp-content/uploads/sites/10/2015/04/Southbank-Centres-Roof-Gar.jpg',
-        location='East'
+        location='Central'
     )
     db.session.add(queen_elizabeth)
+
+    radio = Bar(
+        name='Radio Rooftop Bar',
+        address='336 The Strand, Covent Garden, WC2R 1HA',
+        lat=51.5120327,
+        lng=-0.1206135,
+        terrace=True,
+        description='Pop in for a quick drink on your way to other bars on a sunny walk through central. Infamous for it\'s rude service and terrible food, this place is more about the views, music and tasty cocktails than the gastronomy or indeed clientele. But eating is cheating, afterall, so pop in anyway on your way over the river, expect the worst and get out quick and you\'ll have a nice timers.',
+        hero='https://www.melondonhotel.com/uploads/images/headerimagessecondary43/secondarysmallimage28/Radio_rooftop_bar_Copy.jpg',
+        location='Central'
+    )
+    db.session.add(radio)
 
 
 
@@ -299,15 +311,15 @@ with app.app_context():
         creator=mike
     )
 
-    history_crawl = Crawl(
-        name='Historic Bar Crawl',
-        description='Start off this crawl by having a couple of beers over looking the Thames at the one of the oldest pubs in London, The Grapes. Charles Dickens was a patron, and even made reference to the pub in his novel Our Mutual Friend. Take a stroll along the river to the Prospect of Whitby,the hostelry of choice of "Hanging" Judge Jeffreys, scourge of the Monmouth Rebellion. He lived nearby and a replica gallows and noose hangs by the Thameside window, commemorating his custom. According to legend, criminals would be tied up to the posts at low tide and left there to drown when the tide came in. Views from the pub were sketched by both Turner and Whistler, the writers Charles Dickens and Samuel Pepys are known to have paused to sup here. Next head from the river towards the Blind Beggar, site of the notorious Kray murder in 70s and the location of William Booth''s first sermon, which led to the creation of the Salvation Army. Finally end up at the Royal Oak, another Kray twin haunt situated next to London''s best known flower market.',
+    the_best_crawl = Crawl(
+        name='West Crawl',
+        description='So much fun',
         creator=mike
     )
 
-    test_terrace = Crawl(
-        name='Terrace',
-        description='terrace test',
+    history_crawl = Crawl(
+        name='Historic Bar Crawl',
+        description='Start off this crawl by having a couple of beers over looking the Thames at the one of the oldest pubs in London, The Grapes. Charles Dickens was a patron, and even made reference to the pub in his novel Our Mutual Friend. Take a stroll along the river to the Prospect of Whitby,the hostelry of choice of "Hanging" Judge Jeffreys, scourge of the Monmouth Rebellion. He lived nearby and a replica gallows and noose hangs by the Thameside window, commemorating his custom. According to legend, criminals would be tied up to the posts at low tide and left there to drown when the tide came in. Views from the pub were sketched by both Turner and Whistler, the writers Charles Dickens and Samuel Pepys are known to have paused to sup here. Next head from the river towards the Blind Beggar, site of the notorious Kray murder in 70s and the location of William Booth''s first sermon, which led to the creation of the Salvation Army. Finally end up at the Royal Oak, another Kray twin haunt situated next to London''s best known flower market.',
         creator=mike
     )
 
@@ -322,7 +334,8 @@ with app.app_context():
 
     rooftop_crawl.stops = [
         Stop(bar=queen_elizabeth, order=0),
-        Stop(bar=boundary, order=1),
+        Stop(bar=radio, order=1),
+        Stop(bar=boundary, order=3),
         Stop(bar=queen_hoxton, order=2),
     ]
     db.session.add(rooftop_crawl)
@@ -361,13 +374,6 @@ with app.app_context():
         Stop(bar=the_culpeper, order=0)
     ]
     db.session.add(fun_crawl)
-
-    test_terrace.stops = [
-        Stop(bar=fullback, order=0),
-        Stop(bar=franks, order=1),
-        Stop(bar=pub_on_park, order=2)
-    ]
-    db.session.add(test_terrace)
 
 ############## COMMENTS ###########################
 
