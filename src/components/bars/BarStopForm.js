@@ -22,7 +22,7 @@ const BarStopForm = ({ data, handleSubmit, handleChange}) => {
 
         <div className="columns add-place">
           <div className="column is-5">
-            <button className="button">Add to Crawl</button>
+            <button className="button button-styled">Add to Crawl</button>
           </div>
         </div>
       </form>

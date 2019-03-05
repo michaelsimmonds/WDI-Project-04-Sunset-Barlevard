@@ -38,38 +38,47 @@ class Login extends React.Component {
 
   render() {
     return (
-      <main className="section">
-        <div className="container">
-          <form onSubmit={this.handleSubmit}>
-            <h2 className="title">Login</h2>
-            <div className="field">
-              <label className="label">Email</label>
-              <div className="control">
-                <input
-                  className="input"
-                  name="email"
-                  placeholder="Email"
-                  value={this.state.data.email}
-                  onChange={this.handleChange}
-                />
+      <main className="login">
+        <section className="section section-height">
+
+          <div className="container">
+            <div className="columns">
+              <div className="column is-6 is-offset-3">
+                <form onSubmit={this.handleSubmit}>
+                  <h2 className="title title-font center">LOGIN</h2>
+                  <div className="field">
+                    <label className="label title-font">Email</label>
+                    <div className="control">
+                      <input
+                        className="input"
+                        name="email"
+                        placeholder="Email"
+                        value={this.state.data.email}
+                        onChange={this.handleChange}
+                      />
+                    </div>
+                  </div>
+                  <div className="field">
+                    <label className="label title-font">Password</label>
+                    <div className="control">
+                      <input
+                        type="password"
+                        className="input"
+                        name="password"
+                        placeholder="Password"
+                        value={this.state.data.password}
+                        onChange={this.handleChange}
+                      />
+                    </div>
+                  </div>
+                  <div className="center">
+                    <button className="button button-styled">Log In</button>
+                  </div>
+                </form>
               </div>
             </div>
-            <div className="field">
-              <label className="label">Password</label>
-              <div className="control">
-                <input
-                  type="password"
-                  className="input"
-                  name="password"
-                  placeholder="Password"
-                  value={this.state.data.password}
-                  onChange={this.handleChange}
-                />
-              </div>
-            </div>
-            <button className="button is-info">Log In</button>
-          </form>
-        </div>
+          </div>
+        </section>
       </main>
     )
   }

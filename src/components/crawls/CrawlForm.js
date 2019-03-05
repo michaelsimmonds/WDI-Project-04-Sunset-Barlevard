@@ -1,7 +1,8 @@
 import React from 'react'
 import Select from 'react-select'
+import { Link } from 'react-router-dom'
 
-const CrawlForm = ({ data, bars, handleAddStop, handleChange, handleSubmit }) => {
+const CrawlForm = ({ data, bars, handleAddStop, handleChange, handleSubmit, toggleHidden, isHidden }) => {
   console.log('data.name', data.name)
   console.log('data.bars', data.bars)
   return(
@@ -9,13 +10,12 @@ const CrawlForm = ({ data, bars, handleAddStop, handleChange, handleSubmit }) =>
       <div className="column is-6 is-offset-3">
         <form onSubmit={handleSubmit}>
 
-          <h2 className="title">Add a Crawl</h2>
+          <h2 className="title title-font center">ADD A CRAWL</h2>
           <div className="field">
-            <label className="label">Name</label>
+            <label className="label title-font">Name</label>
             <div className="control">
               <input
                 className="input"
-                placeholder="Name"
                 name="name"
                 onChange={handleChange}
                 value={data.name}
@@ -24,11 +24,10 @@ const CrawlForm = ({ data, bars, handleAddStop, handleChange, handleSubmit }) =>
           </div>
 
           <div className="field">
-            <label className="label">Description</label>
+            <label className="title-font label">Description</label>
             <div className="control">
               <input
                 className="textarea"
-                placeholder="Please enter a short description of your Crawl"
                 name="description"
                 onChange={handleChange}
                 value={data.description}
@@ -37,19 +36,7 @@ const CrawlForm = ({ data, bars, handleAddStop, handleChange, handleSubmit }) =>
           </div>
 
           <div className="field">
-            <label className="label">Date</label>
-            <div className="control">
-              <input
-                className="input"
-                placeholder="Please enter the date of your crawl"
-                name="date"
-                onChange={handleChange}
-                value={data.date}
-              />
-            </div>
-          </div>
-
-          <div className="field">
+            <label className="title-font label">Select Bars!</label>
             <Select
               isMulti
               options={bars.map(bar => ({ value: bar, label: bar.name }))}
@@ -58,12 +45,8 @@ const CrawlForm = ({ data, bars, handleAddStop, handleChange, handleSubmit }) =>
             />
           </div>
 
-          <div className="columns add-place">
-
-            <div className="column is-5">
-              <button className="button">Save</button>
-            </div>
-
+          <div className="field">
+            <button className="button button-styled">Save</button>
           </div>
         </form>
       </div>

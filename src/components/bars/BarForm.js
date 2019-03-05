@@ -10,9 +10,9 @@ const BarForm = ({ data, handleChange, handleSubmit, suggestionSelect }) => {
       <div className="column is-6 is-offset-3">
         <form onSubmit={handleSubmit}>
 
-          <h2 className="title">Add a New Bar</h2>
+          <h2 className="title center title-font">ADD A NEW BAR</h2>
           <div className="field">
-            <label className="label">Name</label>
+            <label className="label title-font">Name</label>
             <div className="control">
               <input
                 className="input"
@@ -25,7 +25,7 @@ const BarForm = ({ data, handleChange, handleSubmit, suggestionSelect }) => {
           </div>
 
           <div className="field">
-            <label className="label">Terrace</label>
+            <label className="label title-font">Terrace</label>
             <div className="control">
               <select className="input" name="terrace" onChange={handleChange} value={data.terrace}>
                 <option value=""></option>
@@ -36,7 +36,7 @@ const BarForm = ({ data, handleChange, handleSubmit, suggestionSelect }) => {
           </div>
 
           <div className="field"> {/* Chanage this to select */}
-            <label className="label">Area of London</label>
+            <label className="label title-font">Area of London</label>
             <div className="control">
               <select className="input" name="location" onChange={handleChange} value={data.location}>
                 <option value=""></option>
@@ -44,16 +44,16 @@ const BarForm = ({ data, handleChange, handleSubmit, suggestionSelect }) => {
                 <option value="south">South</option>
                 <option value="east">East</option>
                 <option value="west">West</option>
+                <option value="west">Central</option>
               </select>
             </div>
           </div>
 
           <div className="field">
-            <label className="label">Description</label>
+            <label className="label title-font">Description</label>
             <div className="control">
               <input
                 className="textarea"
-                placeholder="Please enter a short description of the bar. Why do you love it?!"
                 name="description"
                 onChange={handleChange}
                 value={data.description}
@@ -62,7 +62,7 @@ const BarForm = ({ data, handleChange, handleSubmit, suggestionSelect }) => {
           </div>
 
           <div className="field">
-            <label className="label">Please enter an image url</label>
+            <label className="label title-font">Please enter an image url</label>
             <div className="control">
               <input
                 className="input"
@@ -75,10 +75,10 @@ const BarForm = ({ data, handleChange, handleSubmit, suggestionSelect }) => {
           </div>
 
           <div className="field">
-            <label className="label">Please select a location</label>
+            <label className="label title-font">Please select a location</label>
             <div className="control">
               <MapboxAutocomplete
-                publicKey={process.env.MAPBOX_KEY}
+                publicKey={process.env.MAPBOX_TOKEN}
                 inputClass='form-control search input'
                 onSuggestionSelect={suggestionSelect}
                 resetSearch={false}
@@ -90,7 +90,7 @@ const BarForm = ({ data, handleChange, handleSubmit, suggestionSelect }) => {
           <div className="columns add-place">
 
             <div className="column is-5">
-              <button className="button">Submit</button>
+              <button className="button button-styled">Add Bar</button>
             </div>
 
           </div>

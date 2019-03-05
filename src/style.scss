@@ -3,9 +3,12 @@
 $warning: #fada5e;
 @import "~bulma/bulma";
 
-#root {
-  font-family: 'Raleway', sans-serif;
-}
+// #root {
+//   font-family: 'Raleway', sans-serif;
+// }
+
+
+//=================================GENERAL=================================
 
 .text-overlay {
   width: 100%;
@@ -18,6 +21,15 @@ $warning: #fada5e;
   font-weight: bolder;
   border-radius: 5px;
   color: white;
+}
+
+.white{
+  color: white;
+}
+
+.space-between {
+  display: flex;
+  justify-content:space-between;
 }
 
 figure.image {
@@ -116,8 +128,8 @@ img {
 }
 
 .created-crawls {
-  height: 380px;
-  width: 380px;
+  height: 200px;
+  width: 200px;
   background-size: cover;
 }
 
@@ -146,7 +158,7 @@ img {
 
 .background {
   height: 100vh;
-  background-image: linear-gradient(to bottom right, rgba(0, 0, 0, .9), rgba(0, 0, 0, .6)), url('https://cdn-image.travelandleisure.com/sites/default/files/styles/1600x1000/public/1511276981/the-roof-at-public-hotel-new-york-city-ROOF1117.jpg?itok=4PTTAf3C');
+  background-image: linear-gradient(to bottom right, rgba(0, 0, 0, .9), rgba(0, 0, 0, .8)), url('https://cdn-image.travelandleisure.com/sites/default/files/styles/1600x1000/public/1511276981/the-roof-at-public-hotel-new-york-city-ROOF1117.jpg?itok=4PTTAf3C');
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: fixed;
@@ -156,6 +168,10 @@ img {
   font-family: 'Lobster', cursive;
   color: white !important;
   font-size: 80px !important;
+}
+
+.subtitle-header {
+  color: white !important;
 }
 
 hr.thin {
@@ -170,6 +186,10 @@ hr.thin {
   height: 500px;
   justify-content: center;
   display: flex;
+}
+
+.div-width {
+  width: 200px;
 }
 
 .uploaded-user {
@@ -283,11 +303,75 @@ hr.thin {
   top: 80%;
 }
 
+//=================================FORMS=======================================
+.input, .textarea {
+  box-shadow: none;
+  border: 2px solid white;
+  border-radius: 0 !important;
+  border-left: none;
+  border-right: none;
+  border-top: none;
+  align-items: center;
+}
+
+
+textarea.textarea, input.textarea, input.input {
+  background-color: #495c68;
+
+}
+
+.register, .login, .crawl-form {
+  background-color: #495c68;
+}
+
+.register-button, {
+  height: 50px;
+  border: 2px solid white;
+  background-color: #495c68;
+  color: white;
+}
+
+.button-styled {
+  border: 2px solid white;
+  background-color: #495c68;
+  color: white;
+}
+
+.title-font {
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  color: white;
+}
+
+.title-font-black {
+  font-weight: 400;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+label {
+  color: white;
+}
+
+select.input {
+  border: 2px solid white;
+  border-radius: 4px !important;
+  background-color: #495c68;
+}
+
+.section-height {
+  height: 100vh;
+}
+
+.section-height-crawl {
+  height: 200vh;
+}
+
 // ================================USER SHOW===================================
 
 .user-image {
-  height: 300px;
-  width: 300px;
+  height: 200px;
+  width: 200px;
   border-radius: 50%;
   background-size: cover;
   margin: 20px;
@@ -313,6 +397,10 @@ hr.thin {
 
 .upvote {
   margin: 20px;
+}
+
+.small-margin {
+  width: 18% !important;
 }
 //////// ******** CRAWL MAP ******* ///////////
 

@@ -2,7 +2,7 @@ import React from 'react'
 import axios from 'axios'
 import Auth from '../../lib/Auth'
 import CrawlForm from './CrawlForm'
-import BarCard from '../bars/BarCard.js'
+import BarsNew from '../bars/BarsNew.js'
 
 class CrawlsNew extends React.Component{
   constructor(){
@@ -15,15 +15,18 @@ class CrawlsNew extends React.Component{
         description: '',
         date: '',
         stops: []
-      }
+      },
+      isHidden: true
+
     }
 
     this.handleSubmit = this.handleSubmit.bind(this)
     this.handleChange = this.handleChange.bind(this)
     this.handleAddStop = this.handleAddStop.bind(this)
 
-  }
+    this.toggleHidden = this.toggleHidden.bind(this)
 
+  }
   componentDidMount() {
     axios.get('/api/bars')
       .then(res => this.setState({ bars: res.data }))
@@ -43,6 +46,12 @@ class CrawlsNew extends React.Component{
     this.setState({ data })
   }
 
+  toggleHidden () {
+    this.setState({
+      isHidden: !this.state.isHidden
+    })
+  }
+
   handleSubmit(e) {
     e.preventDefault()
     axios
@@ -57,20 +66,26 @@ class CrawlsNew extends React.Component{
   render() {
     console.log(this.state.data)
     return (
-      <main className="section">
-        <div className="container">
-          <CrawlForm
-            data={this.state.data}
-            handleAddStop={this.handleAddStop}
-            handleChange={this.handleChange}
-            handleFormChange={this.handleFormChange}
-            handleSubmit={this.handleSubmit}
-            handleSelect={this.handleSelect}
-            getCrawl={this.getCrawl}
-            bars={this.state.bars}
-          />
-
-        </div>
+      <main className="crawl-form">
+        <section className="section section-height-crawl">
+          <div className="container">
+            <div className="column is-5">
+              <button onClick={this.toggleHidden} className="button button-styled">{this.state.isHidden ? 'Add a Bar' : 'Submit' }</button>
+            </div>
+            {!this.state.isHidden && <BarsNew />}
+            <CrawlForm
+              data={this.state.data}
+              handleAddStop={this.handleAddStop}
+              handleChange={this.handleChange}
+              handleFormChange={this.handleFormChange}
+              handleSubmit={this.handleSubmit}
+              handleSelect={this.handleSelect}
+              getCrawl={this.getCrawl}
+              bars={this.state.bars}
+              toggle={this.toggleHidden}
+            />
+          </div>
+        </section>
       </main>
     )
   }

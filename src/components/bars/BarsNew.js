@@ -39,7 +39,6 @@ class BarsNew extends React.Component {
     axios
       .post('/api/bars', this.state.data,
         { headers: {Authorization: `Bearer ${Auth.getToken()}`}})
-      .then(() => this.props.history.push('/bars'))
       .catch(err => alert(err.message))
   }
 
