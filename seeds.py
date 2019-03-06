@@ -98,7 +98,7 @@ with app.app_context():
         lng=-0.0590797,
         terrace=True,
         description='This famous pub is where Ronnie Kray murdered George Cornell in front of witnesses, is the location of William Booth''s first sermon, which led to the creation of the Salvation Army, and was the nearest outlet (or brewery tap) for the Manns Albion brewery, where the first modern Brown Ale was brewed',
-        hero='https://www.traveldarkly.com/wp-content/uploads/2016/09/Kray-Twins-Gangsters-Blind-Beggar-Pub-Whitechapel-1030x687.jpg',
+        hero='https://c1.staticflickr.com/4/3802/9550616256_591c925cc6_b.jpg',
         location='East'
     )
     db.session.add(blind_beggar)
@@ -122,7 +122,7 @@ with app.app_context():
         lng=-0.0714865,
         terrace=False,
         description='You might just recognise this pub off the telly - it has featured in the Kray''s film, sitcom Good Night Sweetheart and even Blue Peter. The look - like something straight out of the 1940s - hasn''t been diminished by any number of refits in the intervening years either. This former gay pub has been transformed into yet another excellent gastropub with more table space in the dining room upstairs',
-        hero='https://static.standard.co.uk/s3fs-public/thumbnails/image/2017/11/28/16/the-royal-oak-pic.jpg?w968',
+        hero='https://us-east.manta.joyent.com/condenast/public/cnt-services/production/2015/11/20/564f69f396771ce632e45991_the-royal-oak-london-cr-alamy.jpg',
         location='East'
     )
     db.session.add(royal_oak)
@@ -134,7 +134,7 @@ with app.app_context():
         lng=-0.0396032,
         terrace=False,
         description='Overlooking the Thames, in a peaceful neighbourhood not that far from the bustle of Canary Wharf, The Grapes is one of the oldest pubs in London. Charles Dickens was a patron, and even made reference to the pub in his novel ''Our Mutual Friend''. Leaseholder Ian McKellen has written a brief history, here, should you wish to find out more. They also offer an excellent pub quiz on Monday Nights',
-        hero='https://cdn2.wanderlust.co.uk/media/2302/blogs-a-drinkers-guide-to-londons-oldest-pubs.jpg',
+        hero='http://www.beatlesviptours.com/_uploads/images/dscn0067.jpg',
         location='East'
     )
     db.session.add(grapes)
@@ -150,6 +150,30 @@ with app.app_context():
         location='East'
     )
     db.session.add(whitby)
+
+    netil = Bar(
+        name='Netil 360',
+        address='1 Westgate St, London E8 3RL',
+        lat=51.5377301,
+        lng=-0.0599151,
+        terrace=True,
+        description='After climbing to the top of what looks like a pretty boring old building, you’ll reach the rooftop of what is now a block of studios and artist spaces, Netil 360. With far reaching views over East London, this workspace come cafe come bar come terrace is somewhat like an adult’s common room with alcoholic iced lollies. It’s a great place to work, read, lounge, or socialise with friends, as well as having interesting events such as yoga, bookbinding, and letterpress classes. There’s a resident dog called Tres and your own dogs are also welcome. Casual, comfortable, and a degree of separation from the city streets, be sure to check out Netil House.',
+        hero='https://www.telegraph.co.uk/content/dam/Travel/2017/April/netil.jpg',
+        location='East'
+    )
+    db.session.add(netil)
+
+    dalston_roof = Bar(
+        name='Dalston Roof Park',
+        address='The Print House, 18-22 Ashwin St, London E8 3DL',
+        lat=51.5469092,
+        lng=-0.0769626,
+        terrace=True,
+        description='Nestled amongst Hackney’s Victorian buildings and overlooking London’s skyscrapers, Dalston’s only rooftop venue is an opportunity to relax, eat, drink, dance and see the London landscape differently. Framed by the city skyline, our rooftop oasis transforms what was once a forgotten space into a music venue / park, plushly turfed and brimming with flowers, palm tree''s and a Martin Audio Soundsystem! ',
+        hero='https://i2.wp.com/www.todott.com/wp-content/uploads/2017/04/Photo-%C2%A9-Harry-Powell.jpg-large.jpg?ssl=1',
+        location='East'
+    )
+    db.session.add(dalston_roof)
 
     franks = Bar(
         name='Frank''s',
@@ -182,7 +206,7 @@ with app.app_context():
         lng=-0.1103997,
         terrace=True,
         description='Hidden away on the leafy avenue of Perth Road, tucked behind Finsbury Park, you''ll find this charming, well loved Irish pub. Come down, grab a pint and your own corner in the amazing garden, in front of the big screen sports, or by the bar. Wile away your day contemplating the ceiling inspiration, challenge your brain in our hugely popular quiz, or party with pals till late on Fridays and Saturdays.',
-        hero='http://irishtrad.org/wp-content/uploads/2018/02/Faltering-Fullback.jpg',
+        hero='https://static.standard.co.uk/s3fs-public/thumbnails/image/2018/01/11/09/faltering-fullback.jpg',
         location='North'
     )
     db.session.add(fullback)
@@ -198,6 +222,54 @@ with app.app_context():
         location='North'
     )
     db.session.add(lamb)
+
+    spaniards = Bar(
+        name='The Spaniards Inn',
+        address='Spaniards Rd, Hampstead, London NW3 7JJ',
+        lat=51.569902,
+        lng=-0.1761637,
+        terrace=True,
+        description='Dating back to the 1500s and housed in a Grade II listed building, The Spaniards has been lovingly preserved, combining traditional wood-panelling and period features with gentle contemporary touches. Boasting an open fire and many a cosy corner, the pub also offers a delightful walled beer garden - perfect for laid-back afternoons, al-fresco dining or just a glass of something special on a sunny day. Attracting a diverse clientele and fostering a relaxed atmosphere, this welcoming pub holds the spirit of the great British local close to its heart.',
+        hero='http://www.reidsengland.com/site/assets/files/2595/ext.jpg',
+        location='North'
+    )
+    db.session.add(spaniards)
+
+    holly_bush = Bar(
+        name='The Holly Bush',
+        address='22 Holly Mount, London NW3 6SG',
+        lat=51.557868,
+        lng=-0.1815167,
+        terrace=False,
+        description='Situated right in the heart of Hampstead, The Holly Bush is a historic pub that offers the perfect escape from the hustle and bustle of central London. They take old fashioned pub-keeping very seriously so you can expect only the best of traditional pub food and real ale. Inside, the venue retains all the flavour of a classic British pub with its open fire, leather banquettes and dark wood furnishings. As a traditional pub it would only be fitting that they served equally traditional pub grub and The Holly Bush''s menu of locally sourced and home-cooked British food doesn''t disappoint.',
+        hero='https://www.hollybushhampstead.co.uk/-/media/sites/microsites/h/the-holly-bush-_-p151/images/december-2017-images/gallery/exterior/hollybush_mbl0060.jpg',
+        location='North'
+    )
+    db.session.add(holly_bush)
+
+    southampton = Bar(
+        name='The Southampton Arms',
+        address='139 Highgate Rd, Highgate, London NW5 1LE',
+        lat=51.5560675,
+        lng=-0.1483721,
+        terrace=False,
+        description='A refurbished and revitalised incarnation of an old-fashioned boozer, the Southampton Arms has managed to retain a relaxed, local feel, even at busy times. Twelve hand pumps on the bar are mostly used to dispense cask ales from independent UK brewers, and six further pumps behind the bar offer ciders. There are also two keg taps, serving beers from the likes of Camden Town. Oh, and one of only a handful of places (see also Ye Olde Mitre and The George) to have an outdoor toilet.',
+        hero='http://1.bp.blogspot.com/-iReY_Gd31F0/TfShD7uKB4I/AAAAAAAABr0/rrNf7cFAAzQ/s1600/southampton+arms+bar.jpg',
+        location='North'
+    )
+    db.session.add(southampton)
+
+    flask = Bar(
+        name='The Flask',
+        address='77 Highgate W Hill, Highgate, London N6 6BU',
+        lat=51.5698867,
+        lng=-0.153043,
+        terrace=True,
+        description='The Flask harks back to an era when Highgate was a small village on the outskirts of London and the stable block dates back to 1663. Like all good pubs, The Flask has its own legends which may or may not be true. It is said that the highwayman Dick Turpin hid from the law in the stables there, that the artist William Hogarth drank at the bar and even that Karl Marx was a customer. For good measure, the pub is also said by some to have a female ghost',
+        hero='https://upload.wikimedia.org/wikipedia/commons/thumb/2/22/Flask%2C_Highgate%2C_N6_%282883805442%29.jpg/1200px-Flask%2C_Highgate%2C_N6_%282883805442%29.jpg',
+        location='North'
+    )
+    db.session.add(flask)
 
     andover = Bar(
         name='The Andover Arms',
@@ -287,52 +359,11 @@ with app.app_context():
 
 ################ CRAWLS ######################
 
-    the_best_crawl = Crawl(
-        name='Best crawl ever',
-        description='I had such a great time going to these bars! Mark\'s Bar was quite quite for a Friday (but so cheap!) so we then made a move to Royal Oak, which had a great pub quiz on!',
-        creator=mike
-    )
-
-    east_end = Crawl(
-        name='East End Crawl',
-        description='A tour of the seven wonders of the East End. Perfect for old-timers as well as those new to the area - great way to meet some locals if you\'ve just moved to East London!',
-        creator=mike
-    )
-
-    north_crawl = Crawl(
-        name='North Crawl',
-        description='So much fun',
-        creator=mike
-    )
-
-    fun_crawl = Crawl(
-        name='Fun Crawl',
-        description='So much fun',
-        creator=mike
-    )
-
     history_crawl = Crawl(
         name='Historic Bar Crawl',
         description='Start off this crawl by having a couple of beers over looking the Thames at the one of the oldest pubs in London, The Grapes. Charles Dickens was a patron, and even made reference to the pub in his novel Our Mutual Friend. Take a stroll along the river to the Prospect of Whitby,the hostelry of choice of "Hanging" Judge Jeffreys, scourge of the Monmouth Rebellion. He lived nearby and a replica gallows and noose hangs by the Thameside window, commemorating his custom. According to legend, criminals would be tied up to the posts at low tide and left there to drown when the tide came in. Views from the pub were sketched by both Turner and Whistler, the writers Charles Dickens and Samuel Pepys are known to have paused to sup here. Next head from the river towards the Blind Beggar, site of the notorious Kray murder in 70s and the location of William Booth''s first sermon, which led to the creation of the Salvation Army. Finally end up at the Royal Oak, another Kray twin haunt situated next to London''s best known flower market.',
         creator=mike
     )
-
-    rooftop_crawl = Crawl(
-        name='Rooftops of London',
-        description='If you\'re like me you too can become the chimp you were born to be and swing from rooftop to rooftop bar, traversing the central sights and catching the golden hour at one of the best viewing spots in London',
-        creator=beth
-    )
-
-
-############### STOPS ############################
-
-    rooftop_crawl.stops = [
-        Stop(bar=queen_elizabeth, order=0),
-        Stop(bar=radio, order=1),
-        Stop(bar=boundary, order=3),
-        Stop(bar=queen_hoxton, order=2),
-    ]
-    db.session.add(rooftop_crawl)
 
     history_crawl.stops = [
         Stop(bar=grapes, order=0),
@@ -342,12 +373,40 @@ with app.app_context():
     ]
     db.session.add(history_crawl)
 
-    the_best_crawl.stops = [
-        Stop(bar=marks_bar, order=0),
-        Stop(bar=royal_oak, order=1)
-    ]
-    db.session.add(the_best_crawl)
+    rooftop_crawl = Crawl(
+        name='Rooftops of London',
+        description='If you\'re like me you too can become the chimp you were born to be and swing from rooftop to rooftop bar, traversing the central sights and catching the golden hour at one of the best viewing spots in London',
+        creator=beth
+    )
 
+    rooftop_crawl.stops = [
+        Stop(bar=queen_elizabeth, order=0),
+        Stop(bar=radio, order=1),
+        Stop(bar=boundary, order=3),
+        Stop(bar=queen_hoxton, order=2),
+    ]
+    db.session.add(rooftop_crawl)
+
+    hampstead_boozers = Crawl(
+        name='Old Boozers of North London',
+        description='Start at the Flask in Highgate. Everytime time I go I see the girl from The Lion, the Witch and the Wardrobe, which is pretty cool. It\'s also supposed to be haunted, since the pub\'s Committee Room was allegedly the scene of one of the first-ever autopsies, secretly performed during the days of graverobbing with a fresh body from Highgate Cemetery. From this grisly start, head to Hampstead and have a beer at the Spianard\'s Inn, which is mentioned in Bram Stoker\'s Dracula. Stroll along the Heath to the Holly Bush and enjoy a beer in the hert of historic Hampstead village. Finally stumble along to Kentish Town to sample the real ales adn home made suasage rolls at the Southampton Arms.',
+        creator=mike
+    )
+
+    hampstead_boozers.stops = [
+        Stop(bar=flask, order=0),
+        Stop(bar=spaniards, order=1),
+        Stop(bar=holly_bush, order=2),
+        Stop(bar=southampton, order=3),
+    ]
+    db.session.add(hampstead_boozers)
+
+
+    east_end = Crawl(
+        name='East End Crawl',
+        description='A tour of the seven wonders of the East End. Perfect for old-timers as well as those new to the area - great way to meet some locals if you\'ve just moved to East London!',
+        creator=mike
+    )
 
     east_end.stops = [
         Stop(bar=pub_on_park, order=0),
@@ -356,18 +415,30 @@ with app.app_context():
     ]
     db.session.add(east_end)
 
+    north_crawl = Crawl(
+        name='North Crawl',
+        description='So much fun',
+        creator=mike
+    )
+
     north_crawl.stops = [
         Stop(bar=lamb, order=1),
         Stop(bar=fullback, order=0)
     ]
     db.session.add(north_crawl)
 
+    fun_crawl = Crawl(
+        name='Fun Crawl',
+        description='So much fun',
+        creator=mike
+    )
 
     fun_crawl.stops = [
         Stop(bar=discount_suit_company, order=1),
         Stop(bar=the_culpeper, order=0)
     ]
     db.session.add(fun_crawl)
+
 
 ############## COMMENTS ###########################
 

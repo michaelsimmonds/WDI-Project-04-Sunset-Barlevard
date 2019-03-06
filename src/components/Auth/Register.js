@@ -34,6 +34,10 @@ class Register extends React.Component{
       .catch(err => alert(err.message))
   }
 
+  changeSuccess(){
+    this.setState({ imageSuccess: true })
+  }
+
   render(){
     if(!this.state.data) return null
     return(
@@ -46,11 +50,10 @@ class Register extends React.Component{
                 <h1 className="title title-font center is-3">REGISTER</h1>
                 <form onSubmit={this.handleSubmit}>
                   <div className="field">
-                    <label>Create a Username</label>
+                    <label>Create a Username *</label>
                     <p className="control has-icons-left has-icons-right">
                       <input
                         className="input"
-                        placeholder="Username"
                         name="username" value={this.state.data.username}
                         onChange={this.handleChange}/>
                       <span className="icon is-small is-left">
@@ -62,9 +65,9 @@ class Register extends React.Component{
                     </p>
                   </div>
                   <div className="field">
-                    <label>Enter Your Email</label>
+                    <label>Enter Your Email *</label>
                     <p className="control has-icons-left has-icons-right">
-                      <input className="input" type="email" placeholder="Email" name="email"                   value={this.state.data.email}
+                      <input className="input" type="email" name="email"                   value={this.state.data.email}
                         onChange={this.handleChange}/>
                       <span className="icon is-small is-left">
                         <i className="fas fa-envelope"></i>
@@ -75,9 +78,9 @@ class Register extends React.Component{
                     </p>
                   </div>
                   <div className="field">
-                    <label>Create a Password</label>
+                    <label>Create a Password *</label>
                     <p className="control has-icons-left">
-                      <input className="input" type="password" placeholder="Password" name="password"                   value={this.state.data.password}
+                      <input className="input" type="password" name="password"                   value={this.state.data.password}
                         onChange={this.handleChange}/>
                       <span className="icon is-small is-left">
                         <i className="fas fa-lock"></i>
@@ -85,9 +88,9 @@ class Register extends React.Component{
                     </p>
                   </div>
                   <div className="field">
-                    <label>Confirm Your Password</label>
+                    <label>Confirm Your Password *</label>
                     <p className="control has-icons-left">
-                      <input className="input" type="password" placeholder="Password" name="password_confirmation" value={this.state.data.password_confirmation}
+                      <input className="input" type="password" name="password_confirmation" value={this.state.data.password_confirmation}
                         onChange={this.handleChange}/>
                       <span className="icon is-small is-left">
                         <i className="fas fa-lock"></i>
@@ -95,9 +98,9 @@ class Register extends React.Component{
                     </p>
                   </div>
                   <div className="field">
-                    <label>Add a bio</label>
+                    <label>Add a bio *</label>
                     <p className="control has-icons-left">
-                      <textarea className="textarea" placeholder="e.g. Hello world" name="bio" onChange={this.handleChange} value={this.state.data.bio}></textarea>
+                      <textarea className="textarea" name="bio" onChange={this.handleChange} value={this.state.data.bio}></textarea>
                       <span className="icon is-small is-left">
                         <i className="fas fa-lock"></i>
                       </span>
@@ -117,14 +120,13 @@ class Register extends React.Component{
                               value: res.filesUploaded[0].url
                             }})}
                           onError={(e) => console.log(e)}
-                          buttonText={'Add an Image'}
+                          buttonText={'Add an Image *'}
                           buttonClass={'button register-button is-square'}
                         />
                       </div>
 
                     </div>
                   </div>
-
                   <div className="field center">
                     <button className="button button-styled">
                         Register

@@ -3,6 +3,7 @@
 $warning: #fada5e;
 $danger: #D42E2D;
 $primary: #495c68;
+$off-white: #efefef;
 @import "~bulma/bulma";
 
 #root {
@@ -213,6 +214,14 @@ img {
   height: 200px;
   width: 200px;
   background-size: cover;
+}
+
+.created-crawls-name {
+margin: 0;
+padding: 0;
+height: 30px;
+align-self: center;
+display: flex;
 }
 
 .crawls {
@@ -583,4 +592,21 @@ strong, .image-username {
       }
     }
   }
+}
+
+//==== CRAWL COMMENTS ===
+
+
+.card.comments {
+  margin: 10px auto;
+  background-color: $off-white;
+}
+
+  button {
+    margin: 0.5rem;
+  }
+
+.card-content {
+  height: 18rem;
+  overflow: scroll;
 }
