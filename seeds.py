@@ -28,7 +28,7 @@ with app.app_context():
     beth, errors = user_schema.load({
         'username': 'simply_the_beth',
         'email': 'beth@beth.com',
-        'bio': 'Simply the betht at finding boozey tours about London.',
+        'bio': 'Simply the betht at finding boozey tours about London Town.',
         'password': 'password',
         'password_confirmation': 'password',
         'image': 'https://static.tvtropes.org/pmwiki/pub/images/tina_turner_8.jpg'
@@ -40,9 +40,9 @@ with app.app_context():
     db.session.add(beth)
 
     bete, errors = user_schema.load({
-        'username': 'betteYaManE',
+        'username': 'bettteYeManEh',
         'email': 'bete@bete.com',
-        'bio': 'If it\'s near a Pret, I\'m in',
+        'bio': 'If your crawls go past Pret I am in... Love rooftop bars and finding new ways to explore London, especially with a glass of red in hand. Pret stop, anyone?',
         'password': 'password',
         'password_confirmation': 'password',
         'image': 'http://cdn.kidscreen.com/wp/wp-content/uploads/2016/02/BettyBoop.jpg?a2a533'
@@ -61,7 +61,7 @@ with app.app_context():
         lat=51.520886,
         lng=-0.073487,
         terrace=True,
-        description='Where Mike lives.',
+        description='Otherwise known as "Mike\'s House", this Mexican-themed bar and stage offers live music, expensive and often fairly flat beer, and a glut of WDI students on a Friday afternoon. The outdoor terraces are lively and well-heated even in the early Spring.',
         hero='https://slack-imgs.com/?c=1&url=https%3A%2F%2Fwww.abouttimemagazine.co.uk%2Fwp-content%2Fuploads%2F2017%2F05%2FIMG_22701.jpg',
         location='East'
     )
@@ -73,7 +73,7 @@ with app.app_context():
         lat=51.5168921,
         lng=-0.0730285,
         terrace=True,
-        description=' An 1884 boozer, named after local 17th-century herbalist Nicholas Culpeper, has been spruced up in East London fashion: strong design credentials, a fêted restaurant, five cosy bedrooms and, in summer, one of the most coveted rooftop terraces in the area.',
+        description=' An 1884 boozer, named after local 17th-century herbalist Nicholas Culpeper, has been spruced up in East London fashion: strong design credentials, a fêted restaurant, five cosy bedrooms and, in summer, one of the most coveted rooftop terraces in the area. An historical delight.',
         hero='https://d37219swed47g7.cloudfront.net/media/images/reviews/the-culpeper/banners/1497198049.14.jpg',
         location='East'
     )
@@ -109,7 +109,7 @@ with app.app_context():
         lat=51.5421,
         lng=-0.0582,
         terrace=True,
-        description='Situated on the very edge of London Fields, "Pub on the Park" have spectacular views across the park, Summer or Winter, and are easily accessible from Hackney Central, London Fields or Haggerston overground and a multitude of buses.',
+        description='Situated on the very edge of London Fields, "Pub on the Park" have spectacular views across the park, Summer or Winter, and are easily accessible from Hackney Central, London Fields or Haggerston overground and a multitude of buses. Lively and certainly, certainly hip',
         hero='http://pubonthepark.com/wp-content/uploads/2016/11/Deck03.jpg',
         location='East'
     )
