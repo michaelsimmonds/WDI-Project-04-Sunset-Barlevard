@@ -105,7 +105,7 @@ class Home extends React.Component{
               <h1 className="sunset level-item">
                 Sunset Barlevard
               </h1>
-              <p className=" title is-6 title1">Find and Share Crawls in London</p>
+              <p className=" subtitle">Find and Share Crawls in London</p>
               {this.state.switched ?
                 <h1 className='disp-mode title1 title is-6 '>You're in Sunshine Mode! Now showing Sun Friendly crawls</h1> :
                 <h1 className='disp-mode title1 title is-6'>Sun out? Click the sun</h1>
