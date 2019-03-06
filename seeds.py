@@ -175,6 +175,30 @@ with app.app_context():
     )
     db.session.add(dalston_roof)
 
+    spurstowe = Bar(
+        name='The Spurstowe Arms',
+        address='68 Greenwood Rd, London E8 1AB',
+        lat=51.5453802,
+        lng=-0.0654469,
+        terrace=True,
+        description='One of the more mature pubs in the Hackney canon, the Spurstowe Arms works a sophisticated stripped-back charm, never trying too hard to impress – which of course just wouldn’t wash in this trendy part of town. The nondescript exterior would have you believe the Spurstowe was a football pub or stop-off for a desperate quick half, but inside features fresh-cut flowers, polished brass and a grand horseshoe bar. You’ll still spot the odd reassuring cobweb up on high though, and, oddly enough, a bathtub in the beer garden.',
+        hero='http://media.virbcdn.com/cdn_images/resize_1600x1600/f6/65ea86fe619ec909-16c3be9249519fb7-PUB3.png',
+        location='East'
+    )
+    db.session.add(spurstowe)
+
+    cat_and_mutton = Bar(
+        name='The Cat and Mutton',
+        address='76 Broadway Market, London E8 4QJ',
+        lat=51.537632,
+        lng=-0.060870,
+        terrace=False,
+        description='Cosy, welcoming and positively vibrant at the weekend, The Cat & Mutton is everything a great boozer should be and more. Established way back in 1729, you\'ll find this East London drinking institution on Broadway Market within touching distance of London Fields.The venue comes set across two floors, with punters enjoying a fine spread of beers, wines and spirits on the ground floor and a cosy cocktail bar ambience upstairs.',
+        hero='https://media.timeout.com/images/102192715/image.jpg',
+        location='East'
+    )
+    db.session.add(cat_and_mutton)
+
     franks = Bar(
         name='Frank\'s',
         address='Bold Tendencies, 7th-10th Floor Multi Storey Car Park, 95A Rye Ln, SE15 4ST',
@@ -427,17 +451,19 @@ with app.app_context():
     ]
     db.session.add(north_crawl)
 
-    fun_crawl = Crawl(
-        name='Fun Crawl',
-        description='So much fun',
+    london_fields = Crawl(
+        name='Tour of London Fields',
+        description='On a nice summer\'s day, what could be nicer than wandering across London Fields with regular pub pit-stops?? Start at the Spurstowe and have a beer or two in the beer garden out back. Next move onto London Fields itself to bask in the sun in The Pub on the Park\'s massive outside seating area. After that, you could throw yourself in London Fields outdoor lido, or just walk through the park to the Cat and Mutton, on the north edge of Broadway Market. Grab a bite to eat in the market if it\'s a saturday and finish the day in style by enjoying the panoramic views of London from the rooftop bar, Netil 360.',
         creator=mike
     )
 
-    fun_crawl.stops = [
-        Stop(bar=discount_suit_company, order=1),
-        Stop(bar=the_culpeper, order=0)
+    london_fields.stops = [
+        Stop(bar=spurstowe, order=0),
+        Stop(bar=pub_on_park, order=1),
+        Stop(bar=cat_and_mutton, order=2),
+        Stop(bar=netil, order=3)
     ]
-    db.session.add(fun_crawl)
+    db.session.add(london_fields)
 
 
 ############## COMMENTS ###########################
@@ -460,7 +486,7 @@ with app.app_context():
 
     db.session.add(comment1)
 
-    comment6 = Comment(content='What a crawl.', crawl=fun_crawl, author=bete)
+    comment6 = Comment(content='What a crawl.', crawl=london_fields, author=bete)
 
     db.session.add(comment1)
 
