@@ -12,7 +12,6 @@ const CommentsForm = ({ data, handleChange, handleSubmit }) => {
             <textarea
               className="textarea"
               name="content"
-              placeholder="Comment"
               value={data.content}
               onChange={handleChange}
             />

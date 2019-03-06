@@ -13,11 +13,10 @@ const BarForm = ({ data, handleChange, handleSubmit, suggestionSelect }) => {
 
             <h2 className="title center title-font">ADD A NEW BAR</h2>
             <div className="field">
-              <label className="label title-font">Name</label>
+              <label className="label title-font">Name *</label>
               <div className="control">
                 <input
                   className="input"
-                  placeholder="Name"
                   name="name"
                   onChange={handleChange}
                   value={data.name}
@@ -26,7 +25,7 @@ const BarForm = ({ data, handleChange, handleSubmit, suggestionSelect }) => {
             </div>
 
             <div className="field">
-              <label className="label title-font">Terrace</label>
+              <label className="label title-font">Terrace *</label>
               <div className="control">
                 <select className="input" name="terrace" onChange={handleChange} value={data.terrace}>
                   <option value=""></option>
@@ -37,7 +36,7 @@ const BarForm = ({ data, handleChange, handleSubmit, suggestionSelect }) => {
             </div>
 
             <div className="field"> {/* Chanage this to select */}
-              <label className="label title-font">Area of London</label>
+              <label className="label title-font">Area of London *</label>
               <div className="control">
                 <select className="input" name="location" onChange={handleChange} value={data.location}>
                   <option value=""></option>
@@ -51,7 +50,7 @@ const BarForm = ({ data, handleChange, handleSubmit, suggestionSelect }) => {
             </div>
 
             <div className="field">
-              <label className="label title-font">Description</label>
+              <label className="label title-font">Description *</label>
               <div className="control">
                 <input
                   className="textarea"
@@ -63,11 +62,10 @@ const BarForm = ({ data, handleChange, handleSubmit, suggestionSelect }) => {
             </div>
 
             <div className="field">
-              <label className="label title-font">Please enter an image url</label>
+              <label className="label title-font">Please enter an image url *</label>
               <div className="control">
                 <input
                   className="input"
-                  placeholder="Image"
                   name="hero"
                   onChange={handleChange}
                   value={data.hero}
@@ -76,7 +74,7 @@ const BarForm = ({ data, handleChange, handleSubmit, suggestionSelect }) => {
             </div>
 
             <div className="field">
-              <label className="label title-font">Please select a location</label>
+              <label className="label title-font">Please select a location *</label>
               <div className="control">
                 <MapboxAutocomplete
                   publicKey={process.env.MAPBOX_TOKEN}

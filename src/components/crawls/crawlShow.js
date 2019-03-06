@@ -59,7 +59,8 @@ class CrawlShow extends React.Component {
 
 
 
-  deleteCrawl(){
+  deleteCrawl(e){
+    e.preventDefault()
     axios.delete(`/api/crawls/${this.props.match.params.id}`)
       .then(() => this.props.history.push('/crawls'))
       .catch(err => alert(err.message))
@@ -90,7 +91,7 @@ class CrawlShow extends React.Component {
 
 
                 <div className="content">
-                  <strong>By {creator.username}</strong>
+                  <strong>By @{creator.username}</strong>
                 </div>
                 {description}
 
