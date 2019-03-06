@@ -88,26 +88,3 @@ class CrawlsNew extends React.Component{
 }
 
 export default CrawlsNew
-
-// <div className="column is-5">
-// <button onClick={this.toggleHidden} className="button button-styled">{this.state.isHidden ? 'Add a Bar' : 'Submit' }</button>
-// </div>
-// {!this.state.isHidden && <BarsNew />}
-
-// handleSubmit(e) {
-//   e.preventDefault()
-//   axios
-//     .post('/api/crawls', this.state.data,
-//       { headers: {Authorization: `Bearer ${Auth.getToken()}`}})
-//     .then(() => this.props.history.push('/crawls'))
-//     .catch(err => alert(err.message))
-// }
-
-// handleSubmit(e) {
-//   e.preventDefault()
-//   axios
-//     .post('/api/crawls', this.state.data,
-//       { headers: {Authorization: `Bearer ${Auth.getToken()}`}})
-//     .then(() => this.props.history.push(`/crawls/${this.props.match.params.id}`))
-//     .catch(err => alert(err.message))
-// }

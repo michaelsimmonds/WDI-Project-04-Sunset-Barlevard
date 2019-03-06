@@ -27,7 +27,6 @@ class UserShow extends React.Component{
       <main className="grey-background section">
         <section className="view-port">
           <div className="container user-div">
-
             <input type="radio" id="pic" name="nav-tab" />
             <input type="radio" id="music" name="nav-tab"/>
             <div className="tabs">

@@ -60,8 +60,12 @@ class CrawlShow extends React.Component {
 
   deleteCrawl(e){
     e.preventDefault()
-    axios.delete(`/api/crawls/${this.props.match.params.id}`)
-      .then(() => this.props.history.push('/crawls'))
+    const token = Auth.getToken()
+    const userId = Auth.getUserID()
+    axios.delete(`/api/crawls/${this.props.match.params.id}`, {
+      headers: { Authorization: `Bearer ${token}` }
+    })
+      .then(() => this.props.history.push(`/users/${userId}`))
       .catch(err => console.log(err.response))
   }
 
