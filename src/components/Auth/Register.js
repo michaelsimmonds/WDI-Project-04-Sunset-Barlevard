@@ -14,7 +14,8 @@ class Register extends React.Component{
         password_confirmation: '',
         bio: '',
         image: ''
-      }
+      },
+      errors: {}
     }
 
     this.handleChange = this.handleChange.bind(this)
@@ -31,7 +32,7 @@ class Register extends React.Component{
     axios
       .post('/api/register', this.state.data)
       .then(() => this.props.history.push('/login'))
-      .catch(err => alert(err.message))
+      .catch(err => console.log(err.response))
   }
 
   changeSuccess(){

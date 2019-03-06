@@ -49,6 +49,10 @@ class Login extends React.Component {
               <div className="column is-6 is-offset-3">
                 <form onSubmit={this.handleSubmit}>
                   <h2 className="title title-font center">LOGIN</h2>
+                  {errorMessages.length > 0 && <p
+                    className="error center">{    errorMessages
+                    }
+                  </p>}
                   <div className="field">
                     <label className="label title-font">Email *</label>
                     <div className="control">
@@ -75,8 +79,7 @@ class Login extends React.Component {
                   <div className="center">
                     <button className="button button-styled">Log In</button>
                   </div>
-                  {errorMessages.length > 0 && <p className="error center">There were some errors with your submission
-                  </p>}
+
                 </form>
               </div>
             </div>

@@ -60,7 +60,6 @@ class UserShow extends React.Component{
             <div className="columns is-multiline is-centered">
               {this.state.userData.created_crawls.map(crawl =>
 
-
                 <div className="column is-one-fifth small-margin" key={crawl.id}>
                   <Link to={`/crawls/${crawl.id}`}>
                     <h1 className="title is-6 center white">{crawl.name}</h1>
@@ -70,7 +69,6 @@ class UserShow extends React.Component{
               )}
 
             </div>
-
 
             {this.state.userData.created_crawls.length === 0 ?
               <div> <h1 className="title is-2 title-font center"> No crawl's yet 😔 </h1>
