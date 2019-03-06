@@ -24,9 +24,9 @@ class UserShow extends React.Component{
     if(!this.state.userData) return null
     // console.log(this.state.userData)
     return(
-      <main className="grey-background section">
-        <section className="view-port">
-          <div className="container user-div">
+      <main className="grey-background">
+        <section className="section">
+          <div className="container is-desktop user-div">
             <input type="radio" id="pic" name="nav-tab" />
             <input type="radio" id="music" name="nav-tab"/>
             <div className="tabs">

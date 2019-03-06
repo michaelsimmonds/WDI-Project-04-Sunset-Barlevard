@@ -33,12 +33,13 @@ const CrawlCard = ({ name, stops, id, creator, description, created_at }) => {
       <div className="description">
         <h1 className="title description-title is-6">{description}</h1>
       </div>
-      <form onSubmit={(e) => handleSubmit(e, name)}className="header-crawl">
-        <button className="header-crawl button button-styled upvote">Favourite</button>
-      </form>
     </div>
 
   )
 }
+
+// <form onSubmit={(e) => handleSubmit(e, name)}className="header-crawl">
+//   <button className="header-crawl button button-styled upvote">Favourite</button>
+// </form>
 
 export default CrawlCard
