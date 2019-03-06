@@ -379,7 +379,9 @@ hr.thin {
 }
 
 .content {
-  padding-right: 20px;
+  position: relative;
+  margin: auto;
+  overflow: hidden;
 }
 
 .content .content-overlay {
@@ -547,7 +549,6 @@ input[type="radio"], .tab-pane { display: none; }
   display: block;
 }
 
-
 .user-image {
   height: 200px;
   width: 200px;
@@ -611,6 +612,9 @@ strong, .image-username {
   }
 }
 
+.padding-right {
+  padding-right: 20px;
+}
 // =================== CRAWL MAP ==========================
 
 .map {

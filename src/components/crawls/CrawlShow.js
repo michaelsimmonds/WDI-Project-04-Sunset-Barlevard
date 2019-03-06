@@ -98,7 +98,7 @@ class CrawlShow extends React.Component {
                   <div style={{backgroundImage: `url(${creator.image})`}}className="user-image-home"/>
                 </Link>
 
-                <div className="content">
+                <div className="padding-right">
                   <strong>By @{creator.username}</strong>
                 </div>
                 {description}
