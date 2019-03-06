@@ -77,8 +77,7 @@ class CrawlShow extends React.Component {
 
   render(){
     if (!this.state.crawl) return null
-    //console.log(Auth.getUserID())
-    //console.log(this.state.crawl)
+
     const {
       comments,
       creator,
