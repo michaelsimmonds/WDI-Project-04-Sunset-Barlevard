@@ -15,7 +15,8 @@ class CrawlShow extends React.Component {
     this.state = {
       data: {
         content: ''
-      }
+      },
+      errors: {}
     }
     this.deleteCrawl = this.deleteCrawl.bind(this)
     this.handleChange = this.handleChange.bind(this)
@@ -57,19 +58,17 @@ class CrawlShow extends React.Component {
     //.catch(err => alert(err.message))
   }
 
-
-
   deleteCrawl(e){
     e.preventDefault()
     axios.delete(`/api/crawls/${this.props.match.params.id}`)
       .then(() => this.props.history.push('/crawls'))
-      .catch(err => alert(err.message))
+      .catch(err => console.log(err.response))
   }
-
-
 
   render(){
     if (!this.state.crawl) return null
+    console.log(Auth.getUserID())
+    console.log(this.state.crawl)
     const {
       comments,
       creator,
@@ -77,6 +76,7 @@ class CrawlShow extends React.Component {
       name
 
     } = this.state.crawl
+    console.log(this.state.crawl)
     return(
       <main>
         <section className="section">
@@ -149,8 +149,8 @@ class CrawlShow extends React.Component {
 
         {Auth.isAuthenticated() && (creator.id === Auth.getUserID()) &&
 
-        <form className="center" onSubmit={this.deleteCrawl}>
-          <button className="button button-styled-delete center">Delete Crawl</button>
+        <form className="center">
+          <button onClick={(e) => this.deleteCrawl(e)} className="button button-styled-delete center">Delete Crawl</button>
         </form>
         }
       </main>
