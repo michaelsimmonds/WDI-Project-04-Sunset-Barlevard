@@ -667,6 +667,9 @@ strong, .image-username {
 .card-content {
   height: 18rem;
   overflow: scroll;
+  p {
+    color: white;
+  }
 }
 
 form .label {
