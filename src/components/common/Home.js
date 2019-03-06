@@ -1,5 +1,6 @@
 import React from 'react'
 import axios from 'axios'
+import { Link } from 'react-router-dom'
 import CrawlCard from '../crawls/CrawlCard.js'
 
 let sunSuitableArr = []
@@ -13,9 +14,6 @@ class Home extends React.Component{
       data: {
         location: []
       },
-      userData: {
-        favourites: []
-      },
       barLocation: [],
       switched: false,
       sunSuitable: [],
@@ -23,7 +21,7 @@ class Home extends React.Component{
     }
 
     this.handleChange = this.handleChange.bind(this)
-    this.handleSubmit = this.handleSubmit.bind(this)
+
     this.toggleSwitch = this.toggleSwitch.bind(this)
 
   }
@@ -34,7 +32,7 @@ class Home extends React.Component{
       crawl.stops.forEach(stop => {
         if (stop.bar.terrace === true) counter++
       })
-      if ((counter / crawl.stops.length) > 0.5) {
+      if ((counter / crawl.stops.length) >= 0.5) {
         sunSuitableArr.push(crawl)
       }
     })
@@ -68,16 +66,9 @@ class Home extends React.Component{
     this.setState({ data })
   }
 
-  handleSubmit(e, crawl) {
-    e.preventDefault()
-    const faves = []
-    faves.push(crawl)
-    this.setState({favourites: faves})
-  }
-
   render(){
-    console.log('favourites', this.state.favourites)
-    console.log('user data', this.state.userData)
+    console.log(this.state.location)
+    console.log(this.state.userData)
     return(
       <main>
         <section className="hero is-medium background">
@@ -101,12 +92,13 @@ class Home extends React.Component{
 
 
         {!this.state.switched ?
-          this.state.crawls.map(crawl => <div key={crawl.id} className="hero-body">
-            <CrawlCard
-              handleSubmit={this.handleSubmit}
-              {...crawl} />
-          </div>
-          ) :
+          this.state.crawls.map(crawl =>
+            <div key={crawl.id} className="hero-body">
+              <CrawlCard {...crawl} />
+            </div>
+          )
+
+          :
           this.state.sunSuitable.map(crawl => <div key={crawl.id} className="hero-body">
             <CrawlCard {...crawl} />
           </div>

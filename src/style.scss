@@ -13,6 +13,7 @@ $off-white: #efefef;
 
 * {
   font-family: "Helvetica";
+  letter-spacing: 0.1em;
 }
 
 // "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
@@ -260,6 +261,7 @@ display: flex;
   width: 50px;
   border-radius: 50%;
   background-size: cover;
+  margin: 10px;
 }
 
 .background {
@@ -314,11 +316,23 @@ hr.thin {
 }
 
 .uploaded-user {
-  width: 1310px;
-  justify-content: space-around;
+  // width: 1310px;
+  // justify-content: space-around;
   display: flex;
+  flex-direction: column;
   margin: 0;
 }
+
+.image-username {
+  display: flex;
+  justify-content: center;
+}
+
+
+
+
+
+
 
 .inline {
   margin: 0 !important;
