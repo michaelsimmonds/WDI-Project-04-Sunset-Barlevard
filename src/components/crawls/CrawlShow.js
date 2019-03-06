@@ -155,7 +155,9 @@ class CrawlShow extends React.Component {
               handleSubmit={this.handleSubmit}
             />
             :
-            <LoginRequest />
+            <section>
+              <LoginRequest />
+            </section>
           }
 
         </div>

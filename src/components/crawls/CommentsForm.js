@@ -6,7 +6,6 @@ const CommentsForm = ({ data, handleChange, handleSubmit }) => {
     <section className="section">
       <div className="container">
         <form onSubmit={handleSubmit}>
-          <h1 className="subtitle is-5">Got thoughts on this bar crawl?</h1>
           <div className="field">
             <label className="label">Comment</label>
             <textarea
