@@ -17,7 +17,8 @@ class CrawlShow extends React.Component {
       data: {
         content: ''
       },
-      errors: {}
+      errors: {},
+      search: ''
     }
     this.deleteCrawl = this.deleteCrawl.bind(this)
     this.handleChange = this.handleChange.bind(this)
