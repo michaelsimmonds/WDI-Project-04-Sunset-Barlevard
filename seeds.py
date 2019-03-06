@@ -379,6 +379,54 @@ with app.app_context():
     )
     db.session.add(radio)
 
+    argent = Bar(
+        name='Coq d\'Argent',
+        address='1 Poultry, EC2R 8EJ',
+        lat=51.5132888,
+        lng=-0.0910342,
+        terrace=True,
+        description='Definitely where to stop for food if you have the cash. Renowned mainly as a restaurant venue, Coq d\'Argent also has a roof garden that doubles up as a cocktails space. Not necessarily cheap, but this is Central London, and that is the actual view.  ',
+        hero='https://media.headbox.com/uploads/space_photo/filename/38874/detail_widen-1680-noupsize_2265-bar-terrace-room.jpg',
+        location='Central'
+    )
+    db.session.add(argent)
+
+    worlds_end = Bar(
+        name='The World\'s End',
+        address='Stroud Green Rd, Finsbury Park, N4 3EF',
+        lat=51.5669612,
+        lng=-0.1081762,
+        terrace=False,
+        description='Good old fashioned classic boozer. Good music, often live shows, sometimes a little noisy but they have a reet big selection of ales and largers on tap so maybe that won\'t matter?',
+        location='North',
+        hero=''
+    )
+    db.session.add(worlds_end)
+
+    oxo = Bar(
+        name='The OXO tower bar',
+        address='OXO Tower, Southbank, SE1 9H',
+        lat=51.5064129,
+        lng=-0.1126076,
+        terrace=False,
+        description='Spenny but panoramic in the extreme. Great for that proper Southbank view of the M16 architecture. ',
+        location='Central',
+        hero='http://www.oxotower.co.uk/wp-content/uploads/2013/11/Main-image-for-websites-summer-2014.jpg'
+    )
+    db.session.add(oxo)
+
+    trafalgar = Bar(
+        name='The Trafalgar St. James',
+        address='Trafalgar Square, SW1A 2TS',
+        lat=51.5069549,
+        lng=-0.1275326,
+        terrace=False,
+        description='Bit epic really getting all up close and personal with Admiral Nelson. ',
+        location='Central',
+        hero='https://thenudge.com/wp-content/uploads/1970/01/trafalgar-st-james-rooftop-1920x849.jpg'
+    )
+    db.session.add(trafalgar)
+
 
 
 ################ CRAWLS ######################
@@ -399,15 +447,16 @@ with app.app_context():
 
     rooftop_crawl = Crawl(
         name='Rooftops of London',
-        description='If you\'re like me you too can become the chimp you were born to be and swing from rooftop to rooftop bar, traversing the central sights and catching the golden hour at one of the best viewing spots in London',
+        description='If you\'re like me you too can become the chimp you were born to be and swing from rooftop to rooftop bar, traversing the central sights... even if you fail to finish it, start early and you will catch the golden hour at one of the best viewing spots in London',
         creator=beth
     )
 
     rooftop_crawl.stops = [
         Stop(bar=queen_elizabeth, order=0),
         Stop(bar=radio, order=1),
-        Stop(bar=boundary, order=3),
-        Stop(bar=queen_hoxton, order=2),
+        Stop(bar=argent, order=2),
+        Stop(bar=boundary, order=4),
+        Stop(bar=queen_hoxton, order=3)
     ]
     db.session.add(rooftop_crawl)
 
@@ -427,32 +476,35 @@ with app.app_context():
 
 
     east_end = Crawl(
-        name='East End Crawl',
-        description='A tour of the seven wonders of the East End. Perfect for old-timers as well as those new to the area - great way to meet some locals if you\'ve just moved to East London!',
+        name='East Enders',
+        description='A tour of the seven wonders of the East End. Perfect for old-timers but mainly for those new to the area - like me - what a great way to meet some locals if you\'ve just moved to East London!',
         creator=mike
     )
 
     east_end.stops = [
         Stop(bar=pub_on_park, order=0),
         Stop(bar=blind_beggar, order=2),
-        Stop(bar=royal_oak, order=1)
+        Stop(bar=royal_oak, order=1),
+        Stop(bar=jujus, order=3)
     ]
     db.session.add(east_end)
 
     north_crawl = Crawl(
         name='North Crawl',
-        description='So much fun',
+        description='North London is somewhat underrated for bars, but keep it safe and sound with some of the best pubs it\'s best renowned for. ',
         creator=mike
     )
 
     north_crawl.stops = [
         Stop(bar=lamb, order=1),
-        Stop(bar=fullback, order=0)
+        Stop(bar=fullback, order=0),
+        Stop(bar=worlds_end, order=2),
+        Stop(bar=jujus, order=3)
     ]
     db.session.add(north_crawl)
 
     london_fields = Crawl(
-        name='Tour of London Fields',
+        name='Pub Tour of London Fields',
         description='On a nice summer\'s day, what could be nicer than wandering across London Fields with regular pub pit-stops?? Start at the Spurstowe and have a beer or two in the beer garden out back. Next move onto London Fields itself to bask in the sun in The Pub on the Park\'s massive outside seating area. After that, you could throw yourself in London Fields outdoor lido, or just walk through the park to the Cat and Mutton, on the north edge of Broadway Market. Grab a bite to eat in the market if it\'s a saturday and finish the day in style by enjoying the panoramic views of London from the rooftop bar, Netil 360.',
         creator=mike
     )
@@ -464,6 +516,20 @@ with app.app_context():
         Stop(bar=netil, order=3)
     ]
     db.session.add(london_fields)
+
+    southbank = Crawl(
+        name='Sunny Southbank Session',
+        description='Strolling along the Southbank just got much more interesting. Me and some mates made this crawl up freestyle one hot summer day in 2015, and have been regularly refining it since',
+        creator=beth
+    )
+
+    southbank.stops = [
+        Stop(bar=oxo, order=0),
+        Stop(bar=radio, order=2),
+        Stop(bar=queen_elizabeth, order=1),
+        Stop(bar=trafalgar, order=3)
+    ]
+    db.session.add(southbank)
 
 
 ############## COMMENTS ###########################
