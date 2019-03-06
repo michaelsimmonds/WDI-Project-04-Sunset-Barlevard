@@ -17,7 +17,8 @@ class CrawlShow extends React.Component {
       data: {
         content: ''
       },
-      errors: {}
+      errors: {},
+      search: ''
     }
     this.deleteCrawl = this.deleteCrawl.bind(this)
     this.handleChange = this.handleChange.bind(this)
@@ -98,7 +99,7 @@ class CrawlShow extends React.Component {
                   <div style={{backgroundImage: `url(${creator.image})`}}className="user-image-home"/>
                 </Link>
 
-                <div className="content">
+                <div className="padding-right">
                   <strong>By @{creator.username}</strong>
                 </div>
                 {description}
