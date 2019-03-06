@@ -29,7 +29,7 @@ const CrawlCard = ({ name, stops, id, creator, description, created_at }) => {
         />
       </Link>
 
-      <h1 className='title is-6 center'>Uploaded: {moment(created_at).format('MMMM Do YYYY')} </h1>
+      <h1 className='title is-6 margin-top center'>Uploaded: {moment(created_at).format('MMMM Do YYYY')} </h1>
       <div className="description">
         <h1 className="title description-title is-6">{description}</h1>
       </div>

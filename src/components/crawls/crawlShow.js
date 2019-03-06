@@ -147,13 +147,10 @@ class CrawlShow extends React.Component {
 
         </div>
 
-
-
-
         {Auth.isAuthenticated() && (creator.id === Auth.getUserID()) &&
 
-        <form onSubmit={this.deleteCrawl}>
-          <button className="button">Delete Crawl</button>
+        <form className="center" onSubmit={this.deleteCrawl}>
+          <button className="button button-styled-delete center">Delete Crawl</button>
         </form>
         }
       </main>

@@ -42,14 +42,13 @@ class UserShow extends React.Component{
               <div className="tab-pane content-music">  <div className=" bio"> {this.state.userData.bio} </div> </div>
             </div>
 
-            {this.state.userData.created_crawls.length >= 4 ?
+            {this.state.userData.created_crawls.length >= 3 && this.state.userData.created_crawls.map(crawl => crawl.comment).length >= 3 ?
               <h1 className="title-font"> ⭐ Gold star member</h1>
               : ''}
             <div className="center">
               <div>
               </div>
               <div style={{backgroundImage: `url(${this.state.userData.image})`}}className="user-image"/>
-
 
             </div>
             <h1 className="title is-4 title-font center"> @{this.state.userData.username} </h1>
