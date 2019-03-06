@@ -76,10 +76,16 @@ img {
   background-position: center;
 }
 
-.bar-show-div, .bar-show-title {
+.bar-show-div, .bar-show-title{
   padding: 10px 5px;
   background-color: rgba(0, 0, 0, 0.7);
   text-align: center;
+}
+
+.bar-title-div {
+  padding: 0 1em;
+  background-color: rgba(0, 0, 0, 0.7);
+  width: auto;
 }
 
 .bar-map-show {
@@ -586,6 +592,10 @@ strong, .image-username {
   align-items: center;
   display: flex;
   background-color: #5b7382;
+}
+
+.user-crawl-show {
+  height: 1.1em;
 }
 
 //////// ******** CRAWL MAP ******* ///////////

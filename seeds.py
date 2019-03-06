@@ -97,7 +97,7 @@ with app.app_context():
         lat=51.5199828,
         lng=-0.0590797,
         terrace=True,
-        description='This famous pub is where Ronnie Kray murdered George Cornell in front of witnesses, is the location of William Booth''s first sermon, which led to the creation of the Salvation Army, and was the nearest outlet (or brewery tap) for the Manns Albion brewery, where the first modern Brown Ale was brewed',
+        description='This famous pub is where Ronnie Kray murdered George Cornell in front of witnesses, is the location of William Booth\'s first sermon, which led to the creation of the Salvation Army, and was the nearest outlet (or brewery tap) for the Manns Albion brewery, where the first modern Brown Ale was brewed',
         hero='https://c1.staticflickr.com/4/3802/9550616256_591c925cc6_b.jpg',
         location='East'
     )
@@ -121,7 +121,7 @@ with app.app_context():
         lat=51.5295501,
         lng=-0.0714865,
         terrace=False,
-        description='You might just recognise this pub off the telly - it has featured in the Kray''s film, sitcom Good Night Sweetheart and even Blue Peter. The look - like something straight out of the 1940s - hasn''t been diminished by any number of refits in the intervening years either. This former gay pub has been transformed into yet another excellent gastropub with more table space in the dining room upstairs',
+        description='You might just recognise this pub off the telly - it has featured in the Kray\'s film, sitcom Good Night Sweetheart and even Blue Peter. The look - like something straight out of the 1940s - hasn\'t been diminished by any number of refits in the intervening years either. This former gay pub has been transformed into yet another excellent gastropub with more table space in the dining room upstairs',
         hero='https://us-east.manta.joyent.com/condenast/public/cnt-services/production/2015/11/20/564f69f396771ce632e45991_the-royal-oak-london-cr-alamy.jpg',
         location='East'
     )
@@ -133,7 +133,7 @@ with app.app_context():
         lat=51.5092305,
         lng=-0.0396032,
         terrace=False,
-        description='Overlooking the Thames, in a peaceful neighbourhood not that far from the bustle of Canary Wharf, The Grapes is one of the oldest pubs in London. Charles Dickens was a patron, and even made reference to the pub in his novel ''Our Mutual Friend''. Leaseholder Ian McKellen has written a brief history, here, should you wish to find out more. They also offer an excellent pub quiz on Monday Nights',
+        description='Overlooking the Thames, in a peaceful neighbourhood not that far from the bustle of Canary Wharf, The Grapes is one of the oldest pubs in London. Charles Dickens was a patron, and even made reference to the pub in his novel \'Our Mutual Friend\'. Leaseholder Ian McKellen has written a brief history, here, should you wish to find out more. They also offer an excellent pub quiz on Monday Nights',
         hero='http://www.beatlesviptours.com/_uploads/images/dscn0067.jpg',
         location='East'
     )
@@ -145,7 +145,7 @@ with app.app_context():
         lat=51.5070813,
         lng=-0.0533257,
         terrace=False,
-        description='One of London''s most famous pubs, and supposedly our city''s oldest riverside inn. With a pedigree stretching back to 1520, it was already getting on a bit when Shakespeare first came to town. You''ll fall in love with the pewter-topped bar and creaky wooden interior, all rebuilt following a fire in Victorian times and a further refit in the 1950s, though some of the flagstones are reckoned to be centuries old. The drinking terrace out back is one of the most sought-after spots on a warm summer''s day, and an upstairs room adds extra, oft-needed capacity.',
+        description='One of London\'s most famous pubs, and supposedly our city\'s oldest riverside inn. With a pedigree stretching back to 1520, it was already getting on a bit when Shakespeare first came to town. You\'ll fall in love with the pewter-topped bar and creaky wooden interior, all rebuilt following a fire in Victorian times and a further refit in the 1950s, though some of the flagstones are reckoned to be centuries old. The drinking terrace out back is one of the most sought-after spots on a warm summer\'s day, and an upstairs room adds extra, oft-needed capacity.',
         hero='https://s3-us-west-2.amazonaws.com/voicemap.me/public/routes/images/000/000/137/original/prospect-of-whitby.jpg',
         location='East'
     )
@@ -169,19 +169,19 @@ with app.app_context():
         lat=51.5469092,
         lng=-0.0769626,
         terrace=True,
-        description='Nestled amongst Hackney’s Victorian buildings and overlooking London’s skyscrapers, Dalston’s only rooftop venue is an opportunity to relax, eat, drink, dance and see the London landscape differently. Framed by the city skyline, our rooftop oasis transforms what was once a forgotten space into a music venue / park, plushly turfed and brimming with flowers, palm tree''s and a Martin Audio Soundsystem! ',
+        description='Nestled amongst Hackney\'s Victorian buildings and overlooking London\'s skyscrapers, Dalston\'s only rooftop venue is an opportunity to relax, eat, drink, dance and see the London landscape differently. Framed by the city skyline, our rooftop oasis transforms what was once a forgotten space into a music venue / park, plushly turfed and brimming with flowers, palm trees and a Martin Audio Soundsystem! ',
         hero='https://i2.wp.com/www.todott.com/wp-content/uploads/2017/04/Photo-%C2%A9-Harry-Powell.jpg-large.jpg?ssl=1',
         location='East'
     )
     db.session.add(dalston_roof)
 
     franks = Bar(
-        name='Frank''s',
+        name='Frank\'s',
         address='Bold Tendencies, 7th-10th Floor Multi Storey Car Park, 95A Rye Ln, SE15 4ST',
         lat=51.470608,
         lng=-0.068110,
         terrace=True,
-        description='While rival rooftop bars play to the masses with crazy golf and street food stalls, Frank’s has stayed to true to its left-field roots. The bar is just one part of the Bold Tendencies art gallery (in fact, when it opened, the wooden structure was considered an artwork itself, and won an architecture prize.)',
+        description='While rival rooftop bars play to the masses with crazy golf and street food stalls, Frank\'s has stayed to true to its left-field roots. The bar is just one part of the Bold Tendencies art gallery (in fact, when it opened, the wooden structure was considered an artwork itself, and won an architecture prize.)',
         hero='https://d37219swed47g7.cloudfront.net/media/images/reviews/franks-cafe-campari-bar/banners/1497010816.04.jpg',
         location='South'
     )
@@ -193,7 +193,7 @@ with app.app_context():
         lat=51.4697354,
         lng=-0.072304,
         terrace=False,
-        description='Part-gallery, part-bar, you''ll find Peckham Springs — yes, the name is inspired by Del Boy''s infamous back garden water business — in the shadow of Peckham Rye Station, under the arches by Bar Story. It started as a summer pop-up but is now staying open all year round on Fridays and Saturdays.',
+        description='Part-gallery, part-bar, you\'ll find Peckham Springs — yes, the name is inspired by Del Boy\'s infamous back garden water business — in the shadow of Peckham Rye Station, under the arches by Bar Story. It started as a summer pop-up but is now staying open all year round on Fridays and Saturdays.',
         hero='https://hirespace.imgix.net/spaces/165475/m5kxuyg5elq.jpg?h=600&w=1200&auto=format&fit=crop&q=40',
         location='South'
     )
@@ -241,7 +241,7 @@ with app.app_context():
         lat=51.557868,
         lng=-0.1815167,
         terrace=False,
-        description='Situated right in the heart of Hampstead, The Holly Bush is a historic pub that offers the perfect escape from the hustle and bustle of central London. They take old fashioned pub-keeping very seriously so you can expect only the best of traditional pub food and real ale. Inside, the venue retains all the flavour of a classic British pub with its open fire, leather banquettes and dark wood furnishings. As a traditional pub it would only be fitting that they served equally traditional pub grub and The Holly Bush''s menu of locally sourced and home-cooked British food doesn''t disappoint.',
+        description='Situated right in the heart of Hampstead, The Holly Bush is a historic pub that offers the perfect escape from the hustle and bustle of central London. They take old fashioned pub-keeping very seriously so you can expect only the best of traditional pub food and real ale. Inside, the venue retains all the flavour of a classic British pub with its open fire, leather banquettes and dark wood furnishings. As a traditional pub it would only be fitting that they served equally traditional pub grub and The Holly Bush\'s menu of locally sourced and home-cooked British food doesn\'t disappoint.',
         hero='https://www.hollybushhampstead.co.uk/-/media/sites/microsites/h/the-holly-bush-_-p151/images/december-2017-images/gallery/exterior/hollybush_mbl0060.jpg',
         location='North'
     )
@@ -361,7 +361,7 @@ with app.app_context():
 
     history_crawl = Crawl(
         name='Historic Bar Crawl',
-        description='Start off this crawl by having a couple of beers over looking the Thames at the one of the oldest pubs in London, The Grapes. Charles Dickens was a patron, and even made reference to the pub in his novel Our Mutual Friend. Take a stroll along the river to the Prospect of Whitby,the hostelry of choice of "Hanging" Judge Jeffreys, scourge of the Monmouth Rebellion. He lived nearby and a replica gallows and noose hangs by the Thameside window, commemorating his custom. According to legend, criminals would be tied up to the posts at low tide and left there to drown when the tide came in. Views from the pub were sketched by both Turner and Whistler, the writers Charles Dickens and Samuel Pepys are known to have paused to sup here. Next head from the river towards the Blind Beggar, site of the notorious Kray murder in 70s and the location of William Booth''s first sermon, which led to the creation of the Salvation Army. Finally end up at the Royal Oak, another Kray twin haunt situated next to London''s best known flower market.',
+        description='Start off this crawl by having a couple of beers over looking the Thames at the one of the oldest pubs in London, The Grapes. Charles Dickens was a patron, and even made reference to the pub in his novel Our Mutual Friend. Take a stroll along the river to the Prospect of Whitby,the hostelry of choice of "Hanging" Judge Jeffreys, scourge of the Monmouth Rebellion. He lived nearby and a replica gallows and noose hangs by the Thameside window, commemorating his custom. According to legend, criminals would be tied up to the posts at low tide and left there to drown when the tide came in. Views from the pub were sketched by both Turner and Whistler, the writers Charles Dickens and Samuel Pepys are known to have paused to sup here. Next head from the river towards the Blind Beggar, site of the notorious Kray murder in 70s and the location of William Booth\s first sermon, which led to the creation of the Salvation Army. Finally end up at the Royal Oak, another Kray twin haunt situated next to London\s best known flower market.',
         creator=mike
     )
 
@@ -389,7 +389,7 @@ with app.app_context():
 
     hampstead_boozers = Crawl(
         name='Old Boozers of North London',
-        description='Start at the Flask in Highgate. Everytime time I go I see the girl from The Lion, the Witch and the Wardrobe, which is pretty cool. It\'s also supposed to be haunted, since the pub\'s Committee Room was allegedly the scene of one of the first-ever autopsies, secretly performed during the days of graverobbing with a fresh body from Highgate Cemetery. From this grisly start, head to Hampstead and have a beer at the Spianard\'s Inn, which is mentioned in Bram Stoker\'s Dracula. Stroll along the Heath to the Holly Bush and enjoy a beer in the hert of historic Hampstead village. Finally stumble along to Kentish Town to sample the real ales adn home made suasage rolls at the Southampton Arms.',
+        description='Start at the Flask in Highgate. Everytime time I go I see the girl from The Lion, the Witch and the Wardrobe, which is pretty cool. It\'s also supposed to be haunted, since the pub\'s Committee Room was allegedly the scene of one of the first-ever autopsies, secretly performed during the days of graverobbing with a fresh body from Highgate Cemetery. From this grisly start, head to Hampstead and have a beer at the Spianard\'s Inn, which is mentioned in Bram Stoker\'s Dracula. Stroll along the Heath to the Holly Bush and enjoy a beer in the hert of historic Hampstead village. Finally stumble along to Kentish Town to sample the real ales and home made suasage rolls at the Southampton Arms.',
         creator=mike
     )
 
