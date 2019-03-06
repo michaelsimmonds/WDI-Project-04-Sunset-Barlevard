@@ -20,7 +20,7 @@ $off-white: #efefef;
 //=================================GENERAL=================================
 
 .error {
-  color: #8b0000;
+  color: #FF6347;
 }
 
 .view-port {
@@ -175,6 +175,10 @@ img {
   margin-bottom: 0.5em;
   text-transform: uppercase;
   font-size: 12px;
+}
+
+.navbar-item {
+  color: black;
 }
 
 // ===============================CRAWL INDEX===================================

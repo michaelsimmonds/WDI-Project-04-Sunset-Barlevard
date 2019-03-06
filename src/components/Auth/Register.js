@@ -14,7 +14,8 @@ class Register extends React.Component{
         password_confirmation: '',
         bio: '',
         image: ''
-      }
+      },
+      errors: {}
     }
 
     this.handleChange = this.handleChange.bind(this)
@@ -31,7 +32,7 @@ class Register extends React.Component{
     axios
       .post('/api/register', this.state.data)
       .then(() => this.props.history.push('/login'))
-      .catch(err => alert(err.message))
+      .catch(err => this.setState({ errors: err.response.data }))
   }
 
   changeSuccess(){
@@ -39,6 +40,9 @@ class Register extends React.Component{
   }
 
   render(){
+    const errorMessages = Object.keys(this.state.errors).map(errorKey => {
+      return this.state.errors[errorKey]
+    })
     if(!this.state.data) return null
     return(
       <main className="register">
@@ -48,6 +52,11 @@ class Register extends React.Component{
             <div className="columns">
               <div className="column is-6 is-offset-3">
                 <h1 className="title title-font center is-3">REGISTER</h1>
+                {errorMessages.length > 0 && <p
+                  className="error center"
+                >
+                  {errorMessages}
+                </p>}
                 <form onSubmit={this.handleSubmit}>
                   <div className="field">
                     <label>Create a Username *</label>
