@@ -6,18 +6,17 @@ const CommentsForm = ({ data, handleChange, handleSubmit }) => {
     <section className="section">
       <div className="container">
         <form onSubmit={handleSubmit}>
-          <h2 className="title">Submit your review</h2>
+          <h2 className="title">Got thoughts on this bar crawl?</h2>
           <div className="field">
             <label className="label">Comment</label>
             <textarea
               className="textarea"
               name="content"
-              placeholder="Comment"
               value={data.content}
               onChange={handleChange}
             />
           </div>
-          <button className="button is-primary">Submit</button>
+          <button className="button button-styled">Submit</button>
         </form>
       </div>
     </section>

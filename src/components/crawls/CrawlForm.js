@@ -9,7 +9,7 @@ const CrawlForm = ({ data, bars, handleAddStop, handleChange, handleSubmit}) => 
         <form onSubmit={handleSubmit}>
           <h2 className="title title-font center">ADD A CRAWL</h2>
           <div className="field">
-            <label className="title-font label">Select Bars!</label>
+            <label className="title-font label">Select Bars! *</label>
             <Select
               isMulti
               options={bars.map(bar => ({ value: bar, label: bar.name }))}
@@ -22,7 +22,7 @@ const CrawlForm = ({ data, bars, handleAddStop, handleChange, handleSubmit}) => 
             <h2 className="title is-6 title-font center">Can't find your bar? Add one <Link to={'/bars/new'}><p className="here"> &nbsp;<u>here!</u></p></Link></h2>
           </div>
           <div className="field">
-            <label className="label title-font">Name</label>
+            <label className="label title-font">Name *</label>
             <div className="control">
               <input
                 className="input"
@@ -34,7 +34,7 @@ const CrawlForm = ({ data, bars, handleAddStop, handleChange, handleSubmit}) => 
           </div>
 
           <div className="field">
-            <label className="title-font label">Description</label>
+            <label className="title-font label">Description *</label>
             <div className="control">
               <input
                 className="textarea"

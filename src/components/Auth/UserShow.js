@@ -24,10 +24,24 @@ class UserShow extends React.Component{
     if(!this.state.userData) return null
     // console.log(this.state.userData)
     return(
-      <main className="grey-background view-port">
-        <section className="section">
+      <main className="grey-background section">
+        <section className="view-port">
           <div className="container user-div">
-            {this.state.userData.created_crawls.length >= 4 ?
+            <input type="radio" id="pic" name="nav-tab" />
+            <input type="radio" id="music" name="nav-tab"/>
+            <div className="tabs">
+              <ul>
+                <li><label htmlFor="pic"><a className="title1 white">Profile</a></label></li>
+                <li><label htmlFor="music"><a className="title1 white">Bio</a></label></li>
+              </ul>
+            </div>
+
+            <div className="tab-content">
+              <div className="tab-pane content-pic"></div>
+              <div className="tab-pane content-music">  <div className=" bio"> {this.state.userData.bio} </div> </div>
+            </div>
+
+            {this.state.userData.created_crawls.length >= 3 && this.state.userData.created_crawls.map(crawl => crawl.comment).length >= 3 ?
               <h1 className="title-font"> ⭐ Gold star member</h1>
               : ''}
             <div className="center">
@@ -35,9 +49,9 @@ class UserShow extends React.Component{
               </div>
               <div style={{backgroundImage: `url(${this.state.userData.image})`}}className="user-image"/>
 
-
             </div>
             <h1 className="title is-4 title-font center"> @{this.state.userData.username} </h1>
+
 
             <div className="container margin">
               {this.state.userData.created_crawls.length >= 1 ? <div> <h1 className="title is-3 title-font center">Created Crawls</h1> <hr/> </div>: '' }
@@ -53,8 +67,8 @@ class UserShow extends React.Component{
                     <div style={{backgroundImage: `url(${crawl.stops[0].bar.hero})`}}className="created-crawls center"/>
                   </Link>
                 </div>
-
               )}
+
             </div>
 
 

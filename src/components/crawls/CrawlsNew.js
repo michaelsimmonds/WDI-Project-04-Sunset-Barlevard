@@ -15,7 +15,8 @@ class CrawlsNew extends React.Component{
         description: '',
         date: '',
         stops: []
-      }
+      },
+      id: ''
     }
 
     this.handleSubmit = this.handleSubmit.bind(this)
@@ -53,14 +54,17 @@ class CrawlsNew extends React.Component{
     axios
       .post('/api/crawls', this.state.data,
         { headers: {Authorization: `Bearer ${Auth.getToken()}`}})
-      .then(() => this.props.history.push('/crawls'))
+      .then((res) => {
+        this.id = res.data.id
+      })
+      .then(() => this.props.history.push(`/crawls/${this.id}`))
       .catch(err => alert(err.message))
   }
 
   //=====================REACT SELECT======================
 
   render() {
-    console.log(this.state.data)
+    console.log(this.state.id)
     return (
       <main className="grey">
         <section className="section view-port">
@@ -84,26 +88,3 @@ class CrawlsNew extends React.Component{
 }
 
 export default CrawlsNew
-
-// <div className="column is-5">
-// <button onClick={this.toggleHidden} className="button button-styled">{this.state.isHidden ? 'Add a Bar' : 'Submit' }</button>
-// </div>
-// {!this.state.isHidden && <BarsNew />}
-
-// handleSubmit(e) {
-//   e.preventDefault()
-//   axios
-//     .post('/api/crawls', this.state.data,
-//       { headers: {Authorization: `Bearer ${Auth.getToken()}`}})
-//     .then(() => this.props.history.push('/crawls'))
-//     .catch(err => alert(err.message))
-// }
-
-// handleSubmit(e) {
-//   e.preventDefault()
-//   axios
-//     .post('/api/crawls', this.state.data,
-//       { headers: {Authorization: `Bearer ${Auth.getToken()}`}})
-//     .then(() => this.props.history.push(`/crawls/${this.props.match.params.id}`))
-//     .catch(err => alert(err.message))
-// }

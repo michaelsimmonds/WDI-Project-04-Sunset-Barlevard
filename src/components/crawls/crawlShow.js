@@ -15,7 +15,8 @@ class CrawlShow extends React.Component {
     this.state = {
       data: {
         content: ''
-      }
+      },
+      errors: {}
     }
     this.deleteCrawl = this.deleteCrawl.bind(this)
     this.handleChange = this.handleChange.bind(this)
@@ -40,6 +41,7 @@ class CrawlShow extends React.Component {
 
   handleChange(e) {
     this.setState({ data: { content: e.target.value } })
+    //console.log(this.state.data.content)
   }
 
   handleSubmit(e){
@@ -54,21 +56,24 @@ class CrawlShow extends React.Component {
         const crawl = { ...this.state.crawl, comments }
         this.setState({ crawl })
       })
-    //.catch(err => alert(err.message))
-  }
-
-
-
-  deleteCrawl(){
-    axios.delete(`/api/crawls/${this.props.match.params.id}`)
-      .then(() => this.props.history.push('/crawls'))
       .catch(err => alert(err.message))
   }
 
-
+  deleteCrawl(e){
+    e.preventDefault()
+    const token = Auth.getToken()
+    const userId = Auth.getUserID()
+    axios.delete(`/api/crawls/${this.props.match.params.id}`, {
+      headers: { Authorization: `Bearer ${token}` }
+    })
+      .then(() => this.props.history.push(`/users/${userId}`))
+      .catch(err => console.log(err.response))
+  }
 
   render(){
     if (!this.state.crawl) return null
+    console.log(Auth.getUserID())
+    console.log(this.state.crawl)
     const {
       comments,
       creator,
@@ -76,6 +81,7 @@ class CrawlShow extends React.Component {
       name
 
     } = this.state.crawl
+    console.log(this.state.crawl)
     return(
       <main>
         <section className="section">
@@ -88,9 +94,8 @@ class CrawlShow extends React.Component {
                   <div style={{backgroundImage: `url(${creator.image})`}}className="user-image-home"/>
                 </Link>
 
-
                 <div className="content">
-                  <strong>By {creator.username}</strong>
+                  <strong>By @{creator.username}</strong>
                 </div>
                 {description}
 
@@ -98,32 +103,32 @@ class CrawlShow extends React.Component {
             </article>
           </div>
         </section>
+
         <CrawlMap
           stops={this.state.crawl.stops}
           center={this.state.zoomCenter}
           zoom={12.0}
         />
+
         <div className="container">
           <section className="section">
             <h2 className="title is-4 center">Bars on this crawl</h2>
             <CrawlSlider
               stops = {this.state.crawl.stops}
             />
-
           </section>
         </div>
-        <div className="container">
 
+        <div className="container">
           <section className="card comments">
             <div className="card-header">
-              <p className="card-header-title">Reviews</p>
-              <button className="button is-danger">New Review</button>
+              <p className="card-header-title">Comments</p>
             </div>
             {
               comments.length === 0 ?
                 <div className="card-content">
                   <h1 className="subtitle is-5">
-                  No reviews of this bar crawl yet... Add one!
+                  No comments of this bar crawl yet... Add one! 🍻
                   </h1>
                 </div>
                 :
@@ -138,6 +143,8 @@ class CrawlShow extends React.Component {
                 </div>
             }
           </section>
+
+
           <CommentsForm
             data={this.state.data}
             handleChange={this.handleChange}
@@ -146,13 +153,10 @@ class CrawlShow extends React.Component {
 
         </div>
 
-
-
-
         {Auth.isAuthenticated() && (creator.id === Auth.getUserID()) &&
 
-        <form onSubmit={this.deleteCrawl}>
-          <button className="button">Delete Crawl</button>
+        <form className="center">
+          <button onClick={(e) => this.deleteCrawl(e)} className="button button-styled-delete center">Delete Crawl</button>
         </form>
         }
       </main>
