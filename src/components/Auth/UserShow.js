@@ -62,7 +62,7 @@ class UserShow extends React.Component{
 
                 <div className="column is-one-fifth small-margin" key={crawl.id}>
                   <Link to={`/crawls/${crawl.id}`}>
-                    <h1 className="title is-6 center white">{crawl.name}</h1>
+                    <h1 className="title is-6 center white user-crawl-show">{crawl.name}</h1>
                     <div style={{backgroundImage: `url(${crawl.stops[0].bar.hero})`}}className="created-crawls center"/>
                   </Link>
                 </div>

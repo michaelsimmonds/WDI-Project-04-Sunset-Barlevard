@@ -1,7 +1,7 @@
 import React from 'react'
 import axios from 'axios'
+import { Link } from 'react-router-dom'
 import CrawlCard from '../crawls/CrawlCard.js'
-
 
 let sunSuitableArr = []
 
@@ -14,9 +14,6 @@ class Home extends React.Component{
       data: {
         location: []
       },
-      userData: {
-        favourites: []
-      },
       barLocation: [],
       switched: false,
       sunSuitable: [],
@@ -24,7 +21,7 @@ class Home extends React.Component{
     }
 
     this.handleChange = this.handleChange.bind(this)
-    this.handleSubmit = this.handleSubmit.bind(this)
+
     this.toggleSwitch = this.toggleSwitch.bind(this)
 
   }
@@ -35,7 +32,7 @@ class Home extends React.Component{
       crawl.stops.forEach(stop => {
         if (stop.bar.terrace === true) counter++
       })
-      if ((counter / crawl.stops.length) > 0.5) {
+      if ((counter / crawl.stops.length) >= 0.5) {
         sunSuitableArr.push(crawl)
       }
     })
@@ -45,19 +42,13 @@ class Home extends React.Component{
 
   toggleSwitch() {
     const hero = document.querySelector('.hero')
-    // const sunDiv = document.querySelector('.sun-div')
-    // const main = document.querySelector('main')
     if (this.state.switched === false) {
       this.getSun()
       hero.classList.add('background-toggle')
-      // sunDiv.id = 'sun-div-clicked'
-      // main.classList.add('main-sunset-mode')
       console.log(hero)
     } else {
       this.setState({ sunSuitable: []})
       hero.classList.remove('background-toggle')
-      // sunDiv.id = ''
-      // main.classList.remove('main-sunset-mode')
     }
     this.setState({ switched: !this.state.switched })
   }
@@ -75,16 +66,9 @@ class Home extends React.Component{
     this.setState({ data })
   }
 
-  handleSubmit(e, crawl) {
-    e.preventDefault()
-    const faves = []
-    faves.push(crawl)
-    this.setState({favourites: faves})
-  }
-
   render(){
-    console.log('favourites', this.state.favourites)
-    console.log('user data', this.state.userData)
+    console.log(this.state.location)
+    console.log(this.state.userData)
     return(
       <main>
         <section className="hero is-medium background">
@@ -99,16 +83,18 @@ class Home extends React.Component{
                 <h1 className='disp-mode title1 title is-6'>Sunny out? Click the sun!</h1>
               }
               <button className="sun-button" onClick={this.toggleSwitch}></button>
+
             </div>
           </div>
         </section>
         {!this.state.switched ?
-          this.state.crawls.map(crawl => <div key={crawl.id} className="hero-body">
-            <CrawlCard
-              handleSubmit={this.handleSubmit}
-              {...crawl} />
-          </div>
-          ) :
+          this.state.crawls.map(crawl =>
+            <div key={crawl.id} className="hero-body">
+              <CrawlCard {...crawl} />
+            </div>
+          )
+
+          :
           this.state.sunSuitable.map(crawl => <div key={crawl.id} className="hero-body">
             <CrawlCard {...crawl} />
           </div>

@@ -4,6 +4,7 @@ import axios from 'axios'
 import CrawlMap from './CrawlMap'
 import CrawlSlider from './CrawlSlider'
 import CommentsForm from './CommentsForm'
+import LoginRequest from '../common/LoginRequest'
 import Auth from '../../lib/Auth'
 
 import mapboxgl from '../../lib/mapbox-gl'
@@ -41,11 +42,12 @@ class CrawlShow extends React.Component {
 
   handleChange(e) {
     this.setState({ data: { content: e.target.value } })
+    //console.log(this.state.data.content)
   }
 
   handleSubmit(e){
     e.preventDefault()
-    console.log(this.props)
+    //console.log('PROPS', this.props)
     const token = Auth.getToken()
     axios.post(`/api/crawls/${this.props.match.params.id}/comments`, this.state.data, {
       headers: { Authorization: `Bearer ${token}` }
@@ -55,7 +57,11 @@ class CrawlShow extends React.Component {
         const crawl = { ...this.state.crawl, comments }
         this.setState({ crawl })
       })
-    //.catch(err => alert(err.message))
+      .catch(err => {
+        alert(err.response.data)
+        //this.setState({ errors: err.response.data})
+        //console.log('ERR RESPONSE',this.state.errors)
+      })
   }
 
   deleteCrawl(e){
@@ -71,8 +77,7 @@ class CrawlShow extends React.Component {
 
   render(){
     if (!this.state.crawl) return null
-    console.log(Auth.getUserID())
-    console.log(this.state.crawl)
+
     const {
       comments,
       creator,
@@ -80,7 +85,7 @@ class CrawlShow extends React.Component {
       name
 
     } = this.state.crawl
-    console.log(this.state.crawl)
+    //console.log(this.state.crawl)
     return(
       <main>
         <section className="section">
@@ -93,7 +98,6 @@ class CrawlShow extends React.Component {
                   <div style={{backgroundImage: `url(${creator.image})`}}className="user-image-home"/>
                 </Link>
 
-
                 <div className="content">
                   <strong>By @{creator.username}</strong>
                 </div>
@@ -103,32 +107,32 @@ class CrawlShow extends React.Component {
             </article>
           </div>
         </section>
+
         <CrawlMap
           stops={this.state.crawl.stops}
           center={this.state.zoomCenter}
           zoom={12.0}
         />
+
         <div className="container">
           <section className="section">
             <h2 className="title is-4 center">Bars on this crawl</h2>
             <CrawlSlider
               stops = {this.state.crawl.stops}
             />
-
           </section>
         </div>
-        <div className="container">
 
+        <div className="container">
           <section className="card comments">
             <div className="card-header">
-              <p className="card-header-title">Reviews</p>
-              <button className="button is-danger">New Review</button>
+              <p className="card-header-title">Comments</p>
             </div>
             {
               comments.length === 0 ?
                 <div className="card-content">
                   <h1 className="subtitle is-5">
-                  No reviews of this bar crawl yet... Add one!
+                  No comments of this bar crawl yet... Add one! 🍻
                   </h1>
                 </div>
                 :
@@ -143,11 +147,16 @@ class CrawlShow extends React.Component {
                 </div>
             }
           </section>
-          <CommentsForm
-            data={this.state.data}
-            handleChange={this.handleChange}
-            handleSubmit={this.handleSubmit}
-          />
+
+          {Auth.isAuthenticated()?
+            <CommentsForm
+              data={this.state.data}
+              handleChange={this.handleChange}
+              handleSubmit={this.handleSubmit}
+            />
+            :
+            <LoginRequest />
+          }
 
         </div>
 

@@ -40,8 +40,8 @@ class BarsShow extends React.Component{
 
             <div className='column is-half has-text-white bar-show-column' id='show'>
               <h1 className="title has-text-white bar-show-title">{name}</h1>
-              <div className='bar-show-div'>{address}</div>
-              <div className='bar-show-div des has-text-white'>{description}</div>
+              <div className='bar-show-div add'>{address}</div>
+              <div className='bar-show-div has-text-white'>{description}</div>
             </div>
 
             <div className='column is-half align-items bar-show-column'>
