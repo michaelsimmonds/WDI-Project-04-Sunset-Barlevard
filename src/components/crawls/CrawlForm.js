@@ -3,6 +3,7 @@ import Select from 'react-select'
 import { Link } from 'react-router-dom'
 
 const CrawlForm = ({ data, bars, handleAddStop, handleChange, handleSubmit}) => {
+
   return(
     <div className="columns">
       <div className="column is-6 is-offset-3">
@@ -17,7 +18,6 @@ const CrawlForm = ({ data, bars, handleAddStop, handleChange, handleSubmit}) => 
               name="stops"
             />
           </div>
-
           <div className="field">
             <h2 className="title is-6 title-font center">Can't find your bar? Add one <Link to={'/bars/new'}><p className="here"> &nbsp;<u>here!</u></p></Link></h2>
           </div>

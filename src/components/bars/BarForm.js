@@ -2,8 +2,8 @@ import React from 'react'
 // import ReactFilestack from 'filestack-react'
 import MapboxAutocomplete from 'react-mapbox-autocomplete'
 
-
 const BarForm = ({ data, handleChange, handleSubmit, suggestionSelect }) => {
+
   console.log(data)
   return(
     <section className="section grey-backgroun">
