@@ -61,8 +61,8 @@ def update(crawl_id):
 @secure_route
 def delete(crawl_id):
     crawl = Crawl.query.get(crawl_id)
-    # if crawl.creator != g.current_user:  # if the creator isnt the current user they cannot modify
-    #     return jsonify({'message': 'Unuthorized'}), 401
+    if crawl.creator != g.current_user:  # if the creator isnt the current user they cannot modify
+        return jsonify({'message': 'Unuthorized'}), 401
     crawl.remove()
     return '', 204
 
@@ -84,6 +84,18 @@ def create_comment(crawl_id):
     comment.save()
 
     return comment_schema.jsonify(comment)
+
+########################### FAVOURITES ##########################################
+
+# @api.route('/crawls/<int:crawl_id>/favourites', methods=['POST'])
+# @secure_route
+# def add_favourite(crawl_id):
+#     crawl = Crawl.query.get(crawl_id)
+#     crawl.favourites.append(g.current_user)
+#
+#     crawl.save()
+#
+#     return crawl_schema.jsonify(crawl)
 
 ############################ STOPS ON CRAWLS ###################################
 

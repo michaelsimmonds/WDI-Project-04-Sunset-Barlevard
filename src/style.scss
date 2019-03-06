@@ -44,7 +44,7 @@ $off-white: #efefef;
 }
 
 .white{
-  color: white;
+  color: white !important;
 }
 
 .here {
@@ -99,7 +99,7 @@ img {
   background-size: cover;
   border: none;
   outline: none;
-  margin: 4em 0;
+  margin: 0;
   animation: pulse 1.5s infinite;
   cursor: pointer;
   box-shadow: 0 0 0 rgba(204,169,44, 0.4);
@@ -159,7 +159,23 @@ img {
 //   background-color: red;
 // }
 
+//============================= NAVBAR==========================================
+
+.navbar-item, .subtitle {
+  color: #fff;
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  margin-bottom: 0.5em;
+  text-transform: uppercase;
+  font-size: 12px;
+}
+
 // ===============================CRAWL INDEX===================================
+//margin for sun message
+.subtitle:not(.is-spaced) + .title {
+  margin-top: 1.75rem;
+}
+
 .flex-direction {
   display: flex;
   flex-direction: row;
@@ -215,6 +231,14 @@ img {
   background-size: cover;
 }
 
+.created-crawls-name {
+margin: 0;
+padding: 0;
+height: 30px;
+align-self: center;
+display: flex;
+}
+
 .crawls {
   margin: 20px;
 }
@@ -248,7 +272,7 @@ img {
 
 .background-toggle {
   height: 100vh;
-  background-image: linear-gradient(rgba(255, 165, 0, 1), rgb(255, 0, 0)), url('https://cdn-image.travelandleisure.com/sites/default/files/styles/1600x1000/public/1511276981/the-roof-at-public-hotel-new-york-city-ROOF1117.jpg?itok=4PTTAf3C');
+  background-image: linear-gradient(rgba(255, 165, 0, 1), rgba(255, 0, 0, 0.5)), url('https://cdn-image.travelandleisure.com/sites/default/files/styles/1600x1000/public/1511276981/the-roof-at-public-hotel-new-york-city-ROOF1117.jpg?itok=4PTTAf3C');
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: fixed;
@@ -265,7 +289,6 @@ img {
   color: white !important;
   font-size: 80px !important;
   margin-top: -1em;
-  margin-bottom: 20px;
 }
 
 .subtitle-header {
@@ -415,6 +438,7 @@ hr.thin {
 
 textarea.textarea, input.textarea, input.input {
   background-color: $primary;
+  color: white;
 
 }
 
@@ -422,6 +446,10 @@ textarea.textarea, input.textarea, input.input {
   color: white;
 }
 
+//mapbox location search bar
+.react-mapbox-ac-suggestion {
+  color: black;
+}
 
 .title {
   color: white;
@@ -446,6 +474,12 @@ textarea.textarea, input.textarea, input.input {
 .button-styled {
   border: 2px solid white;
   background-color: $primary;
+  color: white;
+}
+
+.button-styled-delete {
+  border: 2px solid white;
+  background-color: #8b0000;
   color: white;
 }
 
@@ -480,6 +514,17 @@ select.input {
 }
 
 // ================================USER SHOW===================================
+//tabs - NEED to change id names asap
+input[type="radio"], .tab-pane { display: none; }
+
+/* the magic */
+#pic:checked ~ .tab-content > .content-pic,
+#music:checked ~ .tab-content > .content-music,
+
+{
+  display: block;
+}
+
 
 .user-image {
   height: 200px;
@@ -517,6 +562,16 @@ select.input {
 
 strong, .image-username {
   color: white;
+}
+
+.bio {
+  height: 120px;
+  margin: 20px 80px;
+  border-radius: 5px;
+  padding: 20px;
+  align-items: center;
+  display: flex;
+  background-color: #5b7382;
 }
 
 //////// ******** CRAWL MAP ******* ///////////
