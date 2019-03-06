@@ -358,15 +358,25 @@ with app.app_context():
 
 ############## COMMENTS ###########################
 
-    comment1 = Comment(content='Hate this crawl, is dead rubbish', crawl=east_end, author=mike)
+    comment1 = Comment(content='Love this crawl, except that blind beggar truly is a dive... may miss that one out next time.', crawl=east_end, author=mike)
 
     db.session.add(comment1)
 
-    comment2 = Comment(content='This crawl took days to complete. Each leg was fun, but overall the length could be shorter!', crawl=east_end, author=beth)
+    comment2 = Comment(content='This crawl took hours to complete. Each leg was fun, but the length could be shorter!', crawl=east_end, author=beth)
 
     db.session.add(comment1)
 
-    comment3 = Comment(content='Days to complete? Took me a matter of minutes!', crawl=east_end, author=bete)
+    comment3 = Comment(content='I love the East End and I love this bar crawl.', crawl=east_end, author=bete)
+
+    comment4 = Comment(content='Genuinely think everyone has gotta love this crawl.', crawl=history_crawl, author=mike)
+
+    db.session.add(comment1)
+
+    comment5 = Comment(content='This crawl is far too lofty and academic for my liking. A good old night at wetherspoons is in order after this fare.', crawl=history_crawl, author=beth)
+
+    db.session.add(comment1)
+
+    comment6 = Comment(content='What a crawl.', crawl=fun_crawl, author=bete)
 
     db.session.add(comment1)
 

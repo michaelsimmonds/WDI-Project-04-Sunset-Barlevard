@@ -2,7 +2,6 @@ import React from 'react'
 import axios from 'axios'
 import CrawlCard from '../crawls/CrawlCard.js'
 
-
 let sunSuitableArr = []
 
 class Home extends React.Component{
@@ -21,7 +20,6 @@ class Home extends React.Component{
     }
 
     this.handleChange = this.handleChange.bind(this)
-
     this.toggleSwitch = this.toggleSwitch.bind(this)
 
   }
@@ -42,19 +40,13 @@ class Home extends React.Component{
 
   toggleSwitch() {
     const hero = document.querySelector('.hero')
-    // const sunDiv = document.querySelector('.sun-div')
-    // const main = document.querySelector('main')
     if (this.state.switched === false) {
       this.getSun()
       hero.classList.add('background-toggle')
-      // sunDiv.id = 'sun-div-clicked'
-      // main.classList.add('main-sunset-mode')
       console.log(hero)
     } else {
       this.setState({ sunSuitable: []})
       hero.classList.remove('background-toggle')
-      // sunDiv.id = ''
-      // main.classList.remove('main-sunset-mode')
     }
     this.setState({ switched: !this.state.switched })
   }
@@ -79,17 +71,6 @@ class Home extends React.Component{
       <main>
         <section className="hero is-large background">
 
-          {/*
-          {this.state.switched ?
-            <section className='sun-div'>
-              <div>You're in Sunshine Mode! We've displayed the bar crawls with great roof terraces and outside spaces</div>
-            </section> :
-            <section className='sun-div'>
-              <div>Sun out?? Try clicking the sun below...</div>
-            </section>
-          }
-          */}
-
           <div className="hero-body">
             <div className="container has-text-centered">
               <h1 className="sunset level-item">
@@ -102,11 +83,6 @@ class Home extends React.Component{
               }
 
               <button className="sun-button" onClick={this.toggleSwitch}></button>
-
-
-
-
-
 
             </div>
           </div>
@@ -129,14 +105,3 @@ class Home extends React.Component{
 }
 
 export default Home
-
-// <form className="form">
-//   <Select
-//     className="select-bar"
-//     isMulti
-//     onChange={this.handleChange}
-//     options={options}
-//     name="location"
-//     components={makeAnimated()}
-//   />
-// </form>
