@@ -16,7 +16,8 @@ class CrawlsNew extends React.Component{
         date: '',
         stops: []
       },
-      id: ''
+      id: '',
+      errors: {}
     }
 
     this.handleSubmit = this.handleSubmit.bind(this)
@@ -58,7 +59,7 @@ class CrawlsNew extends React.Component{
         this.id = res.data.id
       })
       .then(() => this.props.history.push(`/crawls/${this.id}`))
-      .catch(err => alert(err.message))
+      .catch(err => this.setState({ errors: err.response.data }))
   }
 
   //=====================REACT SELECT======================

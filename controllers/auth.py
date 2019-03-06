@@ -24,8 +24,7 @@ def login():
     user = User.query.filter_by(email=data.get('email')).first()
 
     if not user or not user.validate_password(data.get('password', '')):
-        return jsonify({'message': 'Unauthorized'}), 401
-        
+        return jsonify({'message': 'Invalid username or password. Please try again'}), 401
 
     return jsonify({
         'message': 'Welcome back {}!'.format(user.username),

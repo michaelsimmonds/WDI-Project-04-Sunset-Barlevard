@@ -72,25 +72,21 @@ class Home extends React.Component{
     return(
       <main>
         <section className="hero is-medium background">
-
           <div className="hero-body">
             <div className="container has-text-centered">
               <h1 className="sunset level-item">
                 Sunset Barlevard
               </h1>
-              <p className=" subtitle">Find and Share Crawls in London</p>
+              <p className=" subtitle">Find and share bar crawls through London</p>
               {this.state.switched ?
-                <h1 className='disp-mode title1 title is-6 '>You're in Sunshine Mode! Now showing Sun Friendly crawls</h1> :
-                <h1 className='disp-mode title1 title is-6'>Sunny out? Click the sun!</h1>
+                <h1 className='disp-mode title1 title is-6 '>You're in Sunshine Mode! Showing crawls with sunny spaces</h1> :
+                <h1 className='disp-mode title1 title is-6'>Sun out? Toggle sunshine mode below</h1>
               }
-
               <button className="sun-button" onClick={this.toggleSwitch}></button>
 
             </div>
           </div>
         </section>
-
-
         {!this.state.switched ?
           this.state.crawls.map(crawl =>
             <div key={crawl.id} className="hero-body">

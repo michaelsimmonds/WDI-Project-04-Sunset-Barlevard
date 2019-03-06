@@ -19,7 +19,8 @@ class BarsNew extends React.Component {
         description: '',
         hero: '',
         location: ''
-      }
+      },
+      errors: {}
     }
 
     this.handleChange = this.handleChange.bind(this)
@@ -40,13 +41,13 @@ class BarsNew extends React.Component {
       .post('/api/bars', this.state.data,
         { headers: {Authorization: `Bearer ${Auth.getToken()}`}})
       .then(this.props.history.push('/crawls/new'))
-      .catch(err => alert(err.message))
+      .catch(err => console.log(err.response))
   }
 
   suggestionSelect(result, lat, lng) {
     // console.log(address)
     const data = {...this.state.data, address: result, lat: lat, lng: lng }
-    const errors = {...this.state.errors, addres: '' }
+    const errors = {...this.state.errors, address: '' }
     this.setState({ data, errors })
   }
 
@@ -55,6 +56,7 @@ class BarsNew extends React.Component {
       <main className="section grey-background">
         <div className="container">
           <BarForm
+            errors={this.state.errors}
             data={this.state.data}
             handleChange={this.handleChange}
             handleSubmit={this.handleSubmit}
