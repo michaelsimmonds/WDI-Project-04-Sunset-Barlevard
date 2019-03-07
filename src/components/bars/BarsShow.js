@@ -38,14 +38,11 @@ class BarsShow extends React.Component{
   getRelavantCrawls() {
     return this.state.crawls.filter(crawl => {
       const barIds = crawl.stops.map(stop => stop.bar.id)
-      console.log(barIds)
       return barIds.includes(this.state.bar.id)
     })
   }
 
   render() {
-    console.log(this.state.crawls)
-    console.log(this.state.bar)
     if(!this.state.bar || !this.state.crawls) return null
     const { name, hero, description, address, lat, lng } = this.state.bar
     const crawls = this.getRelavantCrawls()

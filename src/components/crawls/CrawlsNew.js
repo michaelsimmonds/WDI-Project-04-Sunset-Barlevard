@@ -2,7 +2,6 @@ import React from 'react'
 import axios from 'axios'
 import Auth from '../../lib/Auth'
 import CrawlForm from './CrawlForm'
-import BarsNew from '../bars/BarsNew.js'
 
 class CrawlsNew extends React.Component{
   constructor(){

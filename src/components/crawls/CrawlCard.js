@@ -41,8 +41,4 @@ const CrawlCard = ({ name, stops, id, creator, description, created_at }) => {
   )
 }
 
-// <form onSubmit={(e) => handleSubmit(e, name)}className="header-crawl">
-//   <button className="header-crawl button button-styled upvote">Favourite</button>
-// </form>
-
 export default CrawlCard

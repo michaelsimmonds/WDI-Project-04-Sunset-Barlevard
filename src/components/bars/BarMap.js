@@ -17,7 +17,6 @@ class BarMap extends React.Component {
     markerElement.innerText = '🍹'
     return new mapboxgl.Marker(markerElement)
       .setLngLat({ lat: this.props.marker.lat, lng: this.props.marker.lng})
-      // .setHTML(<a href={`/bars/${this.props.marker.id}`}></a>) this doesnt work
       .addTo(this.map)
   }
 
