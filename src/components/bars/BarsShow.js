@@ -61,7 +61,7 @@ class BarsShow extends React.Component{
               <div className='bar-show-div add'>{address}</div>
               <div className='bar-show-div has-text-white'>{description}</div>
               <div className='bar-show-div has-text-white'>
-                <h1 className="title has-text-white bar-show-title">Crawls added to:</h1>
+                <h4 className="subtitle has-text-white bar-show-title">Crawls added to</h4>
 
                 {crawls.length > 0 ? (
                   crawls.map(crawl => <div key={crawl.id} className="title1"><h1> <Link to={`/crawls/${crawl.id}`}> {crawl.name} </Link>  </h1> </div> )
