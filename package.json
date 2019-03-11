@@ -20,6 +20,7 @@
     "@mapbox/react-click-to-select": "^2.2.0",
     "axios": "^0.18.0",
     "babel-loader": "^8.0.5",
+    "bluebird": "^3.5.3",
     "bulma": "^0.7.4",
     "css-loader": "^2.1.0",
     "darksky": "^0.1.2",

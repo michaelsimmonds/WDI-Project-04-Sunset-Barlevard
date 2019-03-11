@@ -1,10 +1,8 @@
 import React from 'react'
-// import ReactFilestack from 'filestack-react'
 import MapboxAutocomplete from 'react-mapbox-autocomplete'
 
 const BarForm = ({ data, handleChange, handleSubmit, suggestionSelect }) => {
 
-  console.log(data)
   return(
     <section className="section grey-backgroun">
       <div className="columns">
@@ -101,18 +99,3 @@ const BarForm = ({ data, handleChange, handleSubmit, suggestionSelect }) => {
 }
 
 export default BarForm
-
-// <div className="column is-5 is-offset-2">
-//   <ReactFilestack
-//     apikey={ `${process.env.FILESTACK_API_KEY}` }
-//     mode={'pick'}
-//     onSuccess={(res) => handleChange({
-//       target: {
-//         name: 'hero',
-//         value: res.filesUploaded[0].url
-//       }})}
-//     onError={(e) => console.log(e)}
-//     buttonText={data.hero ? 'Image Added': 'Add an Image'}
-//     buttonClass={data.hero ? 'button is-square is-success' : 'button is-square is-info'}
-//   />
-// </div>

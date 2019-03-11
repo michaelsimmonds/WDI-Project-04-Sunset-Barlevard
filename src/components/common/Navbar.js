@@ -1,6 +1,5 @@
 import React from 'react'
 import { Link, withRouter } from 'react-router-dom'
-
 import Auth from '../../lib/Auth'
 
 class Navbar extends React.Component {
@@ -10,10 +9,8 @@ class Navbar extends React.Component {
 
     this.state = {
       activeItem: 'home'
-      // navbarOpen: false
     }
 
-    // this.handleItemClick = this.handleItemClick.bind(this)
     this.toggleNavbar = this.toggleNavbar.bind(this)
     this.logout = this.logout.bind(this)
     this.myProfile = this.myProfile.bind(this)
@@ -23,11 +20,6 @@ class Navbar extends React.Component {
     this.setState({ navbarOpen: !this.state.navbarOpen })
   }
 
-  // handleItemClick(e, { name }){
-  //   this.setState({ activeItem: name })
-  //   if(name === 'home')this.props.history.push('/')
-  //   if(name === 'My Profile')this.props.history.push(`/users/${Auth.getUserID()}`)
-  // }
 
   myProfile(){
     this.props.history.push(`/users/${Auth.getUserID()}`)

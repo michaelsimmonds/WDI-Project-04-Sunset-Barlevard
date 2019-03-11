@@ -23,32 +23,26 @@ class CrawlShow extends React.Component {
     this.deleteCrawl = this.deleteCrawl.bind(this)
     this.handleChange = this.handleChange.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
-
   }
 
   componentDidMount() {
     axios.get(`/api/crawls/${this.props.match.params.id}`)
       .then(res => {
         const bounds = new mapboxgl.LngLatBounds()
-
         res.data.stops.forEach(stop => {
           const { lng, lat } = stop.bar
           bounds.extend([lng, lat])
         })
-
         this.setState({ crawl: res.data, zoomCenter: bounds.getCenter() })
       })
   }
 
-
   handleChange(e) {
     this.setState({ data: { content: e.target.value } })
-    //console.log(this.state.data.content)
   }
 
   handleSubmit(e){
     e.preventDefault()
-    //console.log('PROPS', this.props)
     const token = Auth.getToken()
     axios.post(`/api/crawls/${this.props.match.params.id}/comments`, this.state.data, {
       headers: { Authorization: `Bearer ${token}` }
@@ -60,8 +54,6 @@ class CrawlShow extends React.Component {
       })
       .catch(err => {
         alert(err.response.data)
-        //this.setState({ errors: err.response.data})
-        //console.log('ERR RESPONSE',this.state.errors)
       })
   }
 
@@ -73,7 +65,7 @@ class CrawlShow extends React.Component {
       headers: { Authorization: `Bearer ${token}` }
     })
       .then(() => this.props.history.push(`/users/${userId}`))
-      .catch(err => console.log(err.response))
+      .catch(err => this.setState({ errors: err.response.data }))
   }
 
   render(){
@@ -86,7 +78,6 @@ class CrawlShow extends React.Component {
       name
 
     } = this.state.crawl
-    //console.log(this.state.crawl)
     return(
       <main>
         <section className="section">
@@ -156,7 +147,9 @@ class CrawlShow extends React.Component {
               handleSubmit={this.handleSubmit}
             />
             :
-            <LoginRequest />
+            <section>
+              <LoginRequest />
+            </section>
           }
 
         </div>

@@ -399,7 +399,7 @@ with app.app_context():
         terrace=False,
         description='Good old fashioned classic boozer. Good music, often live shows, sometimes a little noisy but they have a reet big selection of ales and largers on tap so maybe that won\'t matter?',
         location='North',
-        hero=''
+        hero='https://www.standard.co.uk/s3fs-public/thumbnails/image/2018/01/11/09/worlds-end.jpg'
     )
     db.session.add(worlds_end)
 
@@ -408,7 +408,7 @@ with app.app_context():
         address='OXO Tower, Southbank, SE1 9H',
         lat=51.5064129,
         lng=-0.1126076,
-        terrace=False,
+        terrace=True,
         description='Spenny but panoramic in the extreme. Great for that proper Southbank view of the M16 architecture. ',
         location='Central',
         hero='http://www.oxotower.co.uk/wp-content/uploads/2013/11/Main-image-for-websites-summer-2014.jpg'

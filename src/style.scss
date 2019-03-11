@@ -19,6 +19,7 @@ $off-white: #efefef;
 // "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
 //=================================GENERAL=================================
 
+
 .error {
   color: #FF6347;
 }
@@ -663,6 +664,9 @@ strong, .image-username {
 .card-content {
   height: 18rem;
   overflow: scroll;
+  p {
+    color: white;
+  }
 }
 
 form .label {

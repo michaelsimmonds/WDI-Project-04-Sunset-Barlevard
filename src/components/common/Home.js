@@ -20,7 +20,6 @@ class Home extends React.Component{
       north: []
     }
 
-    this.handleChange = this.handleChange.bind(this)
     this.toggleSwitch = this.toggleSwitch.bind(this)
 
   }
@@ -44,7 +43,6 @@ class Home extends React.Component{
     if (this.state.switched === false) {
       this.getSun()
       hero.classList.add('background-toggle')
-      console.log(hero)
     } else {
       this.setState({ sunSuitable: []})
       hero.classList.remove('background-toggle')
@@ -55,19 +53,9 @@ class Home extends React.Component{
   componentDidMount() {
     axios.get('/api/crawls')
       .then(res => this.setState({ crawls: res.data }))
-    axios.get(`/api/users/${this.props.match.params.id}`)
-      .then(res => this.setState({ userData: res.data }))
-  }
-
-  handleChange(e) {
-    const location = (e.map(location => location.value))
-    const data = { location }
-    this.setState({ data })
   }
 
   render(){
-    console.log(this.state.location)
-    console.log(this.state.userData)
     return(
       <main>
         <section className="hero is-medium background">
@@ -78,7 +66,7 @@ class Home extends React.Component{
               </h1>
               <p className=" subtitle">Find and share bar crawls through London</p>
               {this.state.switched ?
-                <h1 className='disp-mode title1 title is-6 '>You're in Sunshine Mode! Showing crawls with sunny spaces</h1> :
+                <h1 className='disp-mode title1 title is-6 '>You&apos;re in Sunshine Mode! Showing crawls with sunny spaces</h1> :
                 <h1 className='disp-mode title1 title is-6'>Sun out? Toggle sunshine mode below</h1>
               }
               <button className="sun-button" onClick={this.toggleSwitch}></button>
