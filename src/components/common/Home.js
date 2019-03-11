@@ -21,7 +21,6 @@ class Home extends React.Component{
     }
 
     this.handleChange = this.handleChange.bind(this)
-
     this.toggleSwitch = this.toggleSwitch.bind(this)
 
   }
