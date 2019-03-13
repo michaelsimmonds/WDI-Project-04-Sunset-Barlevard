@@ -107,7 +107,7 @@ class CrawlShow extends React.Component {
         />
 
         <div className="container">
-          <section className="section">
+          <section className="section slider-section">
             <h2 className="title is-4 center">Bars on this crawl</h2>
             <CrawlSlider
               stops = {this.state.crawl.stops}
