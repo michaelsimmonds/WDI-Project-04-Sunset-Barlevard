@@ -63,30 +63,36 @@ Create a Crawl
 # Process
 
 ###planning
-Our focus for this project was using a React.js front-end to connect users to a PostgreSQL database that had a nice variety of relationships between models. We liked the idea of a bar crawls app and sketched out some entity relationship diagrams (ERDs) to clarify the following relationships:
+Our focus for this project was creating a PostgreSQL database that had a nice variety of logical relationships between models, and connecting it to users via a React front-end. We decided to produce an app for displaying bar crawls, and sketched out some entity relationship diagrams (ERDs) to clarify the following relationships:
 
 1. A many-to-many relationship between bars and crawls,
 2. A one-to-many relationships between users and crawls,
 3. A one-to-many relationship between users and bars,
-4. A one-to-many relationship between crawls and comments
+4. A one-to-many relationship between crawls and users' comments on those crawls
 
-We decided on the properties for each model, and realised that there would be an interesting relationship between 'order' - a property that was of bars but only when those bars were in a particular crawl, and could be different for each crawl that any bar appeared in.
+We decided on the table properties (e.g name, location) for each model, and realised that the order of a bar within any given crawl would be an important property of each bar, but it would also exist only in relationship to that bar when within a particular crawl. As such a bar could have multiple instantiations of this property, and its order could be different for each crawl that the bar appears in.
 
 ![screenshot- ERD for order] (https://user-images.githubusercontent.com/44749113/54317824-3375f180-45dc-11e9-8b82-956c1fa7e3db.png)
 
 
-We knew that this would require some extra attention so we referred to the SQLAlchemy documentation and found an variant on the many-to-many relationship called an 'Association Object' (https://docs.sqlalchemy.org/en/latest/orm/basic_relationships.html#association-pattern). This allowed bars on the left side to reference multiple instantiations of order via a one-to-many relationship, and on the right side, crawls to reference order via a many-to-one relationship, but without needing to create an extra model just for any bar's order within each crawl.
+We knew that this would require some extra attention so we referred to the SQLAlchemy documentation and found an variant on the many-to-many relationship called an 'Association Object' (https://docs.sqlalchemy.org/en/latest/orm/basic_relationships.html#association-pattern). This allowed bars on the left side to reference multiple instantiations of order via a one-to-many relationship, and on the right side, crawls to reference order via a many-to-one relationship, but without needing to create an entire model just for any bar's order within each crawl.
 
 We then set up the Flask server and hooked it up to SQLAlchemy to allow us to start creating SQL database entries.
 
 ### Back End
 
-We used SQLAlchemy to interact with the database, and Flask framework methods to ‘JSONify’ Python dicts, create Blueprints and create secure authentication routes.  We also used the Marshmallow library for validating schema and formatting data such as upload times for comments.
+Instead of writing lengthy SQL statements we used SQLAlchemy to interact with the database. We used the Python-based framework Flask to handle the RESTful HTTP requests (i.e. to act as the server).
 
+We used Flask methods such as ```Blueprint``` to give controllers the logic for their own routing, ```g``` to verify whether a current user is the creator of a crawl or bar, and ```jsonify``` to translate errors (returned as Python dicts) to JSON strings that we could use for the view.  
 
+Because the data retrieved from the PostgreSQL database via SQLAlchemy are in the form of objects, we used the Marshmallow library for serialising models into JSON strings. This meant we could also use Marshmallow for validating schema and formatting data such as upload times for users' comments.
+
+To simply our controllers and models we created a BaseModel class, which we used as a mixin to store ```id```, ```save```, and ```remove``` methods that could be reused on all schemas, as well as ```created_at``` and ```updated_at``` timestamps.
 
 
 ### Front End
+
+We created a simple front-end in React.js.
 
 
 

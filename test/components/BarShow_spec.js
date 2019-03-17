@@ -24,7 +24,7 @@ describe('BarsShow tests', () => {
       }
     })
 
-    sinon.stub(axios, 'get').returns(response) //when axios makes request, it will just return the promise above. Sinon has taken controll of axios. The stub is essentially faking the request.
+    sinon.stub(axios, 'get').returns(response) //when axios makes request, it will just return the promise above. Sinon has taken control of axios. The stub is essentially faking the request.
     done()
   })
 
