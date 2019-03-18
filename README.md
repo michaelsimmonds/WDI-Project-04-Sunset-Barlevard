@@ -10,56 +10,54 @@ The brief for this project was to create a full-stack app with a PostgreSQL/Pyth
 
 ## Technologies used
 
-* React
+* HTML5
+* SASS/SCSS (CSS preprocessor)
 * JavaScript (ES6)
-* Node.js
+* React
 * Webpack
-* MongoDB/Mongoose
-* Chai/Mocha
-* Supertest/NYC
-* Bulma
-* Nodemailer
-* React Filestack
-* HTML 5
-* SASS/SCSS/CSS Animation
+* PostgreSQL
+* SQLAlchemy
+* Flask
+* Bulma (CSS framework)
 * Git/GitHub
+* Mocha/Chai
+* Enzyme
+* Sinon
+
 
 ## Deployed version
--
+
+---> https://sunset-barlevard.herokuapp.com
 
 ## Code Installation
 
 1. Clone or download the repo
-2. Install ```yarn``` (and ```pipenv```?) in Terminal
+2. Install ```yarn``` (and ```pipenv```) in Terminal
 3. Launch a flask server ```yarn  serve:flask```
-4. Launch webpack ```yarn serve:flask```
+4. Launch Webpack to watch the front-end ```yarn serve:react```
 
 
-## Created App: An Overview
-Sunset Barlevard is a route-finding app tailored to those looking not just for places to drink, but rather for coherent bar crawls through London. The USP is that it allows users to opt into searching specifically for rooftop bars, beer gardens and summer walks between pubs with excellent outdoor terraces.
+## Overview
+Sunset Barlevard is a route-finding app tailored to those looking not just for places to drink, but also for coherent bar-focussed tours through London. The USP is that it allows users to opt into searching specifically for rooftop bars, beer gardens and summer walks between pubs with excellent outdoor terraces.
 
-Users can upload two types of object:
+*Users can upload two types of object:*
 1. Their favourite secret haunt or lesser-known pub rooftop;
 2. A series of these bars in a particular order to create a coherent route (‘crawl’) through London, which passes through several bars within a theme.
 
-We also created a ‘sunshine mode’ toggle button. In ‘sunshine mode’, crawl results are filtered for being comprised of at least 50% outdoor bar space.
+We also created a ‘sunshine mode’ toggle button. In ‘sunshine mode’, bar crawl results are filtered for being comprised of at least 50% outdoor bar space.
 
 
 
 ## User Journey
 
 Homepage
-![screenshot- Homepage] (https://user-images.githubusercontent.com/44749113/54317824-3375f180-45dc-11e9-8b82-956c1fa7e3db.png)
-
-Homepage in sunshine mode
+![Homepage] (https://user-images.githubusercontent.com/44749113/54533913-30d01f00-4983-11e9-83f7-db9dc9b9b8bd.gif)
 
 Crawl show route
+![Crawl Show Page] (https://user-images.githubusercontent.com/44749113/54534905-46dedf00-4985-11e9-8def-66a4d62e85e1.gif)
 
 Register
-
-Create a Crawl  
-
-
+![Register page](https://user-images.githubusercontent.com/44749113/54535611-c7eaa600-4986-11e9-956b-67e7125f4811.gif)
 
 
 # Process
