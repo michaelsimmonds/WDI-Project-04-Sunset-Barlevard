@@ -1,9 +1,9 @@
 # General Assembly Project 04 : Full-Stack React App
 
-Ben Lander | Beth Swingler | Dexter De Leon | Tom Abbott
+Beth Swingler | Bete Yemane | Michael Simmonds
 
 ### Project Brief
-The brief was to create a full-stack app with a PostgreSQL/Python back-end and a React front-end. We were also tasked with testing one functional react component and one classical component.
+The brief for this project was to create a full-stack app with a PostgreSQL/Python back-end and a React front-end. We were also tasked with testing the front-end using one functional react component and one classical component.
 
 ### Timeframe
 7 days
@@ -47,7 +47,9 @@ We also created a ‘sunshine mode’ toggle button. In ‘sunshine mode’, cra
 
 
 ## User Journey
+
 Homepage
+![screenshot- Homepage] (https://user-images.githubusercontent.com/44749113/54317824-3375f180-45dc-11e9-8b82-956c1fa7e3db.png)
 
 Homepage in sunshine mode
 
@@ -89,24 +91,34 @@ Because the data retrieved from the PostgreSQL database via SQLAlchemy are in th
 
 To simply our controllers and models we created a BaseModel class, which we used as a mixin to store ```id```, ```save```, and ```remove``` methods that could be reused on all schemas, as well as ```created_at``` and ```updated_at``` timestamps.
 
+We also created a ```@secure_route``` decorator function to check for a valid JSON web token (JWT) on some of the routes (e.g. create routes for crawls and bars). To do this we first had to hash passwords with BCrypt and store it in the database so that BCrypt could compare it against the password given when logging in. We used a hybrid property to securely receive the plain-text password from the user for hashing without storing it in the database. We then added a ```generate_token``` function to the user model, which we could invoke on the login route. The secure route function could then get the Authorization header, extract the token from it, decode the token and add the user's ```sub``` property (the user id from the payload) to the universal ```g``` object that Flask makes available across the app.
+
 
 ### Front End
 
-We created a simple front-end in React.js.
+We created a simple front-end in React.js. We split components into different categories and each took a category to focus on. We used Bulma to quickly set up a navigation bar and simple homepage. We focussed first on reaching MVP, and set up the basic show and index, register/login and new crawl ('add a crawl') pages such that they either displayed the relevant data or posted to the database (in the case of forms).
+
+Once we'd reached MVP, we started creating functional components to be displayed on the core Show pages. For example, we added the Mapbox-gl integration so that we could display map routes on the Crawls Show page. Once set up it was then simple to create a similar functional map component on the bar show page.  Additional functional component features added at this stage were the crawl slider (slides through the bars on hover), comment form on the crawl show page, and crawl card, a component containing other components that is used on the homepage.  
+
+The final thing we worked on was 'sunshine mode' the feature that allows users to view mainly bar crawls they'd want to partake in on a sunny day. This was done by creating a simple toggle button to filter the results displayed on the homepage (index page) to those containing 50% or more outdoor bars.
 
 
+### Testing the front-end
+We used Mocha, Chai, and Enzyme to test a subset of our React components.
 
+First we set up JSDOM so that we could run front-end tests on a virtual browser in the terminal. To test the BarCard, a functional component, we used Enzyme's ```shallow``` method and simply checked that the HTML and test data that we passed in as props were being rendered correctly.
 
-### Testing
-We used Mocha, Chai...
+To test the Bars Show page, a classical component, we used Enzyme's ```mount``` method, and Sinon to create a fake Axios request. This allowed us to check that the data being stored in state was accurate and being rendered correcty.
 
 ### Challenges
 
-- The biggest and most interesting challenge was definitely figuring out how to include order as a property of bars when and only when they are embedded within crawl objects. The hardest part was trying to figure out the correct search terms as we'd never come across an ‘association object’ using SQLAlchemy. Fortunately it allowed us to create a (meta) join table such that each stop on a crawl joined the crawl’s id with the bar’s id and their particular order in that instance.
+- The biggest and most interesting challenge was definitely figuring out how to include order as a property of bars when and only when they are embedded within crawl objects. The hardest part was trying to figure out the correct search terms as we'd never come across an ‘association object’ using SQLAlchemy. Fortunately the right thing did exist that allowed us to create a (meta) join table such that each stop on a crawl joined the crawl’s id with the bar’s id and their particular order in that instance.
+
+- After initially having just one slider component we decided that it made more sense for the slider that is used on the homepage (crawls index page) to do something different to the one on the crawl show page. As the primary focus of the app is crawls, it made more sense for the homepage slider to link to crawls, but the crawl show page slider to link to the individual bars within it. We solved this by duplicating the re-usable React component we made for both and mapping over different links in the crawl show slider but just using a single crawl link in the homepage slider. However, this was a problem for the DRY-ness of the front-end code, and it would be nice to find a less repetitive solution to this in future.
 
 ### Wins
 
-- We were pleased that we had time to include 'sunshine mode' as this had been a fun feature of our original plan for the app.
+- We were pleased that we had time to include 'sunshine mode' as this had been a fun feature of our original plan for the app, and a USP.
 
 ## Future Features
 

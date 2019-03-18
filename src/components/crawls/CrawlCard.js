@@ -22,9 +22,7 @@ const CrawlCard = ({ name, stops, id, creator, description, created_at }) => {
             <div style={{backgroundImage: `url(${creator.image})`}}className="user-image-home"/>
           </Link>
         </div>
-
       </div>
-
 
       <Link to={`/crawls/${id}`}>
         <HomeCrawlSlider

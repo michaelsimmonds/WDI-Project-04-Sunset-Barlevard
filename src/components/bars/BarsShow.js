@@ -35,7 +35,7 @@ class BarsShow extends React.Component{
     axios.post(`/api/crawls/${crawlId}/bars/${this.props.match.params.id}/add`), this.state.data
   }
 
-  getRelavantCrawls() {
+  getRelevantCrawls() {
     return this.state.crawls.filter(crawl => {
       const barIds = crawl.stops.map(stop => stop.bar.id)
       return barIds.includes(this.state.bar.id)
@@ -45,7 +45,7 @@ class BarsShow extends React.Component{
   render() {
     if(!this.state.bar || !this.state.crawls) return null
     const { name, hero, description, address, lat, lng } = this.state.bar
-    const crawls = this.getRelavantCrawls()
+    const crawls = this.getRelevantCrawls()
     return(
       <section className='tinted bar-show-img' style={{ backgroundImage: `url(${hero})`}} >
 
