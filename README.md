@@ -51,10 +51,10 @@ We also created a ‘sunshine mode’ toggle button. In ‘sunshine mode’, bar
 ## User Journey
 
 Homepage
-![Homepage] (https://user-images.githubusercontent.com/44749113/54533913-30d01f00-4983-11e9-83f7-db9dc9b9b8bd.gif)
+![Homepage](https://user-images.githubusercontent.com/44749113/54533913-30d01f00-4983-11e9-83f7-db9dc9b9b8bd.gif)
 
 Crawl show route
-![Crawl Show Page] (https://user-images.githubusercontent.com/44749113/54534905-46dedf00-4985-11e9-8def-66a4d62e85e1.gif)
+![Crawl Show Page](https://user-images.githubusercontent.com/44749113/54534905-46dedf00-4985-11e9-8def-66a4d62e85e1.gif)
 
 Register
 ![Register page](https://user-images.githubusercontent.com/44749113/54535611-c7eaa600-4986-11e9-956b-67e7125f4811.gif)
@@ -72,10 +72,10 @@ Our focus for this project was creating a PostgreSQL database that had a nice va
 
 We decided on the table properties (e.g name, location) for each model, and realised that the order of a bar within any given crawl would be an important property of each bar, but it would also exist only in relationship to that bar when within a particular crawl. As such a bar could have multiple instantiations of this property, and its order could be different for each crawl that the bar appears in.
 
-![screenshot- ERD for order] (https://user-images.githubusercontent.com/44749113/54317824-3375f180-45dc-11e9-8b82-956c1fa7e3db.png)
+![screenshot- ERD for order](https://user-images.githubusercontent.com/44749113/54317824-3375f180-45dc-11e9-8b82-956c1fa7e3db.png)
 
 
-We knew that this would require some extra attention so we referred to the SQLAlchemy documentation and found an variant on the many-to-many relationship called an 'Association Object' (https://docs.sqlalchemy.org/en/latest/orm/basic_relationships.html#association-pattern). This allowed bars on the left side to reference multiple instantiations of order via a one-to-many relationship, and on the right side, crawls to reference order via a many-to-one relationship, but without needing to create an entire model just for any bar's order within each crawl.
+We knew that this would require some extra attention so we referred to the SQLAlchemy documentation and found an variant on the many-to-many relationship called an 'Association Object' [docs](https://docs.sqlalchemy.org/en/latest/orm/basic_relationships.html#association-pattern "SQLAlchemy docs - Association Object"). This allowed bars on the left side to reference multiple instantiations of order via a one-to-many relationship, and on the right side, crawls to reference order via a many-to-one relationship, but without needing to create an entire model just for any bar's order within each crawl.
 
 We then set up the Flask server and hooked it up to SQLAlchemy to allow us to start creating SQL database entries.
 
