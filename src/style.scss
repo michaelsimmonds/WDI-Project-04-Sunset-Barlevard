@@ -199,17 +199,30 @@ img {
 }
 
 //CRAWL SLIDER
+.slider-section {
+  @media screen and (max-width: 650px) {
+    display: block;
+    width: 100%;
+    margin: 10px 0 0 0;
+    padding: 0;
+  }
+}
+
 .slider {
   align-items: center;
   overflow-x: scroll;
+  overflow-y: hidden;
+  -webkit-overflow-scrolling: touch;
   width: 100%;
   & .column-container {
+    display: block;
     width: 70%;
     @media screen and (max-width: 650px) {
+      display: block;
       width: 100%;
     }
-
     & .carousel {
+      display: block;
       height: 300px;
       width: 100%;
       background-repeat: no-repeat;
@@ -301,7 +314,10 @@ display: flex;
   font-family: 'Lobster', cursive;
   color: white !important;
   font-size: 80px !important;
-  margin-top: -1em;
+  margin-top: -0.7em;
+  @media screen and (max-width: 650px) {
+    margin-top: auto;
+  }
 }
 
 .subtitle-header {
@@ -338,12 +354,6 @@ hr.thin {
   display: flex;
   justify-content: center;
 }
-
-
-
-
-
-
 
 .inline {
   margin: 0 !important;
@@ -640,7 +650,7 @@ strong, .image-username {
       color: $primary;
       font-weight: bold;
     }
-    & .event-image {
+    & .bar-image {
       display: flex;
       justify-content: center;
       margin: 0;

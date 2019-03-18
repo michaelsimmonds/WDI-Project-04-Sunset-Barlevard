@@ -22,15 +22,14 @@ const CrawlCard = ({ name, stops, id, creator, description, created_at }) => {
             <div style={{backgroundImage: `url(${creator.image})`}}className="user-image-home"/>
           </Link>
         </div>
-
       </div>
-
 
       <Link to={`/crawls/${id}`}>
         <HomeCrawlSlider
           stops = {stops}
         />
       </Link>
+
 
       <h1 className='title is-6 margin-top center'>Uploaded: {moment(created_at).format('MMMM Do YYYY')} </h1>
       <div className="description">

@@ -24,7 +24,7 @@ describe('BarsShow tests', () => {
       }
     })
 
-    sinon.stub(axios, 'get').returns(response) //when axios makes request, it will just return the promise above. Sinon has taken controll of axios. The stub is essentially faking the request.
+    sinon.stub(axios, 'get').returns(response) //when axios makes request, it will just return the promise above. Sinon has taken control of axios. The stub is essentially faking the request.
     done()
   })
 
@@ -34,7 +34,7 @@ describe('BarsShow tests', () => {
   })
 
   beforeEach(done => {
-    wrapper = mount( //this is history. basically loads page at /bars/1 one url
+    wrapper = mount( //this is history. basically loads page at /bars/1 url so that `this.props.match.params.id` is set correctly
       <MemoryRouter initialEntries={['/bars/1']}>
         <Route path="/bars/:id" component={BarsShow} />
       </MemoryRouter>

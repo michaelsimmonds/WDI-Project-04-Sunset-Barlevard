@@ -16,13 +16,12 @@ class CrawlMap extends React.Component{
 
   generateMarkers() {
     this.props.stops.map(stop => {
-      const { lat, lng, name, image } = stop.bar
-      //const address = stop.bar.address
+      const { lat, lng, name, hero } = stop.bar
 
       const popup = new mapboxgl.Popup({offset: 20})
         .setHTML(`
-          <div class="event-image">
-            <img src="${image}" alt="${name}" />
+          <div class="bar-image">
+            <img src="${hero}" alt="${name}" />
           </div>
           <h4>${name}</h4>
           </>

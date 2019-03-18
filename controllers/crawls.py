@@ -7,7 +7,7 @@ from app import db
 
 api = Blueprint('crawls', __name__)
 
-crawls_schema = CrawlSchema(many=True) #the exclude here only excludes on the index route, as we would probably not want to see all the victims there. Better to do this on the back end rather than the front end, as it means we dont have to send surplus data to the front end, which costs money.
+crawls_schema = CrawlSchema(many=True)
 crawl_schema = CrawlSchema()
 
 stops_schema = StopSchema(many=True)
@@ -20,13 +20,11 @@ comments_schema = CommentSchema(many=True)
 comment_schema = CommentSchema()
 
 @api.route('/crawls', methods=['GET'])
-# @secure_route
 def index():
     crawls = Crawl.query.all()
     return crawls_schema.jsonify(crawls)
 
 @api.route('/crawls/<int:crawl_id>', methods=['GET'])
-# @secure_route
 def show(crawl_id):
     crawl = Crawl.query.get(crawl_id)
     return crawl_schema.jsonify(crawl)
