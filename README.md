@@ -3,7 +3,7 @@
 Beth Swingler | Bete Yemane | Michael Simmonds
 
 ### Project Brief
-The brief for this project was to create a full-stack app with a PostgreSQL/Python back-end and a React front-end. We were also tasked with testing the front-end using one functional react component and one classical component.
+The brief for this project was to create a full-stack app with a PostgreSQL/Python back-end and a React front-end. We were also tasked with testing one functional component and one classical component in the React front-end.
 
 ### Timeframe
 7 days
@@ -25,7 +25,7 @@ The brief for this project was to create a full-stack app with a PostgreSQL/Pyth
 * Sinon
 
 
-## Deployed version
+## Deployed web app
 
 ---> https://sunset-barlevard.herokuapp.com
 
@@ -62,7 +62,7 @@ Register
 
 # Process
 
-###planning
+### Planning
 Our focus for this project was creating a PostgreSQL database that had a nice variety of logical relationships between models, and connecting it to users via a React front-end. We decided to produce an app for displaying bar crawls, and sketched out some entity relationship diagrams (ERDs) to clarify the following relationships:
 
 1. A many-to-many relationship between bars and crawls,
