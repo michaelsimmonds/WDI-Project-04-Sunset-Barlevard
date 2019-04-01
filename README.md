@@ -116,7 +116,35 @@ To test the Bars Show page, a classical component, we used Enzyme's ```mount``` 
 
 ### Wins
 
-- We were pleased that we had time to include 'sunshine mode' as this had been a fun feature of our original plan for the app, and a USP.
+- We were pleased that we had time to include 'sunshine mode' as this had been a fun feature of our original plan for the app, and a USP. This is what the code looks like for this feature:
+
+```  
+getSun() {
+    this.state.crawls.map(crawl => {
+      let counter = 0
+      crawl.stops.forEach(stop => {
+        if (stop.bar.terrace === true) counter++
+      })
+      if ((counter / crawl.stops.length) >= 0.5) {
+        sunSuitableArr.push(crawl)
+      }
+    })
+    this.setState({ sunSuitable: sunSuitableArr})
+    sunSuitableArr = []
+  }
+
+  toggleSwitch() {
+    const hero = document.querySelector('.hero')
+    if (this.state.switched === false) {
+      this.getSun()
+      hero.classList.add('background-toggle')
+    } else {
+      this.setState({ sunSuitable: []})
+      hero.classList.remove('background-toggle')
+    }
+    this.setState({ switched: !this.state.switched })
+  }
+ ```
 
 ## Future Features
 
